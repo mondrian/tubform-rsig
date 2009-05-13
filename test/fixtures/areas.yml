@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  descricao: MyString
+  cidade_id: 1
+  roteiro_id: 1
+
+two:
+  descricao: MyString
+  cidade_id: 1
+  roteiro_id: 1

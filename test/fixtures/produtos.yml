@@ -1,0 +1,47 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  descricao: MyString
+  cor_id: 1
+  valor_especial: 9.99
+  valor_normal: 9.99
+  classe_id: 1
+  grupo_id: 1
+  status: false
+  situacao_tributaria: 1
+  preco_minimo_nota_fiscal: 9.99
+  ipi: 9.99
+  classificacao_fiscal: 1
+  peso_liquido: 1
+  cod_emissao_nota_fiscal: 1
+  descricao_nota_fiscal: MyString
+  preco_normal_zona1: 9.99
+  preco_especial_zona1: 9.99
+  funcionario_id: 1
+  emissao_relatorio: false
+  custo: 9.99
+  cadastro_custo: 2009-04-24
+  kit: false
+
+two:
+  descricao: MyString
+  cor_id: 1
+  valor_especial: 9.99
+  valor_normal: 9.99
+  classe_id: 1
+  grupo_id: 1
+  status: false
+  situacao_tributaria: 1
+  preco_minimo_nota_fiscal: 9.99
+  ipi: 9.99
+  classificacao_fiscal: 1
+  peso_liquido: 1
+  cod_emissao_nota_fiscal: 1
+  descricao_nota_fiscal: MyString
+  preco_normal_zona1: 9.99
+  preco_especial_zona1: 9.99
+  funcionario_id: 1
+  emissao_relatorio: false
+  custo: 9.99
+  cadastro_custo: 2009-04-24
+  kit: false

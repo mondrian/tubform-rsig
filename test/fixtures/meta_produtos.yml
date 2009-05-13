@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  mes: 1
+  ano: 1
+  qdt_dias_uteis: 1
+  data_ini: 2009-04-27
+  data_fim: 2009-04-27
+
+two:
+  mes: 1
+  ano: 1
+  qdt_dias_uteis: 1
+  data_ini: 2009-04-27
+  data_fim: 2009-04-27

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  descricao: MyString
+  funcionario_id: 1
+  regiao_id: 1
+
+two:
+  descricao: MyString
+  funcionario_id: 1
+  regiao_id: 1

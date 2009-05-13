@@ -1,0 +1,71 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  tipo: false
+  nome: MyString
+  endereco: MyString
+  complemento: MyString
+  cep: MyString
+  cidade_id: 1
+  uf: MyString
+  fone: MyString
+  cpf: MyString
+  rg: MyString
+  pai: MyString
+  mae: MyString
+  numero_carteira_trabalho: MyString
+  serie_carteira_trabalho: MyString
+  titulo_eleitor: MyString
+  zona_eleitoral: MyString
+  admissao: 2009-04-24
+  registro: 2009-04-24
+  nascimento: 2009-04-24
+  naturalidade: MyString
+  estado_civil: MyString
+  grau_instrucao: MyString
+  cadastro_pis: 2009-04-24
+  numero_pis: MyString
+  cod_banco_pis: MyString
+  nome_banco_pis: MyString
+  cod_agencia_pis: MyString
+  nome_agencia_pis: MyString
+  endereco_banco_pis: MyString
+  demissao: 
+  observacao: MyText
+  aci: MyText
+  email: MyString
+
+two:
+  tipo: false
+  nome: MyString
+  endereco: MyString
+  complemento: MyString
+  cep: MyString
+  cidade_id: 1
+  uf: MyString
+  fone: MyString
+  cpf: MyString
+  rg: MyString
+  pai: MyString
+  mae: MyString
+  numero_carteira_trabalho: MyString
+  serie_carteira_trabalho: MyString
+  titulo_eleitor: MyString
+  zona_eleitoral: MyString
+  admissao: 2009-04-24
+  registro: 2009-04-24
+  nascimento: 2009-04-24
+  naturalidade: MyString
+  estado_civil: MyString
+  grau_instrucao: MyString
+  cadastro_pis: 2009-04-24
+  numero_pis: MyString
+  cod_banco_pis: MyString
+  nome_banco_pis: MyString
+  cod_agencia_pis: MyString
+  nome_agencia_pis: MyString
+  endereco_banco_pis: MyString
+  demissao: 
+  observacao: MyText
+  aci: MyText
+  email: MyString

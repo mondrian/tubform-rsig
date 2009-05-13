@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  descricao: MyString
+  margem_lucro: 9.99
+  unificado: false
+
+two:
+  descricao: MyString
+  margem_lucro: 9.99
+  unificado: false

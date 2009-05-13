@@ -1,0 +1,61 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  oficial: false
+  data: 2009-04-24
+  previsao_entrega: 2009-04-24
+  entrega: 2009-04-24
+  programacao: 2009-04-24
+  cliente_id: 1
+  valor: 9.99
+  preco_tabela: 9.99
+  acrescimo: 9.99
+  desconto: 9.99
+  transportadora_id: 1
+  nome_comprador: MyString
+  observacao: MyText
+  vendedor_id: 1
+  operador_id: 1
+  telemarketing_id: 1
+  plano_pagamento_id: 1
+  endereco_entrega: MyString
+  minuta_id: 1
+  area_id: 1
+  preco_especial: false
+  status: MyString
+  estorno: 2009-04-24
+  funcionario_estorno_id: 1
+  comissao_vendedor: 9.99
+  comissao_telemarketing: 9.99
+  venda_externa: false
+  autorizador_desconto_id: 1
+
+two:
+  oficial: false
+  data: 2009-04-24
+  previsao_entrega: 2009-04-24
+  entrega: 2009-04-24
+  programacao: 2009-04-24
+  cliente_id: 1
+  valor: 9.99
+  preco_tabela: 9.99
+  acrescimo: 9.99
+  desconto: 9.99
+  transportadora_id: 1
+  nome_comprador: MyString
+  observacao: MyText
+  vendedor_id: 1
+  operador_id: 1
+  telemarketing_id: 1
+  plano_pagamento_id: 1
+  endereco_entrega: MyString
+  minuta_id: 1
+  area_id: 1
+  preco_especial: false
+  status: MyString
+  estorno: 2009-04-24
+  funcionario_estorno_id: 1
+  comissao_vendedor: 9.99
+  comissao_telemarketing: 9.99
+  venda_externa: false
+  autorizador_desconto_id: 1
