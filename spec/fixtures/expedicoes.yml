@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  minuta_id: 1
+  produto_id: 1
+  numero_do_volume: MyString
+  qtd_carregada: 9.99
+  qtd_minuta: 9.99
+  vidro: false
+
+two:
+  minuta_id: 1
+  produto_id: 1
+  numero_do_volume: MyString
+  qtd_carregada: 9.99
+  qtd_minuta: 9.99
+  vidro: false
