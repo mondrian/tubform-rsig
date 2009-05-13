@@ -4,6 +4,7 @@ require 'spec/rake/spectask'
 namespace :rcov do
   Cucumber::Rake::Task.new(:cucumber) do |t|
     t.rcov = true
+    t.cucumber_opts = "--format pretty --language pt"
     t.rcov_opts = %w{--rails --exclude osx\/objc,gems\/,spec\/,features\/ --aggregate coverage.data}
     t.rcov_opts << %[-o "coverage"]
   end
