@@ -7,7 +7,7 @@ class Pedido < ActiveRecord::Base
   belongs_to :minuta
   belongs_to :planodepagamento
   belongs_to :area
-  has_many   :itemPedidos
+  has_many   :item_pedidos
 
   validates_presence_of :tipo, :message => "Informe o Tipo de Pedido"
   validates_presence_of :data, :message => "Informe a Data do Pedido"
