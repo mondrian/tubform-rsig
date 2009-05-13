@@ -1,0 +1,37 @@
+Before do
+  @pedido = Pedido.find(:first)
+end
+
+
+Dado /^que estou em um determinado pedido$/ do
+  @pedido
+end
+
+Quando /^eu requisitar um novo item$/ do
+  @item = ItemPedido.new  
+end
+
+Quando /^definir produto com o id 1$/ do
+  @produto = Produto.find(:first)
+  @item.produto = @produto 
+  @item.valor_tabela = @item.produto.valor_normal
+end
+
+Quando /^definir quantidade como 1$/ do
+  @item.quantidade = 1
+end
+
+Quando /^definir valor 1\.00$/ do
+  @item.valor_venda = 1.00
+end
+
+
+Then /^eu preciso receber a mensagem "([^\"]*)"$/ do |arg1|
+  puts "#{arg1}"
+end
+
+Then /^eu preciso ter mais um item no pedido\.$/ do
+  @pedido.item_pedidos << @item
+  @pedido.save
+end
+

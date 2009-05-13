@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090507181512) do
+ActiveRecord::Schema.define(:version => 20090513144431) do
 
   create_table "areas", :force => true do |t|
     t.string   "descricao"
@@ -129,13 +129,20 @@ ActiveRecord::Schema.define(:version => 20090507181512) do
   end
 
   create_table "item_pedidos", :force => true do |t|
+<<<<<<< HEAD:db/schema.rb
     t.integer  "kit_id"
+=======
+>>>>>>> 022cebfd07d428c8a4a114cc6d4e29ae50cb86c2:db/schema.rb
     t.decimal  "quantidade"
     t.decimal  "valor_tabela"
     t.decimal  "valor_venda"
     t.decimal  "desconto"
     t.datetime "created_at"
     t.datetime "updated_at"
+<<<<<<< HEAD:db/schema.rb
+=======
+    t.integer  "produto_id"
+>>>>>>> 022cebfd07d428c8a4a114cc6d4e29ae50cb86c2:db/schema.rb
   end
 
   create_table "itens_minutas", :force => true do |t|
