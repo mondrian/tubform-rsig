@@ -2,7 +2,6 @@ Before do
   @pedido = Pedido.find(:first)
 end
 
-
 Dado /^que estou em um determinado pedido$/ do
   @pedido
 end

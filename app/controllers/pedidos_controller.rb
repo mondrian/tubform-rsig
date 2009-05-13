@@ -36,7 +36,8 @@ class PedidosController < ApplicationController
   # GET /pedidos/new.xml
   def new
     @pedido = Pedido.new
-    @pedido.cliente = Cliente.find(params[:id])
+    @pedido.cliente = Cliente.find(:first)
+    @pedido.cliente = Cliente.find(:first)
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @pedido }

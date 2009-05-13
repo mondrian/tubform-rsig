@@ -1,3 +1,7 @@
+Before do
+  @cliente = Cliente.find(:first)
+end
+
 Quando /^eu requisitar um novo pedido$/ do
   @pedido = Pedido.new
 end
@@ -7,7 +11,7 @@ Quando /^definir vendedor com o id 1$/ do
 end
 
 Quando /^definir cliente com o id 1$/ do
-  @pedido.cliente_id = 1
+  @pedido.cliente = @cliente
 end
 
 Quando /^definir forma de pagamento com o id 1$/ do
@@ -27,7 +31,7 @@ Quando /^definir se o pedido e oficial$/ do
 end
 
 Quando /^definir a previsao de entrega$/ do
-  @pedido.previsao_entrega = '30/05/2009'
+  @pedido.previsao_entrega = '2009-05-30'
 end
 
 Quando /^definir a area$/ do
