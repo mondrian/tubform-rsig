@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  produto_id: 1
+  qtde: 1
+
+two:
+  produto_id: 1
+  qtde: 1

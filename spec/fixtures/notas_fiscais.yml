@@ -1,0 +1,57 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  numero_nota: 1
+  pedido_id: 1
+  selo: MyString
+  serie: MyString
+  cliente_id: 1
+  percentual_icms: 9.99
+  emissao: 2009-04-29
+  total_mercadoria: 9.99
+  valor_frete: 9.99
+  cfop: MyString
+  natureza_operacao: MyString
+  valor_ipi: 9.99
+  valor_desconto: 9.99
+  total_nota: 9.99
+  status: MyString
+  base_calculo_icms: 9.99
+  valor_icms: 9.99
+  qtde_volumes: 1
+  entrada: 2009-04-29
+  saida: 2009-04-29
+  transportadora_id: 1
+  percentual_desconto: 9.99
+  observacao: MyText
+  base_calculo_icms_substituicao_tributaria: 9.99
+  percentual_icms_substituicao_tributaria: 9.99
+  valor_icms_substituicao_tributaria: 9.99
+
+two:
+  numero_nota: 1
+  pedido_id: 1
+  selo: MyString
+  serie: MyString
+  cliente_id: 1
+  percentual_icms: 9.99
+  emissao: 2009-04-29
+  total_mercadoria: 9.99
+  valor_frete: 9.99
+  cfop: MyString
+  natureza_operacao: MyString
+  valor_ipi: 9.99
+  valor_desconto: 9.99
+  total_nota: 9.99
+  status: MyString
+  base_calculo_icms: 9.99
+  valor_icms: 9.99
+  qtde_volumes: 1
+  entrada: 2009-04-29
+  saida: 2009-04-29
+  transportadora_id: 1
+  percentual_desconto: 9.99
+  observacao: MyText
+  base_calculo_icms_substituicao_tributaria: 9.99
+  percentual_icms_substituicao_tributaria: 9.99
+  valor_icms_substituicao_tributaria: 9.99

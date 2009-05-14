@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  data: 2009-04-27
+  fechamento: 2009-04-27
+  operador_fechamento_id: 1
+  saida: 2009-04-27
+  obs: MyText
+  veiculo_id: 1
+  fechamento_financeiro: 2009-04-27
+  funcionario_fechamento_financeiro_id: 1
+  roteiro_id: 1
+
+two:
+  data: 2009-04-27
+  fechamento: 2009-04-27
+  operador_fechamento_id: 1
+  saida: 2009-04-27
+  obs: MyText
+  veiculo_id: 1
+  fechamento_financeiro: 2009-04-27
+  funcionario_fechamento_financeiro_id: 1
+  roteiro_id: 1

@@ -1,0 +1,67 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  tipo_cliente: MyString
+  cpf_cnpj: MyString
+  razao_social: MyString
+  nome_fantasia: MyString
+  documento: MyString
+  endereco: MyString
+  complemento: MyString
+  cidade_id: 1
+  uf: MyString
+  cep: MyString
+  referencia: MyString
+  fone_pessoal: MyString
+  fone_comercial: MyString
+  fone_celular: MyString
+  endereco_entrega: MyString
+  regiao_entrega_id: 1
+  cidade_entrega_id: MyString
+  area_id: MyString
+  referencias_bancaria: MyText
+  referencias_comerciais: MyText
+  observacao: MyText
+  info_serasa: MyText
+  data_nascimento: 2009-04-24
+  nome_comprador: MyString
+  vendas_suspensas: false
+  observacao_suspensao_venda: MyText
+  limite_credito: 9.99
+  saldo_devedor: 9.99
+  status: MyString
+  prazo_medio_maximo: 1
+  data_inclusao_prazo_medio: 2009-04-24
+
+two:
+  tipo_cliente: MyString
+  cpf_cnpj: MyString
+  razao_social: MyString
+  nome_fantasia: MyString
+  documento: MyString
+  endereco: MyString
+  complemento: MyString
+  cidade_id: 1
+  uf: MyString
+  cep: MyString
+  referencia: MyString
+  fone_pessoal: MyString
+  fone_comercial: MyString
+  fone_celular: MyString
+  endereco_entrega: MyString
+  regiao_entrega_id: 1
+  cidade_entrega_id: MyString
+  area_id: MyString
+  referencias_bancaria: MyText
+  referencias_comerciais: MyText
+  observacao: MyText
+  info_serasa: MyText
+  data_nascimento: 2009-04-24
+  nome_comprador: MyString
+  vendas_suspensas: false
+  observacao_suspensao_venda: MyText
+  limite_credito: 9.99
+  saldo_devedor: 9.99
+  status: MyString
+  prazo_medio_maximo: 1
+  data_inclusao_prazo_medio: 2009-04-24
