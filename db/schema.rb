@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090514192355) do
+ActiveRecord::Schema.define(:version => 20090514201737) do
 
   create_table "areas", :force => true do |t|
     t.string   "descricao"
@@ -234,7 +234,6 @@ ActiveRecord::Schema.define(:version => 20090514192355) do
     t.integer  "vendedor_id"
     t.integer  "operador_id"
     t.integer  "telemarketing_id"
-    t.integer  "plano_pagamento_id"
     t.string   "endereco_entrega"
     t.integer  "minuta_id"
     t.integer  "area_id"
@@ -257,6 +256,7 @@ ActiveRecord::Schema.define(:version => 20090514192355) do
     t.integer  "operador_estorno_id"
     t.integer  "autorizador_id"
     t.integer  "funcionario_id"
+    t.string   "plano_de_pagamento"
   end
 
   create_table "planosdepagamento", :force => true do |t|

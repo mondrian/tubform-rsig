@@ -1,6 +1,7 @@
 Factory.define :cliente do |c|
-  c.tipo_cliente "MyString"
-  c.cpf_cnpj "MyString"
+  c.tipo_cliente "E"
+  c.cpf "MyString"
+  c.cnpj "MyString"
   c.razao_social "MyString"
   c.nome_fantasia "MyString"
   c.documento "MyString"
@@ -27,8 +28,7 @@ Factory.define :cliente do |c|
   c.observacao_suspensao_venda "MyString"
   c.limite_credito 9.99
   c.saldo_devedor 9.99
-  c.status "MyString"
-  c.prazo_medio_maximo 1
+  c.prazo_medio_maximo 75
   c.data_inclusao_prazo_medio "2009-04-24"
 end
 
@@ -49,12 +49,12 @@ Factory.define :pedido do |p|
   p.vendedor_id 1
   p.operador_id 1
   p.telemarketing_id 1
-  p.plano_pagamento_id 1
+  p.plano_de_pagamento "030060090120"
   p.endereco_entrega "MyString"
   p.minuta_id 1
   p.area_id 1
   p.preco_especial false
-  p.status "MyString"
+  p.status nil
   p.estorno "2009-04-24"
   p.funcionario_estorno_id 1
   p.comissao_vendedor 9.99

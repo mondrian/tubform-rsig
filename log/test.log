@@ -177,3 +177,1001 @@ Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 16:28:50) [GET]
 Processing ApplicationController#edit (for 127.0.0.1 at 2009-05-14 16:28:50) [GET]
   Parameters: {"id"=>"1"}
   [4;36;1mSQL (1.0ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.8ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.0ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (1.8ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "entrega", "programacao", "cliente_id", "valor", "desconto", "plano_pagamento_id", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 19:31:33.419538', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 19:31:33.419538', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, 1, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, E'MyString', NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 16:31:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.4ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+
+
+Processing ApplicationController#edit (for 127.0.0.1 at 2009-05-14 16:31:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.8ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (1.9ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (1.7ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "entrega", "programacao", "cliente_id", "valor", "desconto", "plano_pagamento_id", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 19:34:04.144913', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 19:34:04.144913', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, 1, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, E'MyString', NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mPedido Load (0.0ms)[0m   [0mPGError: ERRO: sintaxe de entrada é inválida para integer: "--- :fisrt
+"
+: SELECT * FROM "pedidos" WHERE ("pedidos"."id" = E'--- :fisrt
+') [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.8ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (1.9ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (1.8ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "entrega", "programacao", "cliente_id", "valor", "desconto", "plano_pagamento_id", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 19:34:39.900869', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 19:34:39.900869', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, 1, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, E'MyString', NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mPedido Load (1.2ms)[0m   [0mSELECT * FROM "pedidos" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 16:34:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPedido Load (1.3ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+
+
+Processing ApplicationController#edit (for 127.0.0.1 at 2009-05-14 16:34:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.4ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.0ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "entrega", "programacao", "cliente_id", "valor", "desconto", "plano_pagamento_id", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 19:35:43.201281', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 19:35:43.201281', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, 1, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, E'MyString', NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mPedido Load (1.3ms)[0m   [0mSELECT * FROM "pedidos" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 16:35:43) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPedido Load (1.2ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 20ms (View: 13, DB: 14) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;35;1mSQL (0.9ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.6ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.0ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (1.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.2ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "entrega", "programacao", "cliente_id", "valor", "desconto", "plano_pagamento_id", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 19:37:22.142009', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 19:37:22.142009', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, 1, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, E'MyString', NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 16:37:22) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.4ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 22ms (View: 15, DB: 14) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mSQL (0.9ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.1ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.2ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (1.3ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "entrega", "programacao", "cliente_id", "valor", "desconto", "plano_pagamento_id", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 19:40:07.491453', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 19:40:07.491453', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, 1, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, E'MyString', NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 16:40:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.2ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+
+
+Processing ApplicationController#edit (for 127.0.0.1 at 2009-05-14 16:40:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mSQL (1.3ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.3ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (3.3ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (2.1ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.4ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "entrega", "programacao", "cliente_id", "valor", "desconto", "plano_pagamento_id", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 19:40:26.637483', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 19:40:26.637483', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, 1, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, E'MyString', NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 16:40:26) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (3.3ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 23ms (View: 14, DB: 17) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.0ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (1.0ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "entrega", "programacao", "cliente_id", "valor", "desconto", "plano_pagamento_id", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 19:40:54.065558', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 19:40:54.065558', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, 1, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, E'MyString', NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 16:40:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.8ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 21ms (View: 14, DB: 13) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.2ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.5ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.0ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (1.0ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "entrega", "programacao", "cliente_id", "valor", "desconto", "plano_pagamento_id", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 19:45:50.356835', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 19:45:50.356835', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, 1, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, E'MyString', NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 16:45:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.9ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 20ms (View: 13, DB: 12) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.1ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.6ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.0ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "entrega", "programacao", "cliente_id", "valor", "desconto", "plano_pagamento_id", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 19:46:25.133609', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 19:46:25.133609', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, 1, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, E'MyString', NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 16:46:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.5ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 20ms (View: 14, DB: 11) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.2ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mCliente Load (1.1ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.0ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.6ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "entrega", "programacao", "cliente_id", "valor", "desconto", "plano_pagamento_id", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 19:48:44.011012', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 19:48:44.011012', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, 1, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, E'MyString', NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 16:48:44) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.8ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 55ms (View: 41, DB: 13) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.4ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mCliente Load (1.2ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.0ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.0ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "entrega", "programacao", "cliente_id", "valor", "desconto", "plano_pagamento_id", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 19:49:31.910854', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 19:49:31.910854', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, 1, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, E'MyString', NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 16:49:31) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.5ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 19ms (View: 13, DB: 12) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.1ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mCliente Load (1.2ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mCliente Load (1.0ms)[0m   [0;1mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.1ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.4ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (1.0ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "entrega", "programacao", "cliente_id", "valor", "desconto", "plano_pagamento_id", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 19:50:08.279957', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 19:50:08.279957', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, 1, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, E'MyString', NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 16:50:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.4ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 20ms (View: 13, DB: 12) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.3ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mCliente Load (1.2ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.1ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (1.0ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "entrega", "programacao", "cliente_id", "valor", "desconto", "plano_pagamento_id", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 19:51:07.155016', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 19:51:07.155016', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, 1, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, E'MyString', NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 16:51:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.5ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 19ms (View: 13, DB: 12) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.2ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mCliente Load (1.2ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mCliente Load (1.0ms)[0m   [0;1mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.8ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.1ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (1.2ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.1ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "entrega", "programacao", "cliente_id", "valor", "desconto", "plano_pagamento_id", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 19:51:58.580329', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 19:51:58.580329', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, 1, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, E'MyString', NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 16:51:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.5ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 20ms (View: 13, DB: 12) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.2ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mCliente Load (1.2ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.0ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (1.0ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "entrega", "programacao", "cliente_id", "valor", "desconto", "plano_pagamento_id", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 19:56:07.420300', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 19:56:07.420300', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, 1, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, E'MyString', NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 16:56:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.5ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 21ms (View: 13, DB: 12) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.3ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (0.9ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.4ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (1.9ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "entrega", "programacao", "cliente_id", "valor", "desconto", "plano_pagamento_id", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 19:56:52.836290', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 19:56:52.836290', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, 1, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, E'MyString', NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 16:56:52) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.4ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 24ms (View: 13, DB: 13) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.4ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (1.0ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mCliente Exists (2.4ms)[0m   [0mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cpf" = E'MyString') LIMIT 1[0m
+  [4;36;1mCliente Exists (1.4ms)[0m   [0;1mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cnpj" = E'MyString') LIMIT 1[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPGError: ERRO: valor é muito longo para tipo character varying(1)
+: INSERT INTO "clientes" ("documento", "endereco", "complemento", "info_serasa", "observacao_suspensao_venda", "vendas_suspensas", "created_at", "cidade_id", "prazo_medio_maximo", "cep", "referencias_comerciais", "nome_comprador", "saldo_devedor", "data_inclusao_prazo_medio", "updated_at", "cpf", "fone_comercial", "endereco_entrega", "area_id", "observacao", "limite_credito", "cnpj", "tipo_cliente", "data_nascimento", "uf", "referencias_bancaria", "bairro", "razao_social", "referencia", "cidade_entrega_id", "status", "nome_fantasia", "fone_pessoal", "fone_celular", "regiao_entrega_id", "email") VALUES(E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', 'f', '2009-05-14 19:56:52.962476', 1, 1, E'', E'MyString', E'MyString', 9.99, '2009-04-24', '2009-05-14 19:56:52.962476', E'', E'', E'MyString', E'MyString', E'MyString', 9.99, E'', E'MyString', '2009-04-24', E'MyString', E'MyString', NULL, E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', E'', E'', 1, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.7ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.7ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (1.4ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "entrega", "programacao", "cliente_id", "valor", "desconto", "plano_pagamento_id", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 19:58:20.772343', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 19:58:20.772343', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, 1, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, E'MyString', NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 16:58:20) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.4ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 20ms (View: 13, DB: 14) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.1ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (1.0ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mCliente Exists (1.6ms)[0m   [0mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cpf" = E'MyString') LIMIT 1[0m
+  [4;36;1mCliente Exists (0.9ms)[0m   [0;1mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cnpj" = E'MyString') LIMIT 1[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mINSERT INTO "clientes" ("documento", "endereco", "complemento", "info_serasa", "observacao_suspensao_venda", "vendas_suspensas", "created_at", "cidade_id", "prazo_medio_maximo", "cep", "referencias_comerciais", "nome_comprador", "saldo_devedor", "data_inclusao_prazo_medio", "updated_at", "cpf", "fone_comercial", "endereco_entrega", "area_id", "observacao", "limite_credito", "cnpj", "tipo_cliente", "data_nascimento", "uf", "referencias_bancaria", "bairro", "razao_social", "referencia", "cidade_entrega_id", "status", "nome_fantasia", "fone_pessoal", "fone_celular", "regiao_entrega_id", "email") VALUES(E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', 'f', '2009-05-14 19:58:20.863494', 1, 1, E'', E'MyString', E'MyString', 9.99, '2009-04-24', '2009-05-14 19:58:20.863494', E'', E'', E'MyString', E'MyString', E'MyString', 9.99, E'', E'E', '2009-04-24', E'MyString', E'MyString', NULL, E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', E'', E'', 1, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mCliente Load (1.6ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.7ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.1ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (1.1ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.2ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "entrega", "programacao", "cliente_id", "valor", "desconto", "plano_pagamento_id", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 19:59:31.679250', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 19:59:31.679250', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, 1, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, E'MyString', NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 16:59:31) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.5ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 22ms (View: 14, DB: 12) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (2.7ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (0.9ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mCliente Exists (1.8ms)[0m   [0mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cpf" = E'MyString') LIMIT 1[0m
+  [4;36;1mCliente Exists (1.0ms)[0m   [0;1mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cnpj" = E'MyString') LIMIT 1[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mINSERT INTO "clientes" ("documento", "endereco", "complemento", "info_serasa", "observacao_suspensao_venda", "vendas_suspensas", "created_at", "cidade_id", "prazo_medio_maximo", "cep", "referencias_comerciais", "nome_comprador", "saldo_devedor", "data_inclusao_prazo_medio", "updated_at", "cpf", "fone_comercial", "endereco_entrega", "area_id", "observacao", "limite_credito", "cnpj", "tipo_cliente", "data_nascimento", "uf", "referencias_bancaria", "bairro", "razao_social", "referencia", "cidade_entrega_id", "status", "nome_fantasia", "fone_pessoal", "fone_celular", "regiao_entrega_id", "email") VALUES(E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', 'f', '2009-05-14 19:59:31.776564', 1, 1, E'', E'MyString', E'MyString', 9.99, '2009-04-24', '2009-05-14 19:59:31.776564', E'', E'', E'MyString', E'MyString', E'MyString', 9.99, E'', E'E', '2009-04-24', E'MyString', E'MyString', NULL, E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', E'', E'', 1, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mCliente Load (1.4ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.5ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (1.9ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "entrega", "programacao", "cliente_id", "valor", "desconto", "plano_pagamento_id", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 20:00:53.596280', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 20:00:53.596280', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, 1, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 17:00:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.4ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 19ms (View: 13, DB: 12) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.2ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (1.0ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mCliente Exists (1.5ms)[0m   [0mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cpf" = E'MyString') LIMIT 1[0m
+  [4;36;1mCliente Exists (1.0ms)[0m   [0;1mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cnpj" = E'MyString') LIMIT 1[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mINSERT INTO "clientes" ("documento", "endereco", "complemento", "info_serasa", "observacao_suspensao_venda", "vendas_suspensas", "created_at", "cidade_id", "prazo_medio_maximo", "cep", "referencias_comerciais", "nome_comprador", "saldo_devedor", "data_inclusao_prazo_medio", "updated_at", "cpf", "fone_comercial", "endereco_entrega", "area_id", "observacao", "limite_credito", "cnpj", "tipo_cliente", "data_nascimento", "uf", "referencias_bancaria", "bairro", "razao_social", "referencia", "cidade_entrega_id", "status", "nome_fantasia", "fone_pessoal", "fone_celular", "regiao_entrega_id", "email") VALUES(E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', 'f', '2009-05-14 20:00:53.687048', 1, 1, E'', E'MyString', E'MyString', 9.99, '2009-04-24', '2009-05-14 20:00:53.687048', E'', E'', E'MyString', E'MyString', E'MyString', 9.99, E'', E'E', '2009-04-24', E'MyString', E'MyString', NULL, E'MyString', E'MyString', E'MyString', NULL, E'MyString', E'', E'', 1, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mCliente Load (2.0ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.2ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.9ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.7ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "entrega", "programacao", "cliente_id", "valor", "desconto", "plano_pagamento_id", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 20:04:44.633068', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 20:04:44.633068', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, 1, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 17:04:44) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (4.2ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 23ms (View: 14, DB: 16) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.3ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (0.9ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mCliente Exists (1.7ms)[0m   [0mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cpf" = E'MyString') LIMIT 1[0m
+  [4;36;1mCliente Exists (1.0ms)[0m   [0;1mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cnpj" = E'MyString') LIMIT 1[0m
+  [4;35;1mSQL (3.3ms)[0m   [0mINSERT INTO "clientes" ("documento", "endereco", "complemento", "info_serasa", "observacao_suspensao_venda", "vendas_suspensas", "created_at", "cidade_id", "prazo_medio_maximo", "cep", "referencias_comerciais", "nome_comprador", "saldo_devedor", "data_inclusao_prazo_medio", "updated_at", "cpf", "fone_comercial", "endereco_entrega", "area_id", "observacao", "limite_credito", "cnpj", "tipo_cliente", "data_nascimento", "uf", "referencias_bancaria", "bairro", "razao_social", "referencia", "cidade_entrega_id", "status", "nome_fantasia", "fone_pessoal", "fone_celular", "regiao_entrega_id", "email") VALUES(E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', 'f', '2009-05-14 20:04:44.734793', 1, 1, E'', E'MyString', E'MyString', 9.99, '2009-04-24', '2009-05-14 20:04:44.734793', E'', E'', E'MyString', E'MyString', E'MyString', 9.99, E'', E'E', '2009-04-24', E'MyString', E'MyString', NULL, E'MyString', E'MyString', E'MyString', NULL, E'MyString', E'', E'', 1, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mCliente Load (1.5ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.2ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.0ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (1.0ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "entrega", "programacao", "cliente_id", "valor", "desconto", "plano_pagamento_id", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 20:05:12.260294', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 20:05:12.260294', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, 1, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 17:05:12) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.4ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 20ms (View: 13, DB: 13) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.1ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (1.0ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mCliente Exists (1.6ms)[0m   [0mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cpf" = E'MyString') LIMIT 1[0m
+  [4;36;1mCliente Exists (1.1ms)[0m   [0;1mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cnpj" = E'MyString') LIMIT 1[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mINSERT INTO "clientes" ("documento", "endereco", "complemento", "info_serasa", "observacao_suspensao_venda", "vendas_suspensas", "created_at", "cidade_id", "prazo_medio_maximo", "cep", "referencias_comerciais", "nome_comprador", "saldo_devedor", "data_inclusao_prazo_medio", "updated_at", "cpf", "fone_comercial", "endereco_entrega", "area_id", "observacao", "limite_credito", "cnpj", "tipo_cliente", "data_nascimento", "uf", "referencias_bancaria", "bairro", "razao_social", "referencia", "cidade_entrega_id", "status", "nome_fantasia", "fone_pessoal", "fone_celular", "regiao_entrega_id", "email") VALUES(E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', 'f', '2009-05-14 20:05:12.353051', 1, 1, E'', E'MyString', E'MyString', 9.99, '2009-04-24', '2009-05-14 20:05:12.353051', E'', E'', E'MyString', E'MyString', E'MyString', 9.99, E'', E'E', '2009-04-24', E'MyString', E'MyString', NULL, E'MyString', E'MyString', E'MyString', NULL, E'MyString', E'', E'', 1, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mCliente Load (2.6ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.8ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.7ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (1.0ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "entrega", "programacao", "cliente_id", "valor", "desconto", "plano_pagamento_id", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 20:16:11.367873', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 20:16:11.367873', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, 1, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 17:16:11) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.4ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 21ms (View: 14, DB: 13) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.2ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (1.0ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mCliente Exists (2.4ms)[0m   [0mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cpf" = E'MyString') LIMIT 1[0m
+  [4;36;1mCliente Exists (1.0ms)[0m   [0;1mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cnpj" = E'MyString') LIMIT 1[0m
+  [4;35;1mSQL (2.6ms)[0m   [0mINSERT INTO "clientes" ("documento", "endereco", "complemento", "info_serasa", "observacao_suspensao_venda", "vendas_suspensas", "created_at", "cidade_id", "prazo_medio_maximo", "cep", "referencias_comerciais", "nome_comprador", "saldo_devedor", "data_inclusao_prazo_medio", "updated_at", "cpf", "fone_comercial", "endereco_entrega", "area_id", "observacao", "limite_credito", "cnpj", "tipo_cliente", "data_nascimento", "uf", "referencias_bancaria", "bairro", "razao_social", "referencia", "cidade_entrega_id", "status", "nome_fantasia", "fone_pessoal", "fone_celular", "regiao_entrega_id", "email") VALUES(E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', 'f', '2009-05-14 20:16:11.466408', 1, 1, E'', E'MyString', E'MyString', 9.99, '2009-04-24', '2009-05-14 20:16:11.466408', E'', E'', E'MyString', E'MyString', E'MyString', 9.99, E'', E'E', '2009-04-24', E'MyString', E'MyString', NULL, E'MyString', E'MyString', E'MyString', NULL, E'MyString', E'', E'', 1, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.6ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.0ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.1ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 20:27:20.835617', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 20:27:20.835617', E'030060090120', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 17:27:20) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.4ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 20ms (View: 14, DB: 11) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.3ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (1.0ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mCliente Exists (1.8ms)[0m   [0mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cpf" = E'MyString') LIMIT 1[0m
+  [4;36;1mCliente Exists (0.9ms)[0m   [0;1mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cnpj" = E'MyString') LIMIT 1[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mINSERT INTO "clientes" ("documento", "endereco", "complemento", "info_serasa", "observacao_suspensao_venda", "vendas_suspensas", "created_at", "cidade_id", "prazo_medio_maximo", "cep", "referencias_comerciais", "nome_comprador", "saldo_devedor", "data_inclusao_prazo_medio", "updated_at", "cpf", "fone_comercial", "endereco_entrega", "area_id", "observacao", "limite_credito", "cnpj", "tipo_cliente", "data_nascimento", "uf", "referencias_bancaria", "bairro", "razao_social", "referencia", "cidade_entrega_id", "status", "nome_fantasia", "fone_pessoal", "fone_celular", "regiao_entrega_id", "email") VALUES(E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', 'f', '2009-05-14 20:27:20.928329', 1, 75, E'', E'MyString', E'MyString', 9.99, '2009-04-24', '2009-05-14 20:27:20.928329', E'', E'', E'MyString', E'MyString', E'MyString', 9.99, E'', E'E', '2009-04-24', E'MyString', E'MyString', NULL, E'MyString', E'MyString', E'MyString', NULL, E'MyString', E'', E'', 1, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mCliente Load (1.3ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.8ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.3ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (1.4ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.6ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 20:35:32.139157', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 20:35:32.139157', E'030060090120', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 17:35:32) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.5ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 21ms (View: 14, DB: 13) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.4ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (0.9ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mCliente Exists (1.7ms)[0m   [0mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cpf" = E'MyString') LIMIT 1[0m
+  [4;36;1mCliente Exists (1.0ms)[0m   [0;1mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cnpj" = E'MyString') LIMIT 1[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mINSERT INTO "clientes" ("documento", "endereco", "complemento", "info_serasa", "observacao_suspensao_venda", "vendas_suspensas", "created_at", "cidade_id", "prazo_medio_maximo", "cep", "referencias_comerciais", "nome_comprador", "saldo_devedor", "data_inclusao_prazo_medio", "updated_at", "cpf", "fone_comercial", "endereco_entrega", "area_id", "observacao", "limite_credito", "cnpj", "tipo_cliente", "data_nascimento", "uf", "referencias_bancaria", "bairro", "razao_social", "referencia", "cidade_entrega_id", "status", "nome_fantasia", "fone_pessoal", "fone_celular", "regiao_entrega_id", "email") VALUES(E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', 'f', '2009-05-14 20:35:32.238991', 1, 75, E'', E'MyString', E'MyString', 9.99, '2009-04-24', '2009-05-14 20:35:32.238991', E'', E'', E'MyString', E'MyString', E'MyString', 9.99, E'', E'E', '2009-04-24', E'MyString', E'MyString', NULL, E'MyString', E'MyString', E'MyString', NULL, E'MyString', E'', E'', 1, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mCliente Load (2.0ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.6ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.0ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.1ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 20:36:13.273453', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 20:36:13.273453', E'030060090120', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 17:36:13) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.4ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 19ms (View: 13, DB: 11) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.1ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (1.0ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mCliente Exists (1.6ms)[0m   [0mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cpf" = E'MyString') LIMIT 1[0m
+  [4;36;1mCliente Exists (0.9ms)[0m   [0;1mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cnpj" = E'MyString') LIMIT 1[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "clientes" ("documento", "endereco", "complemento", "info_serasa", "observacao_suspensao_venda", "vendas_suspensas", "created_at", "cidade_id", "prazo_medio_maximo", "cep", "referencias_comerciais", "nome_comprador", "saldo_devedor", "data_inclusao_prazo_medio", "updated_at", "cpf", "fone_comercial", "endereco_entrega", "area_id", "observacao", "limite_credito", "cnpj", "tipo_cliente", "data_nascimento", "uf", "referencias_bancaria", "bairro", "razao_social", "referencia", "cidade_entrega_id", "status", "nome_fantasia", "fone_pessoal", "fone_celular", "regiao_entrega_id", "email") VALUES(E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', 'f', '2009-05-14 20:36:13.364182', 1, 75, E'', E'MyString', E'MyString', 9.99, '2009-04-24', '2009-05-14 20:36:13.364182', E'', E'', E'MyString', E'MyString', E'MyString', 9.99, E'', E'E', '2009-04-24', E'MyString', E'MyString', NULL, E'MyString', E'MyString', E'MyString', NULL, E'MyString', E'', E'', 1, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mCliente Load (1.6ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.6ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.2ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.4ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 20:37:21.044825', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 20:37:21.044825', E'030060090120', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 17:37:21) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (8.2ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 55ms (View: 41, DB: 19) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.7ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (1.2ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mCliente Exists (1.9ms)[0m   [0mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cpf" = E'MyString') LIMIT 1[0m
+  [4;36;1mCliente Exists (1.0ms)[0m   [0;1mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cnpj" = E'MyString') LIMIT 1[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mINSERT INTO "clientes" ("documento", "endereco", "complemento", "info_serasa", "observacao_suspensao_venda", "vendas_suspensas", "created_at", "cidade_id", "prazo_medio_maximo", "cep", "referencias_comerciais", "nome_comprador", "saldo_devedor", "data_inclusao_prazo_medio", "updated_at", "cpf", "fone_comercial", "endereco_entrega", "area_id", "observacao", "limite_credito", "cnpj", "tipo_cliente", "data_nascimento", "uf", "referencias_bancaria", "bairro", "razao_social", "referencia", "cidade_entrega_id", "status", "nome_fantasia", "fone_pessoal", "fone_celular", "regiao_entrega_id", "email") VALUES(E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', 'f', '2009-05-14 20:37:21.187310', 1, 75, E'', E'MyString', E'MyString', 9.99, '2009-04-24', '2009-05-14 20:37:21.187310', E'', E'', E'MyString', E'MyString', E'MyString', 9.99, E'', E'E', '2009-04-24', E'MyString', E'MyString', NULL, E'MyString', E'MyString', E'MyString', NULL, E'MyString', E'', E'', 1, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mCliente Load (1.3ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.1ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.4ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (1.1ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 20:38:22.303531', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 20:38:22.303531', E'030060090120', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 17:38:22) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.4ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 19ms (View: 13, DB: 12) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.1ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (1.0ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mCliente Exists (1.6ms)[0m   [0mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cpf" = E'MyString') LIMIT 1[0m
+  [4;36;1mCliente Exists (1.0ms)[0m   [0;1mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cnpj" = E'MyString') LIMIT 1[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "clientes" ("documento", "endereco", "complemento", "info_serasa", "observacao_suspensao_venda", "vendas_suspensas", "created_at", "cidade_id", "prazo_medio_maximo", "cep", "referencias_comerciais", "nome_comprador", "saldo_devedor", "data_inclusao_prazo_medio", "updated_at", "cpf", "fone_comercial", "endereco_entrega", "area_id", "observacao", "limite_credito", "cnpj", "tipo_cliente", "data_nascimento", "uf", "referencias_bancaria", "bairro", "razao_social", "referencia", "cidade_entrega_id", "status", "nome_fantasia", "fone_pessoal", "fone_celular", "regiao_entrega_id", "email") VALUES(E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', 'f', '2009-05-14 20:38:22.395424', 1, 75, E'', E'MyString', E'MyString', 9.99, '2009-04-24', '2009-05-14 20:38:22.395424', E'', E'', E'MyString', E'MyString', E'MyString', 9.99, E'', E'E', '2009-04-24', E'MyString', E'MyString', NULL, E'MyString', E'MyString', E'MyString', NULL, E'MyString', E'', E'', 1, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mCliente Load (1.5ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.6ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.0ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.1ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 20:39:08.472388', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 20:39:08.472388', E'030060090120', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 17:39:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.5ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 21ms (View: 14, DB: 11) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.3ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (0.9ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mCliente Exists (1.7ms)[0m   [0mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cpf" = E'MyString') LIMIT 1[0m
+  [4;36;1mCliente Exists (1.0ms)[0m   [0;1mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cnpj" = E'MyString') LIMIT 1[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mINSERT INTO "clientes" ("documento", "endereco", "complemento", "info_serasa", "observacao_suspensao_venda", "vendas_suspensas", "created_at", "cidade_id", "prazo_medio_maximo", "cep", "referencias_comerciais", "nome_comprador", "saldo_devedor", "data_inclusao_prazo_medio", "updated_at", "cpf", "fone_comercial", "endereco_entrega", "area_id", "observacao", "limite_credito", "cnpj", "tipo_cliente", "data_nascimento", "uf", "referencias_bancaria", "bairro", "razao_social", "referencia", "cidade_entrega_id", "status", "nome_fantasia", "fone_pessoal", "fone_celular", "regiao_entrega_id", "email") VALUES(E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', 'f', '2009-05-14 20:39:08.566828', 1, 75, E'', E'MyString', E'MyString', 9.99, '2009-04-24', '2009-05-14 20:39:08.566828', E'', E'', E'MyString', E'MyString', E'MyString', 9.99, E'', E'E', '2009-04-24', E'MyString', E'MyString', NULL, E'MyString', E'MyString', E'MyString', NULL, E'MyString', E'', E'', 1, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mCliente Load (2.1ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.7ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.2ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.2ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 20:41:18.283720', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 20:41:18.283720', E'030060090120', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 17:41:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.4ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 22ms (View: 15, DB: 12) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.2ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (1.1ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mCliente Exists (1.9ms)[0m   [0mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cpf" = E'MyString') LIMIT 1[0m
+  [4;36;1mCliente Exists (1.0ms)[0m   [0;1mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cnpj" = E'MyString') LIMIT 1[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mINSERT INTO "clientes" ("documento", "endereco", "complemento", "info_serasa", "observacao_suspensao_venda", "vendas_suspensas", "created_at", "cidade_id", "prazo_medio_maximo", "cep", "referencias_comerciais", "nome_comprador", "saldo_devedor", "data_inclusao_prazo_medio", "updated_at", "cpf", "fone_comercial", "endereco_entrega", "area_id", "observacao", "limite_credito", "cnpj", "tipo_cliente", "data_nascimento", "uf", "referencias_bancaria", "bairro", "razao_social", "referencia", "cidade_entrega_id", "status", "nome_fantasia", "fone_pessoal", "fone_celular", "regiao_entrega_id", "email") VALUES(E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', 'f', '2009-05-14 20:41:18.379194', 1, 75, E'', E'MyString', E'MyString', 9.99, '2009-04-24', '2009-05-14 20:41:18.379194', E'', E'', E'MyString', E'MyString', E'MyString', 9.99, E'', E'E', '2009-04-24', E'MyString', E'MyString', NULL, E'MyString', E'MyString', E'MyString', NULL, E'MyString', E'', E'', 1, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mCliente Load (1.4ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.7ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.0ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (1.5ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.3ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 20:43:49.004413', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 20:43:49.004413', E'030060090120', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 17:43:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (2.1ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 53ms (View: 41, DB: 13) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.4ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (1.0ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mCliente Exists (1.5ms)[0m   [0mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cpf" = E'MyString') LIMIT 1[0m
+  [4;36;1mCliente Exists (0.8ms)[0m   [0;1mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cnpj" = E'MyString') LIMIT 1[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mINSERT INTO "clientes" ("documento", "endereco", "complemento", "info_serasa", "observacao_suspensao_venda", "vendas_suspensas", "created_at", "cidade_id", "prazo_medio_maximo", "cep", "referencias_comerciais", "nome_comprador", "saldo_devedor", "data_inclusao_prazo_medio", "updated_at", "cpf", "fone_comercial", "endereco_entrega", "area_id", "observacao", "limite_credito", "cnpj", "tipo_cliente", "data_nascimento", "uf", "referencias_bancaria", "bairro", "razao_social", "referencia", "cidade_entrega_id", "status", "nome_fantasia", "fone_pessoal", "fone_celular", "regiao_entrega_id", "email") VALUES(E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', 'f', '2009-05-14 20:43:49.146585', 1, 75, E'', E'MyString', E'MyString', 9.99, '2009-04-24', '2009-05-14 20:43:49.146585', E'', E'', E'MyString', E'MyString', E'MyString', 9.99, E'', E'E', '2009-04-24', E'MyString', E'MyString', NULL, E'MyString', E'MyString', E'MyString', NULL, E'MyString', E'', E'', 1, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mCliente Load (1.7ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.4ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.1ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (1.1ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 20:44:47.870816', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 20:44:47.870816', E'030060090120', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 17:44:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.5ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 20ms (View: 13, DB: 13) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.2ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (1.0ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mCliente Exists (1.7ms)[0m   [0mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cpf" = E'MyString') LIMIT 1[0m
+  [4;36;1mCliente Exists (1.1ms)[0m   [0;1mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cnpj" = E'MyString') LIMIT 1[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mINSERT INTO "clientes" ("documento", "endereco", "complemento", "info_serasa", "observacao_suspensao_venda", "vendas_suspensas", "created_at", "cidade_id", "prazo_medio_maximo", "cep", "referencias_comerciais", "nome_comprador", "saldo_devedor", "data_inclusao_prazo_medio", "updated_at", "cpf", "fone_comercial", "endereco_entrega", "area_id", "observacao", "limite_credito", "cnpj", "tipo_cliente", "data_nascimento", "uf", "referencias_bancaria", "bairro", "razao_social", "referencia", "cidade_entrega_id", "status", "nome_fantasia", "fone_pessoal", "fone_celular", "regiao_entrega_id", "email") VALUES(E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', 'f', '2009-05-14 20:44:47.963683', 1, 75, E'', E'MyString', E'MyString', 9.99, '2009-04-24', '2009-05-14 20:44:47.963683', E'', E'', E'MyString', E'MyString', E'MyString', 9.99, E'', E'E', '2009-04-24', E'MyString', E'MyString', NULL, E'MyString', E'MyString', E'MyString', NULL, E'MyString', E'', E'', 1, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mCliente Load (1.5ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.0ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.1ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.3ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 20:46:33.986545', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 20:46:33.986545', E'030060090120', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 17:46:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (6.1ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 58ms (View: 45, DB: 18) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.2ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (0.9ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mCliente Exists (1.5ms)[0m   [0mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cpf" = E'MyString') LIMIT 1[0m
+  [4;36;1mCliente Exists (2.1ms)[0m   [0;1mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cnpj" = E'MyString') LIMIT 1[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mINSERT INTO "clientes" ("documento", "endereco", "complemento", "info_serasa", "observacao_suspensao_venda", "vendas_suspensas", "created_at", "cidade_id", "prazo_medio_maximo", "cep", "referencias_comerciais", "nome_comprador", "saldo_devedor", "data_inclusao_prazo_medio", "updated_at", "cpf", "fone_comercial", "endereco_entrega", "area_id", "observacao", "limite_credito", "cnpj", "tipo_cliente", "data_nascimento", "uf", "referencias_bancaria", "bairro", "razao_social", "referencia", "cidade_entrega_id", "status", "nome_fantasia", "fone_pessoal", "fone_celular", "regiao_entrega_id", "email") VALUES(E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', 'f', '2009-05-14 20:46:34.127582', 1, 75, E'', E'MyString', E'MyString', 9.99, '2009-04-24', '2009-05-14 20:46:34.127582', E'', E'', E'MyString', E'MyString', E'MyString', 9.99, E'', E'E', '2009-04-24', E'MyString', E'MyString', NULL, E'MyString', E'MyString', E'MyString', NULL, E'MyString', E'', E'', 1, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mCliente Load (1.7ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.0ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (1.9ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 20:57:55.590496', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 20:57:55.590496', E'030060090120', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 17:57:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.4ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 22ms (View: 14, DB: 12) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.2ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (1.0ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mCliente Exists (1.8ms)[0m   [0mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cpf" = E'MyString') LIMIT 1[0m
+  [4;36;1mCliente Exists (1.0ms)[0m   [0;1mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cnpj" = E'MyString') LIMIT 1[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mINSERT INTO "clientes" ("documento", "endereco", "complemento", "info_serasa", "observacao_suspensao_venda", "vendas_suspensas", "created_at", "cidade_id", "prazo_medio_maximo", "cep", "referencias_comerciais", "nome_comprador", "saldo_devedor", "data_inclusao_prazo_medio", "updated_at", "cpf", "fone_comercial", "endereco_entrega", "area_id", "observacao", "limite_credito", "cnpj", "tipo_cliente", "data_nascimento", "uf", "referencias_bancaria", "bairro", "razao_social", "referencia", "cidade_entrega_id", "status", "nome_fantasia", "fone_pessoal", "fone_celular", "regiao_entrega_id", "email") VALUES(E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', 'f', '2009-05-14 20:57:55.689770', 1, 75, E'', E'MyString', E'MyString', 9.99, '2009-04-24', '2009-05-14 20:57:55.689770', E'', E'', E'MyString', E'MyString', E'MyString', 9.99, E'', E'E', '2009-04-24', E'MyString', E'MyString', NULL, E'MyString', E'MyString', E'MyString', NULL, E'MyString', E'', E'', 1, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mCliente Load (2.1ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (4.0ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.0ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 20:58:36.568840', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 20:58:36.568840', E'030060090120', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 17:58:36) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.6ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 21ms (View: 13, DB: 13) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.3ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (0.9ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mCliente Exists (1.7ms)[0m   [0mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cpf" = E'MyString') LIMIT 1[0m
+  [4;36;1mCliente Exists (1.0ms)[0m   [0;1mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cnpj" = E'MyString') LIMIT 1[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mINSERT INTO "clientes" ("documento", "endereco", "complemento", "info_serasa", "observacao_suspensao_venda", "vendas_suspensas", "created_at", "cidade_id", "prazo_medio_maximo", "cep", "referencias_comerciais", "nome_comprador", "saldo_devedor", "data_inclusao_prazo_medio", "updated_at", "cpf", "fone_comercial", "endereco_entrega", "area_id", "observacao", "limite_credito", "cnpj", "tipo_cliente", "data_nascimento", "uf", "referencias_bancaria", "bairro", "razao_social", "referencia", "cidade_entrega_id", "status", "nome_fantasia", "fone_pessoal", "fone_celular", "regiao_entrega_id", "email") VALUES(E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', 'f', '2009-05-14 20:58:36.667766', 1, 75, E'', E'MyString', E'MyString', 9.99, '2009-04-24', '2009-05-14 20:58:36.667766', E'', E'', E'MyString', E'MyString', E'MyString', 9.99, E'', E'E', '2009-04-24', E'MyString', E'MyString', NULL, E'MyString', E'MyString', E'MyString', NULL, E'MyString', E'', E'', 1, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mCliente Load (2.0ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.6ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.0ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 20:59:18.971466', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 20:59:18.971466', E'030060090', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 17:59:19) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.4ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 20ms (View: 14, DB: 11) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.2ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (1.1ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mCliente Exists (1.6ms)[0m   [0mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cpf" = E'MyString') LIMIT 1[0m
+  [4;36;1mCliente Exists (1.1ms)[0m   [0;1mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cnpj" = E'MyString') LIMIT 1[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "clientes" ("documento", "endereco", "complemento", "info_serasa", "observacao_suspensao_venda", "vendas_suspensas", "created_at", "cidade_id", "prazo_medio_maximo", "cep", "referencias_comerciais", "nome_comprador", "saldo_devedor", "data_inclusao_prazo_medio", "updated_at", "cpf", "fone_comercial", "endereco_entrega", "area_id", "observacao", "limite_credito", "cnpj", "tipo_cliente", "data_nascimento", "uf", "referencias_bancaria", "bairro", "razao_social", "referencia", "cidade_entrega_id", "status", "nome_fantasia", "fone_pessoal", "fone_celular", "regiao_entrega_id", "email") VALUES(E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', 'f', '2009-05-14 20:59:19.064845', 1, 75, E'', E'MyString', E'MyString', 9.99, '2009-04-24', '2009-05-14 20:59:19.064845', E'', E'', E'MyString', E'MyString', E'MyString', 9.99, E'', E'E', '2009-04-24', E'MyString', E'MyString', NULL, E'MyString', E'MyString', E'MyString', NULL, E'MyString', E'', E'', 1, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mCliente Load (1.3ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.7ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.6ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (1.3ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 21:01:24.763297', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 21:01:24.763297', E'030060090', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 18:01:24) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.5ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 20ms (View: 13, DB: 13) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.1ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (1.0ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mCliente Exists (1.5ms)[0m   [0mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cpf" = E'MyString') LIMIT 1[0m
+  [4;36;1mCliente Exists (1.1ms)[0m   [0;1mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cnpj" = E'MyString') LIMIT 1[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mINSERT INTO "clientes" ("documento", "endereco", "complemento", "info_serasa", "observacao_suspensao_venda", "vendas_suspensas", "created_at", "cidade_id", "prazo_medio_maximo", "cep", "referencias_comerciais", "nome_comprador", "saldo_devedor", "data_inclusao_prazo_medio", "updated_at", "cpf", "fone_comercial", "endereco_entrega", "area_id", "observacao", "limite_credito", "cnpj", "tipo_cliente", "data_nascimento", "uf", "referencias_bancaria", "bairro", "razao_social", "referencia", "cidade_entrega_id", "status", "nome_fantasia", "fone_pessoal", "fone_celular", "regiao_entrega_id", "email") VALUES(E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', 'f', '2009-05-14 21:01:24.855092', 1, 75, E'', E'MyString', E'MyString', 9.99, '2009-04-24', '2009-05-14 21:01:24.855092', E'', E'', E'MyString', E'MyString', E'MyString', 9.99, E'', E'E', '2009-04-24', E'MyString', E'MyString', NULL, E'MyString', E'MyString', E'MyString', NULL, E'MyString', E'', E'', 1, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mCliente Load (1.4ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (4.0ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.4ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (1.0ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.5ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 21:09:24.882957', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 21:09:24.882957', E'030060090', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 18:09:24) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.5ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 21ms (View: 15, DB: 14) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.3ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (1.0ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mCliente Exists (2.2ms)[0m   [0mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cpf" = E'MyString') LIMIT 1[0m
+  [4;36;1mCliente Exists (1.0ms)[0m   [0;1mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cnpj" = E'MyString') LIMIT 1[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mINSERT INTO "clientes" ("documento", "endereco", "complemento", "info_serasa", "observacao_suspensao_venda", "vendas_suspensas", "created_at", "cidade_id", "prazo_medio_maximo", "cep", "referencias_comerciais", "nome_comprador", "saldo_devedor", "data_inclusao_prazo_medio", "updated_at", "cpf", "fone_comercial", "endereco_entrega", "area_id", "observacao", "limite_credito", "cnpj", "tipo_cliente", "data_nascimento", "uf", "referencias_bancaria", "bairro", "razao_social", "referencia", "cidade_entrega_id", "status", "nome_fantasia", "fone_pessoal", "fone_celular", "regiao_entrega_id", "email") VALUES(E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', 'f', '2009-05-14 21:09:24.982478', 1, 75, E'', E'MyString', E'MyString', 9.99, '2009-04-24', '2009-05-14 21:09:24.982478', E'', E'', E'MyString', E'MyString', E'MyString', 9.99, E'', E'E', '2009-04-24', E'MyString', E'MyString', NULL, E'MyString', E'MyString', E'MyString', NULL, E'MyString', E'', E'', 1, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mCliente Load (3.1ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.2ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (1.9ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 21:10:04.804309', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 21:10:04.804309', E'030060090', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 18:10:04) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.4ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 21ms (View: 14, DB: 14) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.6ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (1.0ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mCliente Exists (2.4ms)[0m   [0mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cpf" = E'MyString') LIMIT 1[0m
+  [4;36;1mCliente Exists (1.0ms)[0m   [0;1mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cnpj" = E'MyString') LIMIT 1[0m
+  [4;35;1mSQL (2.6ms)[0m   [0mINSERT INTO "clientes" ("documento", "endereco", "complemento", "info_serasa", "observacao_suspensao_venda", "vendas_suspensas", "created_at", "cidade_id", "prazo_medio_maximo", "cep", "referencias_comerciais", "nome_comprador", "saldo_devedor", "data_inclusao_prazo_medio", "updated_at", "cpf", "fone_comercial", "endereco_entrega", "area_id", "observacao", "limite_credito", "cnpj", "tipo_cliente", "data_nascimento", "uf", "referencias_bancaria", "bairro", "razao_social", "referencia", "cidade_entrega_id", "status", "nome_fantasia", "fone_pessoal", "fone_celular", "regiao_entrega_id", "email") VALUES(E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', 'f', '2009-05-14 21:10:04.904691', 1, 75, E'', E'MyString', E'MyString', 9.99, '2009-04-24', '2009-05-14 21:10:04.904691', E'', E'', E'MyString', E'MyString', E'MyString', 9.99, E'', E'E', '2009-04-24', E'MyString', E'MyString', NULL, E'MyString', E'MyString', E'MyString', NULL, E'MyString', E'', E'', 1, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mCliente Load (2.1ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.3ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.0ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.4ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 21:33:02.636240', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 21:33:02.636240', E'030060090', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 18:33:02) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.7ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 40ms (View: 27, DB: 14) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.4ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (1.0ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mCliente Exists (2.1ms)[0m   [0mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cpf" = E'MyString') LIMIT 1[0m
+  [4;36;1mCliente Exists (1.4ms)[0m   [0;1mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cnpj" = E'MyString') LIMIT 1[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "clientes" ("documento", "endereco", "complemento", "info_serasa", "observacao_suspensao_venda", "vendas_suspensas", "created_at", "cidade_id", "prazo_medio_maximo", "cep", "referencias_comerciais", "nome_comprador", "saldo_devedor", "data_inclusao_prazo_medio", "updated_at", "cpf", "fone_comercial", "endereco_entrega", "area_id", "observacao", "limite_credito", "cnpj", "tipo_cliente", "data_nascimento", "uf", "referencias_bancaria", "bairro", "razao_social", "referencia", "cidade_entrega_id", "status", "nome_fantasia", "fone_pessoal", "fone_celular", "regiao_entrega_id", "email") VALUES(E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', 'f', '2009-05-14 21:33:02.761545', 1, 75, E'', E'MyString', E'MyString', 9.99, '2009-04-24', '2009-05-14 21:33:02.761545', E'', E'', E'MyString', E'MyString', E'MyString', 9.99, E'', E'E', '2009-04-24', E'MyString', E'MyString', NULL, E'MyString', E'MyString', E'MyString', NULL, E'MyString', E'', E'', 1, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mCliente Load (1.6ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.3ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.4ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (1.0ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.1ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 21:33:38.343030', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 21:33:38.343030', E'030060090120', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 18:33:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.5ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/pedidos
+Rendering pedidos/edit
+Completed in 20ms (View: 13, DB: 13) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.4ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCliente Load (1.1ms)[0m   [0;1mSELECT * FROM "clientes" [0m
+  [4;35;1mCliente Exists (1.6ms)[0m   [0mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cpf" = E'MyString') LIMIT 1[0m
+  [4;36;1mCliente Exists (0.9ms)[0m   [0;1mSELECT "clientes".id FROM "clientes" WHERE ("clientes"."cnpj" = E'MyString') LIMIT 1[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mINSERT INTO "clientes" ("documento", "endereco", "complemento", "info_serasa", "observacao_suspensao_venda", "vendas_suspensas", "created_at", "cidade_id", "prazo_medio_maximo", "cep", "referencias_comerciais", "nome_comprador", "saldo_devedor", "data_inclusao_prazo_medio", "updated_at", "cpf", "fone_comercial", "endereco_entrega", "area_id", "observacao", "limite_credito", "cnpj", "tipo_cliente", "data_nascimento", "uf", "referencias_bancaria", "bairro", "razao_social", "referencia", "cidade_entrega_id", "status", "nome_fantasia", "fone_pessoal", "fone_celular", "regiao_entrega_id", "email") VALUES(E'MyString', E'MyString', E'MyString', E'MyString', E'MyString', 'f', '2009-05-14 21:33:38.436686', 1, 75, E'', E'MyString', E'MyString', 9.99, '2009-04-24', '2009-05-14 21:33:38.436686', E'', E'', E'MyString', E'MyString', E'MyString', 9.99, E'', E'E', '2009-04-24', E'MyString', E'MyString', NULL, E'MyString', E'MyString', E'MyString', NULL, E'MyString', E'', E'', 1, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mCliente Load (1.6ms)[0m   [0mSELECT * FROM "clientes" WHERE ("clientes"."id" = 1) [0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mROLLBACK[0m
