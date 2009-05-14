@@ -3,7 +3,7 @@ Funcionalidade: Abrir Pedido de Venda
   Eu quero abrir um pedido de venda
   Para que seja base para que o processo de venda continue
 
-  Cenario: Adicionando um pedido válido
+  Cenário: Adicionando um pedido válido
     Quando eu requisitar um novo pedido
     E definir vendedor com o id 1
     E definir cliente com o id 1
@@ -15,3 +15,4 @@ Funcionalidade: Abrir Pedido de Venda
     E gravar o pedido
     Entao eu preciso receber a mensagem "Pedido Cadastrado com Sucesso"
     E eu preciso ter mais um pedido.
+

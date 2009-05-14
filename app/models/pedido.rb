@@ -13,6 +13,7 @@ class Pedido < ActiveRecord::Base
   validates_presence_of :data, :message => "Informe a Data do Pedido"
   validates_presence_of :cliente_id, :message => "Informe o Código do Cliente"
   #validates_presence_of :valor, :message => "Pedido não foi Valorado"
-  validates_presence_of :id_funcionario, :message => "Informe o Funcionário"
+  validates_presence_of :funcionario_id, :message => "Informe o Funcionário"
 
 end
+

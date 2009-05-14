@@ -37,3 +37,143 @@
   [4;35;1mSQL (0.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
   [4;36;1mCliente Load (5.3ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
   [4;35;1mPedido Load (27.8ms)[0m   [0mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.1ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (1.9ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.2ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.8ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (1.9ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 16:06:06) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.7ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+
+
+Processing ApplicationController#edit (for 127.0.0.1 at 2009-05-14 16:06:06) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.4ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (1.9ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.2ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.2ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (1.0ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (1.9ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.8ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (1.9ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.1ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (1.9ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.4ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.6ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (1.3ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.8ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (1.9ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.0ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (1.9ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.0ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.5ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPGError: ERRO: coluna "data" é do tipo date mas expressão é do tipo integer
+LINE 1: ..." ("funcionario_estorno_id", "tipo", "comprador", "data", "m...
+ ^
+HINT: Você precisará reescrever ou converter a expressão.
+: INSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "entrega", "programacao", "cliente_id", "valor", "desconto", "plano_pagamento_id", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, 1990, 1, 1981, '2009-05-14 19:27:52.628743', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 19:27:52.628743', 1990, 1990, 1, 9.99, 9.99, 1, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, 1990, 1, NULL, NULL, E'MyString', NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.5ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mPedido Load (2.4ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (1.3ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.2ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "tipo", "comprador", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "entrega", "programacao", "cliente_id", "valor", "desconto", "plano_pagamento_id", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, 't', NULL, '2009-05-14', 1, '2009-04-24', '2009-05-14 19:28:50.499715', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-14 19:28:50.499715', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, 1, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, E'MyString', NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-14 16:28:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.5ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+
+
+Processing ApplicationController#edit (for 127.0.0.1 at 2009-05-14 16:28:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mSQL (1.0ms)[0m   [0;1mROLLBACK[0m

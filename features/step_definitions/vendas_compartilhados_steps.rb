@@ -35,7 +35,7 @@ Dado /^que existe um\(a\) (.*)$/ do |entidade|
   end
 end
 
-Dado /^que eu estou no detalhe de (.*) (\d+)$/ do |entidade, id|
+Dado /^que estou no detalhe de (.*) (\d+)$/ do |entidade, id|
   visit "#{entidade.pluralize}/edit/#{id}"
 end
 
