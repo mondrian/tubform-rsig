@@ -312,8 +312,8 @@ ActiveRecord::Schema.define(:version => 20090514201737) do
   end
 
   create_table "ufs", :force => true do |t|
-    t.string   "uf"
-    t.string   "descricao"
+    t.string   "uf",         :limit => 2
+    t.string   "descricao",  :limit => 30
     t.datetime "created_at"
     t.datetime "updated_at"
   end
