@@ -6,7 +6,7 @@ class Cliente < ActiveRecord::Base
   has_one  :regiao_entrega, :class_name => 'Regiao', :foreign_key => 'regiao_entrega_id'
   has_one  :cidade_entrega, :class_name => 'Cidade', :foreign_key => 'cidade_entrega_id'
   has_one  :area
-  
+
   validates_presence_of :razao_social, :message => "Informe a RAZÃO SOCIAL"
   validates_presence_of :nome_fantasia, :message => "Informe o Nome de Fantasia"
   validates_presence_of :cidade_id, :message => "Informe Cidade do Cliente"
@@ -14,7 +14,7 @@ class Cliente < ActiveRecord::Base
   validates_uniqueness_of :cnpj, :message => 'CNPJ já Cadastrado'
 
 
-  private
+private
   def remove_mascara
     self.cpf.gsub!(/[^0-9]/,'') if !self.cpf.nil?
     self.cnpj.gsub!(/[^0-9]/,'') if !self.cnpj.nil?
@@ -23,4 +23,11 @@ class Cliente < ActiveRecord::Base
     self.fone_celular.gsub!(/[^0-9]/,'') if !self.fone_celular.nil?
     self.cep.gsub!(/[^0-9]/,'') if !self.cep.nil?
   end
+
+public
+  def ativo?
+    !self.status
+  end
+
 end
+

@@ -14,8 +14,8 @@ Então /^preciso receber a mensagem "([^\"]*)"$/ do |mensagem|
   response.should have_tag("p", :text=> mensagem)
 end
 
-Dado /^que existem (\d+) (.+)$/ do |quantidade, entidades|
-  entidade = entidades.gsub(/\s/, '_').singularize
+Dado /^que existem (\d+) (.+)$/ do |quantidade, entidade|
+  entidade = entidade.gsub(/\s/, '_').singularize
   entidade_simbolo = entidade.to_sym
   klass = eval(entidade.camelize)
   klass.transaction do
@@ -27,6 +27,7 @@ Dado /^que existem (\d+) (.+)$/ do |quantidade, entidades|
 end
 
 Dado /^que existe um\(a\) (.*)$/ do |entidade|
+  entidade = entidade.gsub(/\s/, '_').singularize
   entidade_simbolo = entidade.to_sym
   klass = eval(entidade.camelize)
   klass.transaction do
@@ -35,8 +36,20 @@ Dado /^que existe um\(a\) (.*)$/ do |entidade|
   end
 end
 
-Dado /^que eu estou no detalhe de (.*) (\d+)$/ do |entidade, id|
+Dado /^e este (.*) está atribuido a um determinado\(a\) (.*)$/ do |pai, entidade|
+  entidade = entidade.gsub(/\s/, '_').singularize
+  entidade_simbolo = entidade.to_sym
+  klass = eval(entidade.camelize)
+  klass.transaction do
+    klass.destroy_all
+    Factory(entidade_simbolo)
+  end
+end
+
+Dado /^que estou no detalhe de (.*) (\d+)$/ do |entidade, id|
   visit "#{entidade.pluralize}/edit/#{id}"
+  klass = eval(entidade.camelize)
+  @registro = klass.find(id)
 end
 
 Quando /^eu estiver na listagem de (.*)$/ do |entidades|
