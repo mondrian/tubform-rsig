@@ -5,6 +5,7 @@ Funcionalidade: Adicionar Item do Pedido
 
   Cenário: Adicionando um Pedido Válido
     Dado que estou em um determinado pedido
+    E que existem 2 produtos
     Quando eu requisitar um novo item
     E definir produto com o id 1
     E definir quantidade como 1
