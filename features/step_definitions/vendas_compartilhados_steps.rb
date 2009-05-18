@@ -2,7 +2,8 @@ Dado /^que estou no formulário de cadastro de (.*)$/ do |entidade|
   visit "#{entidade.pluralize}/new"
 end
 
-Dado /^defino (.*) com o valor "([^\"]*)"$/ do |atributo,valor|
+Dado /^defino (.*) com o valor (.*)$/ do |atributo,valor|
+  atributo = atributo.gsub(/\s/, '_')
   fill_in atributo, :with => valor
 end
 

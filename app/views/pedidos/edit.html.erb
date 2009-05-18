@@ -1,12 +1,13 @@
-<h1>Editing pedido</h1>
+<h1>Alterando pedido</h1>
 
 <% form_for(@pedido) do |f| %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.submit 'Salvar' %>
   </p>
 <% end %>
+<%= button_to 'Aprovar', :action => :aprovar, :id => @pedido.id %>
+<%= link_to 'Exibir', @pedido %> |
+<%= link_to 'Voltar', pedidos_path %>
 
-<%= link_to 'Show', @pedido %> |
-<%= link_to 'Back', pedidos_path %>
