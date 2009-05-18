@@ -1,0 +1,24 @@
+<h1>Listing faixas_de_desconto</h1>
+
+<table>
+  <tr>
+    <th>De</th>
+    <th>Ate</th>
+    <th>Desconto permitido</th>
+  </tr>
+
+<% @faixas_de_desconto.each do |faixa_de_desconto| %>
+  <tr>
+    <td><%=h faixa_de_desconto.de %></td>
+    <td><%=h faixa_de_desconto.ate %></td>
+    <td><%=h faixa_de_desconto.desconto_permitido %></td>
+    <td><%= link_to 'Show', faixa_de_desconto %></td>
+    <td><%= link_to 'Edit', edit_faixa_de_desconto_path(faixa_de_desconto) %></td>
+    <td><%= link_to 'Destroy', faixa_de_desconto, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New faixa_de_desconto', new_faixa_de_desconto_path %>
