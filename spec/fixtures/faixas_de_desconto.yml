@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  de: 1
+  ate: 1
+  desconto_permitido: 9.99
+
+two:
+  de: 1
+  ate: 1
+  desconto_permitido: 9.99

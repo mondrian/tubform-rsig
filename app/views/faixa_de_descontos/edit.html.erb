@@ -1,0 +1,24 @@
+<h1>Editing faixa_de_desconto</h1>
+
+<% form_for(@faixa_de_desconto) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :de %><br />
+    <%= f.text_field :de %>
+  </p>
+  <p>
+    <%= f.label :ate %><br />
+    <%= f.text_field :ate %>
+  </p>
+  <p>
+    <%= f.label :desconto_permitido %><br />
+    <%= f.text_field :desconto_permitido %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @faixa_de_desconto %> |
+<%= link_to 'Back', faixas_de_desconto_path %>
