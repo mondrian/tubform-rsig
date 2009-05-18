@@ -65,6 +65,12 @@ Factory.define :pedido do |p|
   p.funcionario_id 1
 end
 
+Factory.define :faixa_de_desconto do |f|
+  f.de 0
+  f.ate 75
+  f.desconto_permitido 10
+end
+
 Factory.define :produto do |p| 
   p.descricao "MyString"
   p.cor_id 1

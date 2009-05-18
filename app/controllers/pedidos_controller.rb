@@ -94,4 +94,21 @@ class PedidosController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def aprovar
+    @pedido = Pedido.find(params[:id])
+    @pedido.aprovar
+    respond_to do |format|
+      if @pedido.save
+        flash[:notice] = 'Pedido confirmado com sucesso.'
+        format.html { redirect_to(@pedido) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @pedido.errors,
+                             :status => :unprocessable_entity }
+      end
+    end
+  end
 end
+

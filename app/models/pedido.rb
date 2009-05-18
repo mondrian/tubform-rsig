@@ -25,14 +25,28 @@ class Pedido < ActiveRecord::Base
                         :message => "Informe o Funcionário"
 
   def no_prazo_medio_maximo?
+    self.cliente.prazo_medio_maximo <= self.prazo_medio
+  end
+
+  def prazo_medio
     quantidade_de_parcelas = self.plano_de_pagamento.size / 3
     prazo_medio = 0
     i = 0
     while i <= self.plano_de_pagamento.size
-        prazo_medio = prazo_medio + self.plano_de_pagamento[i,3].to_i
-        i += 3
+      prazo_medio = prazo_medio + self.plano_de_pagamento[i,3].to_i
+      i += 3
     end
-    self.cliente.prazo_medio_maximo <= (prazo_medio / quantidade_de_parcelas)
+    prazo_medio / quantidade_de_parcelas
+  end
+
+  def no_desconto_permitido?
+    faixa_de_desconto = FaixaDeDesconto.find(:first,
+      :conditions => "#{self.prazo_medio} >= de and #{self.prazo_medio} <= ate")
+    self.desconto < faixa_de_desconto.desconto_permitido
+  end
+
+  def aprovar
+    self.entrega = Time.now
   end
 
 end

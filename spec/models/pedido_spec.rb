@@ -6,7 +6,9 @@ describe Pedido do
     }
   end
 
-  it "should create a new instance given valid attributes" do
+  it "ele precisa criar uma nova instância dado os atributos válidos" do
     Pedido.create!(@valid_attributes)
   end
+
 end
+
