@@ -8,8 +8,8 @@ Funcionalidade: Abrir de Venda
     E defino vendedor_id com o valor 1
     E defino cliente_id com o valor 1
     E defino plano_de_pagamento com o valor '000030060090120'
-	  E defino previsao_entrega com o valor '2009-05-30'
-	  E defino data com o valor '2009-05-30'
+	E defino previsao_entrega com o valor '2009-05-30'
+	E defino data com o valor '2009-05-30'
 	  E defino registro com o valor '2009-05-30'
 	  E defino status com o valor B
     E defino funcionario_id com o valor 1
