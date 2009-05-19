@@ -9,12 +9,6 @@ Dado /^defino (.*) com o valor (.*)$/ do |atributo,valor|
   fill_in atributo, :with => valor
 end
 
-Dado /^seleciono o (.*) com o id (.*)$/ do |atributo,valor|
-#  atributo = atributo.gsub(/\s/, '_')
- atributo = @entidade_principal + "[" + atributo + "]"
-  select(valor,atributo)
-end
-
 Quando /^eu salvar o registro$/ do
   click_button "Salvar"
 end

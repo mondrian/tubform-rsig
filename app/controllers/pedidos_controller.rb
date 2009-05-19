@@ -47,7 +47,7 @@ class PedidosController < ApplicationController
 
     respond_to do |format|
       if @pedido.save
-        flash[:notice] = 'Pedido gravado com Sucesso!'
+        flash[:notice] = 'Pedido Cadastrado com Sucesso'
         format.html { redirect_to(@pedido) }
         format.xml  { render :xml => @pedido, :status => :created, :location => @pedido }
       else
