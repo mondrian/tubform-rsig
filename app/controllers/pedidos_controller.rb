@@ -63,7 +63,7 @@ class PedidosController < ApplicationController
 
     respond_to do |format|
       if @pedido.update_attributes(params[:pedido])
-        flash[:notice] = 'Pedido atualizado com Sucesso!'
+        flash[:notice] = 'Pedido Atualizado com Sucesso'
         format.html { redirect_to(@pedido) }
         format.xml  { head :ok }
       else
