@@ -26,3 +26,8 @@ Funcionalidade: Abrir de Venda
     E defino status com o valor B
     Quando eu salvar o registro
     Então preciso receber a mensagem "Pedido Atualizado com Sucesso"
+
+  Cenário: Listar Pedidos
+    Dado que existem 3 pedidos
+    Quando eu estiver na listagem de pedidos
+    Então preciso ver 3 pedidos
