@@ -3,8 +3,8 @@ Before do
   @operador = Funcionario.find(:first)
   @vendedor = Funcionario.find(:first)
   @telemark = Funcionario.find(:first)
-  @tipo = "E"
-  @status = "B"
+  @tipo = 'E'
+  @status = 'B'
 end
 
 Quando /^eu requisitar um novo pedido$/ do

@@ -5011,3 +5011,621 @@ Rendering pedidos/new
 Rendered pedidos/_form (44.5ms)
 Completed in 73ms (View: 51, DB: 10) | 200 OK [http://www.example.com/pedidos/new]
   [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (21.6ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPedido Load (112.8ms)[0m   [0mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;36;1mCliente Load (3.8ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mFuncionario Load (3.8ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (1.6ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (1.6ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 10:46:16) [GET]
+  [4;36;1mCliente Load (1.7ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering pedidos/new
+Rendered pedidos/_form (91.8ms)
+Completed in 211ms (View: 98, DB: 148) | 200 OK [http://www.example.com/pedidos/new]
+  [4;36;1mSQL (11.6ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPedido Load (2.8ms)[0m   [0mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;36;1mCliente Load (2.7ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mFuncionario Load (1.7ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 10:49:18) [GET]
+  [4;36;1mCliente Load (0.9ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering pedidos/new
+Rendered pedidos/_form (42.8ms)
+Completed in 70ms (View: 46, DB: 12) | 200 OK [http://www.example.com/pedidos/new]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPedido Load (2.7ms)[0m   [0mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;36;1mCliente Load (1.7ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mFuncionario Load (1.8ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 10:53:34) [GET]
+  [4;36;1mCliente Load (13.9ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering pedidos/new
+Rendered pedidos/_form (53.8ms)
+Completed in 92ms (View: 57, DB: 23) | 200 OK [http://www.example.com/pedidos/new]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPedido Load (2.7ms)[0m   [0mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;36;1mCliente Load (1.7ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mFuncionario Load (1.7ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 10:59:37) [GET]
+  [4;36;1mCliente Load (18.3ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering pedidos/new
+Rendered pedidos/_form (49.1ms)
+Completed in 92ms (View: 52, DB: 28) | 200 OK [http://www.example.com/pedidos/new]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPedido Load (9.3ms)[0m   [0mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;36;1mCliente Load (1.7ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mFuncionario Load (1.7ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 11:02:16) [GET]
+  [4;36;1mCliente Load (0.9ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering pedidos/new
+Rendered pedidos/_form (43.2ms)
+Completed in 88ms (View: 47, DB: 17) | 200 OK [http://www.example.com/pedidos/new]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPedido Load (2.7ms)[0m   [0mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;36;1mCliente Load (1.7ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mFuncionario Load (19.5ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 11:02:38) [GET]
+  [4;36;1mCliente Load (1.0ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering pedidos/new
+Rendered pedidos/_form (48.6ms)
+Completed in 99ms (View: 52, DB: 28) | 200 OK [http://www.example.com/pedidos/new]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPedido Load (2.7ms)[0m   [0mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;36;1mCliente Load (1.7ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mFuncionario Load (10.8ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 11:03:32) [GET]
+  [4;36;1mCliente Load (0.9ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering pedidos/new
+Rendered pedidos/_form (64.5ms)
+Completed in 93ms (View: 68, DB: 19) | 200 OK [http://www.example.com/pedidos/new]
+  [4;36;1mSQL (21.3ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPedido Load (2.7ms)[0m   [0mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;36;1mCliente Load (1.8ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mFuncionario Load (8.8ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 11:03:52) [GET]
+  [4;36;1mCliente Load (0.9ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering pedidos/new
+Rendered pedidos/_form (52.6ms)
+Completed in 91ms (View: 56, DB: 17) | 200 OK [http://www.example.com/pedidos/new]
+REQUESTING PAGE: POST /pedidos with {"commit"=>"Salvar", "pedido"=>{"comprador"=>"", "tipo"=>"'E'", "estorno"=>"", "minuta_id"=>"", "data"=>"'2009-05-30'", "autorizador_id"=>"", "funcionario_id"=>"1", "plano_de_pagamento"=>"2", "comissao_telemarketing"=>"", "preco_tabela"=>"", "desconto_complementar"=>"", "area_id"=>"1", "endereco_entrega"=>"", "desconto"=>"", "valor"=>"", "programacao"=>"", "entrega"=>"", "cliente_id"=>"1", "observacao"=>"", "operador_id"=>"", "comissao_vendedor"=>"", "operador_estorno_id"=>"", "empresa_id"=>"", "registro"=>"'2009-05-30'", "vendedor_id"=>"1", "previsao_entrega"=>"'2009-05-30'", "especial"=>"S", "status"=>"'B'", "venda_externa"=>"S", "telemarketing_id"=>"", "transportadora_id"=>"1", "acrescimo"=>""}} and HTTP headers {"HTTP_REFERER"=>"pedidos/new"}
+
+
+Processing PedidosController#create (for 127.0.0.1 at 2009-05-19 11:03:53) [POST]
+  Parameters: {"commit"=>"Salvar", "pedido"=>{"tipo"=>"'E'", "comprador"=>"", "data"=>"'2009-05-30'", "minuta_id"=>"", "estorno"=>"", "funcionario_id"=>"1", "autorizador_id"=>"", "preco_tabela"=>"", "comissao_telemarketing"=>"", "plano_de_pagamento"=>"2", "cliente_id"=>"1", "entrega"=>"", "programacao"=>"", "valor"=>"", "desconto"=>"", "endereco_entrega"=>"", "area_id"=>"1", "desconto_complementar"=>"", "observacao"=>"", "operador_id"=>"", "operador_estorno_id"=>"", "comissao_vendedor"=>"", "previsao_entrega"=>"'2009-05-30'", "vendedor_id"=>"1", "registro"=>"'2009-05-30'", "empresa_id"=>"", "status"=>"'B'", "especial"=>"S", "acrescimo"=>"", "transportadora_id"=>"1", "telemarketing_id"=>"", "venda_externa"=>"S"}}
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPGError: ERRO: valor é muito longo para tipo character varying(1)
+: INSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(NULL, E'', E'''E''', '2009-05-30', NULL, NULL, '2009-05-19 14:03:53.272011', NULL, NULL, 1, NULL, NULL, NULL, NULL, '2009-05-19 14:03:53.272011', E'2', NULL, NULL, 1, NULL, NULL, E'', 1, NULL, NULL, E'', NULL, NULL, NULL, '2009-05-30', 1, '2009-05-30', NULL, E'''B''', 'f', NULL, 1, NULL, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2009-05-19 11:03:53) [POST]
+  Parameters: {"commit"=>"Salvar", "pedido"=>{"tipo"=>"'E'", "comprador"=>"", "data"=>"'2009-05-30'", "minuta_id"=>"", "estorno"=>"", "funcionario_id"=>"1", "autorizador_id"=>"", "preco_tabela"=>"", "comissao_telemarketing"=>"", "plano_de_pagamento"=>"2", "cliente_id"=>"1", "entrega"=>"", "programacao"=>"", "valor"=>"", "desconto"=>"", "endereco_entrega"=>"", "area_id"=>"1", "desconto_complementar"=>"", "observacao"=>"", "operador_id"=>"", "operador_estorno_id"=>"", "comissao_vendedor"=>"", "previsao_entrega"=>"'2009-05-30'", "vendedor_id"=>"1", "registro"=>"'2009-05-30'", "empresa_id"=>"", "status"=>"'B'", "especial"=>"S", "acrescimo"=>"", "transportadora_id"=>"1", "telemarketing_id"=>"", "venda_externa"=>"S"}}
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPedido Load (2.7ms)[0m   [0mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;36;1mCliente Load (1.7ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mFuncionario Load (1.7ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 11:04:28) [GET]
+  [4;36;1mCliente Load (1.8ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering pedidos/new
+Rendered pedidos/_form (50.2ms)
+Completed in 100ms (View: 67, DB: 11) | 200 OK [http://www.example.com/pedidos/new]
+REQUESTING PAGE: POST /pedidos with {"commit"=>"Salvar", "pedido"=>{"comprador"=>"", "tipo"=>"E", "estorno"=>"", "minuta_id"=>"", "data"=>"'2009-05-30'", "autorizador_id"=>"", "funcionario_id"=>"1", "plano_de_pagamento"=>"2", "comissao_telemarketing"=>"", "preco_tabela"=>"", "desconto_complementar"=>"", "area_id"=>"1", "endereco_entrega"=>"", "desconto"=>"", "valor"=>"", "programacao"=>"", "entrega"=>"", "cliente_id"=>"1", "observacao"=>"", "operador_id"=>"", "comissao_vendedor"=>"", "operador_estorno_id"=>"", "empresa_id"=>"", "registro"=>"'2009-05-30'", "vendedor_id"=>"1", "previsao_entrega"=>"'2009-05-30'", "especial"=>"S", "status"=>"B", "venda_externa"=>"S", "telemarketing_id"=>"", "transportadora_id"=>"1", "acrescimo"=>""}} and HTTP headers {"HTTP_REFERER"=>"pedidos/new"}
+
+
+Processing PedidosController#create (for 127.0.0.1 at 2009-05-19 11:04:29) [POST]
+  Parameters: {"commit"=>"Salvar", "pedido"=>{"tipo"=>"E", "comprador"=>"", "data"=>"'2009-05-30'", "minuta_id"=>"", "estorno"=>"", "funcionario_id"=>"1", "autorizador_id"=>"", "preco_tabela"=>"", "comissao_telemarketing"=>"", "plano_de_pagamento"=>"2", "cliente_id"=>"1", "entrega"=>"", "programacao"=>"", "valor"=>"", "desconto"=>"", "endereco_entrega"=>"", "area_id"=>"1", "desconto_complementar"=>"", "observacao"=>"", "operador_id"=>"", "operador_estorno_id"=>"", "comissao_vendedor"=>"", "previsao_entrega"=>"'2009-05-30'", "vendedor_id"=>"1", "registro"=>"'2009-05-30'", "empresa_id"=>"", "status"=>"B", "especial"=>"S", "acrescimo"=>"", "transportadora_id"=>"1", "telemarketing_id"=>"", "venda_externa"=>"S"}}
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mSQL (29.4ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(NULL, E'', E'E', '2009-05-30', NULL, NULL, '2009-05-19 14:04:29.270502', NULL, NULL, 1, NULL, NULL, NULL, NULL, '2009-05-19 14:04:29.270502', E'2', NULL, NULL, 1, NULL, NULL, E'', 1, NULL, NULL, E'', NULL, NULL, NULL, '2009-05-30', 1, '2009-05-30', NULL, E'B', 'f', NULL, 1, NULL, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pedidos/19
+Completed in 148ms (DB: 30) | 302 Found [http://www.example.com/pedidos]
+REQUESTING PAGE: GET http://www.example.com/pedidos/19 with {} and HTTP headers {"HTTP_REFERER"=>"/pedidos"}
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-19 11:04:29) [GET]
+  Parameters: {"id"=>"19"}
+  [4;35;1mPedido Load (1.3ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 19) [0m
+Rendering pedidos/show
+ERROR: compiling _run_erb_app47views47pedidos47show46html46erb RAISED compile error
+/home/luciano/tubform/tubform-rsig/app/views/pedidos/show.html.erb:104: syntax error, unexpected tIVAR, expecting kWHEN
+;  case @pedido.status ; @output_buffer.concat "\n  "
+                                       ^
+/home/luciano/tubform/tubform-rsig/app/views/pedidos/show.html.erb:105: syntax error, unexpected kWHEN, expecting kEND
+;   when 'A' : print 'Aberto' ; @output_buffer.concat "\n  "
+        ^
+/home/luciano/tubform/tubform-rsig/app/views/pedidos/show.html.erb:105: syntax error, unexpected ':', expecting kEND
+;   when 'A' : print 'Aberto' ; @output_buffer.concat "\n  "
+              ^
+/home/luciano/tubform/tubform-rsig/app/views/pedidos/show.html.erb:106: syntax error, unexpected kWHEN, expecting kEND
+;   when 'B' : print 'Bloqueado' ; @output_buffer.concat "\n  "
+        ^
+/home/luciano/tubform/tubform-rsig/app/views/pedidos/show.html.erb:106: syntax error, unexpected ':', expecting kEND
+;   when 'B' : print 'Bloqueado' ; @output_buffer.concat "\n  "
+              ^
+/home/luciano/tubform/tubform-rsig/app/views/pedidos/show.html.erb:149: syntax error, unexpected kENSURE, expecting $end
+Function body:           def _run_erb_app47views47pedidos47show46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<p>\n  <b>Tipo:</b>\n  "
+
+; @output_buffer.concat((h @pedido.tipo ).to_s); @output_buffer.concat "\n  "
+; @output_buffer.concat "\n</p>\n\n<p>\n  <b>Data:</b>\n  "
+
+
+
+
+; @output_buffer.concat((h @pedido.data ).to_s); @output_buffer.concat "\n</p>\n\n<p>\n  <b>Previsao entrega:</b>\n  "
+
+
+
+
+; @output_buffer.concat((h @pedido.previsao_entrega ).to_s); @output_buffer.concat "\n</p>\n\n<p>\n  <b>Entrega:</b>\n  "
+
+
+
+
+; @output_buffer.concat((h @pedido.entrega ).to_s); @output_buffer.concat "\n</p>\n\n<p>\n  <b>Programacao:</b>\n  "
+
+
+
+
+; @output_buffer.concat((h @pedido.programacao ).to_s); @output_buffer.concat "\n</p>\n\n<p>\n  <b>Cliente:</b>\n  "
+
+
+
+
+; @output_buffer.concat "\n</p>\n\n<p>\n  <b>Valor:</b>\n  "
+
+
+
+
+; @output_buffer.concat((h @pedido.valor ).to_s); @output_buffer.concat "\n</p>\n\n<p>\n  <b>Preco tabela:</b>\n  "
+
+
+
+
+; @output_buffer.concat((h @pedido.preco_tabela ).to_s); @output_buffer.concat "\n</p>\n\n<p>\n  <b>Acrescimo:</b>\n  "
+
+
+
+
+; @output_buffer.concat((h @pedido.acrescimo ).to_s); @output_buffer.concat "\n</p>\n\n<p>\n  <b>Desconto:</b>\n  "
+
+
+
+
+; @output_buffer.concat((h @pedido.desconto ).to_s); @output_buffer.concat "\n</p>\n\n<p>\n  <b>Transportadora:</b>\n  "
+
+
+
+
+; @output_buffer.concat "\n</p>\n\n<p>\n  <b>Comprador:</b>\n  "
+
+
+
+
+; @output_buffer.concat((h @pedido.comprador ).to_s); @output_buffer.concat "\n</p>\n\n<p>\n  <b>Observacao:</b>\n  "
+
+
+
+
+; @output_buffer.concat((h @pedido.observacao ).to_s); @output_buffer.concat "\n</p>\n\n<p>\n  <b>Endereco entrega:</b>\n  "
+
+
+
+
+; @output_buffer.concat((h @pedido.endereco_entrega ).to_s); @output_buffer.concat "\n</p>\n\n<p>\n  <b>Minuta:</b>\n  "
+
+
+
+
+; @output_buffer.concat((h @pedido.minuta_id ).to_s); @output_buffer.concat "\n</p>\n\n<p>\n  <b>Area:</b>\n  "
+
+
+
+
+; @output_buffer.concat "\n</p>\n\n<p>\n  <b>Operador:</b>\n  "
+
+
+
+
+; @output_buffer.concat "\n</p>\n\n<p>\n  <b>Telemarketing:</b>\n  "
+
+
+
+
+; @output_buffer.concat((h @pedido.telemarketing_id ).to_s); @output_buffer.concat "\n</p>\n\n<p>\n  <b>Pre\303\247o Especial?</b>\n  "
+
+
+
+
+; @output_buffer.concat((h @pedido.especial == true ? 'Sim' : 'Não' ).to_s); @output_buffer.concat "\n</p>\n\n<p>\n  <b>Empresa:</b>\n  "
+
+
+
+
+; @output_buffer.concat((h @pedido.empresa_id == 1 ? 'TUBFORM' : 'MADEFORM' ).to_s); @output_buffer.concat "\n</p>\n\n<p>\n  <b>Status:</b>\n  "
+
+
+
+
+;  case @pedido.status ; @output_buffer.concat "\n  "
+;   when 'A' : print 'Aberto' ; @output_buffer.concat "\n  "
+;   when 'B' : print 'Bloqueado' ; @output_buffer.concat "\n  "
+;  else ; @output_buffer.concat "\n  "
+;  'Não Definido' ; @output_buffer.concat "\n  "
+;  end ; @output_buffer.concat "\n</p>\n\n<p>\n  <b>Estorno:</b>\n  "
+
+
+
+
+; @output_buffer.concat((h @pedido.estorno ).to_s); @output_buffer.concat "\n</p>\n\n<p>\n  <b>Operador estorno:</b>\n  "
+
+
+
+
+; @output_buffer.concat((h @pedido.operador_estorno_id ).to_s); @output_buffer.concat "\n</p>\n\n<p>\n  <b>Comissao vendedor:</b>\n  "
+
+
+
+
+; @output_buffer.concat((h @pedido.comissao_vendedor ).to_s); @output_buffer.concat "\n</p>\n\n<p>\n  <b>Comissao telemarketing:</b>\n  "
+
+
+
+
+; @output_buffer.concat((h @pedido.comissao_telemarketing ).to_s); @output_buffer.concat "\n</p>\n\n<p>\n  <b>Venda externa:</b>\n  "
+
+
+
+
+; @output_buffer.concat((h @pedido.venda_externa == 'true' ? 'Sim' : 'Não' ).to_s); @output_buffer.concat "\n</p>\n\n<p>\n  <b>Desconto complementar:</b>\n  "
+
+
+
+
+; @output_buffer.concat((h @pedido.desconto_complementar ).to_s); @output_buffer.concat "\n</p>\n\n<p>\n  <b>Autorizador:</b>\n  "
+
+
+
+
+; @output_buffer.concat((h @pedido.autorizador_id ).to_s); @output_buffer.concat "\n</p>\n\n"
+
+
+; @output_buffer.concat(( link_to 'Alterar', edit_pedido_path(@pedido) ).to_s); @output_buffer.concat " |\n"
+; @output_buffer.concat(( link_to 'Voltar', pedidos_path ).to_s); @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /home/luciano/tubform/tubform-rsig/app/views/pedidos/show.html.erb:149:in `compile!'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_view/renderable.rb:61:in `compile'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_view/renderable.rb:28:in `render_without_template_tracking'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_view/test_case.rb:20:in `render'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_view/template.rb:194:in `render_template'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_view/base.rb:260:in `render'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/base.rb:1241:in `render_for_file'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/base.rb:943:in `render_without_benchmark'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+/home/luciano/tubform/tubform-rsig/vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/home/luciano/tubform/tubform-rsig/vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/mime_responds.rb:135:in `send'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/mime_responds.rb:135:in `custom'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/mime_responds.rb:179:in `call'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/mime_responds.rb:179:in `respond'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/mime_responds.rb:173:in `each'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/mime_responds.rb:173:in `respond'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/home/luciano/tubform/tubform-rsig/app/controllers/pedidos_controller.rb:25:in `show'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/base.rb:1322:in `send'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/filters.rb:617:in `call_filters'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/home/luciano/tubform/tubform-rsig/vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/home/luciano/tubform/tubform-rsig/vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/flash.rb:141:in `perform_action'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/base.rb:523:in `send'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/base.rb:523:in `process_without_filters'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/filters.rb:606:in `process'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/base.rb:391:in `process'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/base.rb:386:in `call'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/routing/route_set.rb:433:in `call'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:111:in `_call'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:82:in `initialize'
+/home/luciano/tubform/tubform-rsig/vendor/rails/activerecord/lib/active_record/query_cache.rb:29:in `call'
+/home/luciano/tubform/tubform-rsig/vendor/rails/activerecord/lib/active_record/query_cache.rb:29:in `call'
+/home/luciano/tubform/tubform-rsig/vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/home/luciano/tubform/tubform-rsig/vendor/rails/activerecord/lib/active_record/query_cache.rb:9:in `cache'
+/home/luciano/tubform/tubform-rsig/vendor/rails/activerecord/lib/active_record/query_cache.rb:28:in `call'
+/home/luciano/tubform/tubform-rsig/vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/params_parser.rb:15:in `call'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/rewindable_input.rb:25:in `call'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/session/cookie_store.rb:93:in `call'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/failsafe.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:106:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lint.rb:47:in `_call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lint.rb:35:in `call'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/integration.rb:320:in `process'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/integration.rb:196:in `get'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/integration.rb:498:in `__send__'
+/home/luciano/tubform/tubform-rsig/vendor/rails/actionpack/lib/action_controller/integration.rb:498:in `get'
+/usr/lib/ruby/gems/1.8/gems/webrat-0.4.4/lib/webrat/rails.rb:70:in `send'
+/usr/lib/ruby/gems/1.8/gems/webrat-0.4.4/lib/webrat/rails.rb:70:in `do_request'
+/usr/lib/ruby/gems/1.8/gems/webrat-0.4.4/lib/webrat/rails.rb:35:in `get'
+/usr/lib/ruby/gems/1.8/gems/webrat-0.4.4/lib/webrat/core/session.rb:106:in `send'
+/usr/lib/ruby/gems/1.8/gems/webrat-0.4.4/lib/webrat/core/session.rb:106:in `request_page'
+/usr/lib/ruby/gems/1.8/gems/webrat-0.4.4/lib/webrat/core/session.rb:120:in `request_page'
+/usr/lib/ruby/gems/1.8/gems/webrat-0.4.4/lib/webrat/core/elements/form.rb:20:in `submit'
+/usr/lib/ruby/gems/1.8/gems/webrat-0.4.4/lib/webrat/core/elements/field.rb:203:in `click'
+/usr/lib/ruby/gems/1.8/gems/webrat-0.4.4/lib/webrat/core/scope.rb:275:in `click_button'
+(__FORWARDABLE__):3:in `__send__'
+(__FORWARDABLE__):3:in `click_button'
+(eval):2:in `click_button'
+./features/step_definitions/vendas_compartilhados_steps.rb:19
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/core_ext/instance_exec.rb:20:in `instance_exec'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/core_ext/instance_exec.rb:20:in `cucumber_instance_exec'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/core_ext/instance_exec.rb:38:in `cucumber_run_with_backtrace_filtering'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/core_ext/instance_exec.rb:10:in `cucumber_instance_exec'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/step_definition.rb:102:in `invoke'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/step_match.rb:13:in `invoke'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/ast/step_invocation.rb:32:in `invoke'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/ast/step_invocation.rb:22:in `accept'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/ast/visitor.rb:74:in `visit_step'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/formatter/pretty.rb:124:in `visit_step'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/ast/step_collection.rb:14:in `accept'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/ast/step_collection.rb:13:in `each'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/ast/step_collection.rb:13:in `accept'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/ast/visitor.rb:70:in `visit_steps'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/ast/scenario.rb:29:in `accept'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/step_mother.rb:236:in `before_and_after'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/ast/scenario.rb:28:in `accept'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/ast/visitor.rb:45:in `visit_feature_element'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/formatter/pretty.rb:79:in `visit_feature_element'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/ast/feature.rb:23:in `accept'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/ast/feature.rb:22:in `each'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/ast/feature.rb:22:in `accept'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/ast/visitor.rb:23:in `visit_feature'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/formatter/pretty.rb:41:in `visit_feature'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/ast/features.rb:21:in `accept'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/ast/features.rb:20:in `each'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/ast/features.rb:20:in `accept'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/ast/visitor.rb:19:in `visit_features'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/formatter/pretty.rb:26:in `visit_features'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/broadcaster.rb:9:in `__send__'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/broadcaster.rb:9:in `method_missing'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/broadcaster.rb:8:in `map'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/broadcaster.rb:8:in `method_missing'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/cli/main.rb:41:in `execute!'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/../lib/cucumber/cli/main.rb:20:in `execute'
+/usr/lib/ruby/gems/1.8/gems/cucumber-0.3.2/bin/cucumber:6
+/usr/bin/cucumber:19:in `load'
+/usr/bin/cucumber:19
+
+
+Processing ApplicationController#show (for 127.0.0.1 at 2009-05-19 11:04:29) [GET]
+  Parameters: {"id"=>"19"}
+  [4;36;1mSQL (11.3ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPedido Load (2.7ms)[0m   [0mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;36;1mCliente Load (1.8ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mFuncionario Load (1.8ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (7.8ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (10.8ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 11:06:18) [GET]
+  [4;36;1mCliente Load (0.9ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering pedidos/new
+Rendered pedidos/_form (63.6ms)
+Completed in 100ms (View: 67, DB: 27) | 200 OK [http://www.example.com/pedidos/new]
+REQUESTING PAGE: POST /pedidos with {"commit"=>"Salvar", "pedido"=>{"comprador"=>"", "tipo"=>"E", "estorno"=>"", "minuta_id"=>"", "data"=>"'2009-05-30'", "autorizador_id"=>"", "funcionario_id"=>"1", "plano_de_pagamento"=>"2", "comissao_telemarketing"=>"", "preco_tabela"=>"", "desconto_complementar"=>"", "area_id"=>"1", "endereco_entrega"=>"", "desconto"=>"", "valor"=>"", "programacao"=>"", "entrega"=>"", "cliente_id"=>"1", "observacao"=>"", "operador_id"=>"", "comissao_vendedor"=>"", "operador_estorno_id"=>"", "empresa_id"=>"", "registro"=>"'2009-05-30'", "vendedor_id"=>"1", "previsao_entrega"=>"'2009-05-30'", "especial"=>"S", "status"=>"B", "venda_externa"=>"S", "telemarketing_id"=>"", "transportadora_id"=>"1", "acrescimo"=>""}} and HTTP headers {"HTTP_REFERER"=>"pedidos/new"}
+
+
+Processing PedidosController#create (for 127.0.0.1 at 2009-05-19 11:06:18) [POST]
+  Parameters: {"commit"=>"Salvar", "pedido"=>{"tipo"=>"E", "comprador"=>"", "data"=>"'2009-05-30'", "minuta_id"=>"", "estorno"=>"", "funcionario_id"=>"1", "autorizador_id"=>"", "preco_tabela"=>"", "comissao_telemarketing"=>"", "plano_de_pagamento"=>"2", "cliente_id"=>"1", "entrega"=>"", "programacao"=>"", "valor"=>"", "desconto"=>"", "endereco_entrega"=>"", "area_id"=>"1", "desconto_complementar"=>"", "observacao"=>"", "operador_id"=>"", "operador_estorno_id"=>"", "comissao_vendedor"=>"", "previsao_entrega"=>"'2009-05-30'", "vendedor_id"=>"1", "registro"=>"'2009-05-30'", "empresa_id"=>"", "status"=>"B", "especial"=>"S", "acrescimo"=>"", "transportadora_id"=>"1", "telemarketing_id"=>"", "venda_externa"=>"S"}}
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(NULL, E'', E'E', '2009-05-30', NULL, NULL, '2009-05-19 14:06:18.566242', NULL, NULL, 1, NULL, NULL, NULL, NULL, '2009-05-19 14:06:18.566242', E'2', NULL, NULL, 1, NULL, NULL, E'', 1, NULL, NULL, E'', NULL, NULL, NULL, '2009-05-30', 1, '2009-05-30', NULL, E'B', 'f', NULL, 1, NULL, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pedidos/20
+Completed in 84ms (DB: 3) | 302 Found [http://www.example.com/pedidos]
+REQUESTING PAGE: GET http://www.example.com/pedidos/20 with {} and HTTP headers {"HTTP_REFERER"=>"/pedidos"}
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-19 11:06:18) [GET]
+  Parameters: {"id"=>"20"}
+  [4;35;1mPedido Load (23.7ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 20) [0m
+Rendering pedidos/show
+Completed in 35ms (View: 8, DB: 24) | 200 OK [http://www.example.com/pedidos/20]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPedido Load (2.7ms)[0m   [0mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;36;1mCliente Load (1.7ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mFuncionario Load (1.7ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 11:07:01) [GET]
+  [4;36;1mCliente Load (1.0ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering pedidos/new
+Rendered pedidos/_form (49.3ms)
+Completed in 94ms (View: 53, DB: 10) | 200 OK [http://www.example.com/pedidos/new]
+REQUESTING PAGE: POST /pedidos with {"commit"=>"Salvar", "pedido"=>{"comprador"=>"", "tipo"=>"E", "estorno"=>"", "minuta_id"=>"", "data"=>"'2009-05-30'", "autorizador_id"=>"", "funcionario_id"=>"1", "plano_de_pagamento"=>"2", "comissao_telemarketing"=>"", "preco_tabela"=>"", "desconto_complementar"=>"", "area_id"=>"1", "endereco_entrega"=>"", "desconto"=>"", "valor"=>"", "programacao"=>"", "entrega"=>"", "cliente_id"=>"1", "observacao"=>"", "operador_id"=>"", "comissao_vendedor"=>"", "operador_estorno_id"=>"", "empresa_id"=>"", "registro"=>"'2009-05-30'", "vendedor_id"=>"1", "previsao_entrega"=>"'2009-05-30'", "especial"=>"S", "status"=>"B", "venda_externa"=>"S", "telemarketing_id"=>"", "transportadora_id"=>"1", "acrescimo"=>""}} and HTTP headers {"HTTP_REFERER"=>"pedidos/new"}
+
+
+Processing PedidosController#create (for 127.0.0.1 at 2009-05-19 11:07:02) [POST]
+  Parameters: {"commit"=>"Salvar", "pedido"=>{"tipo"=>"E", "comprador"=>"", "data"=>"'2009-05-30'", "minuta_id"=>"", "estorno"=>"", "funcionario_id"=>"1", "autorizador_id"=>"", "preco_tabela"=>"", "comissao_telemarketing"=>"", "plano_de_pagamento"=>"2", "cliente_id"=>"1", "entrega"=>"", "programacao"=>"", "valor"=>"", "desconto"=>"", "endereco_entrega"=>"", "area_id"=>"1", "desconto_complementar"=>"", "observacao"=>"", "operador_id"=>"", "operador_estorno_id"=>"", "comissao_vendedor"=>"", "previsao_entrega"=>"'2009-05-30'", "vendedor_id"=>"1", "registro"=>"'2009-05-30'", "empresa_id"=>"", "status"=>"B", "especial"=>"S", "acrescimo"=>"", "transportadora_id"=>"1", "telemarketing_id"=>"", "venda_externa"=>"S"}}
+  [4;36;1mSQL (16.3ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(NULL, E'', E'E', '2009-05-30', NULL, NULL, '2009-05-19 14:07:02.315671', NULL, NULL, 1, NULL, NULL, NULL, NULL, '2009-05-19 14:07:02.315671', E'2', NULL, NULL, 1, NULL, NULL, E'', 1, NULL, NULL, E'', NULL, NULL, NULL, '2009-05-30', 1, '2009-05-30', NULL, E'B', 'f', NULL, 1, NULL, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pedidos/21
+Completed in 100ms (DB: 18) | 302 Found [http://www.example.com/pedidos]
+REQUESTING PAGE: GET http://www.example.com/pedidos/21 with {} and HTTP headers {"HTTP_REFERER"=>"/pedidos"}
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-19 11:07:02) [GET]
+  Parameters: {"id"=>"21"}
+  [4;35;1mPedido Load (1.3ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 21) [0m
+Rendering pedidos/show
+Completed in 27ms (View: 8, DB: 1) | 200 OK [http://www.example.com/pedidos/21]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPedido Load (2.8ms)[0m   [0mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;36;1mCliente Load (1.7ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mFuncionario Load (1.7ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 11:07:46) [GET]
+  [4;36;1mCliente Load (0.9ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering pedidos/new
+Rendered pedidos/_form (63.7ms)
+Completed in 100ms (View: 67, DB: 10) | 200 OK [http://www.example.com/pedidos/new]
+REQUESTING PAGE: POST /pedidos with {"commit"=>"Salvar", "pedido"=>{"comprador"=>"", "tipo"=>"'E'", "estorno"=>"", "minuta_id"=>"", "data"=>"'2009-05-30'", "autorizador_id"=>"", "funcionario_id"=>"1", "plano_de_pagamento"=>"2", "comissao_telemarketing"=>"", "preco_tabela"=>"", "desconto_complementar"=>"", "area_id"=>"1", "endereco_entrega"=>"", "desconto"=>"", "valor"=>"", "programacao"=>"", "entrega"=>"", "cliente_id"=>"1", "observacao"=>"", "operador_id"=>"", "comissao_vendedor"=>"", "operador_estorno_id"=>"", "empresa_id"=>"", "registro"=>"'2009-05-30'", "vendedor_id"=>"1", "previsao_entrega"=>"'2009-05-30'", "especial"=>"S", "status"=>"B", "venda_externa"=>"S", "telemarketing_id"=>"", "transportadora_id"=>"1", "acrescimo"=>""}} and HTTP headers {"HTTP_REFERER"=>"pedidos/new"}
+
+
+Processing PedidosController#create (for 127.0.0.1 at 2009-05-19 11:07:46) [POST]
+  Parameters: {"commit"=>"Salvar", "pedido"=>{"tipo"=>"'E'", "comprador"=>"", "data"=>"'2009-05-30'", "minuta_id"=>"", "estorno"=>"", "funcionario_id"=>"1", "autorizador_id"=>"", "preco_tabela"=>"", "comissao_telemarketing"=>"", "plano_de_pagamento"=>"2", "cliente_id"=>"1", "entrega"=>"", "programacao"=>"", "valor"=>"", "desconto"=>"", "endereco_entrega"=>"", "area_id"=>"1", "desconto_complementar"=>"", "observacao"=>"", "operador_id"=>"", "operador_estorno_id"=>"", "comissao_vendedor"=>"", "previsao_entrega"=>"'2009-05-30'", "vendedor_id"=>"1", "registro"=>"'2009-05-30'", "empresa_id"=>"", "status"=>"B", "especial"=>"S", "acrescimo"=>"", "transportadora_id"=>"1", "telemarketing_id"=>"", "venda_externa"=>"S"}}
+  [4;36;1mSQL (12.8ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPGError: ERRO: valor é muito longo para tipo character varying(1)
+: INSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(NULL, E'', E'''E''', '2009-05-30', NULL, NULL, '2009-05-19 14:07:46.773883', NULL, NULL, 1, NULL, NULL, NULL, NULL, '2009-05-19 14:07:46.773883', E'2', NULL, NULL, 1, NULL, NULL, E'', 1, NULL, NULL, E'', NULL, NULL, NULL, '2009-05-30', 1, '2009-05-30', NULL, E'B', 'f', NULL, 1, NULL, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2009-05-19 11:07:46) [POST]
+  Parameters: {"commit"=>"Salvar", "pedido"=>{"tipo"=>"'E'", "comprador"=>"", "data"=>"'2009-05-30'", "minuta_id"=>"", "estorno"=>"", "funcionario_id"=>"1", "autorizador_id"=>"", "preco_tabela"=>"", "comissao_telemarketing"=>"", "plano_de_pagamento"=>"2", "cliente_id"=>"1", "entrega"=>"", "programacao"=>"", "valor"=>"", "desconto"=>"", "endereco_entrega"=>"", "area_id"=>"1", "desconto_complementar"=>"", "observacao"=>"", "operador_id"=>"", "operador_estorno_id"=>"", "comissao_vendedor"=>"", "previsao_entrega"=>"'2009-05-30'", "vendedor_id"=>"1", "registro"=>"'2009-05-30'", "empresa_id"=>"", "status"=>"B", "especial"=>"S", "acrescimo"=>"", "transportadora_id"=>"1", "telemarketing_id"=>"", "venda_externa"=>"S"}}
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPedido Load (2.7ms)[0m   [0mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;36;1mCliente Load (1.7ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mFuncionario Load (1.7ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (10.7ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 11:13:39) [GET]
+  [4;36;1mCliente Load (1.0ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering pedidos/new
+Rendered pedidos/_form (59.1ms)
+Completed in 108ms (View: 62, DB: 20) | 200 OK [http://www.example.com/pedidos/new]
+REQUESTING PAGE: POST /pedidos with {"commit"=>"Salvar", "pedido"=>{"comprador"=>"", "tipo"=>"E", "estorno"=>"", "minuta_id"=>"", "data"=>"'2009-05-30'", "autorizador_id"=>"", "funcionario_id"=>"1", "plano_de_pagamento"=>"2", "comissao_telemarketing"=>"", "preco_tabela"=>"", "desconto_complementar"=>"", "area_id"=>"1", "endereco_entrega"=>"", "desconto"=>"", "valor"=>"", "programacao"=>"", "entrega"=>"", "cliente_id"=>"1", "observacao"=>"", "operador_id"=>"", "comissao_vendedor"=>"", "operador_estorno_id"=>"", "empresa_id"=>"", "registro"=>"'2009-05-30'", "vendedor_id"=>"1", "previsao_entrega"=>"'2009-05-30'", "especial"=>"S", "status"=>"B", "venda_externa"=>"S", "telemarketing_id"=>"", "transportadora_id"=>"1", "acrescimo"=>""}} and HTTP headers {"HTTP_REFERER"=>"pedidos/new"}
+
+
+Processing PedidosController#create (for 127.0.0.1 at 2009-05-19 11:13:39) [POST]
+  Parameters: {"commit"=>"Salvar", "pedido"=>{"tipo"=>"E", "comprador"=>"", "data"=>"'2009-05-30'", "minuta_id"=>"", "estorno"=>"", "funcionario_id"=>"1", "autorizador_id"=>"", "preco_tabela"=>"", "comissao_telemarketing"=>"", "plano_de_pagamento"=>"2", "cliente_id"=>"1", "entrega"=>"", "programacao"=>"", "valor"=>"", "desconto"=>"", "endereco_entrega"=>"", "area_id"=>"1", "desconto_complementar"=>"", "observacao"=>"", "operador_id"=>"", "operador_estorno_id"=>"", "comissao_vendedor"=>"", "previsao_entrega"=>"'2009-05-30'", "vendedor_id"=>"1", "registro"=>"'2009-05-30'", "empresa_id"=>"", "status"=>"B", "especial"=>"S", "acrescimo"=>"", "transportadora_id"=>"1", "telemarketing_id"=>"", "venda_externa"=>"S"}}
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(NULL, E'', E'E', '2009-05-30', NULL, NULL, '2009-05-19 14:13:39.897130', NULL, NULL, 1, NULL, NULL, NULL, NULL, '2009-05-19 14:13:39.897130', E'2', NULL, NULL, 1, NULL, NULL, E'', 1, NULL, NULL, E'', NULL, NULL, NULL, '2009-05-30', 1, '2009-05-30', NULL, E'B', 'f', NULL, 1, NULL, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pedidos/24
+Completed in 88ms (DB: 3) | 302 Found [http://www.example.com/pedidos]
+REQUESTING PAGE: GET http://www.example.com/pedidos/24 with {} and HTTP headers {"HTTP_REFERER"=>"/pedidos"}
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-19 11:13:39) [GET]
+  Parameters: {"id"=>"24"}
+  [4;35;1mPedido Load (21.6ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 24) [0m
+Rendering pedidos/show
+Completed in 33ms (View: 8, DB: 22) | 200 OK [http://www.example.com/pedidos/24]
+  [4;36;1mSQL (13.6ms)[0m   [0;1mROLLBACK[0m
