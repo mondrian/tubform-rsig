@@ -27,7 +27,7 @@ Funcionalidade: Abrir de Venda
     Quando eu salvar o registro
     Então preciso receber a mensagem "Pedido Atualizado com Sucesso"
 
-  Cenário: Listar Pedidos
+  Cenário: Listar Pedidos Cadastrados
     Dado que existem 3 pedidos
     Quando eu estiver na listagem de pedidos
     Então preciso ver 3 pedidos
