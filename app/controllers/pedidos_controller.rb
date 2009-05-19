@@ -82,9 +82,6 @@ class PedidosController < ApplicationController
       format.xml  { head :ok }
     end
   end
-<<<<<<< HEAD:app/controllers/pedidos_controller.rb
-end
-=======
 
   def aprovar
     @pedido = Pedido.find(params[:id])
@@ -102,5 +99,3 @@ end
     end
   end
 end
-
->>>>>>> d302db808439335dcbbd11a255962ad94b9a2277:app/controllers/pedidos_controller.rb
