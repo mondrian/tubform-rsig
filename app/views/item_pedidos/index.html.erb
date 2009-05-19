@@ -1,0 +1,19 @@
+<h1>Lista de Item Pedidos</h1>
+
+<table>
+  <tr>
+    <th>Quantidade</th>
+  </tr>
+<% @item_pedidos.each do |itempedido| %>
+  <tr>
+    <td><%=h itempedido.quantidade %></td>
+    <td><%= link_to 'Exibir', itempedido %></td>
+    <td><%= link_to 'Editar', edit_item_pedido_path(itempedido) %></td>
+    <td><%= link_to 'Deletar', itempedido, :confirm => 'Você tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Novo Item Pedido', new_item_pedido_path %>

@@ -1,0 +1,13 @@
+<% form_for(@item_pedido) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :quantidade, 'Quantidade' %><br />
+    <%= f.text_field :quantidade %>
+  </p>
+
+  <p>
+    <%= f.submit @item_pedido.new_record? ? 'Criar' : 'Atualizar' %>
+  </p>
+
+<% end %>
