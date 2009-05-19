@@ -44,4 +44,3 @@ Rails::Initializer.run do |config|
              :source => "http://gems.github.com"
 
 end
-
