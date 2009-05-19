@@ -40,7 +40,9 @@ class ItemPedidosController < ApplicationController
   # POST /item_pedidos
   # POST /item_pedidos.xml
   def create
+    @pedido = Pedido.find(params[:id])
     @item_pedido = ItemPedido.new(params[:item_pedido])
+    @item_pedido.pedido = @pedido
 
     respond_to do |format|
       if @item_pedido.save
