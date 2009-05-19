@@ -1,0 +1,13 @@
+<% form_for(@produto) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :descricao, 'Descrição' %><br />
+    <%= f.text_field :descricao %>
+  </p>
+
+  <p>
+    <%= f.submit @produto.new_record? ? 'Criar' : 'Atualizar' %>
+  </p>
+
+<% end %>
