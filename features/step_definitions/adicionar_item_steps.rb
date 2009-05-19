@@ -1,17 +1,13 @@
-Before do
-  @pedido = Pedido.find(:first)
-end
-
-Dado /^que estou em um determinado pedido$/ do
-  @pedido
+Dado /^que existe um pedido$/ do
+  @pedido = Factory.build(:pedido)
 end
 
 Quando /^eu requisitar um novo item$/ do
   @item = ItemPedido.new
 end
 
-Quando /^definir produto com o id 1$/ do
-  @produto = Produto.find(1)
+Quando /^definir produto$/ do
+  @produto = Factory.build(:produto)
   @item.produto = @produto
   @item.valor_tabela = @item.produto.valor_normal
 end

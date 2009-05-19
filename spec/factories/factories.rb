@@ -76,7 +76,7 @@ Factory.define :produto do |p|
   p.cor_id 1
   p.valor_especial 9.99
   p.valor_normal 9.99
-  p.class_id 1
+  p.classe_id 1
   p.grupo_id 1
   p.status false
   p.situacao_tributaria 1
