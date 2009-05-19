@@ -1,8 +1,11 @@
 Dado /^que estou no formulário de cadastro de (.*)$/ do |entidade|
   visit "#{entidade.pluralize}/new"
+  @entidade_principal = entidade
 end
 
-Dado /^defino (.*) com o valor "([^\"]*)"$/ do |atributo,valor|
+Dado /^defino (.*) com o valor (.*)$/ do |atributo,valor|
+  atributo = @entidade_principal + '[' + atributo + ']'
+  #= atributo.gsub(/\s/, '[')
   fill_in atributo, :with => valor
 end
 
@@ -62,4 +65,3 @@ Então /^preciso ver (.*) (.*)$/ do |quantidade,entidades|
   registros.count.should == quantidade.to_i
   registros.each {|r| have_tag("td", :content => "#{r.id}")}
 end
-

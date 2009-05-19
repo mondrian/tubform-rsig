@@ -1,7 +1,7 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  descricao: MyString
+  descricao: 'IGUATU'
 
 two:
-  descricao: MyString
+  descricao: 'JUAZEIRO DO NORTE'

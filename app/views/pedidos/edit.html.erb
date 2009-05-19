@@ -3,10 +3,9 @@
 <% form_for(@pedido) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
+<%= render :partial => "form", :locals => { :f => f} %>
+
 <% end %>
 
-<%= link_to 'Show', @pedido %> |
-<%= link_to 'Back', pedidos_path %>
+<%= link_to 'Exibir', @pedido %> |
+<%= link_to 'Retornar', pedidos_path %>

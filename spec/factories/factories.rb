@@ -64,4 +64,3 @@ Factory.define :pedido do |p|
   p.tipo true
   p.funcionario_id 1
 end
-

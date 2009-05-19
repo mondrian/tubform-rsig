@@ -1,15 +1,4 @@
-# This file is auto-generated from the current state of the database. Instead of editing this file, 
-# please use the migrations feature of Active Record to incrementally modify your database, and
-# then regenerate this schema definition.
-#
-# Note that this schema.rb definition is the authoritative source for your database schema. If you need
-# to create the application database on another system, you should be using db:schema:load, not running
-# all the migrations from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
-#
-# It's strongly recommended to check this file into your version control system.
-
-ActiveRecord::Schema.define(:version => 20090514201737) do
+ActiveRecord::Schema.define(:version => 20090517121112) do
 
   create_table "areas", :force => true do |t|
     t.string   "descricao"
@@ -224,10 +213,10 @@ ActiveRecord::Schema.define(:version => 20090514201737) do
     t.date     "entrega"
     t.date     "programacao"
     t.integer  "cliente_id"
-    t.decimal  "valor",                   :precision => 8, :scale => 2
-    t.decimal  "preco_tabela",            :precision => 8, :scale => 2
-    t.decimal  "acrescimo",               :precision => 3, :scale => 2
-    t.decimal  "desconto",                :precision => 3, :scale => 2
+    t.decimal  "valor",                                :precision => 8, :scale => 2
+    t.decimal  "preco_tabela",                         :precision => 8, :scale => 2
+    t.decimal  "acrescimo",                            :precision => 3, :scale => 2
+    t.decimal  "desconto",                             :precision => 3, :scale => 2
     t.integer  "transportadora_id"
     t.string   "nome_comprador"
     t.text     "observacao"
@@ -241,14 +230,13 @@ ActiveRecord::Schema.define(:version => 20090514201737) do
     t.string   "status"
     t.date     "estorno"
     t.integer  "funcionario_estorno_id"
-    t.decimal  "comissao_vendedor",       :precision => 3, :scale => 2
-    t.decimal  "comissao_telemarketing",  :precision => 3, :scale => 2
+    t.decimal  "comissao_vendedor",                    :precision => 3, :scale => 2
+    t.decimal  "comissao_telemarketing",               :precision => 3, :scale => 2
     t.boolean  "venda_externa"
-    t.decimal  "desconto_complementar",   :precision => 3, :scale => 2
+    t.decimal  "desconto_complementar",                :precision => 3, :scale => 2
     t.integer  "autorizador_desconto_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "tipo"
     t.string   "comprador"
     t.boolean  "especial"
     t.date     "registro"
@@ -257,6 +245,7 @@ ActiveRecord::Schema.define(:version => 20090514201737) do
     t.integer  "autorizador_id"
     t.integer  "funcionario_id"
     t.string   "plano_de_pagamento"
+    t.string   "tipo",                    :limit => 1
   end
 
   create_table "planosdepagamento", :force => true do |t|
@@ -312,8 +301,8 @@ ActiveRecord::Schema.define(:version => 20090514201737) do
   end
 
   create_table "ufs", :force => true do |t|
-    t.string   "uf"
-    t.string   "descricao"
+    t.string   "uf",         :limit => 2
+    t.string   "descricao",  :limit => 30
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -3,48 +3,64 @@
 
   <p>
     <%= f.label :tipo %><br />
-    <%= f.check_box :tipo %>
-  </p>
-  <p>
-    <%= f.label :data %><br />
-    <%= f.date_select :data %>
-  </p>
-  <p>
-    <%= f.label :previsao_entrega %><br />
-    <%= f.date_select :previsao_entrega %>
-  </p>
-  <p>
-    <%= f.label :entrega %><br />
-    <%= f.date_select :entrega %>
-  </p>
-  <p>
-    <%= f.label :programacao %><br />
-    <%= f.date_select :programacao %>
+    <%= f.text_field :tipo  %>
+    <%#= f.select :tipo,[['Interno','I'],['Externo','E']] %>
   </p>
   <p>
     <%= f.label :cliente_id %><br />
-    <%= f.hidden_field :cliente_id %>
-    <%= text_field_tag 'nome_cliente', @pedido.cliente.razao_social, :disabled => true %>
+    <%= f.text_field :cliente_id, :size => 5 %>
+    <%#= text_field_tag 'nome_cliente', @pedido.cliente.razao_social, :disabled => true %>
+  </p>
+  <p>
+    <%= f.label :data_pedido %><br />
+    <%= f.text_field :data, :onkeypress => 'mascara(this, data)', :size => 10 %>
+  </p>
+  <p>
+    <%= f.label :previsao_entrega %><br />
+    <%= f.text_field :previsao_entrega, :onkeypress => 'mascara(this, data)', :size => 10  %>
+  </p>
+  <p>
+    <%= f.label :entrega %><br />
+    <%= f.text_field :entrega, :onkeypress => 'mascara(this, data)', :size => 10  %>
+  </p>
+  <p>
+    <%= f.label :programacao %><br />
+    <%= f.text_field :programacao, :onkeypress => 'mascara(this, data)', :size => 10  %>
+  </p>
+  <p>
+    <%= f.label :plano_de_pagamento %><br />
+    <%= f.select :plano_de_pagamento,[['A Vista','0'],['Entrada + 30 Dias','1'],['Entrada + 30 + 60 Dias','2']] %>
+  </p>
+  <p>
+    <%= f.label :funcionario_id %><br />
+    <%= f.text_field :funcionario_id, :size => 5 %>
+    <%#= text_field_tag 'nome', @pedido.funcionario.nome, :disabled => true %>
+  </p>
+  <p>
+    <%= f.label :vendedor_id %><br />
+    <%= f.text_field :vendedor_id, :size => 5 %>
+    <%#= text_field_tag 'nome', @pedido.funcionario.nome, :disabled => true %>
   </p>
   <p>
     <%= f.label :valor %><br />
-    <%= f.text_field :valor %>
+    <%= f.text_field :valor, :size => 10 %>
   </p>
   <p>
     <%= f.label :preco_tabela %><br />
-    <%= f.text_field :preco_tabela %>
+    <%= f.text_field :preco_tabela, :size => 10 %>
   </p>
   <p>
     <%= f.label :acrescimo %><br />
-    <%= f.text_field :acrescimo %>
+    <%= f.text_field :acrescimo, :size => 5 %>
   </p>
   <p>
     <%= f.label :desconto %><br />
-    <%= f.text_field :desconto %>
+    <%= f.text_field :desconto, :size => 5 %>
   </p>
   <p>
     <%= f.label :transportadora_id %><br />
-    <%= f.text_field :transportadora_id %>
+    <%= f.text_field :transportadora_id, :size => 5 %>
+    <%#= text_field_tag 'razao_social', @pedido.transportadora.razao_social, :disabled => true %>
   </p>
   <p>
     <%= f.label :comprador %><br />
@@ -56,7 +72,8 @@
   </p>
   <p>
     <%= f.label :Operador %><br />
-    <%= f.text_field :operador_id %>
+    <%= f.text_field :operador_id, :size => 5 %>
+    <%#= text_field_tag 'nome', @pedido.funcionario.nome, :disabled => true %>
   </p>
   <p>
     <%= f.label :endereco_entrega %><br />
@@ -68,23 +85,21 @@
   </p>
   <p>
     <%= f.label :area_id %><br />
-    <%= f.text_field :area_id %>
-  </p>
-  <p>
-    <%= f.label :operador_id %><br />
-    <%= f.text_field :operador_id %>
+    <%= f.text_field :area_id, :size => 5 %>
+    <%#= text_field_tag 'descricao', @pedido.area.descricao, :disabled => true %>
   </p>
   <p>
     <%= f.label :telemarketing_id %><br />
-    <%= f.text_field :telemarketing_id %>
+    <%= f.text_field :telemarketing_id, :size => 5 %>
+    <%#= text_field_tag 'nome', @pedido.funcionario.nome, :disabled => true %>
   </p>
   <p>
     <%= f.label :especial %><br />
-    <%= f.check_box :especial %>
+    <%= f.select :especial,[['Sim','S'],['Não','N']] %>
   </p>
   <p>
     <%= f.label :registro %><br />
-    <%= f.date_select :registro %>
+    <%= f.text_field :registro, :onkeypress => 'mascara(this, data)', :size => 10 %>
   </p>
   <p>
     <%= f.label :empresa_id %><br />
@@ -96,11 +111,12 @@
   </p>
   <p>
     <%= f.label :estorno %><br />
-    <%= f.date_select :estorno %>
+    <%= f.text_field :estorno, :onkeypress => 'mascara(this, data)', :size => 10 %>
   </p>
   <p>
     <%= f.label :operador_estorno_id %><br />
-    <%= f.text_field :operador_estorno_id %>
+    <%= f.text_field :operador_estorno_id, :size => 5 %>
+    <%#= text_field_tag 'nome', @pedido.funcionario.nome , :disabled => true %>
   </p>
   <p>
     <%= f.label :comissao_vendedor %><br />
@@ -112,7 +128,7 @@
   </p>
   <p>
     <%= f.label :venda_externa %><br />
-    <%= f.check_box :venda_externa %>
+    <%= f.select :venda_externa,[['Sim','S'],['Não','N']] %>
   </p>
   <p>
     <%= f.label :desconto_complementar %><br />
@@ -123,7 +139,6 @@
     <%= f.text_field :autorizador_id %>
   </p>
   <p>
-    <%= f.submit 'Create' %>
+    <%= f.submit 'Salvar' %>
   </p>
 <% end %>
-

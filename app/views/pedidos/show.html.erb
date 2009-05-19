@@ -1,3 +1,148 @@
+<p>
+  <b>Tipo:</b>
+  <%=h @pedido.tipo %>
+  <%#== 'I' ? 'Interno' : 'Externo' %>
+</p>
 
-<%= link_to 'Edit', edit_pedido_path(@pedido) %> |
-<%= link_to 'Back', pedidos_path %>
+<p>
+  <b>Data:</b>
+  <%=h @pedido.data %>
+</p>
+
+<p>
+  <b>Previsao entrega:</b>
+  <%=h @pedido.previsao_entrega %>
+</p>
+
+<p>
+  <b>Entrega:</b>
+  <%=h @pedido.entrega %>
+</p>
+
+<p>
+  <b>Programacao:</b>
+  <%=h @pedido.programacao %>
+</p>
+
+<p>
+  <b>Cliente:</b>
+  <%#=h @pedido.cliente.razao_social %>
+</p>
+
+<p>
+  <b>Valor:</b>
+  <%=h @pedido.valor %>
+</p>
+
+<p>
+  <b>Preco tabela:</b>
+  <%=h @pedido.preco_tabela %>
+</p>
+
+<p>
+  <b>Acrescimo:</b>
+  <%=h @pedido.acrescimo %>
+</p>
+
+<p>
+  <b>Desconto:</b>
+  <%=h @pedido.desconto %>
+</p>
+
+<p>
+  <b>Transportadora:</b>
+  <%#=h @pedido.transportadora.razao_social %>
+</p>
+
+<p>
+  <b>Comprador:</b>
+  <%=h @pedido.comprador %>
+</p>
+
+<p>
+  <b>Observacao:</b>
+  <%=h @pedido.observacao %>
+</p>
+
+<p>
+  <b>Endereco entrega:</b>
+  <%=h @pedido.endereco_entrega %>
+</p>
+
+<p>
+  <b>Minuta:</b>
+  <%=h @pedido.minuta_id %>
+</p>
+
+<p>
+  <b>Area:</b>
+  <%#=h @pedido.area.descricao %>
+</p>
+
+<p>
+  <b>Operador:</b>
+  <%#=h @pedido.funcionario.nome %>
+</p>
+
+<p>
+  <b>Telemarketing:</b>
+  <%=h @pedido.telemarketing_id %>
+</p>
+
+<p>
+  <b>Preço Especial?</b>
+  <%=h @pedido.especial == true ? 'Sim' : 'Não' %>
+</p>
+
+<p>
+  <b>Empresa:</b>
+  <%=h @pedido.empresa_id == 1 ? 'TUBFORM' : 'MADEFORM' %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <% case @pedido.status %>
+  <%  when 'A' : print 'Aberto' %>
+  <%  when 'B' : print 'Bloqueado' %>
+  <% else %>
+  <% 'Não Definido' %>
+  <% end %>
+</p>
+
+<p>
+  <b>Estorno:</b>
+  <%=h @pedido.estorno %>
+</p>
+
+<p>
+  <b>Operador estorno:</b>
+  <%=h @pedido.operador_estorno_id %>
+</p>
+
+<p>
+  <b>Comissao vendedor:</b>
+  <%=h @pedido.comissao_vendedor %>
+</p>
+
+<p>
+  <b>Comissao telemarketing:</b>
+  <%=h @pedido.comissao_telemarketing %>
+</p>
+
+<p>
+  <b>Venda externa:</b>
+  <%=h @pedido.venda_externa == 'true' ? 'Sim' : 'Não' %>
+</p>
+
+<p>
+  <b>Desconto complementar:</b>
+  <%=h @pedido.desconto_complementar %>
+</p>
+
+<p>
+  <b>Autorizador:</b>
+  <%=h @pedido.autorizador_id %>
+</p>
+
+<%= link_to 'Alterar', edit_pedido_path(@pedido) %> |
+<%= link_to 'Voltar', pedidos_path %>
