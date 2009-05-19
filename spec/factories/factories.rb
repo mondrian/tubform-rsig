@@ -63,9 +63,6 @@ Factory.define :pedido do |p|
   p.autorizador_desconto_id 1
   p.tipo true
   p.funcionario_id 1
-<<<<<<< HEAD:spec/factories/factories.rb
-end
-=======
 end
 
 Factory.define :faixa_de_desconto do |f|
@@ -97,4 +94,3 @@ Factory.define :produto do |p|
   p.cadastro_custo "2009-04-24"
   p.kit false
 end
->>>>>>> d302db808439335dcbbd11a255962ad94b9a2277:spec/factories/factories.rb
