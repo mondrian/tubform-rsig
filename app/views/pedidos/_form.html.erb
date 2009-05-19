@@ -30,7 +30,7 @@
   </p>
   <p>
     <%= f.label :plano_de_pagamento %><br />
-    <%= f.select :plano_de_pagamento,[['A Vista','0'],['Entrada + 30 Dias','1'],['Entrada + 30 + 60 Dias','2']] %>
+    <%= f.text_field :plano_de_pagamento %>
   </p>
   <p>
     <%= f.label :funcionario_id %><br />
@@ -117,7 +117,8 @@
   <p>
     <%= f.label :operador_estorno_id %><br />
     <%= f.text_field :operador_estorno_id, :size => 5 %>
-    <%#= text_field_tag 'nome', @pedido.funcionario.nome , :disabled => true %>
+ 
+   <%#= text_field_tag 'nome', @pedido.funcionario.nome , :disabled => true %>
   </p>
   <p>
     <%= f.label :comissao_vendedor %><br />

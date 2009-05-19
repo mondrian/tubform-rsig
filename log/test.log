@@ -5629,3 +5629,778 @@ Processing PedidosController#show (for 127.0.0.1 at 2009-05-19 11:13:39) [GET]
 Rendering pedidos/show
 Completed in 33ms (View: 8, DB: 22) | 200 OK [http://www.example.com/pedidos/24]
   [4;36;1mSQL (13.6ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.6ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (2.1ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 16:58:47) [GET]
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering pedidos/new
+Rendered pedidos/_form (43.1ms)
+Completed in 69ms (View: 46, DB: 9) | 200 OK [http://www.example.com/pedidos/new]
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (9.2ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (1.8ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, NULL, 't', '2009-05-14', 1, '2009-04-24', '2009-05-19 19:58:47.870226', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-19 19:58:47.870226', E'030060090120', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-19 16:58:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.1ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+
+
+Processing ApplicationController#edit (for 127.0.0.1 at 2009-05-19 16:58:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mSQL (0.8ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.4ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (1.7ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 16:59:50) [GET]
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering pedidos/new
+Rendered pedidos/_form (42.0ms)
+Completed in 68ms (View: 45, DB: 8) | 200 OK [http://www.example.com/pedidos/new]
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (1.8ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, NULL, 't', '2009-05-14', 1, '2009-04-24', '2009-05-19 19:59:50.950978', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-19 19:59:50.950978', E'030060090120', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-19 16:59:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.4ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering pedidos/edit
+Rendered pedidos/_form (34.4ms)
+Completed in 45ms (View: 41, DB: 11) | 200 OK [http://www.example.com/pedidos/edit/1]
+  [4;36;1mPedido Load (1.1ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.6ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (1.6ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 17:02:19) [GET]
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering pedidos/new
+Rendered pedidos/_form (40.8ms)
+Completed in 67ms (View: 44, DB: 8) | 200 OK [http://www.example.com/pedidos/new]
+REQUESTING PAGE: POST /pedidos with {"commit"=>"Salvar", "pedido"=>{"comprador"=>"", "tipo"=>"X", "estorno"=>"", "minuta_id"=>"", "data"=>"'2009-05-30'", "autorizador_id"=>"", "funcionario_id"=>"1", "comissao_telemarketing"=>"", "preco_tabela"=>"", "plano_de_pagamento"=>"'000030060090120'", "desconto_complementar"=>"", "area_id"=>"", "endereco_entrega"=>"", "desconto"=>"", "valor"=>"", "programacao"=>"", "entrega"=>"", "cliente_id"=>"1", "observacao"=>"", "operador_id"=>"", "comissao_vendedor"=>"", "operador_estorno_id"=>"", "empresa_id"=>"", "registro"=>"'2009-05-30'", "vendedor_id"=>"1", "previsao_entrega"=>"'2009-05-30'", "especial"=>"S", "status"=>"B", "venda_externa"=>"S", "telemarketing_id"=>"", "transportadora_id"=>"1", "acrescimo"=>""}} and HTTP headers {"HTTP_REFERER"=>"pedidos/new"}
+
+
+Processing PedidosController#create (for 127.0.0.1 at 2009-05-19 17:02:19) [POST]
+  Parameters: {"commit"=>"Salvar", "pedido"=>{"tipo"=>"X", "comprador"=>"", "data"=>"'2009-05-30'", "minuta_id"=>"", "estorno"=>"", "funcionario_id"=>"1", "autorizador_id"=>"", "plano_de_pagamento"=>"'000030060090120'", "preco_tabela"=>"", "comissao_telemarketing"=>"", "cliente_id"=>"1", "entrega"=>"", "programacao"=>"", "valor"=>"", "desconto"=>"", "endereco_entrega"=>"", "area_id"=>"", "desconto_complementar"=>"", "observacao"=>"", "operador_id"=>"", "operador_estorno_id"=>"", "comissao_vendedor"=>"", "previsao_entrega"=>"'2009-05-30'", "vendedor_id"=>"1", "registro"=>"'2009-05-30'", "empresa_id"=>"", "status"=>"B", "especial"=>"S", "acrescimo"=>"", "transportadora_id"=>"1", "telemarketing_id"=>"", "venda_externa"=>"S"}}
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(NULL, E'', E'X', '2009-05-30', NULL, NULL, '2009-05-19 20:02:19.906090', NULL, NULL, 1, NULL, NULL, NULL, NULL, '2009-05-19 20:02:19.906090', E'''000030060090120''', NULL, NULL, 1, NULL, NULL, E'', NULL, NULL, NULL, E'', NULL, NULL, NULL, '2009-05-30', 1, '2009-05-30', NULL, E'B', 'f', NULL, 1, NULL, 'f') RETURNING "id"[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pedidos/2
+Completed in 48ms (DB: 3) | 302 Found [http://www.example.com/pedidos]
+REQUESTING PAGE: GET http://www.example.com/pedidos/2 with {} and HTTP headers {"HTTP_REFERER"=>"/pedidos"}
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-19 17:02:19) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mPedido Load (1.8ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 2) [0m
+Rendering pedidos/show
+Completed in 13ms (View: 8, DB: 2) | 200 OK [http://www.example.com/pedidos/2]
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (1.2ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, NULL, 't', '2009-05-14', 1, '2009-04-24', '2009-05-19 20:02:20.171395', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-19 20:02:20.171395', E'030060090120', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-19 17:02:20) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.0ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+
+
+Processing ApplicationController#edit (for 127.0.0.1 at 2009-05-19 17:02:20) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.8ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (1.7ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.8ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 17:05:55) [GET]
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering pedidos/new
+Rendered pedidos/_form (50.4ms)
+Completed in 117ms (View: 54, DB: 8) | 200 OK [http://www.example.com/pedidos/new]
+REQUESTING PAGE: POST /pedidos with {"commit"=>"Salvar", "pedido"=>{"comprador"=>"", "tipo"=>"X", "estorno"=>"", "minuta_id"=>"", "data"=>"'2009-05-30'", "autorizador_id"=>"", "funcionario_id"=>"1", "comissao_telemarketing"=>"", "preco_tabela"=>"", "plano_de_pagamento"=>"'000030060090120'", "desconto_complementar"=>"", "area_id"=>"", "endereco_entrega"=>"", "desconto"=>"", "valor"=>"", "programacao"=>"", "entrega"=>"", "cliente_id"=>"1", "observacao"=>"", "operador_id"=>"", "comissao_vendedor"=>"", "operador_estorno_id"=>"", "empresa_id"=>"", "registro"=>"'2009-05-30'", "vendedor_id"=>"1", "previsao_entrega"=>"'2009-05-30'", "especial"=>"S", "status"=>"B", "venda_externa"=>"S", "telemarketing_id"=>"", "transportadora_id"=>"1", "acrescimo"=>""}} and HTTP headers {"HTTP_REFERER"=>"pedidos/new"}
+
+
+Processing PedidosController#create (for 127.0.0.1 at 2009-05-19 17:05:55) [POST]
+  Parameters: {"commit"=>"Salvar", "pedido"=>{"tipo"=>"X", "comprador"=>"", "data"=>"'2009-05-30'", "minuta_id"=>"", "estorno"=>"", "funcionario_id"=>"1", "autorizador_id"=>"", "plano_de_pagamento"=>"'000030060090120'", "preco_tabela"=>"", "comissao_telemarketing"=>"", "cliente_id"=>"1", "entrega"=>"", "programacao"=>"", "valor"=>"", "desconto"=>"", "endereco_entrega"=>"", "area_id"=>"", "desconto_complementar"=>"", "observacao"=>"", "operador_id"=>"", "operador_estorno_id"=>"", "comissao_vendedor"=>"", "previsao_entrega"=>"'2009-05-30'", "vendedor_id"=>"1", "registro"=>"'2009-05-30'", "empresa_id"=>"", "status"=>"B", "especial"=>"S", "acrescimo"=>"", "transportadora_id"=>"1", "telemarketing_id"=>"", "venda_externa"=>"S"}}
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(NULL, E'', E'X', '2009-05-30', NULL, NULL, '2009-05-19 20:05:55.520827', NULL, NULL, 1, NULL, NULL, NULL, NULL, '2009-05-19 20:05:55.520827', E'''000030060090120''', NULL, NULL, 1, NULL, NULL, E'', NULL, NULL, NULL, E'', NULL, NULL, NULL, '2009-05-30', 1, '2009-05-30', NULL, E'B', 'f', NULL, 1, NULL, 'f') RETURNING "id"[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pedidos/1
+Completed in 99ms (DB: 3) | 302 Found [http://www.example.com/pedidos]
+REQUESTING PAGE: GET http://www.example.com/pedidos/1 with {} and HTTP headers {"HTTP_REFERER"=>"/pedidos"}
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-19 17:05:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPedido Load (1.9ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering pedidos/show
+Completed in 13ms (View: 8, DB: 2) | 200 OK [http://www.example.com/pedidos/1]
+  [4;35;1mSQL (14.4ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.7ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (1.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 17:08:46) [GET]
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering pedidos/new
+Rendered pedidos/_form (42.7ms)
+Completed in 74ms (View: 52, DB: 9) | 200 OK [http://www.example.com/pedidos/new]
+REQUESTING PAGE: POST /pedidos with {"commit"=>"Salvar", "pedido"=>{"comprador"=>"", "tipo"=>"X", "estorno"=>"", "minuta_id"=>"", "data"=>"'2009-05-30'", "autorizador_id"=>"", "funcionario_id"=>"1", "comissao_telemarketing"=>"", "preco_tabela"=>"", "plano_de_pagamento"=>"'000030060090120'", "desconto_complementar"=>"", "area_id"=>"", "endereco_entrega"=>"", "desconto"=>"", "valor"=>"", "programacao"=>"", "entrega"=>"", "cliente_id"=>"1", "observacao"=>"", "operador_id"=>"", "comissao_vendedor"=>"", "operador_estorno_id"=>"", "empresa_id"=>"", "registro"=>"'2009-05-30'", "vendedor_id"=>"1", "previsao_entrega"=>"'2009-05-30'", "especial"=>"S", "status"=>"B", "venda_externa"=>"S", "telemarketing_id"=>"", "transportadora_id"=>"1", "acrescimo"=>""}} and HTTP headers {"HTTP_REFERER"=>"pedidos/new"}
+
+
+Processing PedidosController#create (for 127.0.0.1 at 2009-05-19 17:08:46) [POST]
+  Parameters: {"commit"=>"Salvar", "pedido"=>{"tipo"=>"X", "comprador"=>"", "data"=>"'2009-05-30'", "minuta_id"=>"", "estorno"=>"", "funcionario_id"=>"1", "autorizador_id"=>"", "plano_de_pagamento"=>"'000030060090120'", "preco_tabela"=>"", "comissao_telemarketing"=>"", "cliente_id"=>"1", "entrega"=>"", "programacao"=>"", "valor"=>"", "desconto"=>"", "endereco_entrega"=>"", "area_id"=>"", "desconto_complementar"=>"", "observacao"=>"", "operador_id"=>"", "operador_estorno_id"=>"", "comissao_vendedor"=>"", "previsao_entrega"=>"'2009-05-30'", "vendedor_id"=>"1", "registro"=>"'2009-05-30'", "empresa_id"=>"", "status"=>"B", "especial"=>"S", "acrescimo"=>"", "transportadora_id"=>"1", "telemarketing_id"=>"", "venda_externa"=>"S"}}
+  [4;35;1mSQL (0.7ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(NULL, E'', E'X', '2009-05-30', NULL, NULL, '2009-05-19 20:08:46.645838', NULL, NULL, 1, NULL, NULL, NULL, NULL, '2009-05-19 20:08:46.645838', E'''000030060090120''', NULL, NULL, 1, NULL, NULL, E'', NULL, NULL, NULL, E'', NULL, NULL, NULL, '2009-05-30', 1, '2009-05-30', NULL, E'B', 'f', NULL, 1, NULL, 'f') RETURNING "id"[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pedidos/2
+Completed in 44ms (DB: 3) | 302 Found [http://www.example.com/pedidos]
+REQUESTING PAGE: GET http://www.example.com/pedidos/2 with {} and HTTP headers {"HTTP_REFERER"=>"/pedidos"}
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-19 17:08:46) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mPedido Load (1.8ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering pedidos/show
+Completed in 14ms (View: 9, DB: 2) | 200 OK [http://www.example.com/pedidos/2]
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (1.2ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, NULL, 't', '2009-05-14', 1, '2009-04-24', '2009-05-19 20:08:46.888133', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-19 20:08:46.888133', E'030060090120', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-19 17:08:46) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.2ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+
+
+Processing ApplicationController#edit (for 127.0.0.1 at 2009-05-19 17:08:46) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.4ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (1.7ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (7.7ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 17:09:10) [GET]
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering pedidos/new
+Rendered pedidos/_form (62.1ms)
+Completed in 114ms (View: 71, DB: 15) | 200 OK [http://www.example.com/pedidos/new]
+REQUESTING PAGE: POST /pedidos with {"commit"=>"Salvar", "pedido"=>{"comprador"=>"", "tipo"=>"X", "estorno"=>"", "minuta_id"=>"", "data"=>"'2009-05-30'", "autorizador_id"=>"", "funcionario_id"=>"1", "comissao_telemarketing"=>"", "preco_tabela"=>"", "plano_de_pagamento"=>"'000030060090120'", "desconto_complementar"=>"", "area_id"=>"", "endereco_entrega"=>"", "desconto"=>"", "valor"=>"", "programacao"=>"", "entrega"=>"", "cliente_id"=>"1", "observacao"=>"", "operador_id"=>"", "comissao_vendedor"=>"", "operador_estorno_id"=>"", "empresa_id"=>"", "registro"=>"'2009-05-30'", "vendedor_id"=>"1", "previsao_entrega"=>"'2009-05-30'", "especial"=>"S", "status"=>"B", "venda_externa"=>"S", "telemarketing_id"=>"", "transportadora_id"=>"1", "acrescimo"=>""}} and HTTP headers {"HTTP_REFERER"=>"pedidos/new"}
+
+
+Processing PedidosController#create (for 127.0.0.1 at 2009-05-19 17:09:10) [POST]
+  Parameters: {"commit"=>"Salvar", "pedido"=>{"tipo"=>"X", "comprador"=>"", "data"=>"'2009-05-30'", "minuta_id"=>"", "estorno"=>"", "funcionario_id"=>"1", "autorizador_id"=>"", "plano_de_pagamento"=>"'000030060090120'", "preco_tabela"=>"", "comissao_telemarketing"=>"", "cliente_id"=>"1", "entrega"=>"", "programacao"=>"", "valor"=>"", "desconto"=>"", "endereco_entrega"=>"", "area_id"=>"", "desconto_complementar"=>"", "observacao"=>"", "operador_id"=>"", "operador_estorno_id"=>"", "comissao_vendedor"=>"", "previsao_entrega"=>"'2009-05-30'", "vendedor_id"=>"1", "registro"=>"'2009-05-30'", "empresa_id"=>"", "status"=>"B", "especial"=>"S", "acrescimo"=>"", "transportadora_id"=>"1", "telemarketing_id"=>"", "venda_externa"=>"S"}}
+  [4;35;1mSQL (0.6ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(NULL, E'', E'X', '2009-05-30', NULL, NULL, '2009-05-19 20:09:10.722769', NULL, NULL, 1, NULL, NULL, NULL, NULL, '2009-05-19 20:09:10.722769', E'''000030060090120''', NULL, NULL, 1, NULL, NULL, E'', NULL, NULL, NULL, E'', NULL, NULL, NULL, '2009-05-30', 1, '2009-05-30', NULL, E'B', 'f', NULL, 1, NULL, 'f') RETURNING "id"[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pedidos/1
+Completed in 102ms (DB: 3) | 302 Found [http://www.example.com/pedidos]
+REQUESTING PAGE: GET http://www.example.com/pedidos/1 with {} and HTTP headers {"HTTP_REFERER"=>"/pedidos"}
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-19 17:09:10) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPedido Load (1.8ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering pedidos/show
+Completed in 38ms (View: 24, DB: 2) | 200 OK [http://www.example.com/pedidos/1]
+  [4;35;1mSQL (0.8ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (10.4ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (4.5ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (1.1ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (1.0ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (13.6ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, NULL, 't', '2009-05-14', 1, '2009-04-24', '2009-05-19 20:09:11.191225', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-19 20:09:11.191225', E'030060090120', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-19 17:09:11) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (19.1ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+
+
+Processing ApplicationController#edit (for 127.0.0.1 at 2009-05-19 17:09:11) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.3ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (1.7ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 17:10:48) [GET]
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering pedidos/new
+Rendered pedidos/_form (41.8ms)
+Completed in 73ms (View: 51, DB: 8) | 200 OK [http://www.example.com/pedidos/new]
+REQUESTING PAGE: POST /pedidos with {"commit"=>"Salvar", "pedido"=>{"comprador"=>"", "tipo"=>"X", "estorno"=>"", "minuta_id"=>"", "data"=>"'2009-05-30'", "autorizador_id"=>"", "funcionario_id"=>"1", "comissao_telemarketing"=>"", "preco_tabela"=>"", "plano_de_pagamento"=>"'000030060090120'", "desconto_complementar"=>"", "area_id"=>"", "endereco_entrega"=>"", "desconto"=>"", "valor"=>"", "programacao"=>"", "entrega"=>"", "cliente_id"=>"1", "observacao"=>"", "operador_id"=>"", "comissao_vendedor"=>"", "operador_estorno_id"=>"", "empresa_id"=>"", "registro"=>"'2009-05-30'", "vendedor_id"=>"1", "previsao_entrega"=>"'2009-05-30'", "especial"=>"S", "status"=>"B", "venda_externa"=>"S", "telemarketing_id"=>"", "transportadora_id"=>"1", "acrescimo"=>""}} and HTTP headers {"HTTP_REFERER"=>"pedidos/new"}
+
+
+Processing PedidosController#create (for 127.0.0.1 at 2009-05-19 17:10:48) [POST]
+  Parameters: {"commit"=>"Salvar", "pedido"=>{"tipo"=>"X", "comprador"=>"", "data"=>"'2009-05-30'", "minuta_id"=>"", "estorno"=>"", "funcionario_id"=>"1", "autorizador_id"=>"", "plano_de_pagamento"=>"'000030060090120'", "preco_tabela"=>"", "comissao_telemarketing"=>"", "cliente_id"=>"1", "entrega"=>"", "programacao"=>"", "valor"=>"", "desconto"=>"", "endereco_entrega"=>"", "area_id"=>"", "desconto_complementar"=>"", "observacao"=>"", "operador_id"=>"", "operador_estorno_id"=>"", "comissao_vendedor"=>"", "previsao_entrega"=>"'2009-05-30'", "vendedor_id"=>"1", "registro"=>"'2009-05-30'", "empresa_id"=>"", "status"=>"B", "especial"=>"S", "acrescimo"=>"", "transportadora_id"=>"1", "telemarketing_id"=>"", "venda_externa"=>"S"}}
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(NULL, E'', E'X', '2009-05-30', NULL, NULL, '2009-05-19 20:10:48.302417', NULL, NULL, 1, NULL, NULL, NULL, NULL, '2009-05-19 20:10:48.302417', E'''000030060090120''', NULL, NULL, 1, NULL, NULL, E'', NULL, NULL, NULL, E'', NULL, NULL, NULL, '2009-05-30', 1, '2009-05-30', NULL, E'B', 'f', NULL, 1, NULL, 'f') RETURNING "id"[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pedidos/3
+Completed in 44ms (DB: 3) | 302 Found [http://www.example.com/pedidos]
+REQUESTING PAGE: GET http://www.example.com/pedidos/3 with {} and HTTP headers {"HTTP_REFERER"=>"/pedidos"}
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-19 17:10:48) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mPedido Load (1.8ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering pedidos/show
+Completed in 14ms (View: 9, DB: 2) | 200 OK [http://www.example.com/pedidos/3]
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (1.2ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, NULL, 't', '2009-05-14', 1, '2009-04-24', '2009-05-19 20:10:48.538843', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-19 20:10:48.538843', E'030060090120', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET pedidos/edit/1 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-19 17:10:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPedido Load (1.0ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 1) [0m
+
+
+Processing ApplicationController#edit (for 127.0.0.1 at 2009-05-19 17:10:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mSQL (0.4ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (3.5ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (1.7ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 17:23:24) [GET]
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering pedidos/new
+Rendered pedidos/_form (44.5ms)
+Completed in 79ms (View: 55, DB: 9) | 200 OK [http://www.example.com/pedidos/new]
+REQUESTING PAGE: POST /pedidos with {"commit"=>"Salvar", "pedido"=>{"comprador"=>"", "tipo"=>"X", "estorno"=>"", "minuta_id"=>"", "data"=>"'2009-05-30'", "autorizador_id"=>"", "funcionario_id"=>"1", "comissao_telemarketing"=>"", "preco_tabela"=>"", "plano_de_pagamento"=>"'000030060090120'", "desconto_complementar"=>"", "area_id"=>"", "endereco_entrega"=>"", "desconto"=>"", "valor"=>"", "programacao"=>"", "entrega"=>"", "cliente_id"=>"1", "observacao"=>"", "operador_id"=>"", "comissao_vendedor"=>"", "operador_estorno_id"=>"", "empresa_id"=>"", "registro"=>"'2009-05-30'", "vendedor_id"=>"1", "previsao_entrega"=>"'2009-05-30'", "especial"=>"S", "status"=>"B", "venda_externa"=>"S", "telemarketing_id"=>"", "transportadora_id"=>"1", "acrescimo"=>""}} and HTTP headers {"HTTP_REFERER"=>"pedidos/new"}
+
+
+Processing PedidosController#create (for 127.0.0.1 at 2009-05-19 17:23:24) [POST]
+  Parameters: {"commit"=>"Salvar", "pedido"=>{"tipo"=>"X", "comprador"=>"", "data"=>"'2009-05-30'", "minuta_id"=>"", "estorno"=>"", "funcionario_id"=>"1", "autorizador_id"=>"", "plano_de_pagamento"=>"'000030060090120'", "preco_tabela"=>"", "comissao_telemarketing"=>"", "cliente_id"=>"1", "entrega"=>"", "programacao"=>"", "valor"=>"", "desconto"=>"", "endereco_entrega"=>"", "area_id"=>"", "desconto_complementar"=>"", "observacao"=>"", "operador_id"=>"", "operador_estorno_id"=>"", "comissao_vendedor"=>"", "previsao_entrega"=>"'2009-05-30'", "vendedor_id"=>"1", "registro"=>"'2009-05-30'", "empresa_id"=>"", "status"=>"B", "especial"=>"S", "acrescimo"=>"", "transportadora_id"=>"1", "telemarketing_id"=>"", "venda_externa"=>"S"}}
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(NULL, E'', E'X', '2009-05-30', NULL, NULL, '2009-05-19 20:23:24.992922', NULL, NULL, 1, NULL, NULL, NULL, NULL, '2009-05-19 20:23:24.992922', E'''000030060090120''', NULL, NULL, 1, NULL, NULL, E'', NULL, NULL, NULL, E'', NULL, NULL, NULL, '2009-05-30', 1, '2009-05-30', NULL, E'B', 'f', NULL, 1, NULL, 'f') RETURNING "id"[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pedidos/5
+Completed in 49ms (DB: 3) | 302 Found [http://www.example.com/pedidos]
+REQUESTING PAGE: GET http://www.example.com/pedidos/5 with {} and HTTP headers {"HTTP_REFERER"=>"/pedidos"}
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-19 17:23:25) [GET]
+  Parameters: {"id"=>"5"}
+  [4;36;1mPedido Load (2.0ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 5) [0m
+Rendering template within layouts/application
+Rendering pedidos/show
+Completed in 14ms (View: 9, DB: 2) | 200 OK [http://www.example.com/pedidos/5]
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSELECT count(*) AS count_all FROM "pedidos" [0m
+  [4;36;1mPedido Load (1.0ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.6ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (1.7ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 17:29:09) [GET]
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering pedidos/new
+Rendered pedidos/_form (57.1ms)
+Completed in 122ms (View: 80, DB: 8) | 200 OK [http://www.example.com/pedidos/new]
+REQUESTING PAGE: POST /pedidos with {"commit"=>"Salvar", "pedido"=>{"comprador"=>"", "tipo"=>"X", "estorno"=>"", "minuta_id"=>"", "data"=>"'2009-05-30'", "autorizador_id"=>"", "funcionario_id"=>"1", "comissao_telemarketing"=>"", "preco_tabela"=>"", "plano_de_pagamento"=>"'000030060090120'", "desconto_complementar"=>"", "area_id"=>"", "endereco_entrega"=>"", "desconto"=>"", "valor"=>"", "programacao"=>"", "entrega"=>"", "cliente_id"=>"1", "observacao"=>"", "operador_id"=>"", "comissao_vendedor"=>"", "operador_estorno_id"=>"", "empresa_id"=>"", "registro"=>"'2009-05-30'", "vendedor_id"=>"1", "previsao_entrega"=>"'2009-05-30'", "especial"=>"S", "status"=>"B", "venda_externa"=>"S", "telemarketing_id"=>"", "transportadora_id"=>"1", "acrescimo"=>""}} and HTTP headers {"HTTP_REFERER"=>"pedidos/new"}
+
+
+Processing PedidosController#create (for 127.0.0.1 at 2009-05-19 17:29:09) [POST]
+  Parameters: {"commit"=>"Salvar", "pedido"=>{"tipo"=>"X", "comprador"=>"", "data"=>"'2009-05-30'", "minuta_id"=>"", "estorno"=>"", "funcionario_id"=>"1", "autorizador_id"=>"", "plano_de_pagamento"=>"'000030060090120'", "preco_tabela"=>"", "comissao_telemarketing"=>"", "cliente_id"=>"1", "entrega"=>"", "programacao"=>"", "valor"=>"", "desconto"=>"", "endereco_entrega"=>"", "area_id"=>"", "desconto_complementar"=>"", "observacao"=>"", "operador_id"=>"", "operador_estorno_id"=>"", "comissao_vendedor"=>"", "previsao_entrega"=>"'2009-05-30'", "vendedor_id"=>"1", "registro"=>"'2009-05-30'", "empresa_id"=>"", "status"=>"B", "especial"=>"S", "acrescimo"=>"", "transportadora_id"=>"1", "telemarketing_id"=>"", "venda_externa"=>"S"}}
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(NULL, E'', E'X', '2009-05-30', NULL, NULL, '2009-05-19 20:29:09.651377', NULL, NULL, 1, NULL, NULL, NULL, NULL, '2009-05-19 20:29:09.651377', E'''000030060090120''', NULL, NULL, 1, NULL, NULL, E'', NULL, NULL, NULL, E'', NULL, NULL, NULL, '2009-05-30', 1, '2009-05-30', NULL, E'B', 'f', NULL, 1, NULL, 'f') RETURNING "id"[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pedidos/6
+Completed in 74ms (DB: 3) | 302 Found [http://www.example.com/pedidos]
+REQUESTING PAGE: GET http://www.example.com/pedidos/6 with {} and HTTP headers {"HTTP_REFERER"=>"/pedidos"}
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-19 17:29:09) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mPedido Load (13.8ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering pedidos/show
+Completed in 26ms (View: 9, DB: 14) | 200 OK [http://www.example.com/pedidos/6]
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mSQL (15.6ms)[0m   [0mSELECT count(*) AS count_all FROM "pedidos" [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.6ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (1.6ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 17:29:24) [GET]
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering pedidos/new
+Rendered pedidos/_form (45.6ms)
+Completed in 118ms (View: 76, DB: 8) | 200 OK [http://www.example.com/pedidos/new]
+REQUESTING PAGE: POST /pedidos with {"commit"=>"Salvar", "pedido"=>{"comprador"=>"", "tipo"=>"X", "estorno"=>"", "minuta_id"=>"", "data"=>"'2009-05-30'", "autorizador_id"=>"", "funcionario_id"=>"1", "comissao_telemarketing"=>"", "preco_tabela"=>"", "plano_de_pagamento"=>"'000030060090120'", "desconto_complementar"=>"", "area_id"=>"", "endereco_entrega"=>"", "desconto"=>"", "valor"=>"", "programacao"=>"", "entrega"=>"", "cliente_id"=>"1", "observacao"=>"", "operador_id"=>"", "comissao_vendedor"=>"", "operador_estorno_id"=>"", "empresa_id"=>"", "registro"=>"'2009-05-30'", "vendedor_id"=>"1", "previsao_entrega"=>"'2009-05-30'", "especial"=>"S", "status"=>"B", "venda_externa"=>"S", "telemarketing_id"=>"", "transportadora_id"=>"1", "acrescimo"=>""}} and HTTP headers {"HTTP_REFERER"=>"pedidos/new"}
+
+
+Processing PedidosController#create (for 127.0.0.1 at 2009-05-19 17:29:24) [POST]
+  Parameters: {"commit"=>"Salvar", "pedido"=>{"tipo"=>"X", "comprador"=>"", "data"=>"'2009-05-30'", "minuta_id"=>"", "estorno"=>"", "funcionario_id"=>"1", "autorizador_id"=>"", "plano_de_pagamento"=>"'000030060090120'", "preco_tabela"=>"", "comissao_telemarketing"=>"", "cliente_id"=>"1", "entrega"=>"", "programacao"=>"", "valor"=>"", "desconto"=>"", "endereco_entrega"=>"", "area_id"=>"", "desconto_complementar"=>"", "observacao"=>"", "operador_id"=>"", "operador_estorno_id"=>"", "comissao_vendedor"=>"", "previsao_entrega"=>"'2009-05-30'", "vendedor_id"=>"1", "registro"=>"'2009-05-30'", "empresa_id"=>"", "status"=>"B", "especial"=>"S", "acrescimo"=>"", "transportadora_id"=>"1", "telemarketing_id"=>"", "venda_externa"=>"S"}}
+  [4;35;1mSQL (17.3ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(NULL, E'', E'X', '2009-05-30', NULL, NULL, '2009-05-19 20:29:24.433559', NULL, NULL, 1, NULL, NULL, NULL, NULL, '2009-05-19 20:29:24.433559', E'''000030060090120''', NULL, NULL, 1, NULL, NULL, E'', NULL, NULL, NULL, E'', NULL, NULL, NULL, '2009-05-30', 1, '2009-05-30', NULL, E'B', 'f', NULL, 1, NULL, 'f') RETURNING "id"[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pedidos/7
+Completed in 95ms (DB: 20) | 302 Found [http://www.example.com/pedidos]
+REQUESTING PAGE: GET http://www.example.com/pedidos/7 with {} and HTTP headers {"HTTP_REFERER"=>"/pedidos"}
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-19 17:29:24) [GET]
+  Parameters: {"id"=>"7"}
+  [4;36;1mPedido Load (1.8ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 7) [0m
+Rendering template within layouts/application
+Rendering pedidos/show
+Completed in 34ms (View: 29, DB: 2) | 200 OK [http://www.example.com/pedidos/7]
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSELECT count(*) AS count_all FROM "pedidos" [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "pedidos" [0m
+  [4;35;1mPedido Load (0.9ms)[0m   [0mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.6ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (1.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 17:30:07) [GET]
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering pedidos/new
+Rendered pedidos/_form (44.1ms)
+Completed in 113ms (View: 71, DB: 8) | 200 OK [http://www.example.com/pedidos/new]
+REQUESTING PAGE: POST /pedidos with {"commit"=>"Salvar", "pedido"=>{"comprador"=>"", "tipo"=>"X", "estorno"=>"", "minuta_id"=>"", "data"=>"'2009-05-30'", "autorizador_id"=>"", "funcionario_id"=>"1", "comissao_telemarketing"=>"", "preco_tabela"=>"", "plano_de_pagamento"=>"'000030060090120'", "desconto_complementar"=>"", "area_id"=>"", "endereco_entrega"=>"", "desconto"=>"", "valor"=>"", "programacao"=>"", "entrega"=>"", "cliente_id"=>"1", "observacao"=>"", "operador_id"=>"", "comissao_vendedor"=>"", "operador_estorno_id"=>"", "empresa_id"=>"", "registro"=>"'2009-05-30'", "vendedor_id"=>"1", "previsao_entrega"=>"'2009-05-30'", "especial"=>"S", "status"=>"B", "venda_externa"=>"S", "telemarketing_id"=>"", "transportadora_id"=>"1", "acrescimo"=>""}} and HTTP headers {"HTTP_REFERER"=>"pedidos/new"}
+
+
+Processing PedidosController#create (for 127.0.0.1 at 2009-05-19 17:30:07) [POST]
+  Parameters: {"commit"=>"Salvar", "pedido"=>{"tipo"=>"X", "comprador"=>"", "data"=>"'2009-05-30'", "minuta_id"=>"", "estorno"=>"", "funcionario_id"=>"1", "autorizador_id"=>"", "plano_de_pagamento"=>"'000030060090120'", "preco_tabela"=>"", "comissao_telemarketing"=>"", "cliente_id"=>"1", "entrega"=>"", "programacao"=>"", "valor"=>"", "desconto"=>"", "endereco_entrega"=>"", "area_id"=>"", "desconto_complementar"=>"", "observacao"=>"", "operador_id"=>"", "operador_estorno_id"=>"", "comissao_vendedor"=>"", "previsao_entrega"=>"'2009-05-30'", "vendedor_id"=>"1", "registro"=>"'2009-05-30'", "empresa_id"=>"", "status"=>"B", "especial"=>"S", "acrescimo"=>"", "transportadora_id"=>"1", "telemarketing_id"=>"", "venda_externa"=>"S"}}
+  [4;35;1mSQL (0.4ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(NULL, E'', E'X', '2009-05-30', NULL, NULL, '2009-05-19 20:30:07.341285', NULL, NULL, 1, NULL, NULL, NULL, NULL, '2009-05-19 20:30:07.341285', E'''000030060090120''', NULL, NULL, 1, NULL, NULL, E'', NULL, NULL, NULL, E'', NULL, NULL, NULL, '2009-05-30', 1, '2009-05-30', NULL, E'B', 'f', NULL, 1, NULL, 'f') RETURNING "id"[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pedidos/8
+Completed in 77ms (DB: 3) | 302 Found [http://www.example.com/pedidos]
+REQUESTING PAGE: GET http://www.example.com/pedidos/8 with {} and HTTP headers {"HTTP_REFERER"=>"/pedidos"}
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-19 17:30:07) [GET]
+  Parameters: {"id"=>"8"}
+  [4;36;1mPedido Load (15.3ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 8) [0m
+Rendering template within layouts/application
+Rendering pedidos/show
+Completed in 29ms (View: 9, DB: 15) | 200 OK [http://www.example.com/pedidos/8]
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSELECT count(*) AS count_all FROM "pedidos" [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "pedidos" [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "pedidos" [0m
+  [4;36;1mPedido Load (1.0ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.6ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (1.6ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 17:30:48) [GET]
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering pedidos/new
+Rendered pedidos/_form (53.4ms)
+Completed in 104ms (View: 62, DB: 8) | 200 OK [http://www.example.com/pedidos/new]
+REQUESTING PAGE: POST /pedidos with {"commit"=>"Salvar", "pedido"=>{"comprador"=>"", "tipo"=>"X", "estorno"=>"", "minuta_id"=>"", "data"=>"'2009-05-30'", "autorizador_id"=>"", "funcionario_id"=>"1", "comissao_telemarketing"=>"", "preco_tabela"=>"", "plano_de_pagamento"=>"'000030060090120'", "desconto_complementar"=>"", "area_id"=>"", "endereco_entrega"=>"", "desconto"=>"", "valor"=>"", "programacao"=>"", "entrega"=>"", "cliente_id"=>"1", "observacao"=>"", "operador_id"=>"", "comissao_vendedor"=>"", "operador_estorno_id"=>"", "empresa_id"=>"", "registro"=>"'2009-05-30'", "vendedor_id"=>"1", "previsao_entrega"=>"'2009-05-30'", "especial"=>"S", "status"=>"B", "venda_externa"=>"S", "telemarketing_id"=>"", "transportadora_id"=>"1", "acrescimo"=>""}} and HTTP headers {"HTTP_REFERER"=>"pedidos/new"}
+
+
+Processing PedidosController#create (for 127.0.0.1 at 2009-05-19 17:30:48) [POST]
+  Parameters: {"commit"=>"Salvar", "pedido"=>{"tipo"=>"X", "comprador"=>"", "data"=>"'2009-05-30'", "minuta_id"=>"", "estorno"=>"", "funcionario_id"=>"1", "autorizador_id"=>"", "plano_de_pagamento"=>"'000030060090120'", "preco_tabela"=>"", "comissao_telemarketing"=>"", "cliente_id"=>"1", "entrega"=>"", "programacao"=>"", "valor"=>"", "desconto"=>"", "endereco_entrega"=>"", "area_id"=>"", "desconto_complementar"=>"", "observacao"=>"", "operador_id"=>"", "operador_estorno_id"=>"", "comissao_vendedor"=>"", "previsao_entrega"=>"'2009-05-30'", "vendedor_id"=>"1", "registro"=>"'2009-05-30'", "empresa_id"=>"", "status"=>"B", "especial"=>"S", "acrescimo"=>"", "transportadora_id"=>"1", "telemarketing_id"=>"", "venda_externa"=>"S"}}
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(NULL, E'', E'X', '2009-05-30', NULL, NULL, '2009-05-19 20:30:48.677225', NULL, NULL, 1, NULL, NULL, NULL, NULL, '2009-05-19 20:30:48.677225', E'''000030060090120''', NULL, NULL, 1, NULL, NULL, E'', NULL, NULL, NULL, E'', NULL, NULL, NULL, '2009-05-30', 1, '2009-05-30', NULL, E'B', 'f', NULL, 1, NULL, 'f') RETURNING "id"[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pedidos/9
+Completed in 83ms (DB: 3) | 302 Found [http://www.example.com/pedidos]
+REQUESTING PAGE: GET http://www.example.com/pedidos/9 with {} and HTTP headers {"HTTP_REFERER"=>"/pedidos"}
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-19 17:30:48) [GET]
+  Parameters: {"id"=>"9"}
+  [4;36;1mPedido Load (1.9ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 9) [0m
+Rendering template within layouts/application
+Rendering pedidos/show
+Completed in 14ms (View: 9, DB: 2) | 200 OK [http://www.example.com/pedidos/9]
+  [4;35;1mSQL (16.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSQL (20.2ms)[0m   [0;1mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, NULL, 't', '2009-05-14', 1, '2009-04-24', '2009-05-19 20:30:49.133010', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-19 20:30:49.133010', E'030060090120', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "pedidos" [0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT count(*) AS count_all FROM "pedidos" [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "pedidos" [0m
+  [4;35;1mPedido Load (1.2ms)[0m   [0mSELECT * FROM "pedidos" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/edit/10 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-19 17:30:49) [GET]
+  Parameters: {"id"=>"10"}
+  [4;36;1mPedido Load (1.1ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 10) [0m
+Rendering template within layouts/application
+Rendering pedidos/edit
+Rendered pedidos/_form (71.4ms)
+Completed in 82ms (View: 78, DB: 46) | 200 OK [http://www.example.com/pedidos/edit/10]
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.6ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (1.6ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 17:31:43) [GET]
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering pedidos/new
+Rendered pedidos/_form (42.1ms)
+Completed in 114ms (View: 71, DB: 8) | 200 OK [http://www.example.com/pedidos/new]
+REQUESTING PAGE: POST /pedidos with {"commit"=>"Salvar", "pedido"=>{"comprador"=>"", "tipo"=>"X", "estorno"=>"", "minuta_id"=>"", "data"=>"'2009-05-30'", "autorizador_id"=>"", "funcionario_id"=>"1", "comissao_telemarketing"=>"", "preco_tabela"=>"", "plano_de_pagamento"=>"'000030060090120'", "desconto_complementar"=>"", "area_id"=>"", "endereco_entrega"=>"", "desconto"=>"", "valor"=>"", "programacao"=>"", "entrega"=>"", "cliente_id"=>"1", "observacao"=>"", "operador_id"=>"", "comissao_vendedor"=>"", "operador_estorno_id"=>"", "empresa_id"=>"", "registro"=>"'2009-05-30'", "vendedor_id"=>"1", "previsao_entrega"=>"'2009-05-30'", "especial"=>"S", "status"=>"B", "venda_externa"=>"S", "telemarketing_id"=>"", "transportadora_id"=>"1", "acrescimo"=>""}} and HTTP headers {"HTTP_REFERER"=>"pedidos/new"}
+
+
+Processing PedidosController#create (for 127.0.0.1 at 2009-05-19 17:31:43) [POST]
+  Parameters: {"commit"=>"Salvar", "pedido"=>{"tipo"=>"X", "comprador"=>"", "data"=>"'2009-05-30'", "minuta_id"=>"", "estorno"=>"", "funcionario_id"=>"1", "autorizador_id"=>"", "plano_de_pagamento"=>"'000030060090120'", "preco_tabela"=>"", "comissao_telemarketing"=>"", "cliente_id"=>"1", "entrega"=>"", "programacao"=>"", "valor"=>"", "desconto"=>"", "endereco_entrega"=>"", "area_id"=>"", "desconto_complementar"=>"", "observacao"=>"", "operador_id"=>"", "operador_estorno_id"=>"", "comissao_vendedor"=>"", "previsao_entrega"=>"'2009-05-30'", "vendedor_id"=>"1", "registro"=>"'2009-05-30'", "empresa_id"=>"", "status"=>"B", "especial"=>"S", "acrescimo"=>"", "transportadora_id"=>"1", "telemarketing_id"=>"", "venda_externa"=>"S"}}
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(NULL, E'', E'X', '2009-05-30', NULL, NULL, '2009-05-19 20:31:43.485538', NULL, NULL, 1, NULL, NULL, NULL, NULL, '2009-05-19 20:31:43.485538', E'''000030060090120''', NULL, NULL, 1, NULL, NULL, E'', NULL, NULL, NULL, E'', NULL, NULL, NULL, '2009-05-30', 1, '2009-05-30', NULL, E'B', 'f', NULL, 1, NULL, 'f') RETURNING "id"[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pedidos/11
+Completed in 75ms (DB: 3) | 302 Found [http://www.example.com/pedidos]
+REQUESTING PAGE: GET http://www.example.com/pedidos/11 with {} and HTTP headers {"HTTP_REFERER"=>"/pedidos"}
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-19 17:31:43) [GET]
+  Parameters: {"id"=>"11"}
+  [4;36;1mPedido Load (17.3ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 11) [0m
+Rendering template within layouts/application
+Rendering pedidos/show
+Completed in 30ms (View: 9, DB: 17) | 200 OK [http://www.example.com/pedidos/11]
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (4.3ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.8ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (15.1ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, NULL, 't', '2009-05-14', 1, '2009-04-24', '2009-05-19 20:31:43.925581', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-19 20:31:43.925581', E'030060090120', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "pedidos" [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "pedidos" [0m
+  [4;35;1mPedido Load (1.1ms)[0m   [0mSELECT * FROM "pedidos" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/edit/12 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-19 17:31:43) [GET]
+  Parameters: {"id"=>"12"}
+  [4;36;1mPedido Load (13.7ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 12) [0m
+Rendering template within layouts/application
+Rendering pedidos/edit
+Rendered pedidos/_form (49.5ms)
+Completed in 73ms (View: 56, DB: 41) | 200 OK [http://www.example.com/pedidos/edit/12]
+  [4;35;1mSQL (22.9ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.7ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (1.7ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.8ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 17:33:33) [GET]
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering pedidos/new
+Rendered pedidos/_form (48.0ms)
+Completed in 121ms (View: 57, DB: 8) | 200 OK [http://www.example.com/pedidos/new]
+REQUESTING PAGE: POST /pedidos with {"commit"=>"Salvar", "pedido"=>{"comprador"=>"", "tipo"=>"X", "estorno"=>"", "minuta_id"=>"", "data"=>"'2009-05-30'", "autorizador_id"=>"", "funcionario_id"=>"1", "comissao_telemarketing"=>"", "preco_tabela"=>"", "plano_de_pagamento"=>"'000030060090120'", "desconto_complementar"=>"", "area_id"=>"", "endereco_entrega"=>"", "desconto"=>"", "valor"=>"", "programacao"=>"", "entrega"=>"", "cliente_id"=>"1", "observacao"=>"", "operador_id"=>"", "comissao_vendedor"=>"", "operador_estorno_id"=>"", "empresa_id"=>"", "registro"=>"'2009-05-30'", "vendedor_id"=>"1", "previsao_entrega"=>"'2009-05-30'", "especial"=>"S", "status"=>"B", "venda_externa"=>"S", "telemarketing_id"=>"", "transportadora_id"=>"1", "acrescimo"=>""}} and HTTP headers {"HTTP_REFERER"=>"pedidos/new"}
+
+
+Processing PedidosController#create (for 127.0.0.1 at 2009-05-19 17:33:33) [POST]
+  Parameters: {"commit"=>"Salvar", "pedido"=>{"tipo"=>"X", "comprador"=>"", "data"=>"'2009-05-30'", "minuta_id"=>"", "estorno"=>"", "funcionario_id"=>"1", "autorizador_id"=>"", "plano_de_pagamento"=>"'000030060090120'", "preco_tabela"=>"", "comissao_telemarketing"=>"", "cliente_id"=>"1", "entrega"=>"", "programacao"=>"", "valor"=>"", "desconto"=>"", "endereco_entrega"=>"", "area_id"=>"", "desconto_complementar"=>"", "observacao"=>"", "operador_id"=>"", "operador_estorno_id"=>"", "comissao_vendedor"=>"", "previsao_entrega"=>"'2009-05-30'", "vendedor_id"=>"1", "registro"=>"'2009-05-30'", "empresa_id"=>"", "status"=>"B", "especial"=>"S", "acrescimo"=>"", "transportadora_id"=>"1", "telemarketing_id"=>"", "venda_externa"=>"S"}}
+  [4;35;1mSQL (0.5ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(NULL, E'', E'X', '2009-05-30', NULL, NULL, '2009-05-19 20:33:33.721775', NULL, NULL, 1, NULL, NULL, NULL, NULL, '2009-05-19 20:33:33.721775', E'''000030060090120''', NULL, NULL, 1, NULL, NULL, E'', NULL, NULL, NULL, E'', NULL, NULL, NULL, '2009-05-30', 1, '2009-05-30', NULL, E'B', 'f', NULL, 1, NULL, 'f') RETURNING "id"[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pedidos/13
+Completed in 78ms (DB: 3) | 302 Found [http://www.example.com/pedidos]
+REQUESTING PAGE: GET http://www.example.com/pedidos/13 with {} and HTTP headers {"HTTP_REFERER"=>"/pedidos"}
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-19 17:33:33) [GET]
+  Parameters: {"id"=>"13"}
+  [4;36;1mPedido Load (15.1ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 13) [0m
+Rendering template within layouts/application
+Rendering pedidos/show
+Completed in 27ms (View: 9, DB: 15) | 200 OK [http://www.example.com/pedidos/13]
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mSQL (18.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (1.2ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, NULL, 't', '2009-05-14', 1, '2009-04-24', '2009-05-19 20:33:34.180469', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-19 20:33:34.180469', E'030060090120', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSELECT count(*) AS count_all FROM "pedidos" [0m
+  [4;36;1mPedido Load (1.1ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/edit/14 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-19 17:33:34) [GET]
+  Parameters: {"id"=>"14"}
+  [4;35;1mPedido Load (1.1ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 14) [0m
+Rendering template within layouts/application
+Rendering pedidos/edit
+Rendered pedidos/_form (49.8ms)
+Completed in 60ms (View: 57, DB: 28) | 200 OK [http://www.example.com/pedidos/edit/14]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (2.7ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (1.6ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (0.9ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/new with {} and HTTP headers {}
+
+
+Processing PedidosController#new (for 127.0.0.1 at 2009-05-19 17:36:33) [GET]
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "clientes" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering pedidos/new
+Rendered pedidos/_form (45.8ms)
+Completed in 117ms (View: 55, DB: 8) | 200 OK [http://www.example.com/pedidos/new]
+REQUESTING PAGE: POST /pedidos with {"commit"=>"Salvar", "pedido"=>{"comprador"=>"", "tipo"=>"X", "estorno"=>"", "minuta_id"=>"", "data"=>"'2009-05-30'", "autorizador_id"=>"", "funcionario_id"=>"1", "comissao_telemarketing"=>"", "preco_tabela"=>"", "plano_de_pagamento"=>"'000030060090120'", "desconto_complementar"=>"", "area_id"=>"", "endereco_entrega"=>"", "desconto"=>"", "valor"=>"", "programacao"=>"", "entrega"=>"", "cliente_id"=>"1", "observacao"=>"", "operador_id"=>"", "comissao_vendedor"=>"", "operador_estorno_id"=>"", "empresa_id"=>"", "registro"=>"'2009-05-30'", "vendedor_id"=>"1", "previsao_entrega"=>"'2009-05-30'", "especial"=>"S", "status"=>"B", "venda_externa"=>"S", "telemarketing_id"=>"", "transportadora_id"=>"1", "acrescimo"=>""}} and HTTP headers {"HTTP_REFERER"=>"pedidos/new"}
+
+
+Processing PedidosController#create (for 127.0.0.1 at 2009-05-19 17:36:33) [POST]
+  Parameters: {"commit"=>"Salvar", "pedido"=>{"tipo"=>"X", "comprador"=>"", "data"=>"'2009-05-30'", "minuta_id"=>"", "estorno"=>"", "funcionario_id"=>"1", "autorizador_id"=>"", "plano_de_pagamento"=>"'000030060090120'", "preco_tabela"=>"", "comissao_telemarketing"=>"", "cliente_id"=>"1", "entrega"=>"", "programacao"=>"", "valor"=>"", "desconto"=>"", "endereco_entrega"=>"", "area_id"=>"", "desconto_complementar"=>"", "observacao"=>"", "operador_id"=>"", "operador_estorno_id"=>"", "comissao_vendedor"=>"", "previsao_entrega"=>"'2009-05-30'", "vendedor_id"=>"1", "registro"=>"'2009-05-30'", "empresa_id"=>"", "status"=>"B", "especial"=>"S", "acrescimo"=>"", "transportadora_id"=>"1", "telemarketing_id"=>"", "venda_externa"=>"S"}}
+  [4;35;1mSQL (0.4ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(NULL, E'', E'X', '2009-05-30', NULL, NULL, '2009-05-19 20:36:33.530898', NULL, NULL, 1, NULL, NULL, NULL, NULL, '2009-05-19 20:36:33.530898', E'''000030060090120''', NULL, NULL, 1, NULL, NULL, E'', NULL, NULL, NULL, E'', NULL, NULL, NULL, '2009-05-30', 1, '2009-05-30', NULL, E'B', 'f', NULL, 1, NULL, 'f') RETURNING "id"[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pedidos/15
+Completed in 85ms (DB: 3) | 302 Found [http://www.example.com/pedidos]
+REQUESTING PAGE: GET http://www.example.com/pedidos/15 with {} and HTTP headers {"HTTP_REFERER"=>"/pedidos"}
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-19 17:36:33) [GET]
+  Parameters: {"id"=>"15"}
+  [4;36;1mPedido Load (1.8ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 15) [0m
+Rendering template within layouts/application
+Rendering pedidos/show
+Completed in 14ms (View: 9, DB: 2) | 200 OK [http://www.example.com/pedidos/15]
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCliente Load (0.9ms)[0m   [0mSELECT * FROM "clientes" LIMIT 1[0m
+  [4;36;1mFuncionario Load (1.0ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mFuncionario Load (0.9ms)[0m   [0mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;36;1mFuncionario Load (4.4ms)[0m   [0;1mSELECT * FROM "funcionarios" LIMIT 1[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Load (0.9ms)[0m   [0;1mSELECT * FROM "pedidos" [0m
+  [4;35;1mSQL (1.2ms)[0m   [0mINSERT INTO "pedidos" ("funcionario_estorno_id", "comprador", "tipo", "data", "minuta_id", "estorno", "created_at", "preco_especial", "autorizador_id", "funcionario_id", "preco_tabela", "nome_comprador", "comissao_telemarketing", "autorizador_desconto_id", "updated_at", "plano_de_pagamento", "entrega", "programacao", "cliente_id", "valor", "desconto", "endereco_entrega", "area_id", "desconto_complementar", "oficial", "observacao", "operador_id", "comissao_vendedor", "operador_estorno_id", "previsao_entrega", "vendedor_id", "registro", "empresa_id", "status", "especial", "acrescimo", "transportadora_id", "telemarketing_id", "venda_externa") VALUES(1, NULL, 't', '2009-05-14', 1, '2009-04-24', '2009-05-19 20:36:33.970600', 'f', NULL, 1, 9.99, E'MyString', 9.99, 1, '2009-05-19 20:36:33.970600', E'030060090120', '2009-05-14', '2009-05-14', 1, 9.99, 9.99, E'MyString', 1, NULL, 'f', E'MyText', 1, 9.99, NULL, '2009-05-14', 1, NULL, NULL, NULL, NULL, 9.99, 1, 1, 'f') RETURNING "id"[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (15.4ms)[0m   [0mSELECT count(*) AS count_all FROM "pedidos" [0m
+  [4;36;1mPedido Load (1.1ms)[0m   [0;1mSELECT * FROM "pedidos" LIMIT 1[0m
+REQUESTING PAGE: GET pedidos/edit/16 with {} and HTTP headers {}
+
+
+Processing PedidosController#edit (for 127.0.0.1 at 2009-05-19 17:36:34) [GET]
+  Parameters: {"id"=>"16"}
+  [4;35;1mPedido Load (1.1ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 16) [0m
+Rendering template within layouts/application
+Rendering pedidos/edit
+Rendered pedidos/_form (69.1ms)
+Completed in 79ms (View: 76, DB: 29) | 200 OK [http://www.example.com/pedidos/edit/16]
+REQUESTING PAGE: POST /pedidos/16 with {"commit"=>"Salvar", "_method"=>"put", "pedido"=>{"comprador"=>"", "tipo"=>"E", "estorno"=>"2009-04-24", "minuta_id"=>"1", "data"=>"2009-05-14", "autorizador_id"=>"", "funcionario_id"=>"1", "comissao_telemarketing"=>"9.99", "preco_tabela"=>"9.99", "plano_de_pagamento"=>"030060090120", "desconto_complementar"=>"", "area_id"=>"1", "endereco_entrega"=>"MyString", "desconto"=>"9.99", "valor"=>"9.99", "programacao"=>"2009-05-14", "entrega"=>"2009-05-14", "cliente_id"=>"1", "observacao"=>"MyText", "operador_id"=>"1", "comissao_vendedor"=>"9.99", "operador_estorno_id"=>"", "empresa_id"=>"", "registro"=>"", "vendedor_id"=>"1", "previsao_entrega"=>"2009-05-14", "especial"=>"S", "status"=>"B", "venda_externa"=>"S", "telemarketing_id"=>"1", "transportadora_id"=>"1", "acrescimo"=>"9.99"}} and HTTP headers {"HTTP_REFERER"=>"pedidos/edit/16"}
+
+
+Processing PedidosController#update (for 127.0.0.1 at 2009-05-19 17:36:34) [PUT]
+  Parameters: {"commit"=>"Salvar", "id"=>"16", "pedido"=>{"tipo"=>"E", "comprador"=>"", "data"=>"2009-05-14", "minuta_id"=>"1", "estorno"=>"2009-04-24", "funcionario_id"=>"1", "autorizador_id"=>"", "plano_de_pagamento"=>"030060090120", "preco_tabela"=>"9.99", "comissao_telemarketing"=>"9.99", "cliente_id"=>"1", "entrega"=>"2009-05-14", "programacao"=>"2009-05-14", "valor"=>"9.99", "desconto"=>"9.99", "endereco_entrega"=>"MyString", "area_id"=>"1", "desconto_complementar"=>"", "observacao"=>"MyText", "operador_id"=>"1", "operador_estorno_id"=>"", "comissao_vendedor"=>"9.99", "previsao_entrega"=>"2009-05-14", "vendedor_id"=>"1", "registro"=>"", "empresa_id"=>"", "status"=>"B", "especial"=>"S", "acrescimo"=>"9.99", "transportadora_id"=>"1", "telemarketing_id"=>"1", "venda_externa"=>"S"}}
+  [4;36;1mPedido Load (1.1ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 16) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPedido Update (21.3ms)[0m   [0;1mUPDATE "pedidos" SET "updated_at" = '2009-05-19 20:36:34.245159', "especial" = 'f', "tipo" = E'E', "status" = E'B', "comprador" = E'' WHERE "id" = 16[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pedidos/16
+Completed in 39ms (DB: 23) | 302 Found [http://www.example.com/pedidos/16]
+REQUESTING PAGE: GET http://www.example.com/pedidos/16 with {} and HTTP headers {"HTTP_REFERER"=>"/pedidos/16"}
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-19 17:36:34) [GET]
+  Parameters: {"id"=>"16"}
+  [4;36;1mPedido Load (1.1ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 16) [0m
+Rendering template within layouts/application
+Rendering pedidos/show
+Completed in 9ms (View: 5, DB: 1) | 200 OK [http://www.example.com/pedidos/16]
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
