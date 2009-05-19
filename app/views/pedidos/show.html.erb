@@ -101,13 +101,8 @@
 
 <p>
   <b>Status:</b>
-  <% case @pedido.status %>
-  <%  when 'A' : print 'Aberto' %>
-  <%  when 'B' : print 'Bloqueado' %>
-  <% else %>
-  <% 'Não Definido' %>
-  <% end %>
-</p>
+  <%=  @pedido.status %>
+  </p>
 
 <p>
   <b>Estorno:</b>

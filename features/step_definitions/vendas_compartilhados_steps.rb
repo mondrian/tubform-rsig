@@ -4,8 +4,15 @@ Dado /^que estou no formulário de cadastro de (.*)$/ do |entidade|
 end
 
 Dado /^defino (.*) com o valor (.*)$/ do |atributo,valor|
-  atributo = atributo.gsub(/\s/, '_')
+#  atributo = atributo.gsub(/\s/, '_')
+ atributo = @entidade_principal + "[" + atributo + "]"
   fill_in atributo, :with => valor
+end
+
+Dado /^seleciono o (.*) com o id (.*)$/ do |atributo,valor|
+#  atributo = atributo.gsub(/\s/, '_')
+ atributo = @entidade_principal + "[" + atributo + "]"
+  select(valor,atributo)
 end
 
 Quando /^eu salvar o registro$/ do
