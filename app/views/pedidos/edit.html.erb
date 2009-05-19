@@ -1,11 +1,23 @@
-<h1>Editing pedido</h1>
+<h1>Alterando pedido</h1>
 
 <% form_for(@pedido) do |f| %>
   <%= f.error_messages %>
 
+<<<<<<< HEAD:app/views/pedidos/edit.html.erb
 <%= render :partial => "form", :locals => { :f => f} %>
 
+=======
+  <p>
+    <%= f.submit 'Salvar' %>
+  </p>
+>>>>>>> d302db808439335dcbbd11a255962ad94b9a2277:app/views/pedidos/edit.html.erb
 <% end %>
+<%= button_to 'Aprovar', :action => :aprovar, :id => @pedido.id %>
+<%= link_to 'Exibir', @pedido %> |
+<%= link_to 'Voltar', pedidos_path %>
 
+<<<<<<< HEAD:app/views/pedidos/edit.html.erb
 <%= link_to 'Exibir', @pedido %> |
 <%= link_to 'Retornar', pedidos_path %>
+=======
+>>>>>>> d302db808439335dcbbd11a255962ad94b9a2277:app/views/pedidos/edit.html.erb

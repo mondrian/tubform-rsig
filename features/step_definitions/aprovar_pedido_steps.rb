@@ -7,10 +7,14 @@ Dado /^o pedido não ultrapassou o prazo médio máximo atribuido ao cliente$/ d
 end
 
 Dado /^os descontos aplicados no pedido são permitidos$/ do
-  pending
+  FaixaDeDesconto.transaction do
+    FaixaDeDesconto.destroy_all
+    Factory(:faixa_de_desconto)
+  end
+  @registro.should be_no_desconto_permitido
 end
 
-Quando /^eu pedir confirmação de pedido$/ do
-  click_button "Confirmar"
+Quando /^eu pedir aprovação de pedido$/ do
+  click_button "Aprovar"
 end
 

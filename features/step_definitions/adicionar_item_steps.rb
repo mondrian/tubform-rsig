@@ -11,7 +11,7 @@ Quando /^eu requisitar um novo item$/ do
 end
 
 Quando /^definir produto com o id 1$/ do
-  @produto = Produto.find(:first)
+  @produto = Produto.find(1)
   @item.produto = @produto
   @item.valor_tabela = @item.produto.valor_normal
 end

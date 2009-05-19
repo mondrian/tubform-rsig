@@ -4,8 +4,7 @@ Dado /^que estou no formulário de cadastro de (.*)$/ do |entidade|
 end
 
 Dado /^defino (.*) com o valor (.*)$/ do |atributo,valor|
-  atributo = @entidade_principal + '[' + atributo + ']'
-  #= atributo.gsub(/\s/, '[')
+  atributo = atributo.gsub(/\s/, '_')
   fill_in atributo, :with => valor
 end
 
