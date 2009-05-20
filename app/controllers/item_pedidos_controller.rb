@@ -1,5 +1,5 @@
 class ItemPedidosController < ApplicationController
-  before_filter :load_produtos
+  before_filter :load_produtos, :only => [:new, :edit, :create, :update]
   # GET /item_pedidos
   # GET /item_pedidos.xml
   def index
@@ -44,12 +44,12 @@ class ItemPedidosController < ApplicationController
   # POST /item_pedidos.xml
   def create
     @item_pedido = ItemPedido.new(params[:item_pedido])
-    @item_pedido.pedido = @pedido
+    @item_pedido.valor_tabela = @item_pedido.produto.valor_normal
 
     respond_to do |format|
       if @item_pedido.save
         flash[:notice] = "ItemPedido criado com sucesso."
-        format.html { redirect_to(@item_pedido) }
+        format.html { redirect_to(:controller => "pedidos", :action => "show", :id => @item_pedido.pedido_id ) }
         format.xml  { render :xml => @item_pedido, :status => :created, :location => @item_pedido }
       else
         format.html { render :action => "new" }
@@ -89,6 +89,6 @@ class ItemPedidosController < ApplicationController
 
   protected
   def load_produtos
-    @produtos = Produto.all.collect { |p| [p.nome, p.id] }
+    @produtos = Produto.all.collect { |p| [p.descricao + ' -  R$ ' + p.valor_normal.to_s , p.id] }
   end
 end

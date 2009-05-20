@@ -13836,3 +13836,800 @@ Migrating to AddRelacaoPedidoItem (20090520164805)
   [4;36;1mSQL (24.8ms)[0m   [0;1mALTER TABLE "item_pedidos" ADD COLUMN "pedido_id" integer[0m
   [4;35;1mSQL (0.0ms)[0m   [0mRuntimeError: ERRO	C42701	Mcoluna "produto_id" da relação "item_pedidos" já existe	Ftablecmds.c	L3096	RATExecAddColumn: ALTER TABLE "item_pedidos" ADD COLUMN "produto_id" integer[0m
   [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (4.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreatePedidos (20090424125922)
+Migrating to CreateClientes (20090424184002)
+Migrating to CreateProdutos (20090424195513)
+Migrating to CreateGrupos (20090424195522)
+Migrating to CreateFuncionarios (20090424195642)
+Migrating to CreateCores (20090424200003)
+Migrating to CreateRoteiros (20090427135556)
+Migrating to CreateAreas (20090427135631)
+Migrating to CreateCidades (20090427135712)
+Migrating to CreateRegiaos (20090427135726)
+Migrating to CreateMetaProdutos (20090427140058)
+Migrating to CreateExpedicaos (20090427140326)
+Migrating to CreateItemPedidos (20090427180121)
+Migrating to AlterarFuncionarioTipo (20090427215555)
+Migrating to CreateMinutas (20090427220350)
+Migrating to CreateItensMinutas (20090427220624)
+Migrating to CorrigeExpedicao (20090427224059)
+Migrating to CorrigeRegioes (20090427225739)
+Migrating to AlterUfIdToUfOnCliente (20090428131235)
+Migrating to AddAreaIdToRoteiro (20090428135218)
+Migrating to RemoveAreaIdFromRoteiros (20090428191302)
+Migrating to AddMinutaIdToItensMinutas (20090428200227)
+Migrating to CreateTransportadoras (20090428225823)
+Migrating to CreatePlanosdepagamento (20090428230809)
+Migrating to CreateItensNotaFiscal (20090429131935)
+Migrating to CreateNotasFiscais (20090429135918)
+Migrating to AddCamposToPedido (20090429193750)
+Migrating to IncluirUf (20090429200955)
+Migrating to AdicionarColunaUfCidade (20090430135229)
+Migrating to IncluirEmailBairro (20090505131534)
+Migrating to SepararCpfCnpj (20090507181512)
+Migrating to AddColumnProdutoIdToItemPedido (20090513144431)
+Migrating to CorrigeFuncionarioId (20090514192355)
+Migrating to AlteraPlanoPagamentoId (20090514201737)
+Migrating to CreateFaixasDeDesconto (20090515144011)
+Migrating to AlterarTipoPedido (20090517121112)
+Migrating to AddRelacaoPedidoItem (20090520164805)
+  [4;35;1mSQL (0.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mALTER TABLE "item_pedidos" ADD COLUMN "pedido_id" integer[0m
+  [4;35;1mSQL (106.8ms)[0m   [0mCREATE INDEX "index_item_pedidos_on_pedido_id" ON "item_pedidos" ("pedido_id")[0m
+  [4;36;1mSQL (22.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090520164805')[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (3.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 13:53:05) [GET]
+  [4;36;1mProduto Load (2.2ms)[0m   [0;1mSELECT * FROM "produtos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (1.9ms)
+Completed in 21ms (View: 6, DB: 3) | 200 OK [http://localhost/item_pedidos/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 13:53:05) [GET]
+  [4;35;1mProduto Load (2.2ms)[0m   [0mSELECT * FROM "produtos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (1.2ms)
+Completed in 15ms (View: 2, DB: 3) | 200 OK [http://localhost/item_pedidos/new]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 13:53:59) [GET]
+  [4;36;1mProduto Load (6.9ms)[0m   [0;1mSELECT * FROM "produtos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (2.1ms)
+Completed in 86ms (View: 49, DB: 8) | 200 OK [http://localhost/item_pedidos/new]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 13:54:00) [GET]
+  [4;35;1mProduto Load (2.2ms)[0m   [0mSELECT * FROM "produtos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (1.1ms)
+Completed in 16ms (View: 2, DB: 3) | 200 OK [http://localhost/item_pedidos/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-20 13:54:03) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mPedido Load (3.7ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering pedidos/show
+Completed in 24ms (View: 6, DB: 4) | 200 OK [http://localhost/pedidos/3]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 13:54:06) [GET]
+  [4;35;1mProduto Load (2.0ms)[0m   [0mSELECT * FROM "produtos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (1.1ms)
+Completed in 14ms (View: 2, DB: 2) | 200 OK [http://localhost/item_pedidos/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 13:54:06) [GET]
+  [4;36;1mProduto Load (2.0ms)[0m   [0;1mSELECT * FROM "produtos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (1.1ms)
+Completed in 15ms (View: 2, DB: 2) | 200 OK [http://localhost/item_pedidos/new]
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-20 13:54:09) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mPedido Load (3.0ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering pedidos/show
+Completed in 25ms (View: 8, DB: 4) | 200 OK [http://localhost/pedidos/3]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-20 13:54:53) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mPedido Load (6.6ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering pedidos/show
+Completed in 52ms (View: 9, DB: 8) | 200 OK [http://localhost/pedidos/3]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-20 13:54:53) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mPedido Load (2.9ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering pedidos/show
+Completed in 28ms (View: 5, DB: 3) | 200 OK [http://localhost/pedidos/3]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 13:54:56) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProduto Load (7.2ms)[0m   [0;1mSELECT * FROM "produtos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (47.1ms)
+Completed in 89ms (View: 49, DB: 8) | 200 OK [http://localhost/item_pedidos/new/3]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 13:54:56) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mProduto Load (2.2ms)[0m   [0mSELECT * FROM "produtos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (1.2ms)
+Completed in 16ms (View: 2, DB: 3) | 200 OK [http://localhost/item_pedidos/new/3]
+  [4;36;1mSQL (2.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 13:56:22) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProduto Load (7.2ms)[0m   [0;1mSELECT * FROM "produtos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (6.6ms)
+Completed in 50ms (View: 13, DB: 10) | 200 OK [http://localhost/item_pedidos/new/3]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 13:56:22) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mProduto Load (2.4ms)[0m   [0mSELECT * FROM "produtos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (1.2ms)
+Completed in 15ms (View: 2, DB: 3) | 200 OK [http://localhost/item_pedidos/new/3]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProdutosController#new (for 127.0.0.1 at 2009-05-20 13:57:01) [GET]
+Rendering template within layouts/application
+Rendering produtos/new
+Rendered produtos/_produto (3.9ms)
+Completed in 29ms (View: 10, DB: 1) | 200 OK [http://localhost/produtos/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProdutosController#new (for 127.0.0.1 at 2009-05-20 13:57:02) [GET]
+Rendering template within layouts/application
+Rendering produtos/new
+Rendered produtos/_produto (3.4ms)
+Completed in 14ms (View: 4, DB: 0) | 200 OK [http://localhost/produtos/new]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProdutosController#create (for 127.0.0.1 at 2009-05-20 13:57:25) [POST]
+  Parameters: {"commit"=>"Criar", "authenticity_token"=>"MTk4FvwbFi82sne9oOcCXPIe/PV/t9MwE70mRa3FNok=", "produto"=>{"descricao"=>"teste"}}
+  [4;36;1mSQL (0.6ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (54.1ms)[0m   [0mINSERT INTO "produtos" ("kit", "created_at", "cor_id", "ipi", "funcionario_id", "cadastro_custo", "preco_normal_zona1", "updated_at", "valor_normal", "classe_id", "situacao_tributaria", "descricao_nota_fiscal", "grupo_id", "cod_emissao_nota_fiscal", "preco_minimo_nota_fiscal", "preco_especial_zona1", "emissao_relatorio", "valor_especial", "classificacao_fiscal", "custo", "descricao", "status", "peso_liquido") VALUES(NULL, '2009-05-20 16:57:25.481266', NULL, NULL, NULL, NULL, NULL, '2009-05-20 16:57:25.481266', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, E'teste', NULL, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/produtos/2
+Completed in 107ms (DB: 56) | 302 Found [http://localhost/produtos]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProdutosController#show (for 127.0.0.1 at 2009-05-20 13:57:25) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mProduto Load (1.9ms)[0m   [0mSELECT * FROM "produtos" WHERE ("produtos"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering produtos/show
+Completed in 17ms (View: 5, DB: 2) | 200 OK [http://localhost/produtos/2]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProdutosController#show (for 127.0.0.1 at 2009-05-20 13:57:25) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mProduto Load (2.0ms)[0m   [0;1mSELECT * FROM "produtos" WHERE ("produtos"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering produtos/show
+Completed in 15ms (View: 3, DB: 2) | 200 OK [http://localhost/produtos/2]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 13:57:31) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mProduto Load (3.5ms)[0m   [0mSELECT * FROM "produtos" [0m
+
+NoMethodError (undefined method `nome' for #<Produto:0xb78295f8>):
+  app/controllers/item_pedidos_controller.rb:92:in `load_produtos'
+  app/controllers/item_pedidos_controller.rb:92:in `collect'
+  app/controllers/item_pedidos_controller.rb:92:in `load_produtos'
+
+Rendered rescues/_trace (29.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 13:57:32) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProduto Load (2.8ms)[0m   [0;1mSELECT * FROM "produtos" [0m
+
+NoMethodError (undefined method `nome' for #<Produto:0xb7313ff0>):
+  app/controllers/item_pedidos_controller.rb:92:in `load_produtos'
+  app/controllers/item_pedidos_controller.rb:92:in `collect'
+  app/controllers/item_pedidos_controller.rb:92:in `load_produtos'
+
+Rendered rescues/_trace (26.9ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 13:57:33) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mProduto Load (3.8ms)[0m   [0mSELECT * FROM "produtos" [0m
+
+NoMethodError (undefined method `nome' for #<Produto:0xb74f628c>):
+  app/controllers/item_pedidos_controller.rb:92:in `load_produtos'
+  app/controllers/item_pedidos_controller.rb:92:in `collect'
+  app/controllers/item_pedidos_controller.rb:92:in `load_produtos'
+
+Rendered rescues/_trace (27.4ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 13:57:55) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProduto Load (2.5ms)[0m   [0;1mSELECT * FROM "produtos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (1.2ms)
+Completed in 22ms (View: 2, DB: 3) | 200 OK [http://localhost/item_pedidos/new/3]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 13:57:55) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mProduto Load (2.3ms)[0m   [0mSELECT * FROM "produtos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (1.3ms)
+Completed in 61ms (View: 2, DB: 3) | 200 OK [http://localhost/item_pedidos/new/3]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 13:59:08) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProduto Load (9.5ms)[0m   [0;1mSELECT * FROM "produtos" [0m
+
+TypeError (can't convert nil into String):
+  app/controllers/item_pedidos_controller.rb:92:in `+'
+  app/controllers/item_pedidos_controller.rb:92:in `load_produtos'
+  app/controllers/item_pedidos_controller.rb:92:in `collect'
+  app/controllers/item_pedidos_controller.rb:92:in `load_produtos'
+
+Rendered rescues/_trace (28.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 13:59:09) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mProduto Load (2.6ms)[0m   [0mSELECT * FROM "produtos" [0m
+
+TypeError (can't convert nil into String):
+  app/controllers/item_pedidos_controller.rb:92:in `+'
+  app/controllers/item_pedidos_controller.rb:92:in `load_produtos'
+  app/controllers/item_pedidos_controller.rb:92:in `collect'
+  app/controllers/item_pedidos_controller.rb:92:in `load_produtos'
+
+Rendered rescues/_trace (69.2ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mProduto Load (5.8ms)[0m   [0;1mSELECT * FROM "produtos" LIMIT 1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mBEGIN[0m
+  [4;36;1mProduto Update (1.7ms)[0m   [0;1mUPDATE "produtos" SET "updated_at" = '2009-05-20 16:59:26.964216', "valor_normal" = 10.2 WHERE "id" = 2[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 13:59:30) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProduto Load (6.6ms)[0m   [0;1mSELECT * FROM "produtos" [0m
+
+TypeError (can't convert BigDecimal into String):
+  app/controllers/item_pedidos_controller.rb:92:in `+'
+  app/controllers/item_pedidos_controller.rb:92:in `load_produtos'
+  app/controllers/item_pedidos_controller.rb:92:in `collect'
+  app/controllers/item_pedidos_controller.rb:92:in `load_produtos'
+
+Rendered rescues/_trace (41.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 13:59:31) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mProduto Load (2.4ms)[0m   [0mSELECT * FROM "produtos" [0m
+
+TypeError (can't convert BigDecimal into String):
+  app/controllers/item_pedidos_controller.rb:92:in `+'
+  app/controllers/item_pedidos_controller.rb:92:in `load_produtos'
+  app/controllers/item_pedidos_controller.rb:92:in `collect'
+  app/controllers/item_pedidos_controller.rb:92:in `load_produtos'
+
+Rendered rescues/_trace (27.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 13:59:41) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProduto Load (2.4ms)[0m   [0;1mSELECT * FROM "produtos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (1.2ms)
+Completed in 20ms (View: 2, DB: 3) | 200 OK [http://localhost/item_pedidos/new/3]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 13:59:41) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mProduto Load (3.7ms)[0m   [0mSELECT * FROM "produtos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (1.3ms)
+Completed in 34ms (View: 2, DB: 4) | 200 OK [http://localhost/item_pedidos/new/3]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 13:59:58) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProduto Load (2.4ms)[0m   [0;1mSELECT * FROM "produtos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (1.3ms)
+Completed in 22ms (View: 2, DB: 3) | 200 OK [http://localhost/item_pedidos/new/3]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 13:59:58) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mProduto Load (2.6ms)[0m   [0mSELECT * FROM "produtos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (1.2ms)
+Completed in 21ms (View: 2, DB: 3) | 200 OK [http://localhost/item_pedidos/new/3]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 14:01:43) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProduto Load (4.0ms)[0m   [0;1mSELECT * FROM "produtos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (2.3ms)
+Completed in 39ms (View: 6, DB: 5) | 200 OK [http://localhost/item_pedidos/new/3]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 14:01:43) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mProduto Load (2.5ms)[0m   [0mSELECT * FROM "produtos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (1.5ms)
+Completed in 58ms (View: 2, DB: 3) | 200 OK [http://localhost/item_pedidos/new/3]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#create (for 127.0.0.1 at 2009-05-20 14:03:40) [POST]
+  Parameters: {"item_pedido"=>{"produto_id"=>"2", "pedido_id"=>"3", "valor_venda"=>"10", "quantidade"=>"1"}, "commit"=>"Criar", "authenticity_token"=>"MTk4FvwbFi82sne9oOcCXPIe/PV/t9MwE70mRa3FNok="}
+  [4;36;1mProduto Load (1.9ms)[0m   [0;1mSELECT * FROM "produtos" WHERE ("produtos"."id" = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (48.3ms)[0m   [0;1mINSERT INTO "item_pedidos" ("valor_tabela", "created_at", "produto_id", "pedido_id", "valor_venda", "updated_at", "desconto", "quantidade") VALUES(10.2, '2009-05-20 17:03:40.401083', 2, 3, 10.0, '2009-05-20 17:03:40.401083', NULL, 1.0) RETURNING "id"[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/item_pedidos/2
+Completed in 93ms (DB: 52) | 302 Found [http://localhost/item_pedidos]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#show (for 127.0.0.1 at 2009-05-20 14:03:40) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mItemPedido Load (1.0ms)[0m   [0;1mSELECT * FROM "item_pedidos" WHERE ("item_pedidos"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering item_pedidos/show
+Completed in 12ms (View: 4, DB: 1) | 200 OK [http://localhost/item_pedidos/2]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#show (for 127.0.0.1 at 2009-05-20 14:03:40) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mItemPedido Load (1.1ms)[0m   [0mSELECT * FROM "item_pedidos" WHERE ("item_pedidos"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering item_pedidos/show
+Completed in 11ms (View: 2, DB: 1) | 200 OK [http://localhost/item_pedidos/2]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 14:06:07) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProduto Load (2.3ms)[0m   [0;1mSELECT * FROM "produtos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (1.3ms)
+Completed in 20ms (View: 2, DB: 4) | 200 OK [http://localhost/item_pedidos/new/3]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-20 14:06:09) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mPedido Load (2.9ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering pedidos/show
+Completed in 23ms (View: 6, DB: 3) | 200 OK [http://localhost/pedidos/3]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-20 14:06:11) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mPedido Load (8.5ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering pedidos/show
+Completed in 61ms (View: 16, DB: 9) | 200 OK [http://localhost/pedidos/3]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-20 14:06:11) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mPedido Load (18.2ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering pedidos/show
+Completed in 38ms (View: 5, DB: 19) | 200 OK [http://localhost/pedidos/3]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 14:06:13) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProduto Load (6.7ms)[0m   [0;1mSELECT * FROM "produtos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (1.6ms)
+Completed in 114ms (View: 3, DB: 8) | 200 OK [http://localhost/item_pedidos/new/3]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 14:06:13) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mProduto Load (2.4ms)[0m   [0mSELECT * FROM "produtos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (1.3ms)
+Completed in 21ms (View: 2, DB: 3) | 200 OK [http://localhost/item_pedidos/new/3]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#create (for 127.0.0.1 at 2009-05-20 14:06:20) [POST]
+  Parameters: {"item_pedido"=>{"produto_id"=>"2", "pedido_id"=>"3", "valor_venda"=>"10", "quantidade"=>"2"}, "commit"=>"Criar", "authenticity_token"=>"MTk4FvwbFi82sne9oOcCXPIe/PV/t9MwE70mRa3FNok="}
+  [4;36;1mProduto Load (1.9ms)[0m   [0;1mSELECT * FROM "produtos" WHERE ("produtos"."id" = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO "item_pedidos" ("valor_tabela", "created_at", "produto_id", "pedido_id", "valor_venda", "updated_at", "desconto", "quantidade") VALUES(10.2, '2009-05-20 17:06:20.960792', 2, 3, 10.0, '2009-05-20 17:06:20.960792', NULL, 2.0) RETURNING "id"[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/pedidos/3
+Completed in 39ms (DB: 4) | 302 Found [http://localhost/item_pedidos]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-20 14:06:21) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mPedido Load (3.2ms)[0m   [0;1mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering pedidos/show
+Completed in 23ms (View: 6, DB: 3) | 200 OK [http://localhost/pedidos/3]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-20 14:06:21) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mPedido Load (2.9ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering pedidos/show
+Completed in 22ms (View: 6, DB: 3) | 200 OK [http://localhost/pedidos/3]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 14:08:57) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProduto Load (6.6ms)[0m   [0;1mSELECT * FROM "produtos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (3.6ms)
+Completed in 59ms (View: 6, DB: 7) | 200 OK [http://localhost/item_pedidos/new/3]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 14:08:57) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mProduto Load (2.3ms)[0m   [0mSELECT * FROM "produtos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (1.3ms)
+Completed in 21ms (View: 2, DB: 3) | 200 OK [http://localhost/item_pedidos/new/3]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#create (for 127.0.0.1 at 2009-05-20 14:09:03) [POST]
+  Parameters: {"item_pedido"=>{"produto_id"=>"2", "pedido_id"=>"3", "valor_venda"=>"1", "quantidade"=>"1"}, "commit"=>"Criar", "authenticity_token"=>"MTk4FvwbFi82sne9oOcCXPIe/PV/t9MwE70mRa3FNok="}
+  [4;36;1mProduto Load (6.4ms)[0m   [0;1mSELECT * FROM "produtos" WHERE ("produtos"."id" = 2) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mItemPedido Exists (0.7ms)[0m   [0;1mSELECT "item_pedidos".id FROM "item_pedidos" WHERE ("item_pedidos"."pedido_id" = 3) LIMIT 1[0m
+  [4;35;1mItemPedido Exists (0.5ms)[0m   [0mSELECT "item_pedidos".id FROM "item_pedidos" WHERE ("item_pedidos"."produto_id" = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.inject) on line #9 of app/views/item_pedidos/_itempedido.html.erb:
+6:  <h2>Adicionar ítem ao pedido <%= params[:id] %></h2>
+7: <p>
+8:   <%= f.label :produto_id, 'Produto' %><br />
+9:   <%= f.select :produto_id, @produtos %>
+10: </p>
+11: 
+12:   <p>
+
+    app/views/item_pedidos/_itempedido.html.erb:9
+    app/views/item_pedidos/_itempedido.html.erb:1
+    app/views/item_pedidos/new.html.erb:3
+    app/controllers/item_pedidos_controller.rb:55:in `create'
+    app/controllers/item_pedidos_controller.rb:49:in `create'
+
+Rendered rescues/_trace (46.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#index (for 127.0.0.1 at 2009-05-20 14:09:03) [GET]
+  [4;35;1mItemPedido Load (1.6ms)[0m   [0mSELECT * FROM "item_pedidos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/index
+Completed in 57ms (View: 52, DB: 2) | 200 OK [http://localhost/item_pedidos]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#create (for 127.0.0.1 at 2009-05-20 14:09:46) [POST]
+  Parameters: {"item_pedido"=>{"produto_id"=>"2", "pedido_id"=>"3", "valor_venda"=>"1", "quantidade"=>"1"}, "commit"=>"Criar", "authenticity_token"=>"MTk4FvwbFi82sne9oOcCXPIe/PV/t9MwE70mRa3FNok="}
+  [4;36;1mProduto Load (7.4ms)[0m   [0;1mSELECT * FROM "produtos" [0m
+  [4;35;1mProduto Load (1.9ms)[0m   [0mSELECT * FROM "produtos" WHERE ("produtos"."id" = 2) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mItemPedido Exists (0.8ms)[0m   [0mSELECT "item_pedidos".id FROM "item_pedidos" WHERE ("item_pedidos"."pedido_id" = 3) LIMIT 1[0m
+  [4;36;1mItemPedido Exists (0.6ms)[0m   [0;1mSELECT "item_pedidos".id FROM "item_pedidos" WHERE ("item_pedidos"."produto_id" = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (1.8ms)
+Completed in 93ms (View: 3, DB: 12) | 200 OK [http://localhost/item_pedidos]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#index (for 127.0.0.1 at 2009-05-20 14:09:47) [GET]
+  [4;36;1mItemPedido Load (1.6ms)[0m   [0;1mSELECT * FROM "item_pedidos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/index
+Completed in 11ms (View: 6, DB: 2) | 200 OK [http://localhost/item_pedidos]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#create (for 127.0.0.1 at 2009-05-20 14:10:18) [POST]
+  Parameters: {"item_pedido"=>{"produto_id"=>"2", "pedido_id"=>"3", "valor_venda"=>"1", "quantidade"=>"1"}, "commit"=>"Criar", "authenticity_token"=>"MTk4FvwbFi82sne9oOcCXPIe/PV/t9MwE70mRa3FNok="}
+  [4;35;1mProduto Load (2.3ms)[0m   [0mSELECT * FROM "produtos" [0m
+  [4;36;1mProduto Load (1.8ms)[0m   [0;1mSELECT * FROM "produtos" WHERE ("produtos"."id" = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mItemPedido Exists (0.7ms)[0m   [0;1mSELECT "item_pedidos".id FROM "item_pedidos" WHERE ("item_pedidos"."pedido_id" = 3) LIMIT 1[0m
+  [4;35;1mItemPedido Exists (0.5ms)[0m   [0mSELECT "item_pedidos".id FROM "item_pedidos" WHERE ("item_pedidos"."produto_id" = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (1.6ms)
+Completed in 30ms (View: 3, DB: 6) | 200 OK [http://localhost/item_pedidos]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#index (for 127.0.0.1 at 2009-05-20 14:10:19) [GET]
+  [4;35;1mItemPedido Load (1.7ms)[0m   [0mSELECT * FROM "item_pedidos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/index
+Completed in 48ms (View: 6, DB: 2) | 200 OK [http://localhost/item_pedidos]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#create (for 127.0.0.1 at 2009-05-20 14:12:40) [POST]
+  Parameters: {"item_pedido"=>{"produto_id"=>"2", "pedido_id"=>"3", "valor_venda"=>"1", "quantidade"=>"1"}, "commit"=>"Criar", "authenticity_token"=>"MTk4FvwbFi82sne9oOcCXPIe/PV/t9MwE70mRa3FNok="}
+  [4;36;1mProduto Load (14.7ms)[0m   [0;1mSELECT * FROM "produtos" [0m
+
+NoMethodError (undefined method `validade' for #<Class:0xb73ae014>):
+  app/models/item_pedido.rb:7
+  app/controllers/item_pedidos_controller.rb:46:in `create'
+
+Rendered rescues/_trace (32.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#index (for 127.0.0.1 at 2009-05-20 14:12:40) [GET]
+
+NoMethodError (undefined method `validade' for #<Class:0xb7b5a218>):
+  app/models/item_pedido.rb:7
+  app/controllers/item_pedidos_controller.rb:6:in `index'
+
+Rendered rescues/_trace (31.3ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#create (for 127.0.0.1 at 2009-05-20 14:12:54) [POST]
+  Parameters: {"item_pedido"=>{"produto_id"=>"2", "pedido_id"=>"3", "valor_venda"=>"1", "quantidade"=>"1"}, "commit"=>"Criar", "authenticity_token"=>"MTk4FvwbFi82sne9oOcCXPIe/PV/t9MwE70mRa3FNok="}
+  [4;35;1mProduto Load (6.6ms)[0m   [0mSELECT * FROM "produtos" [0m
+  [4;36;1mProduto Load (1.8ms)[0m   [0;1mSELECT * FROM "produtos" WHERE ("produtos"."id" = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mItemPedido Load (1.2ms)[0m   [0;1mSELECT * FROM "item_pedidos" WHERE ("item_pedidos"."produto_id" = 2 AND "item_pedidos"."pedido_id" = 3) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (3.0ms)
+Completed in 58ms (View: 4, DB: 11) | 200 OK [http://localhost/item_pedidos]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#index (for 127.0.0.1 at 2009-05-20 14:12:55) [GET]
+  [4;36;1mItemPedido Load (2.3ms)[0m   [0;1mSELECT * FROM "item_pedidos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/index
+Completed in 12ms (View: 6, DB: 3) | 200 OK [http://localhost/item_pedidos]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (5.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#create (for 127.0.0.1 at 2009-05-20 14:13:17) [POST]
+  Parameters: {"item_pedido"=>{"produto_id"=>"2", "pedido_id"=>"3", "valor_venda"=>"1", "quantidade"=>"1"}, "commit"=>"Criar", "authenticity_token"=>"MTk4FvwbFi82sne9oOcCXPIe/PV/t9MwE70mRa3FNok="}
+  [4;35;1mProduto Load (2.6ms)[0m   [0mSELECT * FROM "produtos" [0m
+  [4;36;1mProduto Load (1.7ms)[0m   [0;1mSELECT * FROM "produtos" WHERE ("produtos"."id" = 2) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mItemPedido Load (1.1ms)[0m   [0;1mSELECT * FROM "item_pedidos" WHERE ("item_pedidos"."produto_id" = 2 AND "item_pedidos"."pedido_id" = 3) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (3.0ms)
+Completed in 30ms (View: 4, DB: 11) | 200 OK [http://localhost/item_pedidos]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#index (for 127.0.0.1 at 2009-05-20 14:13:18) [GET]
+  [4;36;1mItemPedido Load (2.9ms)[0m   [0;1mSELECT * FROM "item_pedidos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/index
+Completed in 16ms (View: 8, DB: 3) | 200 OK [http://localhost/item_pedidos]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#index (for 127.0.0.1 at 2009-05-20 14:13:35) [GET]
+  [4;35;1mItemPedido Load (1.7ms)[0m   [0mSELECT * FROM "item_pedidos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/index
+Completed in 12ms (View: 6, DB: 2) | 200 OK [http://localhost/item_pedidos]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ItemPedidosController#new (for 127.0.0.1 at 2009-05-20 14:13:37) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProduto Load (4.2ms)[0m   [0;1mSELECT * FROM "produtos" [0m
+Rendering template within layouts/application
+Rendering item_pedidos/new
+Rendered item_pedidos/_itempedido (1.3ms)
+Completed in 24ms (View: 2, DB: 4) | 200 OK [http://localhost/item_pedidos/new/3]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PedidosController#show (for 127.0.0.1 at 2009-05-20 14:13:38) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mPedido Load (2.9ms)[0m   [0mSELECT * FROM "pedidos" WHERE ("pedidos"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering pedidos/show
+Completed in 35ms (View: 6, DB: 3) | 200 OK [http://localhost/pedidos/3]
