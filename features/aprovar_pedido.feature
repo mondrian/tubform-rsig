@@ -11,5 +11,5 @@ Funcionalidade: Aprovar Pedido de Venda
     E o pedido não ultrapassou o prazo médio máximo atribuido ao cliente
     E os descontos aplicados no pedido são permitidos
     Quando eu pedir aprovação de pedido
-    Então eu preciso receber a mensagem "Pedido Aprovado"
+    Então preciso receber a mensagem "Pedido Aprovado"
 

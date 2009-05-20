@@ -1,7 +1,7 @@
 Factory.define :cliente do |c|
   c.tipo_cliente "E"
-  c.cpf "MyString"
-  c.cnpj "MyString"
+  c.sequence(:cpf) { |n| "000000000#{n}" }
+  c.sequence(:cnpj) { |n| "000000000#{n}" }
   c.razao_social "MyString"
   c.nome_fantasia "MyString"
   c.documento "MyString"
@@ -38,7 +38,7 @@ Factory.define :pedido do |p|
   p.previsao_entrega "2009-05-14"
   p.entrega "2009-05-14"
   p.programacao "2009-05-14"
-  p.cliente_id 2
+  p.association :cliente, :factory => :cliente
   p.valor 9.99
   p.acrescimo 9.99
   p.desconto 9.99
@@ -58,7 +58,7 @@ Factory.define :pedido do |p|
   p.comissao_vendedor 9.99
   p.comissao_telemarketing 9.99
   p.venda_externa false
-  p.autorizador_desconto_id 1  
+  p.autorizador_desconto_id 1
 end
 
 Factory.define :faixa_de_desconto do |f|
@@ -67,7 +67,7 @@ Factory.define :faixa_de_desconto do |f|
   f.desconto_permitido 10
 end
 
-Factory.define :produto do |p| 
+Factory.define :produto do |p|
   p.descricao "MyString"
   p.cor_id 1
   p.valor_especial 9.99
@@ -130,3 +130,4 @@ end
 Factory.define :transportadora do |t|
     t.razao_social 'Tubform'
 end
+

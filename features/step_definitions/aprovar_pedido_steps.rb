@@ -1,4 +1,5 @@
 Dado /^o cliente não possui restrição de cadastro$/ do
+  puts @registro.cliente_id
   @registro.cliente.should be_ativo
 end
 

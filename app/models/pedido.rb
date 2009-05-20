@@ -1,5 +1,5 @@
 class Pedido < ActiveRecord::Base
-  
+
   belongs_to :cliente
   belongs_to :vendedor,
              :class_name => 'Funcionario',
@@ -17,16 +17,16 @@ class Pedido < ActiveRecord::Base
   belongs_to :minuta
   belongs_to :area
   has_many   :item_pedidos
-  has_many :produtos, :through => :ietm_pedidos
-  
-  
+  has_many :produtos, :through => :item_pedidos
+
+
   validates_presence_of :tipo, :message => "Informe o Tipo de Pedido"
   validates_presence_of :data, :message => "Informe a Data do Pedido"
   validates_presence_of :cliente_id,
                         :message => "Informe o Código do Cliente"
   #validates_presence_of :valor, :message => "Pedido não foi Valorado"
-  
-  public 
+
+  public
   def no_prazo_medio_maximo?
     self.cliente.prazo_medio_maximo <= self.prazo_medio
   end
@@ -53,3 +53,4 @@ class Pedido < ActiveRecord::Base
   end
 
 end
+

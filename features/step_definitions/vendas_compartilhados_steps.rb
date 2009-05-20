@@ -27,11 +27,8 @@ Dado /^que existem (\d+) (.+)$/ do |quantidade, entidade|
   entidade = entidade.gsub(/\s/, '_').singularize
   entidade_simbolo = entidade.to_sym
   klass = eval(entidade.camelize)
-  klass.transaction do
-    klass.destroy_all
-    quantidade.to_i.times do |i|
+  quantidade.to_i.times do |i|
       Factory(entidade_simbolo)
-    end
   end
 end
 
@@ -39,11 +36,7 @@ Dado /^que existe um\(a\) (.*)$/ do |entidade|
   entidade = entidade.gsub(/\s/, '_').singularize
   entidade_simbolo = entidade.to_sym
   klass = eval(entidade.camelize)
-  klass.transaction do
-    klass.destroy_all
-    Factory(entidade_simbolo)
-  end
-
+  Factory(entidade_simbolo)
   klass.count > 0
 end
 
@@ -51,10 +44,7 @@ Dado /^este (.*) está atribuido a um determinado\(a\) (.*)$/ do |pai, entidade|
   entidade = entidade.gsub(/\s/, '_').singularize
   entidade_simbolo = entidade.to_sym
   klass = eval(entidade.camelize)
-  klass.transaction do
-    klass.destroy_all
-    Factory(entidade_simbolo)
-  end
+  Factory(entidade_simbolo)
 end
 
 Dado /^que estou no detalhe de (.*) (\d+)$/ do |entidade, id|
