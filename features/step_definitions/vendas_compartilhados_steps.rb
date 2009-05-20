@@ -41,7 +41,7 @@ Dado /^que existe um\(a\) (.*)$/ do |entidade|
   klass.count > 0
 end
 
-Dado /^e este (.*) está atribuido a um determinado\(a\) (.*)$/ do |pai, entidade|
+Dado /^este (.*) está atribuido a um determinado\(a\) (.*)$/ do |pai, entidade|
   entidade = entidade.gsub(/\s/, '_').singularize
   entidade_simbolo = entidade.to_sym
   klass = eval(entidade.camelize)
@@ -67,3 +67,4 @@ Então /^preciso ver (.*) (.*)$/ do |quantidade,entidades|
   registros.count.should == quantidade.to_i
   registros.each {|r| have_tag("td", :content => "#{r.id}")}
 end
+
