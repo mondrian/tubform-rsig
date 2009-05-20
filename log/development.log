@@ -11367,3 +11367,503 @@ Migrating to AlterarTipoPedido (20090517121112)
   [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090507181512')[0m
   [4;35;1mSQL (1.7ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090514201737')[0m
   [4;36;1mSQL (1.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424125922')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreatePedidos (20090424125922)
+Migrating to CreateClientes (20090424184002)
+Migrating to CreateProdutos (20090424195513)
+Migrating to CreateGrupos (20090424195522)
+Migrating to CreateFuncionarios (20090424195642)
+Migrating to CreateCores (20090424200003)
+Migrating to CreateRoteiros (20090427135556)
+Migrating to CreateAreas (20090427135631)
+Migrating to CreateCidades (20090427135712)
+Migrating to CreateRegiaos (20090427135726)
+Migrating to CreateMetaProdutos (20090427140058)
+Migrating to CreateExpedicaos (20090427140326)
+Migrating to CreateItemPedidos (20090427180121)
+Migrating to AlterarFuncionarioTipo (20090427215555)
+Migrating to CreateMinutas (20090427220350)
+Migrating to CreateItensMinutas (20090427220624)
+Migrating to CorrigeExpedicao (20090427224059)
+Migrating to CorrigeRegioes (20090427225739)
+Migrating to AlterUfIdToUfOnCliente (20090428131235)
+Migrating to AddAreaIdToRoteiro (20090428135218)
+Migrating to RemoveAreaIdFromRoteiros (20090428191302)
+Migrating to AddMinutaIdToItensMinutas (20090428200227)
+Migrating to CreateTransportadoras (20090428225823)
+Migrating to CreatePlanosdepagamento (20090428230809)
+Migrating to CreateItensNotaFiscal (20090429131935)
+Migrating to CreateNotasFiscais (20090429135918)
+Migrating to AddCamposToPedido (20090429193750)
+Migrating to IncluirUf (20090429200955)
+Migrating to AdicionarColunaUfCidade (20090430135229)
+Migrating to IncluirEmailBairro (20090505131534)
+Migrating to SepararCpfCnpj (20090507181512)
+Migrating to AddColumnProdutoIdToItemPedido (20090513144431)
+Migrating to CorrigeFuncionarioId (20090514192355)
+Migrating to AlteraPlanoPagamentoId (20090514201737)
+Migrating to CreateFaixasDeDesconto (20090515144011)
+Migrating to AlterarTipoPedido (20090517121112)
+Migrating to ExcluirOficialFuncionarioPedido (20090520134920)
+  [4;35;1mSQL (0.4ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (241.7ms)[0m   [0;1mALTER TABLE "pedidos" DROP "oficial"[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mALTER TABLE "pedidos" DROP "funcionario_id"[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mALTER TABLE "pedidos" DROP "preco_especial"[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mALTER TABLE "pedidos" DROP "preco_tabela"[0m
+  [4;36;1mSQL (16.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090520134920')[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET search_path TO public[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPGError: ERRO: banco de dados "rsig_test" está sendo acessado por outros usuários
+: DROP DATABASE IF EXISTS "rsig_test"[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET search_path TO public[0m
+  [4;36;1mSQL (109.6ms)[0m   [0;1mDROP DATABASE IF EXISTS "rsig_test"[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET search_path TO public[0m
+  [4;36;1mSQL (1184.8ms)[0m   [0;1mCREATE DATABASE "rsig_test" ENCODING = 'utf8'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (83.3ms)[0m   [0mCREATE TABLE "areas" ("id" serial primary key, "descricao" character varying(255), "cidade_id" integer, "roteiro_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (18.3ms)[0m   [0;1mCREATE TABLE "cidades" ("id" serial primary key, "descricao" character varying(255), "created_at" timestamp, "updated_at" timestamp, "uf" character varying(2)) [0m
+  [4;35;1mSQL (50.0ms)[0m   [0mCREATE TABLE "clientes" ("id" serial primary key, "tipo_cliente" character varying(1), "razao_social" character varying(255), "nome_fantasia" character varying(255), "documento" character varying(255), "endereco" character varying(255), "complemento" character varying(255), "cidade_id" integer, "cep" character varying(255), "referencia" character varying(255), "fone_pessoal" character varying(255), "fone_comercial" character varying(255), "fone_celular" character varying(255), "endereco_entrega" character varying(255), "regiao_entrega_id" integer, "cidade_entrega_id" character varying(255), "area_id" character varying(255), "referencias_bancaria" text, "referencias_comerciais" text, "observacao" text, "info_serasa" text, "data_nascimento" date, "nome_comprador" character varying(255), "vendas_suspensas" boolean, "observacao_suspensao_venda" text, "limite_credito" decimal(12,2), "saldo_devedor" decimal(12,2), "status" character varying(255), "prazo_medio_maximo" integer, "data_inclusao_prazo_medio" date, "created_at" timestamp, "updated_at" timestamp, "uf" character varying(255), "email" character varying(255), "bairro" character varying(255), "cpf" character varying(11), "cnpj" character varying(14)) [0m
+  [4;36;1mSQL (15.3ms)[0m   [0;1mCREATE TABLE "cores" ("id" serial primary key, "descricao" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (30.7ms)[0m   [0mCREATE TABLE "expedicoes" ("id" serial primary key, "minuta_id" integer, "produto_id" integer, "numero_do_volume" character varying(255), "qtd_carregada" decimal, "qtd_minuta" decimal, "vidro" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (41.9ms)[0m   [0;1mCREATE TABLE "faixas_de_desconto" ("id" serial primary key, "de" integer, "ate" integer, "desconto_permitido" decimal, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (52.8ms)[0m   [0mCREATE TABLE "funcionarios" ("id" serial primary key, "tipo" character varying(1), "nome" character varying(255), "endereco" character varying(255), "complemento" character varying(255), "cep" character varying(255), "cidade_id" integer, "uf" character varying(255), "fone" character varying(255), "cpf" character varying(255), "rg" character varying(255), "pai" character varying(255), "mae" character varying(255), "numero_carteira_trabalho" character varying(255), "serie_carteira_trabalho" character varying(255), "titulo_eleitor" character varying(255), "zona_eleitoral" character varying(255), "admissao" date, "registro" date, "nascimento" date, "naturalidade" character varying(255), "estado_civil" character varying(255), "grau_instrucao" character varying(255), "cadastro_pis" date, "numero_pis" character varying(255), "cod_banco_pis" character varying(255), "nome_banco_pis" character varying(255), "cod_agencia_pis" character varying(255), "nome_agencia_pis" character varying(255), "endereco_banco_pis" character varying(255), "demissao" date, "observacao" text, "aci" text, "email" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (31.3ms)[0m   [0;1mCREATE TABLE "grupos" ("id" serial primary key, "descricao" character varying(255), "margem_lucro" decimal, "unificado" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (36.1ms)[0m   [0mCREATE TABLE "item_pedidos" ("id" serial primary key, "quantidade" decimal, "valor_tabela" decimal, "valor_venda" decimal, "desconto" decimal, "created_at" timestamp, "updated_at" timestamp, "produto_id" integer) [0m
+  [4;36;1mSQL (27.2ms)[0m   [0;1mCREATE TABLE "itens_minutas" ("id" serial primary key, "produto_id" integer, "qtde" integer, "created_at" timestamp, "updated_at" timestamp, "minuta_id" integer) [0m
+  [4;35;1mSQL (34.3ms)[0m   [0mCREATE TABLE "itens_nota_fiscal" ("id" serial primary key, "produto_id" integer, "unidade_medida" character varying(255), "quantidade" decimal, "valor_item_faturado" decimal, "valor_item_original" decimal, "situacao_tributaria_item" character varying(255), "percentual_icms_item" decimal, "percentual_ipi_item" decimal, "peso_liquido" decimal, "cod_emissao_nf" integer, "nota_fiscal_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (19.4ms)[0m   [0;1mCREATE TABLE "meta_produtos" ("id" serial primary key, "mes" integer, "ano" integer, "qdt_dias_uteis" integer, "data_ini" date, "data_fim" date, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (30.5ms)[0m   [0mCREATE TABLE "minutas" ("id" serial primary key, "data" date, "fechamento" date, "operador_fechamento_id" integer, "saida" date, "obs" text, "veiculo_id" integer, "fechamento_financeiro" date, "funcionario_fechamento_financeiro_id" integer, "roteiro_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (42.2ms)[0m   [0;1mCREATE TABLE "notas_fiscais" ("id" serial primary key, "numero_nota" integer, "pedido_id" integer, "selo" character varying(255), "serie" character varying(255), "cliente_id" integer, "percentual_icms" decimal, "emissao" date, "total_mercadoria" decimal, "valor_frete" decimal, "cfop" character varying(255), "natureza_operacao" character varying(255), "valor_ipi" decimal, "valor_desconto" decimal, "total_nota" decimal, "status" character varying(255), "base_calculo_icms" decimal, "valor_icms" decimal, "qtde_volumes" integer, "entrada" date, "saida" date, "transportadora_id" integer, "percentual_desconto" decimal, "observacao" text, "base_calculo_icms_substituicao_tributaria" decimal, "percentual_icms_substituicao_tributaria" decimal, "valor_icms_substituicao_tributaria" decimal, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (46.0ms)[0m   [0mCREATE TABLE "pedidos" ("id" serial primary key, "data" date, "previsao_entrega" date, "entrega" date, "programacao" date, "cliente_id" integer, "valor" decimal(8,2), "acrescimo" decimal(3,2), "desconto" decimal(3,2), "transportadora_id" integer, "nome_comprador" character varying(255), "observacao" text, "vendedor_id" integer, "operador_id" integer, "telemarketing_id" integer, "endereco_entrega" character varying(255), "minuta_id" integer, "area_id" integer, "status" character varying(255), "estorno" date, "funcionario_estorno_id" integer, "comissao_vendedor" decimal(3,2), "comissao_telemarketing" decimal(3,2), "venda_externa" boolean, "desconto_complementar" decimal(3,2), "autorizador_desconto_id" integer, "created_at" timestamp, "updated_at" timestamp, "comprador" character varying(255), "especial" boolean, "registro" date, "empresa_id" integer, "operador_estorno_id" integer, "autorizador_id" integer, "plano_de_pagamento" character varying(255), "tipo" character varying(1)) [0m
+  [4;36;1mSQL (27.4ms)[0m   [0;1mCREATE TABLE "planosdepagamento" ("id" serial primary key, "descricao" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (32.4ms)[0m   [0mCREATE TABLE "produtos" ("id" serial primary key, "descricao" character varying(255), "cor_id" integer, "valor_especial" decimal, "valor_normal" decimal, "classe_id" integer, "grupo_id" integer, "status" boolean, "situacao_tributaria" integer, "preco_minimo_nota_fiscal" decimal, "ipi" decimal, "classificacao_fiscal" integer, "peso_liquido" integer, "cod_emissao_nota_fiscal" integer, "descricao_nota_fiscal" character varying(255), "preco_normal_zona1" decimal, "preco_especial_zona1" decimal, "funcionario_id" integer, "emissao_relatorio" boolean, "custo" decimal, "cadastro_custo" date, "kit" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (24.7ms)[0m   [0;1mCREATE TABLE "regioes" ("id" serial primary key, "descricao" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (27.2ms)[0m   [0mCREATE TABLE "roteiros" ("id" serial primary key, "descricao" character varying(255), "funcionario_id" integer, "regiao_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (30.9ms)[0m   [0;1mCREATE TABLE "transportadoras" ("id" serial primary key, "razao_social" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (29.7ms)[0m   [0mCREATE TABLE "ufs" ("id" serial primary key, "uf" character varying(2), "descricao" character varying(30), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [4;35;1mSQL (6.6ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (14.7ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090520134920')[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424184002')[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427215555')[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090428230809')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090429131935')[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090427135631')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090514192355')[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090428200227')[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427220350')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090427224059')[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090507181512')[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424125922')[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090428191302')[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090428225823')[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427135712')[0m
+  [4;36;1mSQL (4.8ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090427180121')[0m
+  [4;35;1mSQL (13.2ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427135726')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090517121112')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427220624')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090505131534')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427140058')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090429193750')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090515144011')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090513144431')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090424195513')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424195642')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427135556')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090427140326')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090429200955')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424200003')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090430135229')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424195522')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090514201737')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090429135918')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090428131235')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090428135218')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427225739')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET search_path TO public[0m
+  [4;36;1mSQL (109.3ms)[0m   [0;1mDROP DATABASE IF EXISTS "rsig_test"[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET search_path TO public[0m
+  [4;36;1mSQL (1186.2ms)[0m   [0;1mCREATE DATABASE "rsig_test" ENCODING = 'utf8'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (73.9ms)[0m   [0mCREATE TABLE "areas" ("id" serial primary key, "descricao" character varying(255), "cidade_id" integer, "roteiro_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (29.5ms)[0m   [0;1mCREATE TABLE "cidades" ("id" serial primary key, "descricao" character varying(255), "created_at" timestamp, "updated_at" timestamp, "uf" character varying(2)) [0m
+  [4;35;1mSQL (38.6ms)[0m   [0mCREATE TABLE "clientes" ("id" serial primary key, "tipo_cliente" character varying(1), "razao_social" character varying(255), "nome_fantasia" character varying(255), "documento" character varying(255), "endereco" character varying(255), "complemento" character varying(255), "cidade_id" integer, "cep" character varying(255), "referencia" character varying(255), "fone_pessoal" character varying(255), "fone_comercial" character varying(255), "fone_celular" character varying(255), "endereco_entrega" character varying(255), "regiao_entrega_id" integer, "cidade_entrega_id" character varying(255), "area_id" character varying(255), "referencias_bancaria" text, "referencias_comerciais" text, "observacao" text, "info_serasa" text, "data_nascimento" date, "nome_comprador" character varying(255), "vendas_suspensas" boolean, "observacao_suspensao_venda" text, "limite_credito" decimal(12,2), "saldo_devedor" decimal(12,2), "status" character varying(255), "prazo_medio_maximo" integer, "data_inclusao_prazo_medio" date, "created_at" timestamp, "updated_at" timestamp, "uf" character varying(255), "email" character varying(255), "bairro" character varying(255), "cpf" character varying(11), "cnpj" character varying(14)) [0m
+  [4;36;1mSQL (25.8ms)[0m   [0;1mCREATE TABLE "cores" ("id" serial primary key, "descricao" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (29.9ms)[0m   [0mCREATE TABLE "expedicoes" ("id" serial primary key, "minuta_id" integer, "produto_id" integer, "numero_do_volume" character varying(255), "qtd_carregada" decimal, "qtd_minuta" decimal, "vidro" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (34.5ms)[0m   [0;1mCREATE TABLE "faixas_de_desconto" ("id" serial primary key, "de" integer, "ate" integer, "desconto_permitido" decimal, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (41.8ms)[0m   [0mCREATE TABLE "funcionarios" ("id" serial primary key, "tipo" character varying(1), "nome" character varying(255), "endereco" character varying(255), "complemento" character varying(255), "cep" character varying(255), "cidade_id" integer, "uf" character varying(255), "fone" character varying(255), "cpf" character varying(255), "rg" character varying(255), "pai" character varying(255), "mae" character varying(255), "numero_carteira_trabalho" character varying(255), "serie_carteira_trabalho" character varying(255), "titulo_eleitor" character varying(255), "zona_eleitoral" character varying(255), "admissao" date, "registro" date, "nascimento" date, "naturalidade" character varying(255), "estado_civil" character varying(255), "grau_instrucao" character varying(255), "cadastro_pis" date, "numero_pis" character varying(255), "cod_banco_pis" character varying(255), "nome_banco_pis" character varying(255), "cod_agencia_pis" character varying(255), "nome_agencia_pis" character varying(255), "endereco_banco_pis" character varying(255), "demissao" date, "observacao" text, "aci" text, "email" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (52.9ms)[0m   [0;1mCREATE TABLE "grupos" ("id" serial primary key, "descricao" character varying(255), "margem_lucro" decimal, "unificado" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (38.3ms)[0m   [0mCREATE TABLE "item_pedidos" ("id" serial primary key, "quantidade" decimal, "valor_tabela" decimal, "valor_venda" decimal, "desconto" decimal, "created_at" timestamp, "updated_at" timestamp, "produto_id" integer) [0m
+  [4;36;1mSQL (24.1ms)[0m   [0;1mCREATE TABLE "itens_minutas" ("id" serial primary key, "produto_id" integer, "qtde" integer, "created_at" timestamp, "updated_at" timestamp, "minuta_id" integer) [0m
+  [4;35;1mSQL (34.5ms)[0m   [0mCREATE TABLE "itens_nota_fiscal" ("id" serial primary key, "produto_id" integer, "unidade_medida" character varying(255), "quantidade" decimal, "valor_item_faturado" decimal, "valor_item_original" decimal, "situacao_tributaria_item" character varying(255), "percentual_icms_item" decimal, "percentual_ipi_item" decimal, "peso_liquido" decimal, "cod_emissao_nf" integer, "nota_fiscal_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (31.0ms)[0m   [0;1mCREATE TABLE "meta_produtos" ("id" serial primary key, "mes" integer, "ano" integer, "qdt_dias_uteis" integer, "data_ini" date, "data_fim" date, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (34.6ms)[0m   [0mCREATE TABLE "minutas" ("id" serial primary key, "data" date, "fechamento" date, "operador_fechamento_id" integer, "saida" date, "obs" text, "veiculo_id" integer, "fechamento_financeiro" date, "funcionario_fechamento_financeiro_id" integer, "roteiro_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (36.0ms)[0m   [0;1mCREATE TABLE "notas_fiscais" ("id" serial primary key, "numero_nota" integer, "pedido_id" integer, "selo" character varying(255), "serie" character varying(255), "cliente_id" integer, "percentual_icms" decimal, "emissao" date, "total_mercadoria" decimal, "valor_frete" decimal, "cfop" character varying(255), "natureza_operacao" character varying(255), "valor_ipi" decimal, "valor_desconto" decimal, "total_nota" decimal, "status" character varying(255), "base_calculo_icms" decimal, "valor_icms" decimal, "qtde_volumes" integer, "entrada" date, "saida" date, "transportadora_id" integer, "percentual_desconto" decimal, "observacao" text, "base_calculo_icms_substituicao_tributaria" decimal, "percentual_icms_substituicao_tributaria" decimal, "valor_icms_substituicao_tributaria" decimal, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (46.4ms)[0m   [0mCREATE TABLE "pedidos" ("id" serial primary key, "data" date, "previsao_entrega" date, "entrega" date, "programacao" date, "cliente_id" integer, "valor" decimal(8,2), "acrescimo" decimal(3,2), "desconto" decimal(3,2), "transportadora_id" integer, "nome_comprador" character varying(255), "observacao" text, "vendedor_id" integer, "operador_id" integer, "telemarketing_id" integer, "endereco_entrega" character varying(255), "minuta_id" integer, "area_id" integer, "status" character varying(255), "estorno" date, "funcionario_estorno_id" integer, "comissao_vendedor" decimal(3,2), "comissao_telemarketing" decimal(3,2), "venda_externa" boolean, "desconto_complementar" decimal(3,2), "autorizador_desconto_id" integer, "created_at" timestamp, "updated_at" timestamp, "comprador" character varying(255), "especial" boolean, "registro" date, "empresa_id" integer, "operador_estorno_id" integer, "autorizador_id" integer, "plano_de_pagamento" character varying(255), "tipo" character varying(1)) [0m
+  [4;36;1mSQL (15.9ms)[0m   [0;1mCREATE TABLE "planosdepagamento" ("id" serial primary key, "descricao" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (46.3ms)[0m   [0mCREATE TABLE "produtos" ("id" serial primary key, "descricao" character varying(255), "cor_id" integer, "valor_especial" decimal, "valor_normal" decimal, "classe_id" integer, "grupo_id" integer, "status" boolean, "situacao_tributaria" integer, "preco_minimo_nota_fiscal" decimal, "ipi" decimal, "classificacao_fiscal" integer, "peso_liquido" integer, "cod_emissao_nota_fiscal" integer, "descricao_nota_fiscal" character varying(255), "preco_normal_zona1" decimal, "preco_especial_zona1" decimal, "funcionario_id" integer, "emissao_relatorio" boolean, "custo" decimal, "cadastro_custo" date, "kit" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (25.2ms)[0m   [0;1mCREATE TABLE "regioes" ("id" serial primary key, "descricao" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (19.3ms)[0m   [0mCREATE TABLE "roteiros" ("id" serial primary key, "descricao" character varying(255), "funcionario_id" integer, "regiao_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (26.2ms)[0m   [0;1mCREATE TABLE "transportadoras" ("id" serial primary key, "razao_social" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (26.3ms)[0m   [0mCREATE TABLE "ufs" ("id" serial primary key, "uf" character varying(2), "descricao" character varying(30), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (15.1ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [4;35;1mSQL (13.8ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (13.9ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090520134920')[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424184002')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427215555')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090428230809')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090429131935')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090427135631')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090514192355')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090428200227')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427220350')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090427224059')[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090507181512')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424125922')[0m
+  [4;35;1mSQL (12.7ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090428191302')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090428225823')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427135712')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090427180121')[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427135726')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090517121112')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427220624')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090505131534')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427140058')[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090429193750')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090515144011')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090513144431')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090424195513')[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424195642')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427135556')[0m
+  [4;36;1mSQL (5.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090427140326')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090429200955')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424200003')[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090430135229')[0m
+  [4;36;1mSQL (11.7ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424195522')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090514201737')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090429135918')[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090428131235')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090428135218')[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427225739')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET search_path TO public[0m
+  [4;36;1mSQL (109.1ms)[0m   [0;1mDROP DATABASE IF EXISTS "rsig_test"[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET search_path TO public[0m
+  [4;36;1mSQL (1156.9ms)[0m   [0;1mCREATE DATABASE "rsig_test" ENCODING = 'utf8'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (24.7ms)[0m   [0mCREATE TABLE "areas" ("id" serial primary key, "descricao" character varying(255), "cidade_id" integer, "roteiro_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (52.5ms)[0m   [0;1mCREATE TABLE "cidades" ("id" serial primary key, "descricao" character varying(255), "created_at" timestamp, "updated_at" timestamp, "uf" character varying(2)) [0m
+  [4;35;1mSQL (21.2ms)[0m   [0mCREATE TABLE "clientes" ("id" serial primary key, "tipo_cliente" character varying(1), "razao_social" character varying(255), "nome_fantasia" character varying(255), "documento" character varying(255), "endereco" character varying(255), "complemento" character varying(255), "cidade_id" integer, "cep" character varying(255), "referencia" character varying(255), "fone_pessoal" character varying(255), "fone_comercial" character varying(255), "fone_celular" character varying(255), "endereco_entrega" character varying(255), "regiao_entrega_id" integer, "cidade_entrega_id" character varying(255), "area_id" character varying(255), "referencias_bancaria" text, "referencias_comerciais" text, "observacao" text, "info_serasa" text, "data_nascimento" date, "nome_comprador" character varying(255), "vendas_suspensas" boolean, "observacao_suspensao_venda" text, "limite_credito" decimal(12,2), "saldo_devedor" decimal(12,2), "status" character varying(255), "prazo_medio_maximo" integer, "data_inclusao_prazo_medio" date, "created_at" timestamp, "updated_at" timestamp, "uf" character varying(255), "email" character varying(255), "bairro" character varying(255), "cpf" character varying(11), "cnpj" character varying(14)) [0m
+  [4;36;1mSQL (19.3ms)[0m   [0;1mCREATE TABLE "cores" ("id" serial primary key, "descricao" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (13.9ms)[0m   [0mCREATE TABLE "expedicoes" ("id" serial primary key, "minuta_id" integer, "produto_id" integer, "numero_do_volume" character varying(255), "qtd_carregada" decimal, "qtd_minuta" decimal, "vidro" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (25.7ms)[0m   [0;1mCREATE TABLE "faixas_de_desconto" ("id" serial primary key, "de" integer, "ate" integer, "desconto_permitido" decimal, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (16.4ms)[0m   [0mCREATE TABLE "funcionarios" ("id" serial primary key, "tipo" character varying(1), "nome" character varying(255), "endereco" character varying(255), "complemento" character varying(255), "cep" character varying(255), "cidade_id" integer, "uf" character varying(255), "fone" character varying(255), "cpf" character varying(255), "rg" character varying(255), "pai" character varying(255), "mae" character varying(255), "numero_carteira_trabalho" character varying(255), "serie_carteira_trabalho" character varying(255), "titulo_eleitor" character varying(255), "zona_eleitoral" character varying(255), "admissao" date, "registro" date, "nascimento" date, "naturalidade" character varying(255), "estado_civil" character varying(255), "grau_instrucao" character varying(255), "cadastro_pis" date, "numero_pis" character varying(255), "cod_banco_pis" character varying(255), "nome_banco_pis" character varying(255), "cod_agencia_pis" character varying(255), "nome_agencia_pis" character varying(255), "endereco_banco_pis" character varying(255), "demissao" date, "observacao" text, "aci" text, "email" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (17.1ms)[0m   [0;1mCREATE TABLE "grupos" ("id" serial primary key, "descricao" character varying(255), "margem_lucro" decimal, "unificado" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (23.6ms)[0m   [0mCREATE TABLE "item_pedidos" ("id" serial primary key, "quantidade" decimal, "valor_tabela" decimal, "valor_venda" decimal, "desconto" decimal, "created_at" timestamp, "updated_at" timestamp, "produto_id" integer) [0m
+  [4;36;1mSQL (9.3ms)[0m   [0;1mCREATE TABLE "itens_minutas" ("id" serial primary key, "produto_id" integer, "qtde" integer, "created_at" timestamp, "updated_at" timestamp, "minuta_id" integer) [0m
+  [4;35;1mSQL (28.1ms)[0m   [0mCREATE TABLE "itens_nota_fiscal" ("id" serial primary key, "produto_id" integer, "unidade_medida" character varying(255), "quantidade" decimal, "valor_item_faturado" decimal, "valor_item_original" decimal, "situacao_tributaria_item" character varying(255), "percentual_icms_item" decimal, "percentual_ipi_item" decimal, "peso_liquido" decimal, "cod_emissao_nf" integer, "nota_fiscal_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (9.9ms)[0m   [0;1mCREATE TABLE "meta_produtos" ("id" serial primary key, "mes" integer, "ano" integer, "qdt_dias_uteis" integer, "data_ini" date, "data_fim" date, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (23.0ms)[0m   [0mCREATE TABLE "minutas" ("id" serial primary key, "data" date, "fechamento" date, "operador_fechamento_id" integer, "saida" date, "obs" text, "veiculo_id" integer, "fechamento_financeiro" date, "funcionario_fechamento_financeiro_id" integer, "roteiro_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (15.7ms)[0m   [0;1mCREATE TABLE "notas_fiscais" ("id" serial primary key, "numero_nota" integer, "pedido_id" integer, "selo" character varying(255), "serie" character varying(255), "cliente_id" integer, "percentual_icms" decimal, "emissao" date, "total_mercadoria" decimal, "valor_frete" decimal, "cfop" character varying(255), "natureza_operacao" character varying(255), "valor_ipi" decimal, "valor_desconto" decimal, "total_nota" decimal, "status" character varying(255), "base_calculo_icms" decimal, "valor_icms" decimal, "qtde_volumes" integer, "entrada" date, "saida" date, "transportadora_id" integer, "percentual_desconto" decimal, "observacao" text, "base_calculo_icms_substituicao_tributaria" decimal, "percentual_icms_substituicao_tributaria" decimal, "valor_icms_substituicao_tributaria" decimal, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (27.7ms)[0m   [0mCREATE TABLE "pedidos" ("id" serial primary key, "data" date, "previsao_entrega" date, "entrega" date, "programacao" date, "cliente_id" integer, "valor" decimal(8,2), "acrescimo" decimal(3,2), "desconto" decimal(3,2), "transportadora_id" integer, "nome_comprador" character varying(255), "observacao" text, "vendedor_id" integer, "operador_id" integer, "telemarketing_id" integer, "endereco_entrega" character varying(255), "minuta_id" integer, "area_id" integer, "status" character varying(255), "estorno" date, "funcionario_estorno_id" integer, "comissao_vendedor" decimal(3,2), "comissao_telemarketing" decimal(3,2), "venda_externa" boolean, "desconto_complementar" decimal(3,2), "autorizador_desconto_id" integer, "created_at" timestamp, "updated_at" timestamp, "comprador" character varying(255), "especial" boolean, "registro" date, "empresa_id" integer, "operador_estorno_id" integer, "autorizador_id" integer, "plano_de_pagamento" character varying(255), "tipo" character varying(1)) [0m
+  [4;36;1mSQL (9.5ms)[0m   [0;1mCREATE TABLE "planosdepagamento" ("id" serial primary key, "descricao" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (15.2ms)[0m   [0mCREATE TABLE "produtos" ("id" serial primary key, "descricao" character varying(255), "cor_id" integer, "valor_especial" decimal, "valor_normal" decimal, "classe_id" integer, "grupo_id" integer, "status" boolean, "situacao_tributaria" integer, "preco_minimo_nota_fiscal" decimal, "ipi" decimal, "classificacao_fiscal" integer, "peso_liquido" integer, "cod_emissao_nota_fiscal" integer, "descricao_nota_fiscal" character varying(255), "preco_normal_zona1" decimal, "preco_especial_zona1" decimal, "funcionario_id" integer, "emissao_relatorio" boolean, "custo" decimal, "cadastro_custo" date, "kit" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (14.8ms)[0m   [0;1mCREATE TABLE "regioes" ("id" serial primary key, "descricao" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (24.5ms)[0m   [0mCREATE TABLE "roteiros" ("id" serial primary key, "descricao" character varying(255), "funcionario_id" integer, "regiao_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (10.1ms)[0m   [0;1mCREATE TABLE "transportadoras" ("id" serial primary key, "razao_social" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (23.9ms)[0m   [0mCREATE TABLE "ufs" ("id" serial primary key, "uf" character varying(2), "descricao" character varying(30), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [4;35;1mSQL (4.6ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090520134920')[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424184002')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427215555')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090428230809')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090429131935')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090427135631')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090514192355')[0m
+  [4;36;1mSQL (4.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090428200227')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427220350')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090427224059')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090507181512')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424125922')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090428191302')[0m
+  [4;36;1mSQL (5.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090428225823')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427135712')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090427180121')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427135726')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090517121112')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427220624')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090505131534')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427140058')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090429193750')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090515144011')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090513144431')[0m
+  [4;35;1mSQL (12.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090424195513')[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424195642')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427135556')[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090427140326')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090429200955')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424200003')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090430135229')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424195522')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090514201737')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090429135918')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090428131235')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090428135218')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427225739')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET search_path TO public[0m
+  [4;36;1mSQL (109.4ms)[0m   [0;1mDROP DATABASE IF EXISTS "rsig_test"[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET search_path TO public[0m
+  [4;36;1mSQL (1171.0ms)[0m   [0;1mCREATE DATABASE "rsig_test" ENCODING = 'utf8'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (24.1ms)[0m   [0mCREATE TABLE "areas" ("id" serial primary key, "descricao" character varying(255), "cidade_id" integer, "roteiro_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (38.9ms)[0m   [0;1mCREATE TABLE "cidades" ("id" serial primary key, "descricao" character varying(255), "created_at" timestamp, "updated_at" timestamp, "uf" character varying(2)) [0m
+  [4;35;1mSQL (31.3ms)[0m   [0mCREATE TABLE "clientes" ("id" serial primary key, "tipo_cliente" character varying(1), "razao_social" character varying(255), "nome_fantasia" character varying(255), "documento" character varying(255), "endereco" character varying(255), "complemento" character varying(255), "cidade_id" integer, "cep" character varying(255), "referencia" character varying(255), "fone_pessoal" character varying(255), "fone_comercial" character varying(255), "fone_celular" character varying(255), "endereco_entrega" character varying(255), "regiao_entrega_id" integer, "cidade_entrega_id" character varying(255), "area_id" character varying(255), "referencias_bancaria" text, "referencias_comerciais" text, "observacao" text, "info_serasa" text, "data_nascimento" date, "nome_comprador" character varying(255), "vendas_suspensas" boolean, "observacao_suspensao_venda" text, "limite_credito" decimal(12,2), "saldo_devedor" decimal(12,2), "status" character varying(255), "prazo_medio_maximo" integer, "data_inclusao_prazo_medio" date, "created_at" timestamp, "updated_at" timestamp, "uf" character varying(255), "email" character varying(255), "bairro" character varying(255), "cpf" character varying(11), "cnpj" character varying(14)) [0m
+  [4;36;1mSQL (9.1ms)[0m   [0;1mCREATE TABLE "cores" ("id" serial primary key, "descricao" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (20.0ms)[0m   [0mCREATE TABLE "expedicoes" ("id" serial primary key, "minuta_id" integer, "produto_id" integer, "numero_do_volume" character varying(255), "qtd_carregada" decimal, "qtd_minuta" decimal, "vidro" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (28.0ms)[0m   [0;1mCREATE TABLE "faixas_de_desconto" ("id" serial primary key, "de" integer, "ate" integer, "desconto_permitido" decimal, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (15.7ms)[0m   [0mCREATE TABLE "funcionarios" ("id" serial primary key, "tipo" character varying(1), "nome" character varying(255), "endereco" character varying(255), "complemento" character varying(255), "cep" character varying(255), "cidade_id" integer, "uf" character varying(255), "fone" character varying(255), "cpf" character varying(255), "rg" character varying(255), "pai" character varying(255), "mae" character varying(255), "numero_carteira_trabalho" character varying(255), "serie_carteira_trabalho" character varying(255), "titulo_eleitor" character varying(255), "zona_eleitoral" character varying(255), "admissao" date, "registro" date, "nascimento" date, "naturalidade" character varying(255), "estado_civil" character varying(255), "grau_instrucao" character varying(255), "cadastro_pis" date, "numero_pis" character varying(255), "cod_banco_pis" character varying(255), "nome_banco_pis" character varying(255), "cod_agencia_pis" character varying(255), "nome_agencia_pis" character varying(255), "endereco_banco_pis" character varying(255), "demissao" date, "observacao" text, "aci" text, "email" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (22.6ms)[0m   [0;1mCREATE TABLE "grupos" ("id" serial primary key, "descricao" character varying(255), "margem_lucro" decimal, "unificado" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (15.5ms)[0m   [0mCREATE TABLE "item_pedidos" ("id" serial primary key, "quantidade" decimal, "valor_tabela" decimal, "valor_venda" decimal, "desconto" decimal, "created_at" timestamp, "updated_at" timestamp, "produto_id" integer) [0m
+  [4;36;1mSQL (11.2ms)[0m   [0;1mCREATE TABLE "itens_minutas" ("id" serial primary key, "produto_id" integer, "qtde" integer, "created_at" timestamp, "updated_at" timestamp, "minuta_id" integer) [0m
+  [4;35;1mSQL (28.4ms)[0m   [0mCREATE TABLE "itens_nota_fiscal" ("id" serial primary key, "produto_id" integer, "unidade_medida" character varying(255), "quantidade" decimal, "valor_item_faturado" decimal, "valor_item_original" decimal, "situacao_tributaria_item" character varying(255), "percentual_icms_item" decimal, "percentual_ipi_item" decimal, "peso_liquido" decimal, "cod_emissao_nf" integer, "nota_fiscal_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (19.6ms)[0m   [0;1mCREATE TABLE "meta_produtos" ("id" serial primary key, "mes" integer, "ano" integer, "qdt_dias_uteis" integer, "data_ini" date, "data_fim" date, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (15.1ms)[0m   [0mCREATE TABLE "minutas" ("id" serial primary key, "data" date, "fechamento" date, "operador_fechamento_id" integer, "saida" date, "obs" text, "veiculo_id" integer, "fechamento_financeiro" date, "funcionario_fechamento_financeiro_id" integer, "roteiro_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (16.3ms)[0m   [0;1mCREATE TABLE "notas_fiscais" ("id" serial primary key, "numero_nota" integer, "pedido_id" integer, "selo" character varying(255), "serie" character varying(255), "cliente_id" integer, "percentual_icms" decimal, "emissao" date, "total_mercadoria" decimal, "valor_frete" decimal, "cfop" character varying(255), "natureza_operacao" character varying(255), "valor_ipi" decimal, "valor_desconto" decimal, "total_nota" decimal, "status" character varying(255), "base_calculo_icms" decimal, "valor_icms" decimal, "qtde_volumes" integer, "entrada" date, "saida" date, "transportadora_id" integer, "percentual_desconto" decimal, "observacao" text, "base_calculo_icms_substituicao_tributaria" decimal, "percentual_icms_substituicao_tributaria" decimal, "valor_icms_substituicao_tributaria" decimal, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (21.7ms)[0m   [0mCREATE TABLE "pedidos" ("id" serial primary key, "data" date, "previsao_entrega" date, "entrega" date, "programacao" date, "cliente_id" integer, "valor" decimal(8,2), "acrescimo" decimal(3,2), "desconto" decimal(3,2), "transportadora_id" integer, "nome_comprador" character varying(255), "observacao" text, "vendedor_id" integer, "operador_id" integer, "telemarketing_id" integer, "endereco_entrega" character varying(255), "minuta_id" integer, "area_id" integer, "status" character varying(255), "estorno" date, "funcionario_estorno_id" integer, "comissao_vendedor" decimal(3,2), "comissao_telemarketing" decimal(3,2), "venda_externa" boolean, "desconto_complementar" decimal(3,2), "autorizador_desconto_id" integer, "created_at" timestamp, "updated_at" timestamp, "comprador" character varying(255), "especial" boolean, "registro" date, "empresa_id" integer, "operador_estorno_id" integer, "autorizador_id" integer, "plano_de_pagamento" character varying(255), "tipo" character varying(1)) [0m
+  [4;36;1mSQL (24.8ms)[0m   [0;1mCREATE TABLE "planosdepagamento" ("id" serial primary key, "descricao" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (18.4ms)[0m   [0mCREATE TABLE "produtos" ("id" serial primary key, "descricao" character varying(255), "cor_id" integer, "valor_especial" decimal, "valor_normal" decimal, "classe_id" integer, "grupo_id" integer, "status" boolean, "situacao_tributaria" integer, "preco_minimo_nota_fiscal" decimal, "ipi" decimal, "classificacao_fiscal" integer, "peso_liquido" integer, "cod_emissao_nota_fiscal" integer, "descricao_nota_fiscal" character varying(255), "preco_normal_zona1" decimal, "preco_especial_zona1" decimal, "funcionario_id" integer, "emissao_relatorio" boolean, "custo" decimal, "cadastro_custo" date, "kit" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (8.7ms)[0m   [0;1mCREATE TABLE "regioes" ("id" serial primary key, "descricao" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (17.5ms)[0m   [0mCREATE TABLE "roteiros" ("id" serial primary key, "descricao" character varying(255), "funcionario_id" integer, "regiao_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (20.3ms)[0m   [0;1mCREATE TABLE "transportadoras" ("id" serial primary key, "razao_social" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (13.6ms)[0m   [0mCREATE TABLE "ufs" ("id" serial primary key, "uf" character varying(2), "descricao" character varying(30), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [4;35;1mSQL (4.8ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (8.8ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090520134920')[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424184002')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427215555')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090428230809')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090429131935')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090427135631')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090514192355')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090428200227')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427220350')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090427224059')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090507181512')[0m
+  [4;36;1mSQL (12.4ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424125922')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090428191302')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090428225823')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427135712')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090427180121')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427135726')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090517121112')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427220624')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090505131534')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427140058')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090429193750')[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090515144011')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090513144431')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090424195513')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424195642')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427135556')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090427140326')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090429200955')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424200003')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090430135229')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424195522')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090514201737')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090429135918')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090428131235')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090428135218')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427225739')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET search_path TO public[0m
+  [4;36;1mSQL (109.3ms)[0m   [0;1mDROP DATABASE IF EXISTS "rsig_test"[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET search_path TO public[0m
+  [4;36;1mSQL (1190.8ms)[0m   [0;1mCREATE DATABASE "rsig_test" ENCODING = 'utf8'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (25.5ms)[0m   [0mCREATE TABLE "areas" ("id" serial primary key, "descricao" character varying(255), "cidade_id" integer, "roteiro_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (42.0ms)[0m   [0;1mCREATE TABLE "cidades" ("id" serial primary key, "descricao" character varying(255), "created_at" timestamp, "updated_at" timestamp, "uf" character varying(2)) [0m
+  [4;35;1mSQL (30.3ms)[0m   [0mCREATE TABLE "clientes" ("id" serial primary key, "tipo_cliente" character varying(1), "razao_social" character varying(255), "nome_fantasia" character varying(255), "documento" character varying(255), "endereco" character varying(255), "complemento" character varying(255), "cidade_id" integer, "cep" character varying(255), "referencia" character varying(255), "fone_pessoal" character varying(255), "fone_comercial" character varying(255), "fone_celular" character varying(255), "endereco_entrega" character varying(255), "regiao_entrega_id" integer, "cidade_entrega_id" character varying(255), "area_id" character varying(255), "referencias_bancaria" text, "referencias_comerciais" text, "observacao" text, "info_serasa" text, "data_nascimento" date, "nome_comprador" character varying(255), "vendas_suspensas" boolean, "observacao_suspensao_venda" text, "limite_credito" decimal(12,2), "saldo_devedor" decimal(12,2), "status" character varying(255), "prazo_medio_maximo" integer, "data_inclusao_prazo_medio" date, "created_at" timestamp, "updated_at" timestamp, "uf" character varying(255), "email" character varying(255), "bairro" character varying(255), "cpf" character varying(11), "cnpj" character varying(14)) [0m
+  [4;36;1mSQL (9.4ms)[0m   [0;1mCREATE TABLE "cores" ("id" serial primary key, "descricao" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (26.8ms)[0m   [0mCREATE TABLE "expedicoes" ("id" serial primary key, "minuta_id" integer, "produto_id" integer, "numero_do_volume" character varying(255), "qtd_carregada" decimal, "qtd_minuta" decimal, "vidro" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (13.5ms)[0m   [0;1mCREATE TABLE "faixas_de_desconto" ("id" serial primary key, "de" integer, "ate" integer, "desconto_permitido" decimal, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (19.0ms)[0m   [0mCREATE TABLE "funcionarios" ("id" serial primary key, "tipo" character varying(1), "nome" character varying(255), "endereco" character varying(255), "complemento" character varying(255), "cep" character varying(255), "cidade_id" integer, "uf" character varying(255), "fone" character varying(255), "cpf" character varying(255), "rg" character varying(255), "pai" character varying(255), "mae" character varying(255), "numero_carteira_trabalho" character varying(255), "serie_carteira_trabalho" character varying(255), "titulo_eleitor" character varying(255), "zona_eleitoral" character varying(255), "admissao" date, "registro" date, "nascimento" date, "naturalidade" character varying(255), "estado_civil" character varying(255), "grau_instrucao" character varying(255), "cadastro_pis" date, "numero_pis" character varying(255), "cod_banco_pis" character varying(255), "nome_banco_pis" character varying(255), "cod_agencia_pis" character varying(255), "nome_agencia_pis" character varying(255), "endereco_banco_pis" character varying(255), "demissao" date, "observacao" text, "aci" text, "email" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (16.1ms)[0m   [0;1mCREATE TABLE "grupos" ("id" serial primary key, "descricao" character varying(255), "margem_lucro" decimal, "unificado" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (22.1ms)[0m   [0mCREATE TABLE "item_pedidos" ("id" serial primary key, "quantidade" decimal, "valor_tabela" decimal, "valor_venda" decimal, "desconto" decimal, "created_at" timestamp, "updated_at" timestamp, "produto_id" integer) [0m
+  [4;36;1mSQL (12.1ms)[0m   [0;1mCREATE TABLE "itens_minutas" ("id" serial primary key, "produto_id" integer, "qtde" integer, "created_at" timestamp, "updated_at" timestamp, "minuta_id" integer) [0m
+  [4;35;1mSQL (28.9ms)[0m   [0mCREATE TABLE "itens_nota_fiscal" ("id" serial primary key, "produto_id" integer, "unidade_medida" character varying(255), "quantidade" decimal, "valor_item_faturado" decimal, "valor_item_original" decimal, "situacao_tributaria_item" character varying(255), "percentual_icms_item" decimal, "percentual_ipi_item" decimal, "peso_liquido" decimal, "cod_emissao_nf" integer, "nota_fiscal_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (10.3ms)[0m   [0;1mCREATE TABLE "meta_produtos" ("id" serial primary key, "mes" integer, "ano" integer, "qdt_dias_uteis" integer, "data_ini" date, "data_fim" date, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (29.5ms)[0m   [0mCREATE TABLE "minutas" ("id" serial primary key, "data" date, "fechamento" date, "operador_fechamento_id" integer, "saida" date, "obs" text, "veiculo_id" integer, "fechamento_financeiro" date, "funcionario_fechamento_financeiro_id" integer, "roteiro_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (16.5ms)[0m   [0;1mCREATE TABLE "notas_fiscais" ("id" serial primary key, "numero_nota" integer, "pedido_id" integer, "selo" character varying(255), "serie" character varying(255), "cliente_id" integer, "percentual_icms" decimal, "emissao" date, "total_mercadoria" decimal, "valor_frete" decimal, "cfop" character varying(255), "natureza_operacao" character varying(255), "valor_ipi" decimal, "valor_desconto" decimal, "total_nota" decimal, "status" character varying(255), "base_calculo_icms" decimal, "valor_icms" decimal, "qtde_volumes" integer, "entrada" date, "saida" date, "transportadora_id" integer, "percentual_desconto" decimal, "observacao" text, "base_calculo_icms_substituicao_tributaria" decimal, "percentual_icms_substituicao_tributaria" decimal, "valor_icms_substituicao_tributaria" decimal, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (19.0ms)[0m   [0mCREATE TABLE "pedidos" ("id" serial primary key, "data" date, "previsao_entrega" date, "entrega" date, "programacao" date, "cliente_id" integer, "valor" decimal(8,2), "acrescimo" decimal(3,2), "desconto" decimal(3,2), "transportadora_id" integer, "nome_comprador" character varying(255), "observacao" text, "vendedor_id" integer, "operador_id" integer, "telemarketing_id" integer, "endereco_entrega" character varying(255), "minuta_id" integer, "area_id" integer, "status" character varying(255), "estorno" date, "funcionario_estorno_id" integer, "comissao_vendedor" decimal(3,2), "comissao_telemarketing" decimal(3,2), "venda_externa" boolean, "desconto_complementar" decimal(3,2), "autorizador_desconto_id" integer, "created_at" timestamp, "updated_at" timestamp, "comprador" character varying(255), "especial" boolean, "registro" date, "empresa_id" integer, "operador_estorno_id" integer, "autorizador_id" integer, "plano_de_pagamento" character varying(255), "tipo" character varying(1)) [0m
+  [4;36;1mSQL (19.5ms)[0m   [0;1mCREATE TABLE "planosdepagamento" ("id" serial primary key, "descricao" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (15.8ms)[0m   [0mCREATE TABLE "produtos" ("id" serial primary key, "descricao" character varying(255), "cor_id" integer, "valor_especial" decimal, "valor_normal" decimal, "classe_id" integer, "grupo_id" integer, "status" boolean, "situacao_tributaria" integer, "preco_minimo_nota_fiscal" decimal, "ipi" decimal, "classificacao_fiscal" integer, "peso_liquido" integer, "cod_emissao_nota_fiscal" integer, "descricao_nota_fiscal" character varying(255), "preco_normal_zona1" decimal, "preco_especial_zona1" decimal, "funcionario_id" integer, "emissao_relatorio" boolean, "custo" decimal, "cadastro_custo" date, "kit" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (21.3ms)[0m   [0;1mCREATE TABLE "regioes" ("id" serial primary key, "descricao" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (11.1ms)[0m   [0mCREATE TABLE "roteiros" ("id" serial primary key, "descricao" character varying(255), "funcionario_id" integer, "regiao_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (114.2ms)[0m   [0;1mCREATE TABLE "transportadoras" ("id" serial primary key, "razao_social" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (9.5ms)[0m   [0mCREATE TABLE "ufs" ("id" serial primary key, "uf" character varying(2), "descricao" character varying(30), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [4;35;1mSQL (4.5ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090520134920')[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424184002')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427215555')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090428230809')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090429131935')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090427135631')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090514192355')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090428200227')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427220350')[0m
+  [4;36;1mSQL (9.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090427224059')[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090507181512')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424125922')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090428191302')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090428225823')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427135712')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090427180121')[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427135726')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090517121112')[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427220624')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090505131534')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427140058')[0m
+  [4;36;1mSQL (12.4ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090429193750')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090515144011')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090513144431')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090424195513')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424195642')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427135556')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090427140326')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090429200955')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424200003')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090430135229')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424195522')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090514201737')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090429135918')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090428131235')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090428135218')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427225739')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET search_path TO public[0m
+  [4;36;1mSQL (109.2ms)[0m   [0;1mDROP DATABASE IF EXISTS "rsig_test"[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET search_path TO public[0m
+  [4;36;1mSQL (1158.1ms)[0m   [0;1mCREATE DATABASE "rsig_test" ENCODING = 'utf8'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (74.9ms)[0m   [0mCREATE TABLE "areas" ("id" serial primary key, "descricao" character varying(255), "cidade_id" integer, "roteiro_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (14.8ms)[0m   [0;1mCREATE TABLE "cidades" ("id" serial primary key, "descricao" character varying(255), "created_at" timestamp, "updated_at" timestamp, "uf" character varying(2)) [0m
+  [4;35;1mSQL (57.5ms)[0m   [0mCREATE TABLE "clientes" ("id" serial primary key, "tipo_cliente" character varying(1), "razao_social" character varying(255), "nome_fantasia" character varying(255), "documento" character varying(255), "endereco" character varying(255), "complemento" character varying(255), "cidade_id" integer, "cep" character varying(255), "referencia" character varying(255), "fone_pessoal" character varying(255), "fone_comercial" character varying(255), "fone_celular" character varying(255), "endereco_entrega" character varying(255), "regiao_entrega_id" integer, "cidade_entrega_id" character varying(255), "area_id" character varying(255), "referencias_bancaria" text, "referencias_comerciais" text, "observacao" text, "info_serasa" text, "data_nascimento" date, "nome_comprador" character varying(255), "vendas_suspensas" boolean, "observacao_suspensao_venda" text, "limite_credito" decimal(12,2), "saldo_devedor" decimal(12,2), "status" character varying(255), "prazo_medio_maximo" integer, "data_inclusao_prazo_medio" date, "created_at" timestamp, "updated_at" timestamp, "uf" character varying(255), "email" character varying(255), "bairro" character varying(255), "cpf" character varying(11), "cnpj" character varying(14)) [0m
+  [4;36;1mSQL (14.3ms)[0m   [0;1mCREATE TABLE "cores" ("id" serial primary key, "descricao" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (33.2ms)[0m   [0mCREATE TABLE "expedicoes" ("id" serial primary key, "minuta_id" integer, "produto_id" integer, "numero_do_volume" character varying(255), "qtd_carregada" decimal, "qtd_minuta" decimal, "vidro" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (35.7ms)[0m   [0;1mCREATE TABLE "faixas_de_desconto" ("id" serial primary key, "de" integer, "ate" integer, "desconto_permitido" decimal, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (40.2ms)[0m   [0mCREATE TABLE "funcionarios" ("id" serial primary key, "tipo" character varying(1), "nome" character varying(255), "endereco" character varying(255), "complemento" character varying(255), "cep" character varying(255), "cidade_id" integer, "uf" character varying(255), "fone" character varying(255), "cpf" character varying(255), "rg" character varying(255), "pai" character varying(255), "mae" character varying(255), "numero_carteira_trabalho" character varying(255), "serie_carteira_trabalho" character varying(255), "titulo_eleitor" character varying(255), "zona_eleitoral" character varying(255), "admissao" date, "registro" date, "nascimento" date, "naturalidade" character varying(255), "estado_civil" character varying(255), "grau_instrucao" character varying(255), "cadastro_pis" date, "numero_pis" character varying(255), "cod_banco_pis" character varying(255), "nome_banco_pis" character varying(255), "cod_agencia_pis" character varying(255), "nome_agencia_pis" character varying(255), "endereco_banco_pis" character varying(255), "demissao" date, "observacao" text, "aci" text, "email" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (40.5ms)[0m   [0;1mCREATE TABLE "grupos" ("id" serial primary key, "descricao" character varying(255), "margem_lucro" decimal, "unificado" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (31.4ms)[0m   [0mCREATE TABLE "item_pedidos" ("id" serial primary key, "quantidade" decimal, "valor_tabela" decimal, "valor_venda" decimal, "desconto" decimal, "created_at" timestamp, "updated_at" timestamp, "produto_id" integer) [0m
+  [4;36;1mSQL (23.2ms)[0m   [0;1mCREATE TABLE "itens_minutas" ("id" serial primary key, "produto_id" integer, "qtde" integer, "created_at" timestamp, "updated_at" timestamp, "minuta_id" integer) [0m
+  [4;35;1mSQL (31.9ms)[0m   [0mCREATE TABLE "itens_nota_fiscal" ("id" serial primary key, "produto_id" integer, "unidade_medida" character varying(255), "quantidade" decimal, "valor_item_faturado" decimal, "valor_item_original" decimal, "situacao_tributaria_item" character varying(255), "percentual_icms_item" decimal, "percentual_ipi_item" decimal, "peso_liquido" decimal, "cod_emissao_nf" integer, "nota_fiscal_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (29.1ms)[0m   [0;1mCREATE TABLE "meta_produtos" ("id" serial primary key, "mes" integer, "ano" integer, "qdt_dias_uteis" integer, "data_ini" date, "data_fim" date, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (32.2ms)[0m   [0mCREATE TABLE "minutas" ("id" serial primary key, "data" date, "fechamento" date, "operador_fechamento_id" integer, "saida" date, "obs" text, "veiculo_id" integer, "fechamento_financeiro" date, "funcionario_fechamento_financeiro_id" integer, "roteiro_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (41.1ms)[0m   [0;1mCREATE TABLE "notas_fiscais" ("id" serial primary key, "numero_nota" integer, "pedido_id" integer, "selo" character varying(255), "serie" character varying(255), "cliente_id" integer, "percentual_icms" decimal, "emissao" date, "total_mercadoria" decimal, "valor_frete" decimal, "cfop" character varying(255), "natureza_operacao" character varying(255), "valor_ipi" decimal, "valor_desconto" decimal, "total_nota" decimal, "status" character varying(255), "base_calculo_icms" decimal, "valor_icms" decimal, "qtde_volumes" integer, "entrada" date, "saida" date, "transportadora_id" integer, "percentual_desconto" decimal, "observacao" text, "base_calculo_icms_substituicao_tributaria" decimal, "percentual_icms_substituicao_tributaria" decimal, "valor_icms_substituicao_tributaria" decimal, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (59.1ms)[0m   [0mCREATE TABLE "pedidos" ("id" serial primary key, "data" date, "previsao_entrega" date, "entrega" date, "programacao" date, "cliente_id" integer, "valor" decimal(8,2), "acrescimo" decimal(3,2), "desconto" decimal(3,2), "transportadora_id" integer, "nome_comprador" character varying(255), "observacao" text, "vendedor_id" integer, "operador_id" integer, "telemarketing_id" integer, "endereco_entrega" character varying(255), "minuta_id" integer, "area_id" integer, "status" character varying(255), "estorno" date, "funcionario_estorno_id" integer, "comissao_vendedor" decimal(3,2), "comissao_telemarketing" decimal(3,2), "venda_externa" boolean, "desconto_complementar" decimal(3,2), "autorizador_desconto_id" integer, "created_at" timestamp, "updated_at" timestamp, "comprador" character varying(255), "especial" boolean, "registro" date, "empresa_id" integer, "operador_estorno_id" integer, "autorizador_id" integer, "plano_de_pagamento" character varying(255), "tipo" character varying(1)) [0m
+  [4;36;1mSQL (15.1ms)[0m   [0;1mCREATE TABLE "planosdepagamento" ("id" serial primary key, "descricao" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (39.4ms)[0m   [0mCREATE TABLE "produtos" ("id" serial primary key, "descricao" character varying(255), "cor_id" integer, "valor_especial" decimal, "valor_normal" decimal, "classe_id" integer, "grupo_id" integer, "status" boolean, "situacao_tributaria" integer, "preco_minimo_nota_fiscal" decimal, "ipi" decimal, "classificacao_fiscal" integer, "peso_liquido" integer, "cod_emissao_nota_fiscal" integer, "descricao_nota_fiscal" character varying(255), "preco_normal_zona1" decimal, "preco_especial_zona1" decimal, "funcionario_id" integer, "emissao_relatorio" boolean, "custo" decimal, "cadastro_custo" date, "kit" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (25.8ms)[0m   [0;1mCREATE TABLE "regioes" ("id" serial primary key, "descricao" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (28.4ms)[0m   [0mCREATE TABLE "roteiros" ("id" serial primary key, "descricao" character varying(255), "funcionario_id" integer, "regiao_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (19.1ms)[0m   [0;1mCREATE TABLE "transportadoras" ("id" serial primary key, "razao_social" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (24.8ms)[0m   [0mCREATE TABLE "ufs" ("id" serial primary key, "uf" character varying(2), "descricao" character varying(30), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (15.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [4;35;1mSQL (6.8ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (16.8ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090520134920')[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424184002')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427215555')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090428230809')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090429131935')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090427135631')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090514192355')[0m
+  [4;36;1mSQL (3.4ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090428200227')[0m
+  [4;35;1mSQL (5.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427220350')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090427224059')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090507181512')[0m
+  [4;36;1mSQL (15.4ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424125922')[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090428191302')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090428225823')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427135712')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090427180121')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427135726')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090517121112')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427220624')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090505131534')[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427140058')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090429193750')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090515144011')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090513144431')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090424195513')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424195642')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427135556')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090427140326')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090429200955')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424200003')[0m
+  [4;35;1mSQL (11.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090430135229')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090424195522')[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090514201737')[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090429135918')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090428131235')[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090428135218')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090427225739')[0m

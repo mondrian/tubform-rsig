@@ -33,14 +33,12 @@ Factory.define :cliente do |c|
 end
 
 Factory.define :pedido do |p|
-  p.oficial false
   p.data "2009-05-14"
   p.previsao_entrega "2009-05-14"
   p.entrega "2009-05-14"
   p.programacao "2009-05-14"
-  p.cliente_id 1
+  p.cliente_id 2
   p.valor 9.99
-  p.preco_tabela 9.99
   p.acrescimo 9.99
   p.desconto 9.99
   p.transportadora_id 1
@@ -53,7 +51,6 @@ Factory.define :pedido do |p|
   p.endereco_entrega "MyString"
   p.minuta_id 1
   p.area_id 1
-  p.preco_especial false
   p.status nil
   p.estorno "2009-04-24"
   p.funcionario_estorno_id 1
@@ -61,8 +58,7 @@ Factory.define :pedido do |p|
   p.comissao_telemarketing 9.99
   p.venda_externa false
   p.autorizador_desconto_id 1
-  p.tipo true
-  p.funcionario_id 1
+  p.tipo 'E'
 end
 
 Factory.define :faixa_de_desconto do |f|
@@ -93,4 +89,44 @@ Factory.define :produto do |p|
   p.custo 9.99
   p.cadastro_custo "2009-04-24"
   p.kit false
+end
+
+Factory.define :funcionario do |f|
+	f.tipo '1'
+    f.nome 'Mystring'
+    f.endereco 'Mystring'
+    f.complemento 'Mystring'
+    f.cep 'Mystring'
+    f.cidade_id 1
+    f.uf 'Mystring'
+    f.fone 'Mystring'
+    f.cpf 'Mystring'
+    f.rg 'Mystring'
+    f.pai 'Mystring'
+    f.mae 'Mystring'
+    f.numero_carteira_trabalho 'Mystring'
+    f.serie_carteira_trabalho 'Mystring'
+    f.titulo_eleitor 'Mystring'
+    f.zona_eleitoral 'Mystring'
+    f.admissao '2009-01-01'
+    f.registro '2009-01-01'
+    f.nascimento '2009-01-01'
+    f.naturalidade 'Mystring'
+    f.estado_civil 'Mystring'
+    f.grau_instrucao 'Mystring'
+    f.cadastro_pis 'Mystring'
+    f.numero_pis 'Mystring'
+    f.cod_banco_pis 'Mystring'
+    f.nome_banco_pis 'Mystring'
+    f.cod_agencia_pis 'Mystring'
+    f.nome_agencia_pis 'Mystring'
+    f.endereco_banco_pis 'Mystring'
+    f.demissao '2009-01-02'
+    f.observacao 'Mystring'
+    f.aci 'Mystring'
+    f.email 'Mystring'
+end
+
+Factory.define :transportadora do |t|
+    t.razao_social 'Tubform'
 end
