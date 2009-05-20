@@ -18,6 +18,7 @@ class Pedido < ActiveRecord::Base
   belongs_to :minuta
   belongs_to :area
   has_many   :item_pedidos
+  has_many :produtos, :through => :ietm_pedidos
   
   
   validates_presence_of :tipo, :message => "Informe o Tipo de Pedido"
