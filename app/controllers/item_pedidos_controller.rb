@@ -66,7 +66,7 @@ class ItemPedidosController < ApplicationController
     respond_to do |format|
       if @item_pedido.update_attributes(params[:item_pedido])
         flash[:notice] = "ItemPedido atualizado com sucesso."
-        format.html { redirect_to(@item_pedido) }
+        format.html { redirect_to(:controller => "pedidos", :action => "show", :id => @item_pedido.pedido_id) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
