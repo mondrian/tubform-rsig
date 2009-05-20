@@ -1,6 +1,13 @@
 <% form_for(@item_pedido) do |f| %>
   <%= f.error_messages %>
 
+    <%= f.hidden_field(:pedido_id) %>
+
+<p>
+  <%= f.label :produto_id, 'Produto' %><br />
+  <%= f.select :produto_id, @produtos %>
+</p>
+
   <p>
     <%= f.label :quantidade, 'Quantidade' %><br />
     <%= f.text_field :quantidade %>

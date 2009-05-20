@@ -139,5 +139,6 @@
   <%=h @pedido.autorizador_id %>
 </p>
 
+<%= link_to 'Item Pedido', new_item_pedido_path, :id => @pedido.id %> |
 <%= link_to 'Alterar', edit_pedido_path(@pedido) %> |
 <%= link_to 'Voltar', pedidos_path %>

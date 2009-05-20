@@ -1,4 +1,5 @@
 class ItemPedidosController < ApplicationController
+  before_filter :load_produtos
   # GET /item_pedidos
   # GET /item_pedidos.xml
   def index
@@ -25,6 +26,8 @@ class ItemPedidosController < ApplicationController
   # GET /item_pedidos/new.xml
   def new
     @item_pedido = ItemPedido.new
+    @item_pedido.pedido_id = params[:id]
+
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,7 +43,6 @@ class ItemPedidosController < ApplicationController
   # POST /item_pedidos
   # POST /item_pedidos.xml
   def create
-    @pedido = Pedido.find(params[:id])
     @item_pedido = ItemPedido.new(params[:item_pedido])
     @item_pedido.pedido = @pedido
 
@@ -83,5 +85,10 @@ class ItemPedidosController < ApplicationController
       format.html { redirect_to(item_pedidos_url) }
       format.xml  { head :ok }
     end
+  end
+
+  protected
+  def load_produtos
+    @produtos = Produto.all.collect { |p| [p.nome, p.id] }
   end
 end
