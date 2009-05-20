@@ -53,6 +53,12 @@ Dado /^que estou no detalhe de (.*) (\d+)$/ do |entidade, id|
   visit "#{entidade.pluralize}/edit/#{@registro.id}"
 end
 
+Dado /^que estou na exibição de (.*) (\d+)$/ do |entidade, id|
+  klass = eval(entidade.camelize)
+  @registro = klass.find(:first)
+  visit "#{entidade.pluralize}/show/#{@registro.id}"
+end
+
 Quando /^eu estiver na listagem de (.*)$/ do |entidades|
   visit "#{entidades}"
 end
