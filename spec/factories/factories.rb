@@ -33,6 +33,7 @@ Factory.define :cliente do |c|
 end
 
 Factory.define :pedido do |p|
+  p.tipo 1
   p.data "2009-05-14"
   p.previsao_entrega "2009-05-14"
   p.entrega "2009-05-14"
@@ -57,8 +58,7 @@ Factory.define :pedido do |p|
   p.comissao_vendedor 9.99
   p.comissao_telemarketing 9.99
   p.venda_externa false
-  p.autorizador_desconto_id 1
-  p.tipo 'E'
+  p.autorizador_desconto_id 1  
 end
 
 Factory.define :faixa_de_desconto do |f|

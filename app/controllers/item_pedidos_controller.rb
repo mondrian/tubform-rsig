@@ -48,7 +48,7 @@ class ItemPedidosController < ApplicationController
 
     respond_to do |format|
       if @item_pedido.save
-        flash[:notice] = "ItemPedido criado com sucesso."
+        flash[:notice] = "Item adicionado com Sucesso ao pedido."
         format.html { redirect_to(:controller => "pedidos", :action => "show", :id => @item_pedido.pedido_id ) }
         format.xml  { render :xml => @item_pedido, :status => :created, :location => @item_pedido }
       else
@@ -89,6 +89,6 @@ class ItemPedidosController < ApplicationController
 
   protected
   def load_produtos
-    @produtos = Produto.all.collect { |p| [p.descricao + ' -  R$ ' + p.valor_normal.to_s , p.id] }
+    @produtos = Produto.all.collect { |p| [p.descricao , p.id] }
   end
 end

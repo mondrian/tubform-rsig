@@ -3,18 +3,17 @@ Dado /^que estou no formulário de cadastro de (.*)$/ do |entidade|
   @entidade_principal = entidade
 end
 
-Dado /^defino (.*) com o valor (.*)$/ do |atributo,valor|
+Quando /^defino (.*) com o valor (.*)$/ do |atributo,valor|
 #  atributo = atributo.gsub(/\s/, '_')
  atributo = @entidade_principal + "[" + atributo + "]"
  fill_in atributo, :with => valor
 end
 
-Dado /^seleciono (.*) com o valor (.*)$/ do |atributo,valor|
+Quando /^seleciono (.*) com o valor (.*)$/ do |atributo,valor|
 #  atributo = atributo.gsub(/\s/, '_')
  atributo = @entidade_principal + "[" + atributo + "]"
  select (valor,atributo)
 end
-
 
 Quando /^eu salvar o registro$/ do
   click_button "Salvar"
