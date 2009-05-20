@@ -28,6 +28,7 @@ Funcionalidade: Abrir de Venda
     Então preciso receber a mensagem "Pedido Atualizado com Sucesso"
 
   Cenário: Listar Pedidos Cadastrados
-    Dado que existem 3 pedidos
+    Dado que existe um(a) cliente
+    E que existem 3 pedidos
     Quando eu estiver na listagem de pedidos
     Então preciso ver 3 pedidos
