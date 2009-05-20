@@ -3,11 +3,9 @@
 <% form_for(@pedido) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.submit 'Salvar' %>
-  </p>
+<%= render :partial => "form", :locals => { :f => f} %>
 <% end %>
+
 <%= button_to 'Aprovar', :action => :aprovar, :id => @pedido.id %>
 <%= link_to 'Exibir', @pedido %> |
-<%= link_to 'Voltar', pedidos_path %>
-
+<%= link_to 'Retornar', pedidos_path %>

@@ -1,10 +1,12 @@
 Dado /^que estou no formulário de cadastro de (.*)$/ do |entidade|
   visit "#{entidade.pluralize}/new"
+  @entidade_principal = entidade
 end
 
 Dado /^defino (.*) com o valor (.*)$/ do |atributo,valor|
-  atributo = atributo.gsub(/\s/, '_')
-  fill_in atributo, :with => valor
+#  atributo = atributo.gsub(/\s/, '_')
+ atributo = @entidade_principal + "[" + atributo + "]"
+ fill_in atributo, :with => valor
 end
 
 Quando /^eu salvar o registro$/ do
@@ -35,6 +37,8 @@ Dado /^que existe um\(a\) (.*)$/ do |entidade|
     klass.destroy_all
     Factory(entidade_simbolo)
   end
+
+  klass.count > 0
 end
 
 Dado /^e este (.*) está atribuido a um determinado\(a\) (.*)$/ do |pai, entidade|
@@ -48,9 +52,9 @@ Dado /^e este (.*) está atribuido a um determinado\(a\) (.*)$/ do |pai, entidad
 end
 
 Dado /^que estou no detalhe de (.*) (\d+)$/ do |entidade, id|
-  visit "#{entidade.pluralize}/edit/#{id}"
   klass = eval(entidade.camelize)
-  @registro = klass.find(id)
+  @registro = klass.find(:first)
+  visit "#{entidade.pluralize}/edit/#{@registro.id}"
 end
 
 Quando /^eu estiver na listagem de (.*)$/ do |entidades|

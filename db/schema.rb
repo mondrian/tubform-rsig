@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090515144011) do
+ActiveRecord::Schema.define(:version => 20090517121112) do
 
   create_table "areas", :force => true do |t|
     t.string   "descricao"
@@ -232,10 +232,10 @@ ActiveRecord::Schema.define(:version => 20090515144011) do
     t.date     "entrega"
     t.date     "programacao"
     t.integer  "cliente_id"
-    t.decimal  "valor",                   :precision => 8, :scale => 2
-    t.decimal  "preco_tabela",            :precision => 8, :scale => 2
-    t.decimal  "acrescimo",               :precision => 3, :scale => 2
-    t.decimal  "desconto",                :precision => 3, :scale => 2
+    t.decimal  "valor",                                :precision => 8, :scale => 2
+    t.decimal  "preco_tabela",                         :precision => 8, :scale => 2
+    t.decimal  "acrescimo",                            :precision => 3, :scale => 2
+    t.decimal  "desconto",                             :precision => 3, :scale => 2
     t.integer  "transportadora_id"
     t.string   "nome_comprador"
     t.text     "observacao"
@@ -249,14 +249,13 @@ ActiveRecord::Schema.define(:version => 20090515144011) do
     t.string   "status"
     t.date     "estorno"
     t.integer  "funcionario_estorno_id"
-    t.decimal  "comissao_vendedor",       :precision => 3, :scale => 2
-    t.decimal  "comissao_telemarketing",  :precision => 3, :scale => 2
+    t.decimal  "comissao_vendedor",                    :precision => 3, :scale => 2
+    t.decimal  "comissao_telemarketing",               :precision => 3, :scale => 2
     t.boolean  "venda_externa"
-    t.decimal  "desconto_complementar",   :precision => 3, :scale => 2
+    t.decimal  "desconto_complementar",                :precision => 3, :scale => 2
     t.integer  "autorizador_desconto_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "tipo"
     t.string   "comprador"
     t.boolean  "especial"
     t.date     "registro"
@@ -265,6 +264,7 @@ ActiveRecord::Schema.define(:version => 20090515144011) do
     t.integer  "autorizador_id"
     t.integer  "funcionario_id"
     t.string   "plano_de_pagamento"
+    t.string   "tipo",                    :limit => 1
   end
 
   create_table "planosdepagamento", :force => true do |t|

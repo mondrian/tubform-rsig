@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/home/luciano/tubform/tubform-rsig/app/controllers/pedidos_controller.rb</file>
-        <file>file:/home/luciano/tubform/tubform-rsig/app/models/pedido.rb</file>
-        <file>file:/home/luciano/tubform/tubform-rsig/app/views/pedidos/_form.html.erb</file>
-        <file>file:/home/luciano/tubform/tubform-rsig/features/step_definitions/abrir_pedido_step.rb</file>
-    </open-files>
 </project-private>

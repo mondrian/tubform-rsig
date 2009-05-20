@@ -24,4 +24,3 @@ Então /^eu preciso ter mais um item no pedido\.$/ do
   @pedido.item_pedidos << @item
   @pedido.save
 end
-

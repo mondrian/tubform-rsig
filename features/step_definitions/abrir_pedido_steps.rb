@@ -1,25 +1,13 @@
 Before do
   @cliente = Cliente.find(:first)
-end
-
-Quando /^eu requisitar um novo pedido$/ do
-  @pedido = Pedido.new
-end
-
-Quando /^definir vendedor com o id 1$/ do
-  @pedido.vendedor_id = 1
+  @operador = Funcionario.find(:first)
+  @vendedor = Funcionario.find(:first)
+  @telemark = Funcionario.find(:first)
+  @entidade_principal = 'pedido'
 end
 
 Quando /^definir cliente com o id 1$/ do
   @pedido.cliente = @cliente
-end
-
-Quando /^definir forma de pagamento com o id 1$/ do
-  @pedido.plano_pagamento_id = 1
-end
-
-Quando /^gravar o pedido$/ do
-  @pedido.save
 end
 
 Then /^eu preciso ter mais um pedido\.$/ do
@@ -31,15 +19,23 @@ Quando /^definir se o pedido e oficial$/ do
 end
 
 Quando /^definir a previsao de entrega$/ do
-  @pedido.previsao_entrega = '2009-05-30'
+  @pedido.previsao_entrega = '2009-05-30'.to_date
+end
+
+Quando /^definir a data$/ do
+  @pedido.data = '2009-05-30'.to_date
+end
+
+Quando /^definir registro$/ do
+  @pedido.registro = '2009-05-30'.to_date
 end
 
 Quando /^definir a area$/ do
   @pedido.area_id = 1
 end
 
-Quando /^definir o tipo de venda \(interna ou externa\)$/ do
-  @pedido.tipo = 1
+Quando /^gravar o pedido$/ do
+  @pedido.save
 end
 
 Then /^eu preciso receber a mensagem "([^\"]*)"$/ do |arg1|

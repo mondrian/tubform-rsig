@@ -1,67 +1,67 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  tipo_cliente: MyString
-  cpf_cnpj: MyString
-  razao_social: MyString
-  nome_fantasia: MyString
-  documento: MyString
-  endereco: MyString
-  complemento: MyString
+  tipo_cliente: 1
+  cpf_cnpj: '51955326304'
+  razao_social: 'LUCIANO BEZERRA'
+  nome_fantasia: 'LUCIANO BEZERRA'
+  documento: '2145096'
+  endereco: 'RUA MARIA DOLORES BANDEIRA, 44'
+  complemento: 'CASA A'
   cidade_id: 1
-  uf: MyString
-  cep: MyString
-  referencia: MyString
-  fone_pessoal: MyString
-  fone_comercial: MyString
-  fone_celular: MyString
-  endereco_entrega: MyString
+  uf: 'CE'
+  cep: '63500000'
+  referencia: 'PROXIMO AG VEICULOS'
+  fone_pessoal: '8835119900'
+  fone_comercial: '8835119900'
+  fone_celular: '8835119900'
+  endereco_entrega: 'O MESMO'
   regiao_entrega_id: 1
-  cidade_entrega_id: MyString
-  area_id: MyString
-  referencias_bancaria: MyText
-  referencias_comerciais: MyText
-  observacao: MyText
-  info_serasa: MyText
-  data_nascimento: 2009-04-24
-  nome_comprador: MyString
+  cidade_entrega_id: 1
+  area_id: 1
+  referencias_bancaria: 'CAIXA ECONOMICA'
+  referencias_comerciais: 'ZENIR MÓVEIS'
+  observacao: 'SEM OBSERVACOES'
+  info_serasa: 'NADA CONSTA'
+  data_nascimento: '2009-04-24'
+  nome_comprador: 'LUCIANO'
   vendas_suspensas: false
-  observacao_suspensao_venda: MyText
+  observacao_suspensao_venda: 'NENHUMA'
   limite_credito: 9.99
   saldo_devedor: 9.99
-  status: MyString
+  status: 'A'
   prazo_medio_maximo: 1
-  data_inclusao_prazo_medio: 2009-04-24
+  data_inclusao_prazo_medio: '2009-04-24'
 
 two:
-  tipo_cliente: MyString
-  cpf_cnpj: MyString
-  razao_social: MyString
-  nome_fantasia: MyString
-  documento: MyString
-  endereco: MyString
-  complemento: MyString
+  tipo_cliente: 1
+  cpf_cnpj: '70109702387'
+  razao_social: 'LUCILENE BEZERRA'
+  nome_fantasia: 'LUCILENE BEZERRA'
+  documento: '2145096'
+  endereco: 'RUA MARIA DOLORES BANDEIRA, 44'
+  complemento: 'CASA A'
   cidade_id: 1
-  uf: MyString
-  cep: MyString
-  referencia: MyString
-  fone_pessoal: MyString
-  fone_comercial: MyString
-  fone_celular: MyString
-  endereco_entrega: MyString
+  uf: 'CE'
+  cep: '63500000'
+  referencia: 'PROXIMO AG VEICULOS'
+  fone_pessoal: '8835119900'
+  fone_comercial: '8835119900'
+  fone_celular: '8835119900'
+  endereco_entrega: 'O MESMO'
   regiao_entrega_id: 1
-  cidade_entrega_id: MyString
-  area_id: MyString
-  referencias_bancaria: MyText
-  referencias_comerciais: MyText
-  observacao: MyText
-  info_serasa: MyText
-  data_nascimento: 2009-04-24
-  nome_comprador: MyString
+  cidade_entrega_id: 1
+  area_id: 1
+  referencias_bancaria: 'CAIXA ECONOMICA'
+  referencias_comerciais: 'ZENIR MÓVEIS'
+  observacao: 'SEM OBSERVACOES'
+  info_serasa: 'NADA CONSTA'
+  data_nascimento: '2009-04-24'
+  nome_comprador: 'LUCIANO'
   vendas_suspensas: false
-  observacao_suspensao_venda: MyText
+  observacao_suspensao_venda: 'NENHUMA'
   limite_credito: 9.99
   saldo_devedor: 9.99
-  status: MyString
+  status: 'A'
   prazo_medio_maximo: 1
-  data_inclusao_prazo_medio: 2009-04-24
+  data_inclusao_prazo_medio: '2009-04-24'
