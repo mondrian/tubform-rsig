@@ -9,7 +9,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD:db/schema.rb
 ActiveRecord::Schema.define(:version => 20090517121112) do
+=======
+ActiveRecord::Schema.define(:version => 20090520134920) do
+>>>>>>> 3c4bba83f4a0157be4a2e842054cc2148432e684:db/schema.rb
 
   create_table "areas", :force => true do |t|
     t.string   "descricao"
@@ -226,14 +230,12 @@ ActiveRecord::Schema.define(:version => 20090517121112) do
   end
 
   create_table "pedidos", :force => true do |t|
-    t.boolean  "oficial"
     t.date     "data"
     t.date     "previsao_entrega"
     t.date     "entrega"
     t.date     "programacao"
     t.integer  "cliente_id"
     t.decimal  "valor",                                :precision => 8, :scale => 2
-    t.decimal  "preco_tabela",                         :precision => 8, :scale => 2
     t.decimal  "acrescimo",                            :precision => 3, :scale => 2
     t.decimal  "desconto",                             :precision => 3, :scale => 2
     t.integer  "transportadora_id"
@@ -245,7 +247,6 @@ ActiveRecord::Schema.define(:version => 20090517121112) do
     t.string   "endereco_entrega"
     t.integer  "minuta_id"
     t.integer  "area_id"
-    t.boolean  "preco_especial"
     t.string   "status"
     t.date     "estorno"
     t.integer  "funcionario_estorno_id"
@@ -262,7 +263,6 @@ ActiveRecord::Schema.define(:version => 20090517121112) do
     t.integer  "empresa_id"
     t.integer  "operador_estorno_id"
     t.integer  "autorizador_id"
-    t.integer  "funcionario_id"
     t.string   "plano_de_pagamento"
     t.string   "tipo",                    :limit => 1
   end

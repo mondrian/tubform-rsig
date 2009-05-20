@@ -6,8 +6,15 @@ end
 Dado /^defino (.*) com o valor (.*)$/ do |atributo,valor|
 #  atributo = atributo.gsub(/\s/, '_')
  atributo = @entidade_principal + "[" + atributo + "]"
-  fill_in atributo, :with => valor
+ fill_in atributo, :with => valor
 end
+
+Dado /^seleciono (.*) com o valor (.*)$/ do |atributo,valor|
+#  atributo = atributo.gsub(/\s/, '_')
+ atributo = @entidade_principal + "[" + atributo + "]"
+ select (valor,atributo)
+end
+
 
 Quando /^eu salvar o registro$/ do
   click_button "Salvar"
@@ -37,9 +44,11 @@ Dado /^que existe um\(a\) (.*)$/ do |entidade|
     klass.destroy_all
     Factory(entidade_simbolo)
   end
+
+  klass.count > 0
 end
 
-Dado /^e este (.*) está atribuido a um determinado\(a\) (.*)$/ do |pai, entidade|
+Dado /^este (.*) está atribuido a um determinado\(a\) (.*)$/ do |pai, entidade|
   entidade = entidade.gsub(/\s/, '_').singularize
   entidade_simbolo = entidade.to_sym
   klass = eval(entidade.camelize)
@@ -50,9 +59,9 @@ Dado /^e este (.*) está atribuido a um determinado\(a\) (.*)$/ do |pai, entidad
 end
 
 Dado /^que estou no detalhe de (.*) (\d+)$/ do |entidade, id|
-  visit "#{entidade.pluralize}/edit/#{id}"
   klass = eval(entidade.camelize)
-  @registro = klass.find(id)
+  @registro = klass.find(:first)
+  visit "#{entidade.pluralize}/edit/#{@registro.id}"
 end
 
 Quando /^eu estiver na listagem de (.*)$/ do |entidades|
@@ -65,3 +74,4 @@ Então /^preciso ver (.*) (.*)$/ do |quantidade,entidades|
   registros.count.should == quantidade.to_i
   registros.each {|r| have_tag("td", :content => "#{r.id}")}
 end
+

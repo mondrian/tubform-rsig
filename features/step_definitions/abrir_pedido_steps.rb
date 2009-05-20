@@ -3,6 +3,7 @@ Before do
   @operador = Funcionario.find(:first)
   @vendedor = Funcionario.find(:first)
   @telemark = Funcionario.find(:first)
+  @entidade_principal = 'pedido'
 end
 
 Quando /^definir cliente com o id 1$/ do
