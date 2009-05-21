@@ -1,13 +1,26 @@
 <% form_for(@item_pedido) do |f| %>
   <%= f.error_messages %>
 
+    <%= f.hidden_field(:pedido_id) %>
+    
+ <h2>Adicionar ítem ao pedido <%= params[:id] %></h2>
+<p>
+  <%= f.label :produto_id, 'Produto' %><br />
+  <%= f.select :produto_id, @produtos %>
+</p>
+
   <p>
     <%= f.label :quantidade, 'Quantidade' %><br />
     <%= f.text_field :quantidade %>
   </p>
 
+    <p>
+    <%= f.label :valor_venda, 'Valor Venda' %><br />
+    <%= f.text_field :valor_venda %>
+  </p>
+
   <p>
-    <%= f.submit @item_pedido.new_record? ? 'Criar' : 'Atualizar' %>
+    <%= f.submit @item_pedido.new_record? ? 'Salvar' : 'Atualizar' %>
   </p>
 
 <% end %>

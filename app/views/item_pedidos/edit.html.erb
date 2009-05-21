@@ -3,4 +3,4 @@
 <%= render :partial => "itempedido" %>
 
 <%= link_to 'Exibir', @item_pedido %> |
-<%= link_to 'Retornar', item_pedidos_path %>
+<%= link_to 'Retornar', :controller => "pedidos",  :action => "show", :id => @item_pedido.pedido_id %>

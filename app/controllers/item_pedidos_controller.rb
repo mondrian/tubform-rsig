@@ -1,4 +1,5 @@
 class ItemPedidosController < ApplicationController
+  before_filter :load_produtos, :only => [:new, :edit, :create, :update]
   # GET /item_pedidos
   # GET /item_pedidos.xml
   def index
@@ -25,6 +26,8 @@ class ItemPedidosController < ApplicationController
   # GET /item_pedidos/new.xml
   def new
     @item_pedido = ItemPedido.new
+    @item_pedido.pedido_id = params[:id]
+
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,11 +44,12 @@ class ItemPedidosController < ApplicationController
   # POST /item_pedidos.xml
   def create
     @item_pedido = ItemPedido.new(params[:item_pedido])
+    @item_pedido.valor_tabela = @item_pedido.produto.valor_normal
 
     respond_to do |format|
       if @item_pedido.save
-        flash[:notice] = "ItemPedido criado com sucesso."
-        format.html { redirect_to(@item_pedido) }
+        flash[:notice] = "Item adicionado com Sucesso ao pedido."
+        format.html { redirect_to(:controller => "pedidos", :action => "show", :id => @item_pedido.pedido_id ) }
         format.xml  { render :xml => @item_pedido, :status => :created, :location => @item_pedido }
       else
         format.html { render :action => "new" }
@@ -62,7 +66,7 @@ class ItemPedidosController < ApplicationController
     respond_to do |format|
       if @item_pedido.update_attributes(params[:item_pedido])
         flash[:notice] = "ItemPedido atualizado com sucesso."
-        format.html { redirect_to(@item_pedido) }
+        format.html { redirect_to(:controller => "pedidos", :action => "show", :id => @item_pedido.pedido_id) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -81,5 +85,10 @@ class ItemPedidosController < ApplicationController
       format.html { redirect_to(item_pedidos_url) }
       format.xml  { head :ok }
     end
+  end
+
+  protected
+  def load_produtos
+    @produtos = Produto.all.collect { |p| [p.descricao , p.id] }
   end
 end

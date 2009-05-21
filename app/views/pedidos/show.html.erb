@@ -35,11 +35,6 @@
 </p>
 
 <p>
-  <b>Preco tabela:</b>
-  <%=h @pedido.preco_tabela %>
-</p>
-
-<p>
   <b>Acrescimo:</b>
   <%=h @pedido.acrescimo %>
 </p>
@@ -90,11 +85,6 @@
 </p>
 
 <p>
-  <b>Preço Especial?</b>
-  <%=h @pedido.especial == true ? 'Sim' : 'Não' %>
-</p>
-
-<p>
   <b>Empresa:</b>
   <%=h @pedido.empresa_id == 1 ? 'TUBFORM' : 'MADEFORM' %>
 </p>
@@ -139,5 +129,37 @@
   <%=h @pedido.autorizador_id %>
 </p>
 
+<table with="100%" border="1">
+  <tr>
+      <th>Cod Produto</th>
+       <th>Descrição</th>
+       <th>Quantidade</th>
+       <th>Valor Venda</th>
+       <th>Subtotal</th>
+       <th colspan="2">Opções</th>
+  </tr>
+
+
+<% total = 0 %>
+<% for i in @pedido.item_pedidos %>
+  <%  subtotal = i.quantidade * i.valor_venda %>
+  <% total += subtotal %>
+    <tr>
+      <td><%= i.produto_id  %></td>
+      <td><%= i.produto.descricao  %></td>
+       <td><%= i.quantidade  %></td>
+      <td><%= i.valor_venda  %></td>
+      <td><%= subtotal %></td>
+      <td><%= link_to 'Editar', :controller => :item_pedidos, :action => :edit, :id => i.id %></td>
+      <td><%= link_to 'Deletar', i, :confirm => 'Você tem certeza?', :method => :delete %></td>
+    </tr>
+<% end %>
+</table>
+
+<h2> Valor total do pedido: <%= total %></h2>
+
+<%= link_to 'Item Pedido', :controller => 'item_pedidos', :action => 'new', :id => @pedido.id %> |
 <%= link_to 'Alterar', edit_pedido_path(@pedido) %> |
+<%= button_to 'Aprovar', :action => :aprovar, :id => @pedido.id %>
 <%= link_to 'Voltar', pedidos_path %>
+

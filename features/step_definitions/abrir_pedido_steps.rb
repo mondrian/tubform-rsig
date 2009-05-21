@@ -38,6 +38,3 @@ Quando /^gravar o pedido$/ do
   @pedido.save
 end
 
-Then /^eu preciso receber a mensagem "([^\"]*)"$/ do |arg1|
-  puts 'Pedido Gravado com Sucesso!'
-end

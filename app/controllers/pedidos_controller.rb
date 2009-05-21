@@ -44,7 +44,7 @@ class PedidosController < ApplicationController
 
   def create
     @pedido = Pedido.new(params[:pedido])
-
+    @pedido.operador_id = 1 # Deverá vir na session (lembrar de arumar depois)
     respond_to do |format|
       if @pedido.save
         flash[:notice] = 'Pedido Cadastrado com Sucesso'
@@ -88,7 +88,7 @@ class PedidosController < ApplicationController
     @pedido.aprovar
     respond_to do |format|
       if @pedido.save
-        flash[:notice] = 'Pedido confirmado com sucesso.'
+        flash[:notice] = 'Pedido Aprovado'
         format.html { redirect_to(@pedido) }
         format.xml  { head :ok }
       else
@@ -99,3 +99,4 @@ class PedidosController < ApplicationController
     end
   end
 end
+

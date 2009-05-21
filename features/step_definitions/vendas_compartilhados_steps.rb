@@ -3,10 +3,16 @@ Dado /^que estou no formulário de cadastro de (.*)$/ do |entidade|
   @entidade_principal = entidade
 end
 
-Dado /^defino (.*) com o valor (.*)$/ do |atributo,valor|
+Quando /^defino (.*) com o valor (.*)$/ do |atributo,valor|
 #  atributo = atributo.gsub(/\s/, '_')
  atributo = @entidade_principal + "[" + atributo + "]"
  fill_in atributo, :with => valor
+end
+
+Quando /^seleciono (.*) com o valor (.*)$/ do |atributo,valor|
+#  atributo = atributo.gsub(/\s/, '_')
+ atributo = @entidade_principal + "[" + atributo + "]"
+ select (valor,atributo)
 end
 
 Quando /^eu salvar o registro$/ do
@@ -21,11 +27,8 @@ Dado /^que existem (\d+) (.+)$/ do |quantidade, entidade|
   entidade = entidade.gsub(/\s/, '_').singularize
   entidade_simbolo = entidade.to_sym
   klass = eval(entidade.camelize)
-  klass.transaction do
-    klass.destroy_all
-    quantidade.to_i.times do |i|
+  quantidade.to_i.times do |i|
       Factory(entidade_simbolo)
-    end
   end
 end
 
@@ -33,28 +36,27 @@ Dado /^que existe um\(a\) (.*)$/ do |entidade|
   entidade = entidade.gsub(/\s/, '_').singularize
   entidade_simbolo = entidade.to_sym
   klass = eval(entidade.camelize)
-  klass.transaction do
-    klass.destroy_all
-    Factory(entidade_simbolo)
-  end
-
+  Factory(entidade_simbolo)
   klass.count > 0
 end
 
-Dado /^e este (.*) está atribuido a um determinado\(a\) (.*)$/ do |pai, entidade|
+Dado /^este (.*) está atribuido a um determinado\(a\) (.*)$/ do |pai, entidade|
   entidade = entidade.gsub(/\s/, '_').singularize
   entidade_simbolo = entidade.to_sym
   klass = eval(entidade.camelize)
-  klass.transaction do
-    klass.destroy_all
-    Factory(entidade_simbolo)
-  end
+  Factory(entidade_simbolo)
 end
 
 Dado /^que estou no detalhe de (.*) (\d+)$/ do |entidade, id|
   klass = eval(entidade.camelize)
   @registro = klass.find(:first)
   visit "#{entidade.pluralize}/edit/#{@registro.id}"
+end
+
+Dado /^que estou na exibição de (.*) (\d+)$/ do |entidade, id|
+  klass = eval(entidade.camelize)
+  @registro = klass.find(:first)
+  visit "#{entidade.pluralize}/show/#{@registro.id}"
 end
 
 Quando /^eu estiver na listagem de (.*)$/ do |entidades|
@@ -67,3 +69,4 @@ Então /^preciso ver (.*) (.*)$/ do |quantidade,entidades|
   registros.count.should == quantidade.to_i
   registros.each {|r| have_tag("td", :content => "#{r.id}")}
 end
+
