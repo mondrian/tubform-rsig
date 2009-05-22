@@ -1,52 +1,51 @@
 <p>
   <b>Tipo:</b>
-  <%=h @pedido.tipo %>
-  <%#== 'I' ? 'Interno' : 'Externo' %>
+  <%=h @pedido.tipo == 'I' ? 'Interno' : 'Externo' %>
 </p>
 
 <p>
   <b>Data:</b>
-  <%=h @pedido.data %>
+  <%=h @pedido.data.to_s_br %>
 </p>
 
 <p>
   <b>Previsao entrega:</b>
-  <%=h @pedido.previsao_entrega %>
+  <%=h @pedido.previsao_entrega.to_s_br %>
 </p>
 
 <p>
   <b>Entrega:</b>
-  <%=h @pedido.entrega %>
+  <%=h @pedido.entrega.to_s_br %>
 </p>
 
 <p>
   <b>Programacao:</b>
-  <%=h @pedido.programacao %>
+  <%=h @pedido.programacao.to_s_br %>
 </p>
 
 <p>
   <b>Cliente:</b>
-  <%#=h @pedido.cliente.razao_social %>
+  <%=h @pedido.cliente.razao_social %>
 </p>
 
 <p>
   <b>Valor:</b>
-  <%=h @pedido.valor %>
+  <%=h @pedido.valor.to_extenso_real %>
 </p>
 
 <p>
   <b>Acrescimo:</b>
-  <%=h @pedido.acrescimo %>
+  <%=h @pedido.acrescimo.to_extenso_real %>
 </p>
 
 <p>
   <b>Desconto:</b>
-  <%=h @pedido.desconto %>
+  <%=h @pedido.desconto.to_extenso_real %>
 </p>
 
 <p>
   <b>Transportadora:</b>
-  <%#=h @pedido.transportadora.razao_social %>
+  <%=h @pedido.transportadora.razao_social %>
 </p>
 
 <p>
@@ -71,12 +70,12 @@
 
 <p>
   <b>Area:</b>
-  <%#=h @pedido.area.descricao %>
+  <%=h @pedido.area.descricao %>
 </p>
 
 <p>
   <b>Operador:</b>
-  <%#=h @pedido.funcionario.nome %>
+  <%=h @pedido.operador.nome %>
 </p>
 
 <p>
