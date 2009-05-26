@@ -22,9 +22,9 @@ class Pedido < ActiveRecord::Base
 
   validates_presence_of :tipo, :message => "Informe o Tipo de Pedido"
   validates_presence_of :data, :message => "Informe a Data do Pedido"
-  validates_presence_of :cliente_id,
-                        :message => "Informe o Código do Cliente"
-  #validates_presence_of :valor, :message => "Pedido não foi Valorado"
+  validates_presence_of :cliente_id, :message => "Informe o Código do Cliente"
+  validates_presence_of :operador_id, :message => "Operador não Informado, verifique ...."
+  validates_presence_of :valor, :message => "Pedido não foi Valorado"
 
   public
   def no_prazo_medio_maximo?
@@ -53,4 +53,3 @@ class Pedido < ActiveRecord::Base
   end
 
 end
-

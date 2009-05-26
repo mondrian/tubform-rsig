@@ -13,9 +13,9 @@
 <% @pedidos.each do |pedido| %>
   <tr>
     <td><%=h pedido.tipo == 'I' ? 'Interno' : 'Externo' %></td>
-    <td><%=h pedido.data %></td>
+    <td><%=h pedido.data.to_s_br %></td>
     <td><%=h pedido.cliente.razao_social %></td>
-    <td align="right"><%=h pedido.valor %></td>
+    <td align="right"><%=h pedido.valor.real_contabil %></td>
     <td align="center"><%=h pedido.status %></td>
     <td><%= link_to 'Exibir', pedido %></td>
     <td><%= link_to 'Alterar', edit_pedido_path(pedido) %></td>
