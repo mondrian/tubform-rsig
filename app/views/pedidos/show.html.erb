@@ -30,22 +30,22 @@
 
 <p>
   <b>Valor:</b>
-  <%=h @pedido.valor.to_extenso_real %>
+  <%=h @pedido.valor.to_extenso_real if @pedido.valor %>
 </p>
 
 <p>
   <b>Acrescimo:</b>
-  <%=h @pedido.acrescimo.to_extenso_real %>
+  <%=h @pedido.acrescimo.to_extenso_real if @pedido.acrescimo %>
 </p>
 
 <p>
   <b>Desconto:</b>
-  <%=h @pedido.desconto.to_extenso_real %>
+  <%=h @pedido.desconto.to_extenso_real if @pedido.desconto %>
 </p>
 
 <p>
   <b>Transportadora:</b>
-  <%=h @pedido.transportadora.razao_social %>
+  <%=h @pedido.transportadora.razao_social if @pedido.transportadora %>
 </p>
 
 <p>
@@ -70,12 +70,12 @@
 
 <p>
   <b>Area:</b>
-  <%=h @pedido.area.descricao %>
+  <%=h @pedido.area.descricao if @pedido.area %>
 </p>
 
 <p>
   <b>Operador:</b>
-  <%=h @pedido.operador.nome %>
+  <%=h @pedido.operador.nome if @pedido.operador%>
 </p>
 
 <p>
