@@ -132,3 +132,12 @@ Factory.define :transportadora do |t|
     t.razao_social 'Tubform'
 end
 
+Factory.define :item_pedido do |i| 
+  i.quantidade 3
+  i.valor_tabela 500
+  i.valor_venda 500
+  i.desconto 0
+  i.association :produto, :factory => :produto
+  i.association :pedido, :factory => :pedido
+end
+
