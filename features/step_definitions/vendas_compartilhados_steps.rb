@@ -12,7 +12,7 @@ end
 Quando /^seleciono (.*) com o valor (.*)$/ do |atributo,valor|
 #  atributo = atributo.gsub(/\s/, '_')
  atributo = @entidade_principal + "[" + atributo + "]"
- select (valor,atributo)
+ select(valor,atributo)
 end
 
 Quando /^eu salvar o registro$/ do
@@ -69,4 +69,3 @@ Então /^preciso ver (.*) (.*)$/ do |quantidade,entidades|
   registros.count.should == quantidade.to_i
   registros.each {|r| have_tag("td", :content => "#{r.id}")}
 end
-
