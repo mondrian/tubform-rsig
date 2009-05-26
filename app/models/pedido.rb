@@ -41,6 +41,36 @@ class Pedido < ActiveRecord::Base
     self.entrega = Time.now
   end
 
+  # Calculo de comissao por desconto do item.
+  def comissao_desconto_item
+    percentual_reducao = 0.150  #percentual de redução da comissão para cada 1% de desconto no item. (parametro).
+    comissao_padrao = 5.00      #Percentual de comissão do vendedor por industria.
+    desconto_padrao = 23.00     #Percentual de desconto maximo por item permitido.
+    comissao = 0.00             #variavel local.
+    vlr_comissao = 0.00         #variavel local.
+    
+    # Exemplodo calculo abaixo: 5.5-((25-23)*0.150)
+    for item_pedido in self.item_pedidos 
+        if item_pedido.desconto > 0 
+            if item_pedido.desconto <= desconto_padrao
+               comissao = (comissao_padrao - ((item_pedido.desconto - comissao_padrao) * percentual_reducao ))
+            else
+               comissao = comissao_padrao
+            end        
+            puts comissao
+            if comissao < 0
+               comissao = 0
+            else
+                vlr_comissao = ( ((item_pedido.valor_venda * item_pedido.quantidade) * comissao) / 100 )
+            end
+        else
+            comissao = comissao_padrao
+            vlr_comissao = ( ((item_pedido.valor_venda * item_pedido.quantidade) * comissao) / 100 )
+        end
+        puts vlr_comissao
+    end
+  end
+  
   # A cada 15 dias de prazo acima do parametro, será calculada uma Unidade de Desconto na
   # comissão do Vendedor, conforme abaixo
   def desconto_comissao_prazo!
