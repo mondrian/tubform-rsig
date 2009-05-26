@@ -26,3 +26,16 @@ end
 Entao /^eu preciso obter a mensagem: "([^\"]*)"$/ do |arg1|
   puts arg1
 end
+
+
+Dado /^eu pedir o Calculo da Comissao por Prazo$/ do
+  pending
+end
+
+Quando /^eu salvar o pedido$/ do
+  pending
+end
+
+Então /^o valor da comissao calculada deve ser 3$/ do
+  pending
+end
