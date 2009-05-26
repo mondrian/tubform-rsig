@@ -14,7 +14,7 @@ ActionController::Routing::Routes.draw do |map|
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-     map.resources :pedidos
+     map.resources :pedidos, :collection => { :comissao_acordada => :get }
      map.resources :clientes
 
   # Sample resource route with options:

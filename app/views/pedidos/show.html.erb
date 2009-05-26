@@ -160,5 +160,8 @@
 <%= link_to 'Item Pedido', :controller => 'item_pedidos', :action => 'new', :id => @pedido.id %> |
 <%= link_to 'Alterar', edit_pedido_path(@pedido) %> |
 <%= button_to 'Aprovar', :action => :aprovar, :id => @pedido.id %>
+
+<%= button_to 'Comissão Acordada', :action => :comissao_acordada, :id => @pedido.id %>
+
 <%= link_to 'Voltar', pedidos_path %>
 
