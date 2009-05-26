@@ -98,4 +98,9 @@ class PedidosController < ApplicationController
       end
     end
   end
+
+	def comissao_acordada
+    @pedido = Pedido.find(params[:id])
+	end
+
 end
