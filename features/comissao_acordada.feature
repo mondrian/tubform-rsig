@@ -5,8 +5,8 @@ Funcionalidade: Estabelecer uma comissão acordada
 
   Cenário: Informar uma nova comissão acordada para pedido
     Dado que estou na exibição de pedido 1
-    Quando eu clicar em informar comissão acordada
-    E informar a comissão para o vendedor
-    E informar a comissão para o operador de telemarketing
-    E clicar no botão salvar
-    Então redefina a informação de comissão do pedido
+    Quando eu clicar em Comissão Acordada
+    E defino comissao_vendedor com o valor 1
+    E defino comissao_telemarketing com o valor 2
+    E eu salvar o registro
+    Então preciso receber a mensagem "Pedido Atualizado com Sucesso"
