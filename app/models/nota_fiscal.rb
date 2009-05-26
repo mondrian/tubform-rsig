@@ -3,7 +3,8 @@ class NotaFiscal < ActiveRecord::Base
   belongs_to :cliente
   belongs_to :funcionario
 
-  validates_uniqueness_of :numero_nota
+  validates_uniqueness_of :numero_nota,   :message => "Esse Número já foi utilizado em outra Nota "
+
   validates_presence_of :numero_nota,     :message => "Informe o Número da Nota"
   validates_presence_of :numero_selo,     :message => "Informe o Número do Selo"
   validates_presence_of :numero_serie,    :message => "Informe a Série do Selo"
@@ -12,7 +13,6 @@ class NotaFiscal < ActiveRecord::Base
   validates_presence_of :cfop,            :message => "Informe CFOP"
   validates_presence_of :natureza_operacao, :message => "Informe Natureza da Operação" 
   validates_presence_of :valor_ipi,       :message => "Informe IPI" 
-  validates_presence_of :valor_ipi,       :message => "Informe IPI"
   validates_presence_of :valor_desconto,  :message => "Informe Valor Desconto", :default => 0
   validates_presence_of :valor_acrescimo, :message => "Informe IPI", :default => 0 
   validates_presence_of :qtde_volumes,    :message => "Informe Quantidade de Volumes" 
