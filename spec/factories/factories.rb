@@ -133,10 +133,10 @@ Factory.define :transportadora do |t|
 end
 
 Factory.define :item_pedido do |i| 
-  i.quantidade 3
-  i.valor_tabela 500
-  i.valor_venda 500
-  i.desconto 0
+  i.quantidade 1
+  i.valor_tabela 736
+  i.valor_venda 662.40
+  i.desconto 10
   i.association :produto, :factory => :produto
   i.association :pedido, :factory => :pedido
 end
