@@ -1,3 +1,4 @@
+
 Cliente.destroy_all
 Factory.define :cliente do |c|
   c.tipo_cliente "E"
