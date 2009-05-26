@@ -19,6 +19,10 @@ Quando /^eu salvar o registro$/ do
   click_button "Salvar"
 end
 
+Quando /^eu clicar em (.*)$/ do |botao|
+  click_button botao
+end
+
 Então /^preciso receber a mensagem "([^\"]*)"$/ do |mensagem|
   response.should have_tag("p", :text=> mensagem)
 end
