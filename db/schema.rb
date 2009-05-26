@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090520164805) do
+ActiveRecord::Schema.define(:version => 20090526143116) do
 
   create_table "areas", :force => true do |t|
     t.string   "descricao"
@@ -249,7 +249,6 @@ ActiveRecord::Schema.define(:version => 20090520164805) do
     t.string   "status"
     t.date     "estorno"
     t.integer  "funcionario_estorno_id"
-    t.decimal  "comissao_vendedor",                    :precision => 3, :scale => 2
     t.decimal  "comissao_telemarketing",               :precision => 3, :scale => 2
     t.boolean  "venda_externa"
     t.decimal  "desconto_complementar",                :precision => 3, :scale => 2
@@ -264,6 +263,7 @@ ActiveRecord::Schema.define(:version => 20090520164805) do
     t.integer  "autorizador_id"
     t.string   "plano_de_pagamento"
     t.string   "tipo",                    :limit => 1
+    t.decimal  "comissao_vendedor",                    :precision => 5, :scale => 2
   end
 
   create_table "planosdepagamento", :force => true do |t|
