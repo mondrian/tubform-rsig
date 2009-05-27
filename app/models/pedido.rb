@@ -94,4 +94,31 @@ class Pedido < ActiveRecord::Base
       self.comissao_vendedor =  valor_comissao / self.valor * 100
     end
   end
+
+  #metodo que retorna a media ponderada dos descontos dos itens do pedido em valor 
+  def media_desconto_ponderada_itens_valor
+    valor = 0
+    for i in self.item_pedidos do
+       valor += (i.valor_venda * i.quantidade) * desconto / 100
+    end
+    valor
+  end  
+  
+  #metodo que retorna a media ponderada dos descontos dos itens do pedido em percentual 
+  def media_desconto_ponderada_itens_perc
+    valor = 0
+    for i in self.item_pedidos do
+       valor += (i.valor_venda * i.quantidade) * desconto / 100
+    end
+    (valor / self.valor) / 100 
+  end
+
+  # metodo que acumula o desconto ponderado nos itens + o desconto informado no proprio pedido para chegar ao desconto final do pedido
+  def desconto_acumulado_geral
+     desc_itens = self.media_desconto_ponderada_itens_perc # tras o desconto ponderado dos itens
+     base_desc_ped = (self.valor * desc_itens) / 100       # acha a base de calculo para o desconto do pedido  
+     vl_tot_desc = (base_desc_ped * self.desconto) / 100   # acha o valor total de desconto
+     rep = (vl_tot_desc / self.valor) * 100                # acha a representação do desconto em cima do valor original do pedido
+     rep 
+  end
 end
