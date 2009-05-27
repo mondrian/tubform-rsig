@@ -1,5 +1,4 @@
-
-Dado /^eu estou no item$/ do
+Dado /^estou no item$/ do
   @item_pedido = ItemPedido.find(:first)
 end
 
@@ -19,11 +18,10 @@ Dado /^o percentual de desconto for(.*)$/ do |dsc|
   @item_pedido.desconto = dsc
 end
 
-Quando /^salvar o item de pedido$/ do
+Quando /^eu salvar o item de pedido$/ do
   @item_pedido.save
 end
 
 Então /^o valor da comissao calculada deve ser(.*)$/ do |comissao|
   @item_pedido.pedido.comissao_desconto_item == comissao
 end
-
