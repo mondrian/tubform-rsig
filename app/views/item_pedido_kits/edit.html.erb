@@ -1,0 +1,40 @@
+<h1>Editing item_pedido_kit</h1>
+
+<% form_for(@item_pedido_kit) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :pedido_id %><br />
+    <%= f.text_field :pedido_id %>
+  </p>
+  <p>
+    <%= f.label :quantidade %><br />
+    <%= f.text_field :quantidade %>
+  </p>
+  <p>
+    <%= f.label :valor_tabela %><br />
+    <%= f.text_field :valor_tabela %>
+  </p>
+  <p>
+    <%= f.label :valor_venda %><br />
+    <%= f.text_field :valor_venda %>
+  </p>
+  <p>
+    <%= f.label :desconto %><br />
+    <%= f.text_field :desconto %>
+  </p>
+  <p>
+    <%= f.label :produto_id %><br />
+    <%= f.text_field :produto_id %>
+  </p>
+  <p>
+    <%= f.label :produto_kit %><br />
+    <%= f.text_field :produto_kit %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @item_pedido_kit %> |
+<%= link_to 'Back', item_pedido_kits_path %>
