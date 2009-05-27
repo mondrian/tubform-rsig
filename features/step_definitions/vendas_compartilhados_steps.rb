@@ -4,8 +4,8 @@ Dado /^que estou no formulário de cadastro de (.*)$/ do |entidade|
 end
 
 Quando /^defino (.*) com o valor (.*)$/ do |atributo,valor|
-#  atributo = atributo.gsub(/\s/, '_')
- atributo = @entidade_principal + "[" + atributo + "]"
+ atributo = atributo.gsub(/\s/, '_')
+ atributo = @entidade_principal + "_" + atributo
  fill_in atributo, :with => valor
 end
 
@@ -24,13 +24,14 @@ Quando /^eu clicar em (.*)$/ do |botao|
 end
 
 Então /^preciso receber a mensagem "([^\"]*)"$/ do |mensagem|
-  response.should have_tag("p", :text=> mensagem)
+  response_body.should have_tag("p", :text=> mensagem)
 end
 
 Dado /^que existem (\d+) (.+)$/ do |quantidade, entidade|
   entidade = entidade.gsub(/\s/, '_').singularize
   entidade_simbolo = entidade.to_sym
   klass = eval(entidade.camelize)
+  klass.delete_all
   quantidade.to_i.times do |i|
       Factory(entidade_simbolo)
   end
@@ -40,6 +41,7 @@ Dado /^que existe um\(a\) (.*)$/ do |entidade|
   entidade = entidade.gsub(/\s/, '_').singularize
   entidade_simbolo = entidade.to_sym
   klass = eval(entidade.camelize)
+  klass.delete_all
   Factory(entidade_simbolo)
   klass.count > 0
 end
@@ -59,6 +61,7 @@ end
 
 Dado /^que estou na exibição de (.*) (\d+)$/ do |entidade, id|
   klass = eval(entidade.camelize)
+  Factory(entidade.to_sym)
   @registro = klass.find(:first)
   visit "#{entidade.pluralize}/show/#{@registro.id}"
 end
@@ -73,3 +76,4 @@ Então /^preciso ver (.*) (.*)$/ do |quantidade,entidades|
   registros.count.should == quantidade.to_i
   registros.each {|r| have_tag("td", :content => "#{r.id}")}
 end
+

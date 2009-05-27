@@ -57,25 +57,24 @@ class Pedido < ActiveRecord::Base
             else
                comissao = comissao_padrao
             end        
-            puts comissao
             if comissao < 0
                comissao = 0
             else
-                vlr_comissao = ( ((item_pedido.valor_venda * item_pedido.quantidade) * comissao) / 100 )
+                vlr_comissao += ( ((item_pedido.valor_venda * item_pedido.quantidade) * comissao) / 100 )
             end
         else
             comissao = comissao_padrao
-            vlr_comissao = ( ((item_pedido.valor_venda * item_pedido.quantidade) * comissao) / 100 )
+            vlr_comissao += ( ((item_pedido.valor_venda * item_pedido.quantidade) * comissao) / 100 )
         end
-        puts vlr_comissao
     end
+    percentual_comissao =  vlr_comissao / self.valor * 100
   end
   
   # A cada 15 dias de prazo acima do parametro, será calculada uma Unidade de Desconto na
   # comissão do Vendedor, conforme abaixo
   def desconto_comissao_prazo!
     prazo_param = 75  # Deverá vir da Tabela de Parâmetros ( param.prazo_medio )
-    comissao = 0.06   # Deverá vir da Tabela de Parâmetros ( param.comissao )
+    comissao = self.comissao_desconto_item / 100   # Retorno de desconto por item
     unidade = 15.000  # Deverá vir da Tabela de Parâmetros ( param.unidade )
     fator = 0.500     # Deverá vir da Tabela de Parâmetros ( param.fator )
     prazo_pedido = self.prazo_medio
@@ -94,5 +93,32 @@ class Pedido < ActiveRecord::Base
       # Atualiza o valor da Comissão na Tabela de Pedidos
       self.comissao_vendedor =  valor_comissao / self.valor * 100
     end
+  end
+
+  #metodo que retorna a media ponderada dos descontos dos itens do pedido em valor 
+  def media_desconto_ponderada_itens_valor
+    valor = 0
+    for i in self.item_pedidos do
+       valor += (i.valor_venda * i.quantidade) * desconto / 100
+    end
+    valor
+  end  
+  
+  #metodo que retorna a media ponderada dos descontos dos itens do pedido em percentual 
+  def media_desconto_ponderada_itens_perc
+    valor = 0
+    for i in self.item_pedidos do
+       valor += (i.valor_venda * i.quantidade) * desconto / 100
+    end
+    (valor / self.valor) / 100 
+  end
+
+  # metodo que acumula o desconto ponderado nos itens + o desconto informado no proprio pedido para chegar ao desconto final do pedido
+  def desconto_acumulado_geral
+     desc_itens = self.media_desconto_ponderada_itens_perc # tras o desconto ponderado dos itens
+     base_desc_ped = (self.valor * desc_itens) / 100       # acha a base de calculo para o desconto do pedido  
+     vl_tot_desc = (base_desc_ped * self.desconto) / 100   # acha o valor total de desconto
+     rep = (vl_tot_desc / self.valor) * 100                # acha a representação do desconto em cima do valor original do pedido
+     rep 
   end
 end
