@@ -1,8 +1,5 @@
-<<<<<<< HEAD:spec/factories/factories.rb
-Cliente.destroy_all
 
-=======
->>>>>>> .master:spec/factories/factories.rb
+Cliente.destroy_all
 Factory.define :cliente do |c|
   c.tipo_cliente "E"
   c.sequence(:cpf) { |n| "000000000#{n}" }
