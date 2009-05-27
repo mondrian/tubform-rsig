@@ -34,4 +34,6 @@ config.gem "thoughtbot-factory_girl", :lib => "factory_girl",
                                       :source => "http://gems.github.com"
 config.gem "webrat", :lib => false, :version => ">= 0.4.4"
 config.gem "nokogiri", :lib => false, :version => ">= 1.2.3"
+config.gem "Selenium", :lib => false, :version => ">= 1.1.14"
+config.gem "selenium-client", :lib => false, :version => ">= 1.2.15"
 

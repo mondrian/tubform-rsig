@@ -4,8 +4,8 @@ Dado /^que estou no formulário de cadastro de (.*)$/ do |entidade|
 end
 
 Quando /^defino (.*) com o valor (.*)$/ do |atributo,valor|
-#  atributo = atributo.gsub(/\s/, '_')
- atributo = @entidade_principal + "[" + atributo + "]"
+ atributo = atributo.gsub(/\s/, '_')
+ atributo = @entidade_principal + "_" + atributo
  fill_in atributo, :with => valor
 end
 
@@ -24,7 +24,7 @@ Quando /^eu clicar em (.*)$/ do |botao|
 end
 
 Então /^preciso receber a mensagem "([^\"]*)"$/ do |mensagem|
-  response.should have_tag("p", :text=> mensagem)
+  response_body.should have_tag("p", :text=> mensagem)
 end
 
 Dado /^que existem (\d+) (.+)$/ do |quantidade, entidade|

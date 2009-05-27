@@ -10,10 +10,10 @@ Funcionalidade: Abrir pedido de Venda
     E que estou no formulário de cadastro de pedido
     E seleciono vendedor_id com o valor Mystring
     E seleciono cliente_id com o valor Mystring
-    E defino plano_de_pagamento com o valor '000030060090120'
-	E defino previsao_entrega com o valor '2009-05-30'
-	E defino data com o valor '2009-05-30'
-	E defino registro com o valor '2009-05-30'
+    E defino plano_de_pagamento com o valor 000030060090120
+	E defino previsao_entrega com o valor 2009-05-30
+	E defino data com o valor 2009-05-30
+	E defino registro com o valor 2009-05-30
 	E seleciono transportadora_id com o valor Tubform
     E seleciono tipo com o valor Interno
     E defino status com o valor B
@@ -33,3 +33,4 @@ Funcionalidade: Abrir pedido de Venda
     E que existem 3 pedidos
     Quando eu estiver na listagem de pedidos
     Então preciso ver 3 pedidos
+

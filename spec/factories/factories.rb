@@ -1,4 +1,3 @@
-Cliente.destroy_all
 Factory.define :cliente do |c|
   c.tipo_cliente "E"
   c.sequence(:cpf) { |n| "000000000#{n}" }
@@ -132,7 +131,7 @@ Factory.define :transportadora do |t|
     t.razao_social 'Tubform'
 end
 
-Factory.define :item_pedido do |i| 
+Factory.define :item_pedido do |i|
   i.quantidade 1
   i.valor_tabela 736
   i.valor_venda 662.40
