@@ -12,11 +12,15 @@ end
 Quando /^seleciono (.*) com o valor (.*)$/ do |atributo,valor|
 #  atributo = atributo.gsub(/\s/, '_')
  atributo = @entidade_principal + "[" + atributo + "]"
- select (valor,atributo)
+ select(valor,atributo)
 end
 
 Quando /^eu salvar o registro$/ do
   click_button "Salvar"
+end
+
+Quando /^eu clicar em (.*)$/ do |botao|
+  click_button botao
 end
 
 Então /^preciso receber a mensagem "([^\"]*)"$/ do |mensagem|
@@ -27,6 +31,7 @@ Dado /^que existem (\d+) (.+)$/ do |quantidade, entidade|
   entidade = entidade.gsub(/\s/, '_').singularize
   entidade_simbolo = entidade.to_sym
   klass = eval(entidade.camelize)
+  klass.delete_all
   quantidade.to_i.times do |i|
       Factory(entidade_simbolo)
   end
@@ -36,6 +41,7 @@ Dado /^que existe um\(a\) (.*)$/ do |entidade|
   entidade = entidade.gsub(/\s/, '_').singularize
   entidade_simbolo = entidade.to_sym
   klass = eval(entidade.camelize)
+  klass.delete_all
   Factory(entidade_simbolo)
   klass.count > 0
 end
@@ -55,6 +61,7 @@ end
 
 Dado /^que estou na exibição de (.*) (\d+)$/ do |entidade, id|
   klass = eval(entidade.camelize)
+  Factory(entidade.to_sym)
   @registro = klass.find(:first)
   visit "#{entidade.pluralize}/show/#{@registro.id}"
 end

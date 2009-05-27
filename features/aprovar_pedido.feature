@@ -22,4 +22,3 @@ Funcionalidade: Aprovar Pedido de Venda
     E os descontos aplicados no pedido são permitidos
     Quando eu pedir aprovação de pedido
     Então preciso receber a mensagem "Pedido Aprovado"
-

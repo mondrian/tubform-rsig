@@ -1,4 +1,4 @@
-Funcionalidade: Abrir de Venda
+Funcionalidade: Abrir pedido de Venda
   Como um vendedor
   Eu quero abrir um de venda
   Para que seja base para que o processo de venda continue

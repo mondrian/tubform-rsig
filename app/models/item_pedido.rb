@@ -6,12 +6,11 @@ class ItemPedido < ActiveRecord::Base
   validates_numericality_of :quantidade, :message => "Informe Apenas Números"
   validate :valida_item
 
-
   private
   def valida_item
     p = ItemPedido.find_all_by_produto_id_and_pedido_id(self.produto_id, self.pedido_id)
     if p.size > 0
-      self.errors.add(:produto_id, 'já adicionado ao pedido')
+      self.errors.add(:produto_id, 'Produto já adicionado neste pedido')
     end
   end
 end
