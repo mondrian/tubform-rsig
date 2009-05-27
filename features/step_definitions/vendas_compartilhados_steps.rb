@@ -61,6 +61,7 @@ end
 
 Dado /^que estou na exibição de (.*) (\d+)$/ do |entidade, id|
   klass = eval(entidade.camelize)
+  Factory(entidade.to_sym)
   @registro = klass.find(:first)
   visit "#{entidade.pluralize}/show/#{@registro.id}"
 end
@@ -75,3 +76,4 @@ Então /^preciso ver (.*) (.*)$/ do |quantidade,entidades|
   registros.count.should == quantidade.to_i
   registros.each {|r| have_tag("td", :content => "#{r.id}")}
 end
+
