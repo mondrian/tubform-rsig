@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :produto_kits
+
+  map.resources :item_pedido_kits
+
   map.resources :faixa_de_descontos
   map.resources :produtos
   map.resources :item_pedidos
