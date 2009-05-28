@@ -1,0 +1,38 @@
+<h1>Listing duplicatas</h1>
+
+<table>
+  <tr>
+    <th>Plano de conta</th>
+    <th>Tipo cobranca</th>
+    <th>Data registro</th>
+    <th>Data emissao</th>
+    <th>Data vencimento</th>
+    <th>Valor</th>
+    <th>Cliente</th>
+    <th>Pedido</th>
+    <th>Nome devedor</th>
+    <th>Devedor</th>
+  </tr>
+
+<% @duplicatas.each do |duplicata| %>
+  <tr>
+    <td><%=h duplicata.plano_de_conta_id %></td>
+    <td><%=h duplicata.tipo_cobranca %></td>
+    <td><%=h duplicata.data_registro %></td>
+    <td><%=h duplicata.data_emissao %></td>
+    <td><%=h duplicata.data_vencimento %></td>
+    <td><%=h duplicata.valor %></td>
+    <td><%=h duplicata.cliente_id %></td>
+    <td><%=h duplicata.pedido_id %></td>
+    <td><%=h duplicata.nome_devedor %></td>
+    <td><%=h duplicata.devedor_id %></td>
+    <td><%= link_to 'Show', duplicata %></td>
+    <td><%= link_to 'Edit', edit_duplicata_path(duplicata) %></td>
+    <td><%= link_to 'Destroy', duplicata, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New duplicata', new_duplicata_path %>
