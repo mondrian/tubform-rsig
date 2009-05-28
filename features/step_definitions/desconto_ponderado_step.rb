@@ -24,4 +24,5 @@ end
 
 Então /^o valor do desconto ponderado deve ser (.*)$/ do |resultado|
   @item.pedido.desconto_acumulado_geral == resultado
+  puts resultado
 end
