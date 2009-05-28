@@ -1,0 +1,32 @@
+<h1>Listing item_pedido_kits</h1>
+
+<table>
+  <tr>
+    <th>Pedido</th>
+    <th>Quantidade</th>
+    <th>Valor tabela</th>
+    <th>Valor venda</th>
+    <th>Desconto</th>
+    <th>Produto</th>
+    <th>Produto kit</th>
+  </tr>
+
+<% @item_pedido_kits.each do |item_pedido_kit| %>
+  <tr>
+    <td><%=h item_pedido_kit.pedido_id %></td>
+    <td><%=h item_pedido_kit.quantidade %></td>
+    <td><%=h item_pedido_kit.valor_tabela %></td>
+    <td><%=h item_pedido_kit.valor_venda %></td>
+    <td><%=h item_pedido_kit.desconto %></td>
+    <td><%=h item_pedido_kit.produto_id %></td>
+    <td><%=h item_pedido_kit.produto_kit %></td>
+    <td><%= link_to 'Show', item_pedido_kit %></td>
+    <td><%= link_to 'Edit', edit_item_pedido_kit_path(item_pedido_kit) %></td>
+    <td><%= link_to 'Destroy', item_pedido_kit, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New item_pedido_kit', new_item_pedido_kit_path %>

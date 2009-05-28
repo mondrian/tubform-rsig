@@ -89,7 +89,6 @@ class Pedido < ActiveRecord::Base
         valor_comissao += valor_base * comissao
       end
 
-
       # Atualiza o valor da Comissão na Tabela de Pedidos
       self.comissao_vendedor =  valor_comissao / self.valor * 100
     end

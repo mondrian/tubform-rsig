@@ -1,0 +1,33 @@
+<p>
+  <b>Produto:</b>
+  <%=h @produto_kit.produto_id %>
+</p>
+
+<p>
+  <b>Empresa:</b>
+  <%=h @produto_kit.empresa_id %>
+</p>
+
+<p>
+  <b>Fator conversao:</b>
+  <%=h @produto_kit.fator_conversao %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @produto_kit.status %>
+</p>
+
+<p>
+  <b>Preco normal:</b>
+  <%=h @produto_kit.preco_normal %>
+</p>
+
+<p>
+  <b>Preco especial:</b>
+  <%=h @produto_kit.preco_especial %>
+</p>
+
+
+<%= link_to 'Edit', edit_produto_kit_path(@produto_kit) %> |
+<%= link_to 'Back', produto_kits_path %>

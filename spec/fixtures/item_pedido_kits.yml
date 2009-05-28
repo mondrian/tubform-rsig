@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  pedido_id: 1
+  quantidade: 9.99
+  valor_tabela: 9.99
+  valor_venda: 9.99
+  desconto: 9.99
+  produto_id: 1
+  produto_kit: 1
+
+two:
+  pedido_id: 1
+  quantidade: 9.99
+  valor_tabela: 9.99
+  valor_venda: 9.99
+  desconto: 9.99
+  produto_id: 1
+  produto_kit: 1
