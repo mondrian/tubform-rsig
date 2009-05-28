@@ -123,12 +123,27 @@ class Pedido < ActiveRecord::Base
 
   #gerar duplicatas do pedido 
   def gera_duplicatas
-     valores = self.valor.parcelar((self.plano_de_pagamento.size / 3))
+     valores = self.valor.reais.parcelar((self.plano_de_pagamento.size / 3))
      datas = self.vencimentos
+     i = 0
+     for v in valores do
+       p = Duplicata.new
+       p.tipo_de_cobranca = 'C'
+       p.plano_de_contas_id = 1
+       p.data_emissao = self.data
+       p.data_vencimento = datas[i]
+       p.valor = v
+       p.cliente_id = self.cliente_id
+       p.pedido_id = self.id
+       p.nome_devedor = self.nome_comprador
+       p.save
+       i += 1
+     end
+    'ok'
   end
 
   
-  # funcao de apoio pra quebrar o plano de pagamento, devolve os vencimentos com base no plano informado
+  # metodo de apoio pra quebrar o plano de pagamento, devolve os vencimentos com base no plano informado
   def vencimentos
     quantidade_de_parcelas = self.plano_de_pagamento.size / 3
     prazo = 0
@@ -141,4 +156,4 @@ class Pedido < ActiveRecord::Base
     end
     vencimentos
   end
-end
+end    

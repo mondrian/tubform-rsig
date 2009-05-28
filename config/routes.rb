@@ -1,12 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-<<<<<<< HEAD:config/routes.rb
   map.resources :duplicatas
-
-=======
   map.resources :produto_kits
-
   map.resources :item_pedido_kits
->>>>>>> de97eb2be143eca2447aeeb115b0c898939c1b75:config/routes.rb
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
 
