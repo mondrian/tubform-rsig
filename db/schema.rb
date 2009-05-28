@@ -9,8 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090527154847) do
-
+ActiveRecord::Schema.define(:version => 20090528130343) do
   create_table "areas", :force => true do |t|
     t.string   "descricao"
     t.integer  "cidade_id"
@@ -67,6 +66,20 @@ ActiveRecord::Schema.define(:version => 20090527154847) do
 
   create_table "cores", :force => true do |t|
     t.string   "descricao"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "duplicatas", :force => true do |t|
+    t.integer  "plano_de_conta_id",                                              :null => false
+    t.string   "tipo_cobranca",     :limit => 1,                                 :null => false
+    t.date     "data_emissao",                                                   :null => false
+    t.date     "data_vencimento",                                                :null => false
+    t.decimal  "valor",                           :precision => 12, :scale => 2
+    t.integer  "cliente_id",                                                     :null => false
+    t.integer  "pedido_id",                                                      :null => false
+    t.string   "nome_devedor",      :limit => 50,                                :null => false
+    t.integer  "devedor_id",                                                     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

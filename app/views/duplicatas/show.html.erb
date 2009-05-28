@@ -1,0 +1,53 @@
+<p>
+  <b>Plano de conta:</b>
+  <%=h @duplicata.plano_de_conta_id %>
+</p>
+
+<p>
+  <b>Tipo cobranca:</b>
+  <%=h @duplicata.tipo_cobranca %>
+</p>
+
+<p>
+  <b>Data registro:</b>
+  <%=h @duplicata.data_registro %>
+</p>
+
+<p>
+  <b>Data emissao:</b>
+  <%=h @duplicata.data_emissao %>
+</p>
+
+<p>
+  <b>Data vencimento:</b>
+  <%=h @duplicata.data_vencimento %>
+</p>
+
+<p>
+  <b>Valor:</b>
+  <%=h @duplicata.valor %>
+</p>
+
+<p>
+  <b>Cliente:</b>
+  <%=h @duplicata.cliente_id %>
+</p>
+
+<p>
+  <b>Pedido:</b>
+  <%=h @duplicata.pedido_id %>
+</p>
+
+<p>
+  <b>Nome devedor:</b>
+  <%=h @duplicata.nome_devedor %>
+</p>
+
+<p>
+  <b>Devedor:</b>
+  <%=h @duplicata.devedor_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_duplicata_path(@duplicata) %> |
+<%= link_to 'Back', duplicatas_path %>
