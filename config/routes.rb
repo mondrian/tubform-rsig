@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :contra_partidas
+
+  map.resources :lancamentos
+
   map.resources :duplicatas
   map.resources :produto_kits
   map.resources :item_pedido_kits

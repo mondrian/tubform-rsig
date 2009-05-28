@@ -1,0 +1,30 @@
+<h1>Listing contra_partidas</h1>
+
+<table>
+  <tr>
+    <th>Lancamento</th>
+    <th>Plano de conta</th>
+    <th>Duplicata</th>
+    <th>Valor lancamento</th>
+    <th>Tipo operacao</th>
+    <th>Historico</th>
+  </tr>
+
+<% @contra_partidas.each do |contra_partida| %>
+  <tr>
+    <td><%=h contra_partida.lancamento_id %></td>
+    <td><%=h contra_partida.plano_de_conta_id %></td>
+    <td><%=h contra_partida.duplicata_id %></td>
+    <td><%=h contra_partida.valor_lancamento %></td>
+    <td><%=h contra_partida.tipo_operacao %></td>
+    <td><%=h contra_partida.historico %></td>
+    <td><%= link_to 'Show', contra_partida %></td>
+    <td><%= link_to 'Edit', edit_contra_partida_path(contra_partida) %></td>
+    <td><%= link_to 'Destroy', contra_partida, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New contra_partida', new_contra_partida_path %>

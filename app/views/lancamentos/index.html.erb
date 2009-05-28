@@ -1,0 +1,48 @@
+<h1>Listing lancamentos</h1>
+
+<table>
+  <tr>
+    <th>Tipo operacao</th>
+    <th>Plano de conta</th>
+    <th>Historico</th>
+    <th>Data movimento</th>
+    <th>Data lancamento</th>
+    <th>Doc origem</th>
+    <th>Valor</th>
+    <th>Nome cheque</th>
+    <th>Operador</th>
+    <th>Serie doc origem</th>
+    <th>Banco</th>
+    <th>Cliente</th>
+    <th>Imprimiu op</th>
+    <th>Vendedor</th>
+    <th>Sequencia movimento</th>
+  </tr>
+
+<% @lancamentos.each do |lancamento| %>
+  <tr>
+    <td><%=h lancamento.tipo_operacao %></td>
+    <td><%=h lancamento.plano_de_conta_id %></td>
+    <td><%=h lancamento.historico %></td>
+    <td><%=h lancamento.data_movimento %></td>
+    <td><%=h lancamento.data_lancamento %></td>
+    <td><%=h lancamento.doc_origem %></td>
+    <td><%=h lancamento.valor %></td>
+    <td><%=h lancamento.nome_cheque %></td>
+    <td><%=h lancamento.operador_id %></td>
+    <td><%=h lancamento.serie_doc_origem %></td>
+    <td><%=h lancamento.banco_id %></td>
+    <td><%=h lancamento.cliente_id %></td>
+    <td><%=h lancamento.imprimiu_op %></td>
+    <td><%=h lancamento.vendedor_id %></td>
+    <td><%=h lancamento.sequencia_movimento %></td>
+    <td><%= link_to 'Show', lancamento %></td>
+    <td><%= link_to 'Edit', edit_lancamento_path(lancamento) %></td>
+    <td><%= link_to 'Destroy', lancamento, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New lancamento', new_lancamento_path %>

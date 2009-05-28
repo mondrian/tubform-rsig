@@ -1,0 +1,35 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  tipo_operacao: 1
+  plano_de_conta_id: 1
+  historico: MyText
+  data_movimento: 2009-05-28
+  data_lancamento: 2009-05-28
+  doc_origem: MyString
+  valor: 9.99
+  nome_cheque: MyString
+  operador_id: 1
+  serie_doc_origem: MyString
+  banco_id: 1
+  cliente_id: 1
+  imprimiu_op: false
+  vendedor_id: 1
+  sequencia_movimento: 1
+
+two:
+  tipo_operacao: 1
+  plano_de_conta_id: 1
+  historico: MyText
+  data_movimento: 2009-05-28
+  data_lancamento: 2009-05-28
+  doc_origem: MyString
+  valor: 9.99
+  nome_cheque: MyString
+  operador_id: 1
+  serie_doc_origem: MyString
+  banco_id: 1
+  cliente_id: 1
+  imprimiu_op: false
+  vendedor_id: 1
+  sequencia_movimento: 1

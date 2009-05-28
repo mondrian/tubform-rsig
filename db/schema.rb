@@ -9,8 +9,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+ActiveRecord::Schema.define(:version => 20090528213535) do
 
-ActiveRecord::Schema.define(:version => 20090528195942) do
   create_table "areas", :force => true do |t|
     t.string   "descricao"
     t.integer  "cidade_id"
@@ -63,6 +63,17 @@ ActiveRecord::Schema.define(:version => 20090528195942) do
     t.string   "bairro"
     t.string   "cpf",                        :limit => 11
     t.string   "cnpj",                       :limit => 14
+  end
+
+  create_table "contra_partidas", :force => true do |t|
+    t.integer  "lancamento_id"
+    t.integer  "plano_de_conta_id"
+    t.integer  "duplicata_id"
+    t.decimal  "valor_lancamento",               :precision => 12, :scale => 2
+    t.string   "tipo_operacao",     :limit => 1
+    t.text     "historico"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "cores", :force => true do |t|
@@ -203,6 +214,26 @@ ActiveRecord::Schema.define(:version => 20090528195942) do
     t.decimal  "peso_liquido"
     t.integer  "cod_emissao_nf"
     t.integer  "nota_fiscal_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lancamentos", :force => true do |t|
+    t.string   "tipo_operacao",       :limit => 1
+    t.integer  "plano_de_conta_id"
+    t.text     "historico"
+    t.date     "data_movimento"
+    t.date     "data_lancamento"
+    t.string   "doc_origem",          :limit => 1
+    t.decimal  "valor",                            :precision => 12, :scale => 2
+    t.string   "nome_cheque"
+    t.integer  "operador_id"
+    t.string   "serie_doc_origem"
+    t.integer  "banco_id"
+    t.integer  "cliente_id"
+    t.boolean  "imprimiu_op"
+    t.integer  "vendedor_id"
+    t.integer  "sequencia_movimento"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

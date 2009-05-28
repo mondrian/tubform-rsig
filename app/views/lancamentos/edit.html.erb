@@ -1,0 +1,72 @@
+<h1>Editing lancamento</h1>
+
+<% form_for(@lancamento) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :tipo_operacao %><br />
+    <%= f.text_field :tipo_operacao %>
+  </p>
+  <p>
+    <%= f.label :plano_de_conta_id %><br />
+    <%= f.text_field :plano_de_conta_id %>
+  </p>
+  <p>
+    <%= f.label :historico %><br />
+    <%= f.text_area :historico %>
+  </p>
+  <p>
+    <%= f.label :data_movimento %><br />
+    <%= f.date_select :data_movimento %>
+  </p>
+  <p>
+    <%= f.label :data_lancamento %><br />
+    <%= f.date_select :data_lancamento %>
+  </p>
+  <p>
+    <%= f.label :doc_origem %><br />
+    <%= f.text_field :doc_origem %>
+  </p>
+  <p>
+    <%= f.label :valor %><br />
+    <%= f.text_field :valor %>
+  </p>
+  <p>
+    <%= f.label :nome_cheque %><br />
+    <%= f.text_field :nome_cheque %>
+  </p>
+  <p>
+    <%= f.label :operador_id %><br />
+    <%= f.text_field :operador_id %>
+  </p>
+  <p>
+    <%= f.label :serie_doc_origem %><br />
+    <%= f.text_field :serie_doc_origem %>
+  </p>
+  <p>
+    <%= f.label :banco_id %><br />
+    <%= f.text_field :banco_id %>
+  </p>
+  <p>
+    <%= f.label :cliente_id %><br />
+    <%= f.text_field :cliente_id %>
+  </p>
+  <p>
+    <%= f.label :imprimiu_op %><br />
+    <%= f.check_box :imprimiu_op %>
+  </p>
+  <p>
+    <%= f.label :vendedor_id %><br />
+    <%= f.text_field :vendedor_id %>
+  </p>
+  <p>
+    <%= f.label :sequencia_movimento %><br />
+    <%= f.text_field :sequencia_movimento %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @lancamento %> |
+<%= link_to 'Back', lancamentos_path %>

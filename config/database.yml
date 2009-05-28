@@ -17,4 +17,4 @@ production:
   database: rsig_production
   host: localhost
   username: postgres
-  password: postgres
+  password: postgres.gitignore

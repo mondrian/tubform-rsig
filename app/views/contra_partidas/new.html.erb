@@ -1,0 +1,35 @@
+<h1>New contra_partida</h1>
+
+<% form_for(@contra_partida) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :lancamento_id %><br />
+    <%= f.text_field :lancamento_id %>
+  </p>
+  <p>
+    <%= f.label :plano_de_conta_id %><br />
+    <%= f.text_field :plano_de_conta_id %>
+  </p>
+  <p>
+    <%= f.label :duplicata_id %><br />
+    <%= f.text_field :duplicata_id %>
+  </p>
+  <p>
+    <%= f.label :valor_lancamento %><br />
+    <%= f.text_field :valor_lancamento %>
+  </p>
+  <p>
+    <%= f.label :tipo_operacao %><br />
+    <%= f.text_field :tipo_operacao %>
+  </p>
+  <p>
+    <%= f.label :historico %><br />
+    <%= f.text_area :historico %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', contra_partidas_path %>
