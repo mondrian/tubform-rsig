@@ -1,0 +1,78 @@
+<p>
+  <b>Tipo operacao:</b>
+  <%=h @lancamento.tipo_operacao %>
+</p>
+
+<p>
+  <b>Plano de conta:</b>
+  <%=h @lancamento.plano_de_conta_id %>
+</p>
+
+<p>
+  <b>Historico:</b>
+  <%=h @lancamento.historico %>
+</p>
+
+<p>
+  <b>Data movimento:</b>
+  <%=h @lancamento.data_movimento %>
+</p>
+
+<p>
+  <b>Data lancamento:</b>
+  <%=h @lancamento.data_lancamento %>
+</p>
+
+<p>
+  <b>Doc origem:</b>
+  <%=h @lancamento.doc_origem %>
+</p>
+
+<p>
+  <b>Valor:</b>
+  <%=h @lancamento.valor %>
+</p>
+
+<p>
+  <b>Nome cheque:</b>
+  <%=h @lancamento.nome_cheque %>
+</p>
+
+<p>
+  <b>Operador:</b>
+  <%=h @lancamento.operador_id %>
+</p>
+
+<p>
+  <b>Serie doc origem:</b>
+  <%=h @lancamento.serie_doc_origem %>
+</p>
+
+<p>
+  <b>Banco:</b>
+  <%=h @lancamento.banco_id %>
+</p>
+
+<p>
+  <b>Cliente:</b>
+  <%=h @lancamento.cliente_id %>
+</p>
+
+<p>
+  <b>Imprimiu op:</b>
+  <%=h @lancamento.imprimiu_op %>
+</p>
+
+<p>
+  <b>Vendedor:</b>
+  <%=h @lancamento.vendedor_id %>
+</p>
+
+<p>
+  <b>Sequencia movimento:</b>
+  <%=h @lancamento.sequencia_movimento %>
+</p>
+
+
+<%= link_to 'Edit', edit_lancamento_path(@lancamento) %> |
+<%= link_to 'Back', lancamentos_path %>
