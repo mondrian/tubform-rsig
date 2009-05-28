@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  produto_id: 1
+  empresa_id: 1
+  fator_conversao: 9.99
+  status: false
+  preco_normal: 9.99
+  preco_especial: 9.99
+
+two:
+  produto_id: 1
+  empresa_id: 1
+  fator_conversao: 9.99
+  status: false
+  preco_normal: 9.99
+  preco_especial: 9.99

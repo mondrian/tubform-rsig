@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090526192116) do
+ActiveRecord::Schema.define(:version => 20090527154847) do
 
   create_table "areas", :force => true do |t|
     t.string   "descricao"
@@ -139,6 +139,18 @@ ActiveRecord::Schema.define(:version => 20090526192116) do
     t.string   "descricao"
     t.decimal  "margem_lucro"
     t.boolean  "unificado"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "item_pedido_kits", :force => true do |t|
+    t.integer  "pedido_id"
+    t.decimal  "quantidade"
+    t.decimal  "valor_tabela"
+    t.decimal  "valor_venda"
+    t.decimal  "desconto"
+    t.integer  "produto_id"
+    t.integer  "produto_kit"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -275,6 +287,17 @@ ActiveRecord::Schema.define(:version => 20090526192116) do
 
   create_table "planosdepagamento", :force => true do |t|
     t.string   "descricao"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "produto_kits", :force => true do |t|
+    t.integer  "produto_id"
+    t.integer  "empresa_id"
+    t.decimal  "fator_conversao"
+    t.boolean  "status"
+    t.decimal  "preco_normal"
+    t.decimal  "preco_especial"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

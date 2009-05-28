@@ -1,0 +1,35 @@
+<h1>New produto_kit</h1>
+
+<% form_for(@produto_kit) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :produto_id %><br />
+    <%= f.text_field :produto_id %>
+  </p>
+  <p>
+    <%= f.label :empresa_id %><br />
+    <%= f.text_field :empresa_id %>
+  </p>
+  <p>
+    <%= f.label :fator_conversao %><br />
+    <%= f.text_field :fator_conversao %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.check_box :status %>
+  </p>
+  <p>
+    <%= f.label :preco_normal %><br />
+    <%= f.text_field :preco_normal %>
+  </p>
+  <p>
+    <%= f.label :preco_especial %><br />
+    <%= f.text_field :preco_especial %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', produto_kits_path %>
