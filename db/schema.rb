@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(:version => 20090527154847) do
   end
 
   create_table "funcionarios", :force => true do |t|
-    t.string   "tipo",                     :limit => 1
+    t.string   "tipo",                      :limit => 1
     t.string   "nome"
     t.string   "endereco"
     t.string   "complemento"
@@ -126,7 +126,14 @@ ActiveRecord::Schema.define(:version => 20090527154847) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "login",                     :limit => 40
+    t.string   "crypted_password",          :limit => 40
+    t.string   "salt",                      :limit => 40
+    t.string   "remember_token",            :limit => 40
+    t.datetime "remember_token_expires_at"
   end
+
+  add_index "funcionarios", ["login"], :name => "index_funcionarios_on_login", :unique => true
 
   create_table "grupos", :force => true do |t|
     t.string   "descricao"

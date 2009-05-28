@@ -2,10 +2,15 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :produto_kits
 
   map.resources :item_pedido_kits
+  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
+  map.login '/login', :controller => 'sessions', :action => 'new'
+
+  map.resource :session
 
   map.resources :faixa_de_descontos
   map.resources :produtos
   map.resources :item_pedidos
+  map.root :controller => 'sessions', :action => 'index'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

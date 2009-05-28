@@ -43,4 +43,6 @@ Rails::Initializer.run do |config|
              :lib    => "factory_girl",
              :source => "http://gems.github.com"
 
+  config.gem "brazilian-rails", :lib => false, :version => ">=2.1.8"
 end
+
