@@ -1,0 +1,33 @@
+<p>
+  <b>Lancamento:</b>
+  <%=h @contra_partida.lancamento_id %>
+</p>
+
+<p>
+  <b>Plano de conta:</b>
+  <%=h @contra_partida.plano_de_conta_id %>
+</p>
+
+<p>
+  <b>Duplicata:</b>
+  <%=h @contra_partida.duplicata_id %>
+</p>
+
+<p>
+  <b>Valor lancamento:</b>
+  <%=h @contra_partida.valor_lancamento %>
+</p>
+
+<p>
+  <b>Tipo operacao:</b>
+  <%=h @contra_partida.tipo_operacao %>
+</p>
+
+<p>
+  <b>Historico:</b>
+  <%=h @contra_partida.historico %>
+</p>
+
+
+<%= link_to 'Edit', edit_contra_partida_path(@contra_partida) %> |
+<%= link_to 'Back', contra_partidas_path %>
