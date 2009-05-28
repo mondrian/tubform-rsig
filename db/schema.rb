@@ -9,7 +9,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090528130343) do
+ActiveRecord::Schema.define(:version => 20090528192855) do
+
   create_table "areas", :force => true do |t|
     t.string   "descricao"
     t.integer  "cidade_id"
@@ -177,6 +178,7 @@ ActiveRecord::Schema.define(:version => 20090528130343) do
     t.datetime "updated_at"
     t.integer  "produto_id"
     t.integer  "pedido_id"
+    t.boolean  "emissao_relatorio", :null => false
   end
 
   add_index "item_pedidos", ["pedido_id"], :name => "index_item_pedidos_on_pedido_id"

@@ -13,3 +13,4 @@ Funcionalidade: Verificar se o produto é kit
     E verifico se o mesmo é kit
     E salvar o registro
     Então preciso adicinar na tabela de item_pedido_kit os produtos que compoe o kit.
+
