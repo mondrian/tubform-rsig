@@ -1,0 +1,30 @@
+<h1>Listing produto_kits</h1>
+
+<table>
+  <tr>
+    <th>Produto</th>
+    <th>Empresa</th>
+    <th>Fator conversao</th>
+    <th>Status</th>
+    <th>Preco normal</th>
+    <th>Preco especial</th>
+  </tr>
+
+<% @produto_kits.each do |produto_kit| %>
+  <tr>
+    <td><%=h produto_kit.produto_id %></td>
+    <td><%=h produto_kit.empresa_id %></td>
+    <td><%=h produto_kit.fator_conversao %></td>
+    <td><%=h produto_kit.status %></td>
+    <td><%=h produto_kit.preco_normal %></td>
+    <td><%=h produto_kit.preco_especial %></td>
+    <td><%= link_to 'Show', produto_kit %></td>
+    <td><%= link_to 'Edit', edit_produto_kit_path(produto_kit) %></td>
+    <td><%= link_to 'Destroy', produto_kit, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New produto_kit', new_produto_kit_path %>

@@ -29,3 +29,8 @@ end
 Então /^eu preciso ter mais um item no pedido\.$/ do
   @pedido.item_pedidos.count > 0
 end
+
+Então /^o valor total do pedido deve ser (\d+)$/ do |total|
+  response.should have_tag("span", :text=> total.to_f.to_s)
+end
+

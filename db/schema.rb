@@ -9,8 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090526143116) do
-
+ActiveRecord::Schema.define(:version => 20090528130343) do
   create_table "areas", :force => true do |t|
     t.string   "descricao"
     t.integer  "cidade_id"
@@ -71,6 +70,20 @@ ActiveRecord::Schema.define(:version => 20090526143116) do
     t.datetime "updated_at"
   end
 
+  create_table "duplicatas", :force => true do |t|
+    t.integer  "plano_de_conta_id",                                              :null => false
+    t.string   "tipo_cobranca",     :limit => 1,                                 :null => false
+    t.date     "data_emissao",                                                   :null => false
+    t.date     "data_vencimento",                                                :null => false
+    t.decimal  "valor",                           :precision => 12, :scale => 2
+    t.integer  "cliente_id",                                                     :null => false
+    t.integer  "pedido_id",                                                      :null => false
+    t.string   "nome_devedor",      :limit => 50,                                :null => false
+    t.integer  "devedor_id",                                                     :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "expedicoes", :force => true do |t|
     t.integer  "minuta_id"
     t.integer  "produto_id"
@@ -91,7 +104,7 @@ ActiveRecord::Schema.define(:version => 20090526143116) do
   end
 
   create_table "funcionarios", :force => true do |t|
-    t.string   "tipo",                     :limit => 1
+    t.string   "tipo",                      :limit => 1
     t.string   "nome"
     t.string   "endereco"
     t.string   "complemento"
@@ -126,12 +139,31 @@ ActiveRecord::Schema.define(:version => 20090526143116) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "login",                     :limit => 40
+    t.string   "crypted_password",          :limit => 40
+    t.string   "salt",                      :limit => 40
+    t.string   "remember_token",            :limit => 40
+    t.datetime "remember_token_expires_at"
   end
+
+  add_index "funcionarios", ["login"], :name => "index_funcionarios_on_login", :unique => true
 
   create_table "grupos", :force => true do |t|
     t.string   "descricao"
     t.decimal  "margem_lucro"
     t.boolean  "unificado"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "item_pedido_kits", :force => true do |t|
+    t.integer  "pedido_id"
+    t.decimal  "quantidade"
+    t.decimal  "valor_tabela"
+    t.decimal  "valor_venda"
+    t.decimal  "desconto"
+    t.integer  "produto_id"
+    t.integer  "produto_kit"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -268,6 +300,17 @@ ActiveRecord::Schema.define(:version => 20090526143116) do
 
   create_table "planosdepagamento", :force => true do |t|
     t.string   "descricao"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "produto_kits", :force => true do |t|
+    t.integer  "produto_id"
+    t.integer  "empresa_id"
+    t.decimal  "fator_conversao"
+    t.boolean  "status"
+    t.decimal  "preco_normal"
+    t.decimal  "preco_especial"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

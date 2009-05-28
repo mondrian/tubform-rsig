@@ -1,0 +1,38 @@
+<p>
+  <b>Pedido:</b>
+  <%=h @item_pedido_kit.pedido_id %>
+</p>
+
+<p>
+  <b>Quantidade:</b>
+  <%=h @item_pedido_kit.quantidade %>
+</p>
+
+<p>
+  <b>Valor tabela:</b>
+  <%=h @item_pedido_kit.valor_tabela %>
+</p>
+
+<p>
+  <b>Valor venda:</b>
+  <%=h @item_pedido_kit.valor_venda %>
+</p>
+
+<p>
+  <b>Desconto:</b>
+  <%=h @item_pedido_kit.desconto %>
+</p>
+
+<p>
+  <b>Produto:</b>
+  <%=h @item_pedido_kit.produto_id %>
+</p>
+
+<p>
+  <b>Produto kit:</b>
+  <%=h @item_pedido_kit.produto_kit %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_pedido_kit_path(@item_pedido_kit) %> |
+<%= link_to 'Back', item_pedido_kits_path %>
