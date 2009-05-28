@@ -10,6 +10,7 @@
 # It's strongly recommended to check this file into your version control system.
 
 ActiveRecord::Schema.define(:version => 20090528130343) do
+
   create_table "areas", :force => true do |t|
     t.string   "descricao"
     t.integer  "cidade_id"
