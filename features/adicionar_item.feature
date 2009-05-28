@@ -8,7 +8,7 @@ Funcionalidade: Adicionar Item do Pedido
     Quando eu requisitar um novo item
     E seleciono o produto
     E defino quantidade com o valor 10
-    E defino valor_venda com o valor 1
+    E defino valor_venda com o valor 3
     E eu salvar o registro
     Então preciso receber a mensagem "Item adicionado com Sucesso ao pedido."
-    E eu preciso ter mais um item no pedido.
+    E o valor total do pedido deve ser 30

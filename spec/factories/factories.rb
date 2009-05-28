@@ -1,3 +1,5 @@
+
+Cliente.destroy_all
 Factory.define :cliente do |c|
   c.tipo_cliente "E"
   c.sequence(:cpf) { |n| "000000000#{n}" }
