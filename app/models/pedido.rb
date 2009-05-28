@@ -121,4 +121,25 @@ class Pedido < ActiveRecord::Base
      rep = (vl_tot_desc / self.valor) * 100                # acha a representação do desconto em cima do valor original do pedido
      rep 
   end
+
+  #gerar duplicatas do pedido 
+  def gera_duplicatas
+     valores = self.valor.parcelar((self.plano_de_pagamento.size / 3))
+     datas = self.vencimentos
+  end
+
+  
+  # funcao de apoio pra quebrar o plano de pagamento, devolve os vencimentos com base no plano informado
+  def vencimentos
+    quantidade_de_parcelas = self.plano_de_pagamento.size / 3
+    prazo = 0
+    i = 0
+    vencimentos = []
+    while i <= self.plano_de_pagamento.size
+      prazo = self.plano_de_pagamento[i,3].to_i
+      vencimentos << (self.data + prazo.days) 
+      i += 3
+    end
+    vencimentos
+  end
 end
