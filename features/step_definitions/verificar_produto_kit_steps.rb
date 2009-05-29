@@ -17,6 +17,10 @@ Quando /^seleciono um produto$/ do
    @item_pedido.produto = @produto
 end
 
+Quando /^se emitir relatorio for true$/ do
+  @item_pedido.emissao_relatorio = @item_pedido.produto.emissao_relatorio
+end
+
 Quando /^verifico se o mesmo é kit$/ do
   @item_pedido.produto.kit == true
 end
