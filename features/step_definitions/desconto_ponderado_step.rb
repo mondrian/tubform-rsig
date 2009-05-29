@@ -18,7 +18,8 @@ Dado /^que o desconto do Item é (.*)$/ do |desc|
   @item.desconto = desc
 end
 
-Dado /^que o emissao_relatorio do Item é true$/ do
+
+Dado /^que o emissao_relatorio é true$/ do
   @item.emissao_relatorio = true
 end
 
