@@ -15,15 +15,20 @@ class ApplicationController < ActionController::Base
 
   private 
   def valida_permissao
-		if logged_in?
-			acao = Acao.find(:first, :conditions => ["controller_name = ? and action_name = ?",self.controller_name, self.action_name])
-		  if current_user.acoes.include? acao
-				true
-			else
-				render :text => "Acesso negado a " + self.controller_name + ' acao ' + self.action_name + '. Você não tem acesso a esta ação.'
-			end
-    else
-			render :text => "Acesso negado a " + self.controller_name + ' acao ' + self.action_name + '. Você não está logado'
+		if self.controller_name == 'sessions' and self.action_name == 'new'
+      true
+		else
+				if logged_in?
+					acao = Acao.find(:first, :conditions => ["controller_name = ? and action_name = ?",self.controller_name, self.action_name])
+					if current_user.acoes.include? acao
+						true
+					else
+						render :text => "Acesso negado a " + self.controller_name + ' acao ' + self.action_name + '. Você não tem acesso a esta ação.'
+					end
+			
+				else
+					render :text => "Acesso negado a " + self.controller_name + ' acao ' + self.action_name + '. Você não está logado'
+				end
 		end
   end
 end
