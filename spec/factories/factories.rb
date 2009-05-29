@@ -1,4 +1,5 @@
 
+
 Cliente.destroy_all
 Factory.define :cliente do |c|
   c.tipo_cliente "E"
@@ -126,7 +127,12 @@ Factory.define :funcionario do |f|
     f.demissao '2009-01-02'
     f.observacao 'Mystring'
     f.aci 'Mystring'
-    f.email 'Mystring'
+    f.email 'tubform@gmail.com'
+	f.login 'tubform'
+	f.password '123456'
+	f.password_confirmation '123456'
+	f.acoes Acao.find(:all, :conditions=>"controller_name='pedidos'")
+	#f.activated_at Time.now
 end
 
 Factory.define :transportadora do |t|
@@ -151,3 +157,4 @@ Factory.define :produto_kit do |k|
   k.preco_especial 0
   k.association :produto, :factory => :produto
 end
+

@@ -1,4 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+  map.root :controller => 'sessions', :action => 'new'
+  map.resources :acoes
+
   map.resources :contra_partidas
 
   map.resources :lancamentos

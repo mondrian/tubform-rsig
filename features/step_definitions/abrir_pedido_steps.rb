@@ -10,6 +10,10 @@ Quando /^definir cliente com o id 1$/ do
   @pedido.cliente = @cliente
 end
 
+Quando /^definir vendedor com o id 1$/ do
+  @pedido.vendedor = @vendedor
+end
+
 Then /^eu preciso ter mais um pedido\.$/ do
    !@pedido.new_record?
 end

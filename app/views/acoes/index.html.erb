@@ -1,0 +1,22 @@
+<h1>Listing acoes</h1>
+
+<table>
+  <tr>
+    <th>Controller name</th>
+    <th>Action name</th>
+  </tr>
+
+<% @acoes.each do |acao| %>
+  <tr>
+    <td><%=h acao.controller_name %></td>
+    <td><%=h acao.action_name %></td>
+    <td><%= link_to 'Show', acao %></td>
+    <td><%= link_to 'Edit', edit_acao_path(acao) %></td>
+    <td><%= link_to 'Destroy', acao, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New acao', new_acao_path %>
