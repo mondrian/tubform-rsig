@@ -138,6 +138,7 @@ Factory.define :item_pedido do |i|
   i.valor_tabela 736
   i.valor_venda 662.40
   i.desconto 10
+  i.emissao_relatorio true
   i.association :produto, :factory => :produto
   i.association :pedido, :factory => :pedido
 end

@@ -10,6 +10,7 @@ Funcionalidade: Verificar se o produto é kit
     E a quantidade for 1
     E o valor de tabela for 736
     E o valor de venda for 662.40
+    E se emitir relatorio for true
     E verifico se o mesmo é kit
     E salvar o registro
     Então preciso adicinar na tabela de item_pedido_kit os produtos que compoe o kit.
