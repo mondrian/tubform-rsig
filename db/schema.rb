@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090526192116) do
+ActiveRecord::Schema.define(:version => 20090528213535) do
 
   create_table "areas", :force => true do |t|
     t.string   "descricao"
@@ -65,8 +65,33 @@ ActiveRecord::Schema.define(:version => 20090526192116) do
     t.string   "cnpj",                       :limit => 14
   end
 
+  create_table "contra_partidas", :force => true do |t|
+    t.integer  "lancamento_id"
+    t.integer  "plano_de_conta_id"
+    t.integer  "duplicata_id"
+    t.decimal  "valor_lancamento",               :precision => 12, :scale => 2
+    t.string   "tipo_operacao",     :limit => 1
+    t.text     "historico"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "cores", :force => true do |t|
     t.string   "descricao"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "duplicatas", :force => true do |t|
+    t.integer  "plano_de_conta_id",                                              :null => false
+    t.string   "tipo_cobranca",     :limit => 1,                                 :null => false
+    t.date     "data_emissao",                                                   :null => false
+    t.date     "data_vencimento",                                                :null => false
+    t.decimal  "valor",                           :precision => 12, :scale => 2
+    t.integer  "cliente_id",                                                     :null => false
+    t.integer  "pedido_id",                                                      :null => false
+    t.string   "nome_devedor",      :limit => 50,                                :null => false
+    t.integer  "devedor_id",                                                     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -143,6 +168,18 @@ ActiveRecord::Schema.define(:version => 20090526192116) do
     t.datetime "updated_at"
   end
 
+  create_table "item_pedido_kits", :force => true do |t|
+    t.integer  "pedido_id"
+    t.decimal  "quantidade"
+    t.decimal  "valor_tabela"
+    t.decimal  "valor_venda"
+    t.decimal  "desconto"
+    t.integer  "produto_id"
+    t.integer  "produto_kit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "item_pedidos", :force => true do |t|
     t.decimal  "quantidade"
     t.decimal  "valor_tabela"
@@ -152,6 +189,7 @@ ActiveRecord::Schema.define(:version => 20090526192116) do
     t.datetime "updated_at"
     t.integer  "produto_id"
     t.integer  "pedido_id"
+    t.boolean  "emissao_relatorio", :null => false
   end
 
   add_index "item_pedidos", ["pedido_id"], :name => "index_item_pedidos_on_pedido_id"
@@ -176,6 +214,26 @@ ActiveRecord::Schema.define(:version => 20090526192116) do
     t.decimal  "peso_liquido"
     t.integer  "cod_emissao_nf"
     t.integer  "nota_fiscal_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lancamentos", :force => true do |t|
+    t.string   "tipo_operacao",       :limit => 1
+    t.integer  "plano_de_conta_id"
+    t.text     "historico"
+    t.date     "data_movimento"
+    t.date     "data_lancamento"
+    t.string   "doc_origem",          :limit => 1
+    t.decimal  "valor",                            :precision => 12, :scale => 2
+    t.string   "nome_cheque"
+    t.integer  "operador_id"
+    t.string   "serie_doc_origem"
+    t.integer  "banco_id"
+    t.integer  "cliente_id"
+    t.boolean  "imprimiu_op"
+    t.integer  "vendedor_id"
+    t.integer  "sequencia_movimento"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -275,6 +333,17 @@ ActiveRecord::Schema.define(:version => 20090526192116) do
 
   create_table "planosdepagamento", :force => true do |t|
     t.string   "descricao"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "produto_kits", :force => true do |t|
+    t.integer  "produto_id"
+    t.integer  "empresa_id"
+    t.decimal  "fator_conversao"
+    t.boolean  "status"
+    t.decimal  "preco_normal"
+    t.decimal  "preco_especial"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

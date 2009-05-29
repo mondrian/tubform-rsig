@@ -89,7 +89,6 @@ class Pedido < ActiveRecord::Base
         valor_comissao += valor_base * comissao
       end
 
-
       # Atualiza o valor da Comissão na Tabela de Pedidos
       self.comissao_vendedor =  valor_comissao / self.valor * 100
     end
@@ -99,7 +98,7 @@ class Pedido < ActiveRecord::Base
   def media_desconto_ponderada_itens_valor
     valor = 0
     for i in self.item_pedidos do
-       valor += (i.valor_venda * i.quantidade) * desconto / 100
+       valor += (i.valor_tabela * i.quantidade) * desconto / 100
     end
     valor
   end  
@@ -108,17 +107,54 @@ class Pedido < ActiveRecord::Base
   def media_desconto_ponderada_itens_perc
     valor = 0
     for i in self.item_pedidos do
-       valor += (i.valor_venda * i.quantidade) * desconto / 100
+       valor += ((i.valor_tabela * i.quantidade) * i.desconto) / 100
     end
-    (valor / self.valor) / 100 
+    ret = (valor / self.valor) * 100
   end
 
   # metodo que acumula o desconto ponderado nos itens + o desconto informado no proprio pedido para chegar ao desconto final do pedido
   def desconto_acumulado_geral
      desc_itens = self.media_desconto_ponderada_itens_perc # tras o desconto ponderado dos itens
-     base_desc_ped = (self.valor * desc_itens) / 100       # acha a base de calculo para o desconto do pedido  
-     vl_tot_desc = (base_desc_ped * self.desconto) / 100   # acha o valor total de desconto
+     base_desc_ped = self.valor - (self.valor * desc_itens / 100)             # acha a base de calculo para o desconto do pedido  
+     vl_tot_desc = ((base_desc_ped * self.desconto) / 100) + (self.valor - base_desc_ped)  # acha o valor total de desconto
      rep = (vl_tot_desc / self.valor) * 100                # acha a representação do desconto em cima do valor original do pedido
      rep 
   end
-end
+
+  #gerar duplicatas do pedido 
+  def gerar_duplicatas
+     valores = self.valor.reais.parcelar((self.plano_de_pagamento.size / 3))
+     datas = self.vencimentos
+     i = 0
+     for v in valores do
+       p = Duplicata.new
+       p.tipo_cobranca = 'C'
+       p.plano_de_conta_id = 1
+       p.data_emissao = self.data
+       p.data_vencimento = datas[i]
+       p.valor = v
+       p.cliente_id = p.devedor_id = self.cliente_id
+       p.pedido_id = self.id
+       p.nome_devedor = self.nome_comprador
+
+       p.save
+       i += 1
+     end
+    'ok'
+  end
+
+  
+  # metodo de apoio pra quebrar o plano de pagamento, devolve os vencimentos com base no plano informado
+  def vencimentos
+    quantidade_de_parcelas = self.plano_de_pagamento.size / 3
+    prazo = 0
+    i = 0
+    vencimentos = []
+    while i <= self.plano_de_pagamento.size
+      prazo = self.plano_de_pagamento[i,3].to_i
+      vencimentos << (self.data + prazo.days) 
+      i += 3
+    end
+    vencimentos
+  end
+end    

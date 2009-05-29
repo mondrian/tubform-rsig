@@ -90,7 +90,7 @@ Factory.define :produto do |p|
   p.emissao_relatorio false
   p.custo 9.99
   p.cadastro_custo "2009-04-24"
-  p.kit false
+  p.kit true
 end
 
 Factory.define :funcionario do |f|
@@ -142,3 +142,11 @@ Factory.define :item_pedido do |i|
   i.association :pedido, :factory => :pedido
 end
 
+Factory.define :produto_kit do |k|
+  k.empresa_id 1
+  k.fator_conversao 4
+  k.status true
+  k.preco_normal 200
+  k.preco_especial 0
+  k.association :produto, :factory => :produto
+end
