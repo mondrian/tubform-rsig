@@ -1,0 +1,20 @@
+<h1>Editing acao</h1>
+
+<% form_for(@acao) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :controller_name %><br />
+    <%= f.text_field :controller_name %>
+  </p>
+  <p>
+    <%= f.label :action_name %><br />
+    <%= f.text_field :action_name %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @acao %> |
+<%= link_to 'Back', acoes_path %>

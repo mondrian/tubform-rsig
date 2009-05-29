@@ -6,5 +6,6 @@
 #   inflect.plural /^(ox)$/i, '\1en'
 #   inflect.singular /^(ox)en/i, '\1'
    inflect.irregular 'faixa_de_desconto', 'faixas_de_desconto'
+   inflect.irregular 'acao', 'acoes'
 #   inflect.uncountable %w( fish sheep )
  end

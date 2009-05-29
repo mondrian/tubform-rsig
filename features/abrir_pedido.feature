@@ -5,6 +5,7 @@ Funcionalidade: Abrir pedido de Venda
 
   Cenário: Adicionando um pedido válido
     Dado que existe um(a) funcionario
+	E que estou logado com login tubform e a senha 123456
 	E que existe um(a) transportadora
     E que existe um(a) cliente
     E que estou no formulário de cadastro de pedido
@@ -33,3 +34,4 @@ Funcionalidade: Abrir pedido de Venda
     E que existem 3 pedidos
     Quando eu estiver na listagem de pedidos
     Então preciso ver 3 pedidos
+
