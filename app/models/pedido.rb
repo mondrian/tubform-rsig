@@ -9,6 +9,7 @@ class Pedido < ActiveRecord::Base
   belongs_to :area
   has_many   :item_pedidos
   has_many   :produtos, :through => :item_pedidos
+  has_many   :duplicatas
 
   validates_presence_of :tipo, :message => "Informe o Tipo de Pedido"
   validates_presence_of :data, :message => "Informe a Data do Pedido"
@@ -123,18 +124,18 @@ class Pedido < ActiveRecord::Base
 
   #gerar duplicatas do pedido 
   def gerar_duplicatas
-     valores = self.valor.reais.parcelar((self.plano_de_pagamento.size / 3))
-     datas = self.vencimentos
-     i = 0
      expr =
        begin
          # verifica se ja existem duplicatas para esse pedido
          # se houver e todas estiverem em aberto exclui antes de gerar de novo
+         valores = self.valor.reais.parcelar((self.plano_de_pagamento.size / 3))
+         datas = self.vencimentos
+         i = 0
          duplicatas = self.duplicatas
          if duplicatas.size > 0 then
            for d in duplicatas do
              if d.possui_lancamentos? 
-               raise ArgumentError, 'Pedido possui duplicatas pagas'
+               raise StandartError, 'Pedido possui duplicatas pagas'
              end
            end
          end    
@@ -145,15 +146,17 @@ class Pedido < ActiveRecord::Base
            p.plano_de_conta_id = 1
            p.data_emissao = self.data
            p.data_vencimento = datas[i]
-           p.valor = v
+           p.valor = v.to_f
            p.cliente_id = p.devedor_id = self.cliente_id
            p.pedido_id = self.id
            p.nome_devedor = self.nome_comprador
            p.save
            i += 1
          end
+        'ok'
         rescue => erro
-           erro
+          self.errors.add_to_base(erro) 
+          erro
         ensure
            'ok'
         end
