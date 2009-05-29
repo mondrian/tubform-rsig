@@ -21,11 +21,7 @@ Quando /^verificar se emite produto em relatorio$/ do
   @item_pedido.emissao_relatorio = @item_pedido.produto.emissao_relatorio
 end
 
-Quando /^quando eu salvar o registro$/ do
+Quando /^quando salvar o registro$/ do
   @item_pedido.save
-end
-
-Então /^eu preciso receber a mensagem "([^\"]*)"$/ do |mensagem|
-  puts mensagem
 end
 
