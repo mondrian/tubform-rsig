@@ -1,4 +1,5 @@
 
+
 Cliente.destroy_all
 Factory.define :cliente do |c|
   c.tipo_cliente "E"
@@ -130,6 +131,7 @@ Factory.define :funcionario do |f|
 	f.login 'tubform'
 	f.password '123456'
 	f.password_confirmation '123456'
+	f.acoes Acao.find(:all, :conditions=>"controller_name='pedidos'")
 	#f.activated_at Time.now
 end
 
