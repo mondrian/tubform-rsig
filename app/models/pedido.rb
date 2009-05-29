@@ -15,7 +15,8 @@ class Pedido < ActiveRecord::Base
   validates_presence_of :data, :message => "Informe a Data do Pedido"
   validates_presence_of :cliente_id, :message => "Informe o Código do Cliente"
   validates_presence_of :operador_id, :message => "Operador não Informado, verifique ...."
-
+  
+  before_update :trg_update 
   public
   def no_prazo_medio_maximo?
     self.cliente.prazo_medio_maximo <= self.prazo_medio
@@ -138,6 +139,10 @@ class Pedido < ActiveRecord::Base
                raise StandartError, 'Pedido possui duplicatas pagas'
              end
            end
+         
+           for x in duplicatas
+             x.delete 
+           end
          end    
          
          for v in valores do
@@ -177,4 +182,10 @@ class Pedido < ActiveRecord::Base
     end
     vencimentos
   end
+
+# rotina chamada a no before save
+ def trg_update
+   self.gerar_duplicata if self.changed => ["plano_de_pagamento", "valor"]
+ end
 end
+
