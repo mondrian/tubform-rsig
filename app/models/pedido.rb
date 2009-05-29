@@ -188,4 +188,3 @@ class Pedido < ActiveRecord::Base
    self.gerar_duplicatas if self.changed.include? "plano_de_pagamento" or self.changed.include? "valor"
  end
 end
-

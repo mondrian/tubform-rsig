@@ -33,4 +33,3 @@ Funcionalidade: Abrir pedido de Venda
     E que existem 3 pedidos
     Quando eu estiver na listagem de pedidos
     Então preciso ver 3 pedidos
-
