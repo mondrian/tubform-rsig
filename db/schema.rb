@@ -203,7 +203,7 @@ ActiveRecord::Schema.define(:version => 20090529154435) do
     t.datetime "updated_at"
     t.integer  "produto_id"
     t.integer  "pedido_id"
-    t.boolean  "emissao_relatorio", :null => false
+    t.boolean  "emissao_relatorio"
   end
 
   add_index "item_pedidos", ["pedido_id"], :name => "index_item_pedidos_on_pedido_id"

@@ -27,6 +27,13 @@ Então /^preciso receber a mensagem "([^\"]*)"$/ do |mensagem|
   response_body.should have_tag("p", :text=> mensagem)
 end
 
+Dado /^que estou logado com login (.*) e a senha (.*)$/ do |login, senha|
+  visit '/login'
+  fill_in 'login', :with => login
+  fill_in 'password', :with => senha
+  click_button "Entrar"
+end
+
 Dado /^que existem (\d+) (.+)$/ do |quantidade, entidade|
   entidade = entidade.gsub(/\s/, '_').singularize
   entidade_simbolo = entidade.to_sym
