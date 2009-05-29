@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
   private 
   def valida_permissao
-		if self.controller_name == 'sessions' and self.action_name == 'new'
+		if self.controller_name == 'sessions' and not self.action_name == 'index'
       true
 		else
 				if logged_in?
