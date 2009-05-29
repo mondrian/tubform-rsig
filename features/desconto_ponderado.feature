@@ -5,6 +5,7 @@ Funcionalidade: Aplicar Desconto Ponderado
 
   Cenário: Aplicando Desconto Ponderado
     Dado que existe um(a) item_pedido
+	E que estou logado com login tubform e a senha 123456
     E que estou no(a) item
     E que o desconto do Pedido é 8
     E que o valor do Pedido é 1500
