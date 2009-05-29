@@ -18,6 +18,10 @@ Dado /^que o desconto do Item é (.*)$/ do |desc|
   @item.desconto = desc
 end
 
+Dado /^que o emissao_relatorio do Item é true$/ do
+  @item.emissao_relatorio = true
+end
+
 Dado /^que o valor de tabela é (.*)$/ do |valor_venda|
   @item.valor_tabela = valor_venda
 end

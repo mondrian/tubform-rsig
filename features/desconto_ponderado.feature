@@ -10,6 +10,7 @@ Funcionalidade: Aplicar Desconto Ponderado
     E que o valor do Pedido é 1500
     E que a quantidade é 3
     E que o desconto do Item é 15
+    E que o emissao_relatorio é true
     E que o valor de tabela é 500
     E que o valor de venda é 425
     Quando eu salvar o Item
