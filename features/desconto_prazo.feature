@@ -10,6 +10,6 @@ Funcionalidade: Calcular Comissao
     E o valor da venda for 500
     E a qtd for 3
     Quando eu salvar o item do pedido
-    E quando eu pedir o Calculo da Comissao por Prazo
-    E quando eu salvar o pedido
+    E eu pedir o Calculo da Comissao por Prazo
+    E eu salvar o pedido
     Então o valor da comissao calculada precisa ser 3
