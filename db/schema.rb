@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090528213535) do
+ActiveRecord::Schema.define(:version => 20090529153510) do
 
   create_table "areas", :force => true do |t|
     t.string   "descricao"
@@ -189,7 +189,7 @@ ActiveRecord::Schema.define(:version => 20090528213535) do
     t.datetime "updated_at"
     t.integer  "produto_id"
     t.integer  "pedido_id"
-    t.boolean  "emissao_relatorio", :null => false
+    t.boolean  "emissao_relatorio"
   end
 
   add_index "item_pedidos", ["pedido_id"], :name => "index_item_pedidos_on_pedido_id"
