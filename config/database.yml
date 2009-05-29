@@ -1,6 +1,6 @@
 development:
   adapter: postgresql
-  database: rsig
+  database: rsig_development
   host: localhost
   username: postgres
   password: vectra
@@ -18,3 +18,4 @@ production:
   host: localhost
   username: postgres
   password: vectra
+
