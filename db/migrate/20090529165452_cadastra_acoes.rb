@@ -10,5 +10,6 @@ class CadastraAcoes < ActiveRecord::Migration
   end
 
   def self.down
+		Acao.destroy_all
   end
 end
