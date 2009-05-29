@@ -26,6 +26,6 @@ Quando /^eu salvar o pedido$/ do
   @item.pedido.save
 end
 
-Então /^o valor da comissao calculada precisa ser(.*)$/ do |resultado|
+Então /^o valor da Comissao Calculada precisa ser (.*)$/ do |resultado|
   @item.pedido.comissao_vendedor == resultado
 end
