@@ -129,16 +129,16 @@ class Pedido < ActiveRecord::Base
      expr =
        begin
          # verifica se ja existem duplicatas para esse pedido
-         # se hover e todas estiverem em aberto exclui antes de gerar de novo
-         duplicatas = Duplicata.find_all_by_pedido_id(self.id)
+         # se houver e todas estiverem em aberto exclui antes de gerar de novo
+         duplicatas = self.duplicatas
          if duplicatas.size > 0 then
            for d in duplicatas do
-             unless d.data_pagamento.nil? 
+             if d.possui_lancamentos? 
                raise ArgumentError, 'Pedido possui duplicatas pagas'
              end
            end
          end    
-    
+         
          for v in valores do
            p = Duplicata.new
            p.tipo_cobranca = 'C'
@@ -174,4 +174,4 @@ class Pedido < ActiveRecord::Base
     end
     vencimentos
   end
-end    
+end

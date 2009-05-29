@@ -9,11 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD:db/schema.rb
-ActiveRecord::Schema.define(:version => 20090528195942) do
-=======
 ActiveRecord::Schema.define(:version => 20090528213535) do
->>>>>>> b4c85607c6ef6a12f1d6828b37d2ca944e1ad9f6:db/schema.rb
 
   create_table "areas", :force => true do |t|
     t.string   "descricao"
