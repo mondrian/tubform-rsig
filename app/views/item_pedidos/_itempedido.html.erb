@@ -6,18 +6,16 @@
  <h2>Adicionar ítem ao pedido <%= params[:id] %></h2>
 <p>
   <%= f.label :produto_id, 'Produto' %><br />
-  <%= f.select :produto_id, @produtos %>
+  <%= f.select :produto_id, @produtos, :prompt => "" %>
 </p>
 
-  <p>
-    <%= f.label :quantidade, 'Quantidade' %><br />
-    <%= f.text_field :quantidade %>
-  </p>
+<div id="detalhe_produto">
+</div>
 
-    <p>
-    <%= f.label :valor_venda, 'Valor Venda' %><br />
-    <%= f.text_field :valor_venda %>
-  </p>
+<%= observe_field :item_pedido_produto_id, 
+   :update => "detalhe_produto", 
+   :url => "/item_pedidos/detalhe", 
+   :with => :item_pedido_produto_id %>
 
   <p>
     <%= f.submit @item_pedido.new_record? ? 'Salvar' : 'Atualizar' %>

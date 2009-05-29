@@ -1,6 +1,14 @@
 class ItemPedidosController < ApplicationController
   before_filter :load_produtos, :only => [:new, :edit, :create, :update]
 
+  def detalhe
+		begin
+			@produto = Produto.find(params[:item_pedido_produto_id])
+		rescue
+			render :text => "Produto não encontrado"
+		end
+  end
+
   def index
     @item_pedidos = ItemPedido.all
     respond_to do |format|
