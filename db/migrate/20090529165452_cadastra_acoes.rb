@@ -16,7 +16,7 @@ class CadastraAcoes < ActiveRecord::Migration
 		Acao.create(:controller_name=>'pedidos',:action_name => 'destroy')
 		Acao.create(:controller_name=>'pedidos',:action_name => 'index')
 
-    #pedidos
+    #item_pedidos
 		Acao.create(:controller_name=>'item_pedidos',:action_name => 'new')
 		Acao.create(:controller_name=>'item_pedidos',:action_name => 'create')
 		Acao.create(:controller_name=>'item_pedidos',:action_name => 'update')

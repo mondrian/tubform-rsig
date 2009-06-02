@@ -1,6 +1,12 @@
-
-
 Cliente.destroy_all
+Acao.destroy_all
+
+Factory.define :acao do |a|
+  a.association :acao, :factory => :funcionario
+  a.controller_name
+  a.action_name
+end
+
 Factory.define :cliente do |c|
   c.tipo_cliente "E"
   c.sequence(:cpf) { |n| "000000000#{n}" }
@@ -95,6 +101,7 @@ Factory.define :produto do |p|
 end
 
 Factory.define :funcionario do |f|
+	f.association :funcionario, :factory => :acao
 	f.tipo '1'
     f.nome 'Mystring'
     f.endereco 'Mystring'

@@ -172,5 +172,7 @@
 
 <%= button_to 'Comissão Acordada', :action => :comissao_acordada, :id => @pedido.id %>
 
+<%= button_to 'Desconto', :action => :permitir_desconto_no_pedido, :id => @pedido.id %>
+
 <%= link_to 'Voltar', pedidos_path %>
 

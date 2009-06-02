@@ -54,10 +54,6 @@
     <%= f.text_field :acrescimo, :size => 5 %>
   </p>
   <p>
-    <%= f.label :desconto %><br />
-    <%= f.text_field :desconto, :size => 5 %>
-  </p>
-  <p>
     <%= f.label :transportadora %><br />
     <% if Transportadora.count > 0 %>
       <%= f.select :transportadora_id, Transportadora.all.collect { |c| [c.razao_social,c.id] }, :prompt => "" %>
