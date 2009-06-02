@@ -7,5 +7,7 @@
 #   inflect.singular /^(ox)en/i, '\1'
    inflect.irregular 'faixa_de_desconto', 'faixas_de_desconto'
    inflect.irregular 'acao', 'acoes'
+   inflect.irregular 'nota_fiscal', 'notas_fiscais'
+   inflect.irregular 'item_nota_fiscal','itens_nota_fiscal'
 #   inflect.uncountable %w( fish sheep )
  end
