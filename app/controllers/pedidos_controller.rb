@@ -103,4 +103,7 @@ class PedidosController < ApplicationController
     @pedido = Pedido.find(params[:id])
 	end
 
+	def permitir_desconto_no_pedido
+		@pedido = Pedido.find(params[:id])
+	end
 end

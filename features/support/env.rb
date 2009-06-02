@@ -31,7 +31,7 @@ Dir.glob(File.join(File.dirname(__FILE__), '../../spec/factories/*.rb')).each {|
 module Webrat
   class SeleniumSession
     def response_body
-      sleep 0.5
+      sleep 1.0
       selenium.get_html_source
     end
   end
