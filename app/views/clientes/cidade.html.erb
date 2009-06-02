@@ -1,0 +1,1 @@
+<%= select_tag('cliente[cidade_id]', options_for_select(Cidade.find(:all,:conditions =>["uf = ?",params[:uf].to_s], :order => "descricao asc").collect { |c| [c.descricao, c.id]},params[:cidade_id]))%>

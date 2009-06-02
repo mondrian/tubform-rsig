@@ -1,0 +1,117 @@
+<p>
+  <b>Tipo de Cliente:</b>
+  <%=h @cliente.tipo_cliente == "F" ? "Pessoa Física" : "Pessoa Jurídica" %> -
+  <b>Cpf ou Cnpj:</b>
+  <%=h  cpf_formatado(@cliente.cpf) %> -  <b>Status:</b>  <%=h @cliente.status == 'A' ? 'Ativo' : 'Inativo' %>
+</p>
+
+<p>
+  <b>Razao Social:</b>
+  <%=h @cliente.razao_social %>
+</p>
+
+<p>
+  <b>Nome de Fantasia:</b>
+  <%=h @cliente.nome_fantasia %>
+</p>
+
+<p>
+  <b>RG ou Inscrição Estadual:</b>
+  <%=h @cliente.documento %>
+</p>
+
+<p>
+  <b>Endereco:</b>
+  <%=h @cliente.endereco %>, <%=h @cliente.complemento %>
+</p>
+
+<p>
+  <b>Cidade:</b>
+  <%if @cliente.cidade.nil? then %>
+    <td>Cidade Desconhecida</td>
+  <% else %>
+    <td><%=h @cliente.cidade.descricao + ' / ' + @cliente.uf %></td>
+  <% end %>, <%=h @cliente.referencia %>
+</p>
+
+<p>
+  <b>Bairro / CEP:</b>
+  <%=h @cliente.bairro + ' / ' + cep_formatado(@cliente.cep) %>
+</p>
+
+<p>
+  <b>Telefones:</b><br>Pessoal: <%=h fone_formatado(@cliente.fone_pessoal) %> Comercial: <%=h fone_formatado(@cliente.fone_comercial) %> Celular: <%=h fone_formatado(@cliente.fone_celular) %><br>
+</p>
+
+<p>
+  <b>Endereco de Entrega:</b>
+  <%=h @cliente.endereco_entrega %>
+</p>
+
+<p>
+  <b>Regiao de Entrega:</b>
+  <%=h @cliente.regiao_entrega_id %>
+</p>
+
+<p>
+  <b>Cidade de Entrega:</b>
+  <%=h @cliente.cidade_entrega_id %>
+</p>
+
+<p>
+  <b>Area:</b>
+  <%=h @cliente.area_id %>
+</p>
+
+<p>
+  <b>Referencias Bancarias:</b>
+  <%=h @cliente.referencias_bancaria %>
+</p>
+
+<p>
+  <b>Referencias Comerciais:</b>
+  <%=h @cliente.referencias_comerciais %>
+</p>
+
+<p>
+  <b>Observacao:</b>
+  <%=h @cliente.observacao %>
+</p>
+
+<p>
+  <b>Informações Serasa:</b>
+  <%=h @cliente.info_serasa %>
+</p>
+
+<p>
+  <b>Data Nascimento:</b>
+  <%=h @cliente.data_nascimento.to_s_br %>
+</p>
+
+<p>
+  <b>Nome comprador:</b>
+  <%=h @cliente.nome_comprador %>
+</p>
+
+<p>
+  <b>Vendas suspensas:</b>
+  <%=h @cliente.vendas_suspensas == false ? "Não" : "Sim" %>
+</p>
+
+<p>
+  <b>Observacao suspensao venda:</b>
+  <%=h @cliente.observacao_suspensao_venda %>
+</p>
+
+<p>
+  <b>Limite credito:</b>
+  <%=h @cliente.limite_credito.real.real_formatado %>
+</p>
+
+<p>
+  <b>Saldo devedor:</b>
+  <%=h @cliente.saldo_devedor.real.real_formatado %>
+</p>
+
+<%= link_to 'Alterar', edit_cliente_path(@cliente) %> |
+<%= link_to 'Retornar', clientes_path %>

@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
       new_cookie_flag = (params[:remember_me] == "1")
       handle_remember_cookie! new_cookie_flag
       redirect_back_or_default('/')
-      flash[:notice] = "Logged in successfully"
+      flash[:notice] = "Autenticação Bem Sucedida"
     else
       note_failed_signin
       @login       = params[:login]
@@ -34,14 +34,14 @@ class SessionsController < ApplicationController
 
   def destroy
     logout_killing_session!
-    flash[:notice] = "You have been logged out."
+    flash[:notice] = "Você foi Desconectado."
     redirect_back_or_default('/')
   end
 
 protected
   # Track failed login attempts
   def note_failed_signin
-    flash[:error] = "Couldn't log you in as '#{params[:login]}'"
-    logger.warn "Failed login for '#{params[:login]}' from #{request.remote_ip} at #{Time.now.utc}"
+    flash[:error] = "Não foi possível autenticar o Operador '#{params[:login]}'"
+    logger.warn "Falha de Autenticação para '#{params[:login]}' de #{request.remote_ip} em #{Time.now.utc}"
   end
 end

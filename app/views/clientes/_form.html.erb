@@ -1,0 +1,139 @@
+<p>
+  <%= f.label "Tipo de Cliente:" %><br />
+  <%= f.select :tipo_cliente,[['Pessoa Física','F'],['Pessoa Jurídica','J']] %>
+</p>
+<p>
+  <label for="cpf">CPF: </label><br/>
+  <%= f.text_field :cpf, :onkeypress => 'mascara(this, cpf)'  %>
+</p>
+<p>
+  <label for="cnpj">CNPJ: </label><br/>
+  <%= f.text_field :cnpj, :onkeypress => 'mascara(this, cnpj)'  %>
+</p>
+<p>
+  <label for="razao_social">Razão Social: </label><br/>
+  <%= f.text_field :razao_social %>
+</p>
+<p>
+  <label for="nome_fantasia">Nome do Cliente / Nome de Fantasia</label><br/>
+  <%= f.text_field :nome_fantasia %>
+</p>
+<p>
+  <label for="documento">RG / Inscrição Estadual</label><br/>
+  <%= f.text_field :documento %>
+</p>
+<p>
+  <%= f.label :endereco %><br />
+  <%= f.text_field :endereco %>
+</p>
+<p>
+  <%= f.label :Bairro %><br />
+  <%= f.text_field :bairro %>
+</p>
+<p>
+  <%= f.label :complemento %><br />
+  <%= f.text_field :complemento %>
+</p>
+<p>
+  <%= f.label "Estado:" %>
+  <%= f.select :uf, Uf.find(:all).collect { |p| [ p.descricao, p.uf ] }, :include_blank => true
+%>
+</p>
+<p>
+Cidade:
+  <div id="div_cidade">
+    <% if !@cliente.cidade.nil? then %>
+      <%=  select_tag('cliente[cidade_id]', "<option>#{@cliente.cidade.descricao}</option>", :disabled => true) %>
+    <% end %>
+  </div>
+</p>
+<p>
+  <%= f.label :cep %><br />
+  <%= f.text_field :cep, :onkeypress => 'mascara(this, cep)'  %>
+</p>
+<p>
+  <%= f.label :referencia %><br />
+  <%= f.text_field :referencia %>
+</p>
+<p>
+  <%= f.label :fone_pessoal %><br />
+  <%= f.text_field :fone_pessoal, :onkeypress => 'mascara(this, telefone)' %>
+</p>
+<p>
+  <%= f.label :fone_comercial %><br />
+  <%= f.text_field :fone_comercial, :onkeypress => 'mascara(this, telefone)'  %>
+</p>
+<p>
+  <%= f.label :fone_celular %><br />
+  <%= f.text_field :fone_celular, :onkeypress => 'mascara(this, telefone)'  %>
+</p>
+<p>
+  <%= f.label :endereco_entrega %><br />
+  <%= f.text_field :endereco_entrega %>
+</p>
+<p>
+  <%= f.label :regiao_entrega_id %><br />
+  <%= f.text_field :regiao_entrega_id %>
+</p>
+<p>
+  <%= f.label :cidade_entrega_id %><br />
+  <%= f.text_field :cidade_entrega_id %>
+</p>
+<p>
+  <%= f.label :area_id %><br />
+  <%= f.text_field :area_id %>
+</p>
+<p>
+  <%= f.label :referencias_bancaria %><br />
+  <%= f.text_area :referencias_bancaria %>
+</p>
+<p>
+  <%= f.label :referencias_comerciais %><br />
+  <%= f.text_area :referencias_comerciais %>
+</p>
+<p>
+  <%= f.label :observacao %><br />
+  <%= f.text_area :observacao %>
+</p>
+<p>
+  <%= f.label :info_serasa %><br />
+  <%= f.text_area :info_serasa %>
+</p>
+<p>
+  <%= f.label :data_nascimento %><br />
+  <%= f.calendar_date_select :data_nascimento %>
+</p>
+<p>
+  <%= f.label :nome_comprador %><br />
+  <%= f.text_field :nome_comprador %>
+</p>
+<p>
+  <%= f.label :vendas_suspensas %><br />
+  <%= f.select :vendas_suspensas,[['Sim',true],['Não',false]] %>
+</p>
+<p>
+  <%= f.label :observacao_suspensao_venda %><br />
+  <%= f.text_area :observacao_suspensao_venda %>
+</p>
+<p>
+  <%= f.label :limite_credito %><br />
+  <%= f.text_field :limite_credito, :onkeypress => 'mascara(this, valor)' %>
+</p>
+<p>
+  <%= f.label :status %><br />
+  <%= f.select :status,[['ATIVO','A'],['INATIVO','I']] %>
+</p>
+<p>
+<label for="prazo_medio_maximo">Prazo Médio:</label><br/>
+<%= f.text_field :prazo_medio_maximo %>
+</p>
+<p>
+  <%= f.label :data_inclusao_prazo_medio %><br />
+  <%= f.calendar_date_select :data_inclusao_prazo_medio %>
+</p>
+<p>
+<%= observe_field 'cliente_uf',
+  :update => 'div_cidade',
+  :url => {:action => 'cidade'},
+  :with => :uf
+%>
