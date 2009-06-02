@@ -18,15 +18,14 @@ Quando /^eu salvar o item do pedido$/ do
   @item.save
 end
 
-Quando /^quando eu pedir o Calculo da Comissao por Prazo$/ do
+Quando /^eu pedir o Desconto por Prazo$/ do
   @item.pedido.desconto_comissao_prazo!
 end
 
-Quando /^quando eu salvar o pedido$/ do
+Quando /^eu salvar o pedido$/ do
   @item.pedido.save
 end
 
-Então /^o valor da comissao calculada precisa ser(.*)$/ do |resultado|
+Então /^o valor da Comissao Calculada precisa ser (.*)$/ do |resultado|
   @item.pedido.comissao_vendedor == resultado
 end
-

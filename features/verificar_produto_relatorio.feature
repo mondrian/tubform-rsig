@@ -11,6 +11,4 @@ Funcionalidade: Verificar se o produto sairá no relatório
     E o valor de tabela for 100
     E o valor de venda for 80
     E verificar se emite produto em relatorio
-    E quando eu salvar o registro
-    Então eu preciso receber a mensagem "Item adicionado com Sucesso ao pedido."
-
+    E quando salvar o registro

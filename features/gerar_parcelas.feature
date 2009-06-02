@@ -5,6 +5,7 @@ Funcionalidade: Gerar Parcelas
 
   Cenário: Gerando Duplicatas
     Dado que existe um(a) pedido
+	E que estou logado com login tubform e a senha 123456
     E que estou no(a) pedido
     E que o total do Pedido seja 1500
     E que o Plano de Pagamento é 030060090

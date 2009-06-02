@@ -8,9 +8,10 @@ Funcionalidade: Abrir pedido de Venda
 	E que estou logado com login tubform e a senha 123456
 	E que existe um(a) transportadora
     E que existe um(a) cliente
+    E que existe um(a) funcionario
     E que estou no formulário de cadastro de pedido
-    E seleciono vendedor_id com o valor Mystring
-    E seleciono cliente_id com o valor Mystring
+    E defino vendedor_id com o valor 1
+    E defino cliente_id com o valor 1
     E defino plano_de_pagamento com o valor 000030060090120
 	E defino previsao_entrega com o valor 2009-05-30
 	E defino data com o valor 2009-05-30
