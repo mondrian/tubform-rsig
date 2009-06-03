@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090602184908) do
+ActiveRecord::Schema.define(:version => 20090603124519) do
 
   create_table "acoes", :force => true do |t|
     t.string   "controller_name"
@@ -125,6 +125,14 @@ ActiveRecord::Schema.define(:version => 20090602184908) do
     t.integer  "de"
     t.integer  "ate"
     t.decimal  "desconto_permitido"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "fornecedores", :force => true do |t|
+    t.string   "nome",       :null => false
+    t.string   "endereco",   :null => false
+    t.string   "cnpj",       :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -289,6 +297,8 @@ ActiveRecord::Schema.define(:version => 20090602184908) do
     t.decimal  "valor_icms_substituicao_tributaria",        :precision => 12, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "operador_id"
+    t.integer  "fornecedor_id"
   end
 
   create_table "pedidos", :force => true do |t|

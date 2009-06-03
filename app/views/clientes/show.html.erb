@@ -2,7 +2,7 @@
   <b>Tipo de Cliente:</b>
   <%=h @cliente.tipo_cliente == "F" ? "Pessoa Física" : "Pessoa Jurídica" %> -
   <b>Cpf ou Cnpj:</b>
-  <%=h  cpf_formatado(@cliente.cpf) %> -  <b>Status:</b>  <%=h @cliente.status == 'A' ? 'Ativo' : 'Inativo' %>
+  <%=h  cpf(@cliente.cpf) %> -  <b>Status:</b>  <%=h @cliente.status == 'A' ? 'Ativo' : 'Inativo' %>
 </p>
 
 <p>

@@ -1,0 +1,24 @@
+<h1>Listing fornecedores</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Endereco</th>
+    <th>Cnpj</th>
+  </tr>
+
+<% @fornecedores.each do |fornecedor| %>
+  <tr>
+    <td><%=h fornecedor.nome %></td>
+    <td><%=h fornecedor.endereco %></td>
+    <td><%=h fornecedor.cnpj %></td>
+    <td><%= link_to 'Show', fornecedor %></td>
+    <td><%= link_to 'Edit', edit_fornecedor_path(fornecedor) %></td>
+    <td><%= link_to 'Destroy', fornecedor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New fornecedor', new_fornecedor_path %>

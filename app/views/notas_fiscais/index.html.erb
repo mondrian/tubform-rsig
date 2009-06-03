@@ -1,32 +1,14 @@
 <h1>Listing notas_fiscais</h1>
 
-<table>
+<table border="1">
   <tr>
     <th>Numero nota</th>
     <th>Selo</th>
     <th>Serie</th>
     <th>Cliente</th>
-    <th>Percentual icms</th>
-    <th>Emissao</th>
-    <th>Total mercadoria</th>
-    <th>Valor frete</th>
-    <th>Cfop</th>
-    <th>Natureza operacao</th>
-    <th>Valor ipi</th>
-    <th>Valor desconto</th>
     <th>Total nota</th>
     <th>Status</th>
-    <th>Base calculo icms</th>
-    <th>Valor icms</th>
-    <th>Qtde volumes</th>
-    <th>Entrada</th>
-    <th>Saida</th>
-    <th>Transportadora</th>
-    <th>Percentual desconto</th>
-    <th>Observacao</th>
-    <th>Base calculo icms substituicao tributaria</th>
-    <th>Percentual icms substituicao tributaria</th>
-    <th>Valor icms substituicao tributaria</th>
+    <th colspan="3">Ação</th>
   </tr>
 
 <% @notas_fiscais.each do |nota_fiscal| %>
@@ -35,34 +17,15 @@
     <td><%=h nota_fiscal.selo %></td>
     <td><%=h nota_fiscal.serie %></td>
     <td><%=h nota_fiscal.cliente_id %></td>
-    <td><%=h nota_fiscal.percentual_icms %></td>
-    <td><%=h nota_fiscal.emissao %></td>
-    <td><%=h nota_fiscal.total_mercadoria %></td>
-    <td><%=h nota_fiscal.valor_frete %></td>
-    <td><%=h nota_fiscal.cfop %></td>
-    <td><%=h nota_fiscal.natureza_operacao %></td>
-    <td><%=h nota_fiscal.valor_ipi %></td>
-    <td><%=h nota_fiscal.valor_desconto %></td>
     <td><%=h nota_fiscal.total_nota %></td>
     <td><%=h nota_fiscal.status %></td>
-    <td><%=h nota_fiscal.base_calculo_icms %></td>
-    <td><%=h nota_fiscal.valor_icms %></td>
-    <td><%=h nota_fiscal.qtde_volumes %></td>
-    <td><%=h nota_fiscal.entrada %></td>
-    <td><%=h nota_fiscal.saida %></td>
-    <td><%=h nota_fiscal.transportadora_id %></td>
-    <td><%=h nota_fiscal.percentual_desconto %></td>
-    <td><%=h nota_fiscal.observacao %></td>
-    <td><%=h nota_fiscal.base_calculo_icms_substituicao_tributaria %></td>
-    <td><%=h nota_fiscal.percentual_icms_substituicao_tributaria %></td>
-    <td><%=h nota_fiscal.valor_icms_substituicao_tributaria %></td>
-    <td><%= link_to 'Show', nota_fiscal %></td>
-    <td><%= link_to 'Edit', edit_nota_fiscal_path(nota_fiscal) %></td>
-    <td><%= link_to 'Destroy', nota_fiscal, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Exibir', nota_fiscal %></td>
+    <td><%= link_to 'Alterar', edit_nota_fiscal_path(nota_fiscal) %></td>
+    <td><%= link_to 'Excluir', nota_fiscal, :confirm => "Excluindo Nota Fiscal Numero #{nota_fiscal.numero_nota}, Tem Certeza?", :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New nota_fiscal', new_nota_fiscal_path %>
+<%= link_to 'Nova Nota Fiscal', new_nota_fiscal_path %>

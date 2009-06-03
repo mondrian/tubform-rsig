@@ -101,8 +101,8 @@ Factory.define :produto do |p|
 end
 
 Factory.define :funcionario do |f|
-	f.association :funcionario, :factory => :acao
-	f.tipo '1'
+	  f.association :funcionario, :factory => :acao
+	  f.tipo '1'
     f.nome 'Mystring'
     f.endereco 'Mystring'
     f.complemento 'Mystring'
@@ -135,11 +135,17 @@ Factory.define :funcionario do |f|
     f.observacao 'Mystring'
     f.aci 'Mystring'
     f.email 'tubform@gmail.com'
-	f.login 'tubform'
-	f.password '123456'
-	f.password_confirmation '123456'
-	f.acoes Acao.find(:all, :conditions=>"controller_name='pedidos'")
+	  f.login 'tubform'
+	  f.password '123456'
+	  f.password_confirmation '123456'
+	  f.acoes Acao.find(:all, :conditions=>"controller_name='pedidos'")
 	#f.activated_at Time.now
+end
+
+Factory.define :fornecedor do |f|
+  f.nome 'Aço Cearense'
+  f.endereco 'Fortaleza'
+  f.cnpj '07811946000187'
 end
 
 Factory.define :transportadora do |t|
