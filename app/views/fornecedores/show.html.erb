@@ -1,0 +1,18 @@
+<p>
+  <b>Nome:</b>
+  <%=h @fornecedor.nome %>
+</p>
+
+<p>
+  <b>Endereco:</b>
+  <%=h @fornecedor.endereco %>
+</p>
+
+<p>
+  <b>Cnpj:</b>
+  <%=h @fornecedor.cnpj %>
+</p>
+
+
+<%= link_to 'Edit', edit_fornecedor_path(@fornecedor) %> |
+<%= link_to 'Back', fornecedores_path %>

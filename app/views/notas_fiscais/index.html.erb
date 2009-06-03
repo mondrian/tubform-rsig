@@ -1,0 +1,31 @@
+<h1>Listing notas_fiscais</h1>
+
+<table border="1">
+  <tr>
+    <th>Numero nota</th>
+    <th>Selo</th>
+    <th>Serie</th>
+    <th>Cliente</th>
+    <th>Total nota</th>
+    <th>Status</th>
+    <th colspan="3">Ação</th>
+  </tr>
+
+<% @notas_fiscais.each do |nota_fiscal| %>
+  <tr>
+    <td><%=h nota_fiscal.numero_nota %></td>
+    <td><%=h nota_fiscal.selo %></td>
+    <td><%=h nota_fiscal.serie %></td>
+    <td><%=h nota_fiscal.cliente_id %></td>
+    <td><%=h nota_fiscal.total_nota %></td>
+    <td><%=h nota_fiscal.status %></td>
+    <td><%= link_to 'Exibir', nota_fiscal %></td>
+    <td><%= link_to 'Alterar', edit_nota_fiscal_path(nota_fiscal) %></td>
+    <td><%= link_to 'Excluir', nota_fiscal, :confirm => "Excluindo Nota Fiscal Numero #{nota_fiscal.numero_nota}, Tem Certeza?", :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nova Nota Fiscal', new_nota_fiscal_path %>

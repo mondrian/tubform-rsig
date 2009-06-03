@@ -1,0 +1,8 @@
+<% form_for(@cliente) do |f| %>
+  <%= f.error_messages %>
+
+<%= render :partial => "form", :locals => { :f => f} %>
+    <%= f.submit "Salvar" %>
+<% end %>
+
+<%= link_to 'Voltar', clientes_path %>

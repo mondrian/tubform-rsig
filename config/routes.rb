@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :fornecedores
+
+  map.resources :notas_fiscais
+
   map.root :controller => 'sessions', :action => 'new'
   map.resources :acoes
 
