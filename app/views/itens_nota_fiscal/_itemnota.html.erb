@@ -1,0 +1,24 @@
+<% form_for(@item_nota_fiscal) do |f| %>
+  <%= f.error_messages %>
+
+    <%= f.hidden_field(:nota_fiscal_id) %>
+
+ <h2>Adicionar ítem a Nota <%= params[:id] %></h2>
+<p>
+  <%= f.label :produto_id, 'Produto' %><br />
+  <%= f.select :produto_id, @produtos, :prompt => "" %>
+</p>
+
+<div id="detalhe_produto">
+</div>
+
+<%= observe_field :item_nota_fiscal_produto_id,
+   :update => "detalhe_produto",
+   :url => "/itens_nota_fiscal/detalhe",
+   :with => :item_nota_fiscal_produto_id %>
+
+  <p>
+    <%= f.submit @item_nota_fiscal.new_record? ? 'Salvar' : 'Atualizar' %>
+  </p>
+
+<% end %>

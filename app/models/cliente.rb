@@ -28,5 +28,4 @@ public
   def ativo?
     !self.status
   end
-
 end

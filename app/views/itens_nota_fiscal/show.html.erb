@@ -1,0 +1,58 @@
+<p>
+  <b>Nota fiscal:</b>
+  <%=h @item_nota_fiscal.nota_fiscal_id %>
+</p>
+
+<p>
+  <b>Produto:</b>
+  <%=h @item_nota_fiscal.produto_id %>
+</p>
+
+<p>
+  <b>Unidade:</b>
+  <%=h @item_nota_fiscal.unidade %>
+</p>
+
+<p>
+  <b>Quantidade:</b>
+  <%=h @item_nota_fiscal.quantidade %>
+</p>
+
+<p>
+  <b>Valor item:</b>
+  <%=h @item_nota_fiscal.valor_item %>
+</p>
+
+<p>
+  <b>Valor original:</b>
+  <%=h @item_nota_fiscal.valor_original %>
+</p>
+
+<p>
+  <b>Situacao tributaria:</b>
+  <%=h @item_nota_fiscal.situacao_tributaria %>
+</p>
+
+<p>
+  <b>Perc icms:</b>
+  <%=h @item_nota_fiscal.perc_icms %>
+</p>
+
+<p>
+  <b>Perc ipi:</b>
+  <%=h @item_nota_fiscal.perc_ipi %>
+</p>
+
+<p>
+  <b>Peso liquido:</b>
+  <%=h @item_nota_fiscal.peso_liquido %>
+</p>
+
+<p>
+  <b>Codigo emissao:</b>
+  <%=h @item_nota_fiscal.codigo_emissao %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_nota_fiscal_path(@item_nota_fiscal) %> |
+<%= link_to 'Back', itens_nota_fiscal_path %>

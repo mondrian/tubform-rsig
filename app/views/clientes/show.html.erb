@@ -2,7 +2,7 @@
   <b>Tipo de Cliente:</b>
   <%=h @cliente.tipo_cliente == "F" ? "Pessoa Física" : "Pessoa Jurídica" %> -
   <b>Cpf ou Cnpj:</b>
-  <%=h  cpf(@cliente.cpf) %> -  <b>Status:</b>  <%=h @cliente.status == 'A' ? 'Ativo' : 'Inativo' %>
+  <%=h  @cliente.cpf %> -  <b>Status:</b>  <%=h @cliente.status == 'A' ? 'Ativo' : 'Inativo' %>
 </p>
 
 <p>
@@ -36,11 +36,11 @@
 
 <p>
   <b>Bairro / CEP:</b>
-  <%=h @cliente.bairro + ' / ' + cep_formatado(@cliente.cep) %>
+  <%=h @cliente.bairro + ' / ' + @cliente.cep %>
 </p>
 
 <p>
-  <b>Telefones:</b><br>Pessoal: <%=h fone_formatado(@cliente.fone_pessoal) %> Comercial: <%=h fone_formatado(@cliente.fone_comercial) %> Celular: <%=h fone_formatado(@cliente.fone_celular) %><br>
+  <b>Telefones:</b><br>Pessoal: <%=h @cliente.fone_pessoal %> Comercial: <%=h @cliente.fone_comercial %> Celular: <%=h @cliente.fone_celular %><br>
 </p>
 
 <p>
