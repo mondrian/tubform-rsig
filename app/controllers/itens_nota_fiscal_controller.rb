@@ -26,6 +26,7 @@ class ItensNotaFiscalController < ApplicationController
   def new
     @item_nota_fiscal = ItemNotaFiscal.new
     @item_nota_fiscal.nota_fiscal_id = params[:id]
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @item_nota_fiscal }

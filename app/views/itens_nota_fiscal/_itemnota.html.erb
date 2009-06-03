@@ -6,7 +6,8 @@
  <h2>Adicionar ítem a Nota <%= params[:id] %></h2>
 <p>
   <%= f.label :produto_id, 'Produto' %><br />
-  <%= f.select :produto_id, @produtos, :prompt => "" %>
+  <%= f.select :produto_id, Produto.find(:all).collect { |p| [ p.descricao, p.id ] }, :prompt => "" %>
+  
 </p>
 
 <div id="detalhe_produto">
