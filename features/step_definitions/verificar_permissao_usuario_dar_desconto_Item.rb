@@ -1,15 +1,12 @@
-Dado /^estou logado no sistema$/ do
-	pending
-end
-
 Quando /^eu clicar no botão dar desconto$/ do
-	pending
+	click_button "Desconto"
 end
 
 Então /^verifica se tenho permissão$/ do
-	pending
+  response.should_not contain("Acesso negado a pedidos acao permitir_desconto_no_pedido. Você não tem acesso a esta ação.")
 end
 
 Então /^me redireciona para a pagina de desconto$/ do
-	pending
+	click_button "Salvar"
+	sleep 6
 end
