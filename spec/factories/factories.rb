@@ -2,9 +2,13 @@ Cliente.destroy_all
 Acao.destroy_all
 
 Factory.define :acao do |a|
-  a.association :funcionario
   a.controller_name
   a.action_name
+end
+
+Factory.define :acao_funcionario do |a|
+  a.association :acao
+  a.association :funcionario
 end
 
 Factory.define :cliente do |c|
@@ -101,7 +105,6 @@ Factory.define :produto do |p|
 end
 
 Factory.define :funcionario do |f|
-	  f.association :funcionario, :factory => :acao
 	  f.tipo '1'
     f.nome 'Mystring'
     f.endereco 'Mystring'
@@ -110,8 +113,8 @@ Factory.define :funcionario do |f|
     f.cidade_id 1
     f.uf 'Mystring'
     f.fone 'Mystring'
-    f.cpf 'Mystring'
-    f.rg 'Mystring'
+    f.sequence(:cpf) { |n| "999999999#{n}" }
+    f.sequence(:rg) { |n| "999999999#{n}" }
     f.pai 'Mystring'
     f.mae 'Mystring'
     f.numero_carteira_trabalho 'Mystring'
@@ -134,14 +137,10 @@ Factory.define :funcionario do |f|
     f.demissao '2009-01-02'
     f.observacao 'Mystring'
     f.aci 'Mystring'
-    f.email 'tubform@gmail.com'
-  	f.login 'tubform'
+    f.sequence(:email) { |n| "email#{n}@exemplo.com.br" }
+  	f.sequence(:login) { |n| "usuario#{n}" }
   	f.password '123456'
   	f.password_confirmation '123456'
-    f.acoes do |a|
-      [a.association(:acao), a.association(:acao)]
-    end
-	  f.activated_at Time.now
 end
 
 Factory.define :fornecedor do |f|
