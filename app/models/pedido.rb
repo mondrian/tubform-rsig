@@ -16,7 +16,7 @@ class Pedido < ActiveRecord::Base
   validates_presence_of :cliente_id, :message => "Informe o Código do Cliente"
   validates_presence_of :operador_id, :message => "Operador não Informado, verifique ...."
 
-  before_update :trg_update
+  before_save :trg_save
   public
   def no_prazo_medio_maximo?
     self.cliente.prazo_medio_maximo <= self.prazo_medio
@@ -41,6 +41,8 @@ class Pedido < ActiveRecord::Base
 
   def aprovar
     self.entrega = Time.now
+    self.status = 'A'
+    # Tem que rever isso aqui
   end
 
   # Calculo de comissao por desconto do item.
@@ -62,14 +64,14 @@ class Pedido < ActiveRecord::Base
             if comissao < 0
                comissao = 0
             else
-                vlr_comissao += ( ((item_pedido.valor_venda * item_pedido.quantidade) * comissao) / 100 )
+                vlr_comissao += ( ((item_pedido.valor_venda.to_f * item_pedido.quantidade.to_f) * comissao) / 100 )
             end
         else
             comissao = comissao_padrao
-            vlr_comissao += ( ((item_pedido.valor_venda * item_pedido.quantidade) * comissao) / 100 )
+            vlr_comissao += ( ((item_pedido.valor_venda.to_f * item_pedido.quantidade.to_f) * comissao) / 100 )
         end
     end
-    percentual_comissao =  vlr_comissao / self.valor * 100
+    percentual_comissao =  ((vlr_comissao / self.valor) * 100).to_f
   end
 
   # A cada 15 dias de prazo acima do parametro, será calculada uma Unidade de Desconto na
@@ -168,7 +170,6 @@ class Pedido < ActiveRecord::Base
      expr
   end
 
-
   # metodo de apoio pra quebrar o plano de pagamento, devolve os vencimentos com base no plano informado
   def vencimentos
     quantidade_de_parcelas = self.plano_de_pagamento.size / 3
@@ -184,7 +185,8 @@ class Pedido < ActiveRecord::Base
   end
 
 # rotina chamada no before save
- def trg_update
+ def trg_save
+   self.percentual_comissao = self.comissao_desconto_item
    self.gerar_duplicatas if self.changed.include? "plano_de_pagamento" or self.changed.include? "valor"
  end
 end

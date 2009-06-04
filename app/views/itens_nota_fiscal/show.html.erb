@@ -55,4 +55,4 @@
 
 
 <%= link_to 'Alterar', edit_item_nota_fiscal_path(@item_nota_fiscal) %> |
-<%= link_to 'Retornar', itens_nota_fiscal_path %>
+<%= link_to 'Retornar', :controller => 'notas_fiscais', :action => 'show', :id => @item_nota_fiscal.nota_fiscal.id %>

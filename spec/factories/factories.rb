@@ -1,5 +1,12 @@
-Cliente.destroy_all
-Acao.destroy_all
+def popula_acoes
+	Acao.create(:controller_name => 'pedidos',
+							 :action_name => 'index',
+							 :controller_name => 'pedidos',
+							 :action_name => 'show',
+							 :controller_name => 'pedidos',
+							 :action_name => 'permitir_desconto_no_pedido')
+end
+
 
 Factory.define :acao do |a|
   a.controller_name
@@ -43,6 +50,7 @@ Factory.define :cliente do |c|
   c.saldo_devedor 9.99
   c.prazo_medio_maximo 75
   c.data_inclusao_prazo_medio "2009-04-24"
+
 end
 
 Factory.define :pedido do |p|
