@@ -46,7 +46,7 @@ class NotasFiscaisController < ApplicationController
 
     respond_to do |format|
       if @nota_fiscal.save
-        flash[:notice] = 'NotaFiscal was successfully created.'
+        flash[:notice] = 'Nota Fiscal Gravada, Insira os Itens ...'
         format.html { redirect_to(@nota_fiscal) }
         format.xml  { render :xml => @nota_fiscal, :status => :created, :location => @nota_fiscal }
       else
@@ -63,7 +63,7 @@ class NotasFiscaisController < ApplicationController
 
     respond_to do |format|
       if @nota_fiscal.update_attributes(params[:nota_fiscal])
-        flash[:notice] = 'NotaFiscal was successfully updated.'
+        flash[:notice] = 'Nota Fiscal Atualizada ....'
         format.html { redirect_to(@nota_fiscal) }
         format.xml  { head :ok }
       else

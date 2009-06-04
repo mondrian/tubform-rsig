@@ -15,27 +15,27 @@
 
 <p>
   <b>Cliente:</b>
-  <%=h @nota_fiscal.cliente_id %>
+  <%=h @nota_fiscal.cliente.razao_social %>
 </p>
 
 <p>
   <b>Percentual icms:</b>
-  <%=h @nota_fiscal.percentual_icms %>
+  <%=h @nota_fiscal.percentual_icms.to_s + ' %' %>
 </p>
 
 <p>
   <b>Emissao:</b>
-  <%=h @nota_fiscal.emissao %>
+  <%=h @nota_fiscal.emissao.to_s_br %>
 </p>
 
 <p>
   <b>Total mercadoria:</b>
-  <%=h @nota_fiscal.total_mercadoria %>
+  <%=h @nota_fiscal.total_mercadoria.real.real_formatado %>
 </p>
 
 <p>
   <b>Valor frete:</b>
-  <%=h @nota_fiscal.valor_frete %>
+  <%=h @nota_fiscal.valor_frete.real.real_formatado %>
 </p>
 
 <p>
@@ -50,22 +50,22 @@
 
 <p>
   <b>Valor ipi:</b>
-  <%=h @nota_fiscal.valor_ipi %>
+  <%=h @nota_fiscal.valor_ipi.real.real_formatado %>
 </p>
 
 <p>
   <b>Valor desconto:</b>
-  <%=h @nota_fiscal.valor_desconto %>
+  <%=h @nota_fiscal.valor_desconto.real.real_formatado %>
 </p>
 
 <p>
   <b>Total nota:</b>
-  <%=h @nota_fiscal.total_nota %>
+  <%=h @nota_fiscal.total_nota.real.real_formatado %>
 </p>
 
 <p>
   <b>Status:</b>
-  <%=h @nota_fiscal.status %>
+  <%=h @nota_fiscal.status == 'S' ? 'Impressa' : 'Não Impressa' %>
 </p>
 
 <p>
@@ -75,7 +75,7 @@
 
 <p>
   <b>Valor icms:</b>
-  <%=h @nota_fiscal.valor_icms %>
+  <%=h @nota_fiscal.valor_icms.real.real_formatado %>
 </p>
 
 <p>
@@ -85,12 +85,12 @@
 
 <p>
   <b>Entrada:</b>
-  <%=h @nota_fiscal.entrada %>
+  <%=h @nota_fiscal.entrada.to_s_br %>
 </p>
 
 <p>
   <b>Saida:</b>
-  <%=h @nota_fiscal.saida %>
+  <%=h @nota_fiscal.saida.to_s_br %>
 </p>
 
 <p>
@@ -100,7 +100,7 @@
 
 <p>
   <b>Percentual desconto:</b>
-  <%=h @nota_fiscal.percentual_desconto %>
+  <%=h @nota_fiscal.percentual_desconto.to_s + ' %' %>
 </p>
 
 <p>
@@ -135,13 +135,13 @@
 
   <% total = 0 %>
   <% for i in @nota_fiscal.itens %>
-    <% total += i.valor %>
+    <% total += i.valor_item %>
     <tr>
       <td><%= i.produto_id  %></td>
-      <td><%= i.produto.descricao  %></td>
+      <td><%#= i.produto.descricao  %></td>
       <td><%= i.quantidade  %></td>
-      <td><%= i.valor  %></td>
-      <td><%= link_to 'Editar', :controller => :item_pedidos, :action => :edit, :id => i.id %></td>
+      <td><%= i.valor_item  %></td>
+      <td><%= link_to 'Editar', :controller => :itens_nota_fiscal, :action => :edit, :id => i.id %></td>
       <td><%= link_to 'Excluir', i, :confirm => 'Você tem certeza?', :method => :delete %></td>
     </tr>
   <% end %>
@@ -150,8 +150,8 @@
 <h2> Valor total da Nota: <span id="total_pedido"><%= total %></span></h2>
 
 
-<%= link_to 'Alterar', edit_nota_fiscal_path(@nota_fiscal) %> |
+<%= link_to 'Alterar', edit_nota_fiscal_path(@nota_fiscal) if @nota_fiscal.status != 'S' %> |
 <%= link_to 'Retornar', notas_fiscais_path %>
 <p>
-<%= link_to 'Adicionar Item', :controller => 'itens_nota_fiscal', :action => 'new', :id => @nota_fiscal.id  %>
+<%= link_to 'Adicionar Item', :controller => 'itens_nota_fiscal', :action => 'new', :id => @nota_fiscal.id  if @nota_fiscal.status != 'S'  %>
 </p>

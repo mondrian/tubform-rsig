@@ -1,5 +1,7 @@
 class Produto < ActiveRecord::Base
   belongs_to :ItemNotaFiscal
-  has_many :prdouto_kits
+  has_many :produto_kits
+  has_many :notas_fiscais
+  has_many :itens_nota_fiscal
   validates_presence_of :descricao, :message => "Informe a Descrição do Produto"
 end
