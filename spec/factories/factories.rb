@@ -11,7 +11,7 @@ Cliente.destroy_all
 Acao.destroy_all
 
 Factory.define :acao do |a|
-  a.association :acao, :factory => :funcionario
+  a.association :funcionario
   a.controller_name
   a.action_name
 end

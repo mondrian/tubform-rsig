@@ -1,12 +1,9 @@
-<h1>New nota_fiscal</h1>
+<h3>Nova Nota Fiscal</h3>
 
 <% form_for(@nota_fiscal) do |f| %>
   <%= f.error_messages %>
   <%= render :partial => "form",  :locals => { :f => f} %>
 
-  <p>
-    <%= link_to 'Adicionar Itens'  %>
-  </p>
   <p>
     <%= f.submit 'Salvar' %>
   </p>

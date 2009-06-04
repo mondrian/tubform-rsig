@@ -51,7 +51,7 @@ class Pedido < ActiveRecord::Base
     comissao = 0.00             #variavel local.
     vlr_comissao = 0.00         #variavel local.
 
-    # Exemplodo calculo abaixo: 5.5-((25-23)*0.150)
+    # Exemplo do calculo abaixo: 5.5-((25-23)*0.150)
     for item_pedido in self.item_pedidos
         if item_pedido.desconto > 0
             if item_pedido.desconto <= desconto_padrao
@@ -81,10 +81,10 @@ class Pedido < ActiveRecord::Base
     fator = 0.500     # Deverá vir da Tabela de Parâmetros ( param.fator )
     prazo_pedido = self.prazo_medio
     valor_comissao = 0
+
+    # Verifica se o Vendedor "estourou" o prazo do Cliente e Aplica a Regra
     if(prazo_pedido > prazo_param)
       for i in self.item_pedidos do
-
-        # Verifica se o Vendedor "estourou" o prazo do Cliente e Aplica a Regra
         valor_total = i.valor_venda * i.quantidade
         desconto = ((prazo_pedido - prazo_param ) / unidade) * fator
         valor_base = valor_total - ( desconto * valor_total )
@@ -183,7 +183,7 @@ class Pedido < ActiveRecord::Base
     vencimentos
   end
 
-# rotina chamada a no before save
+# rotina chamada no before save
  def trg_update
    self.gerar_duplicatas if self.changed.include? "plano_de_pagamento" or self.changed.include? "valor"
  end

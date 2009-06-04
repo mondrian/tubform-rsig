@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090603124519) do
+ActiveRecord::Schema.define(:version => 20090603201719) do
 
   create_table "acoes", :force => true do |t|
     t.string   "controller_name"
@@ -222,6 +222,22 @@ ActiveRecord::Schema.define(:version => 20090603124519) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "minuta_id"
+  end
+
+  create_table "itens_nota_fiscal", :force => true do |t|
+    t.integer  "produto_id"
+    t.string   "unidade"
+    t.integer  "quantidade"
+    t.decimal  "valor_item",                       :precision => 12, :scale => 2
+    t.decimal  "valor_original",                   :precision => 12, :scale => 2
+    t.string   "situacao_tributaria", :limit => 1,                                :default => "T"
+    t.decimal  "perc_icms",                        :precision => 6,  :scale => 2
+    t.decimal  "perc_ipi",                         :precision => 6,  :scale => 2
+    t.decimal  "peso_liquido",                     :precision => 6,  :scale => 2
+    t.string   "codigo_emissao",      :limit => 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "nota_fiscal_id"
   end
 
   create_table "lancamentos", :force => true do |t|

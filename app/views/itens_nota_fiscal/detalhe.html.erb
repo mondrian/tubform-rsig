@@ -1,0 +1,19 @@
+<% if @produto.valor_normal.nil? and @produto.valor_especial.nil? %>
+	<b>Este produto não tem valor cadastrado e não pode ser inserido em um pedido</b>
+<% else %>
+  <p>
+    <label>Quantidade</label><br />
+    <%= text_field_tag 'item_nota_fiscal[quantidade]' %>
+  </p>
+
+  <p>
+    <label>Valor Venda</label><br />
+    <select name="item_nota_fiscal[valor_venda]">
+			<% if  @produto.valor_normal %>
+				<option value="<%= @produto.valor_normal %>">Valor Normal: R$ 	<%= @produto.valor_normal %></option>
+			<% else %>
+				<option value="<%= @produto.valor_especial %>">Valor Especial: R$ <%= @produto.valor_especial %></option>
+			<% end %>
+		</select>
+  </p>
+<% end %>

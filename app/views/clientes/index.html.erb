@@ -13,8 +13,8 @@
 <% for cliente in @clientes %>
   <tr>
     <td><%= cliente.tipo_cliente == "F" ? "Pessoa Física" : "Pessoa Jurídica" %></td>
-    <td><%=h cpf_formatado(cliente.cpf) %></td>
-    <td><%=h cnpj_formatado(cliente.cnpj) %></td>
+    <td><%=h cliente.cpf %></td>
+    <td><%=h cliente.cnpj %></td>
     <td><%=h cliente.razao_social %></td>
     <td><%=h cliente.nome_fantasia %></td>
     <%if cliente.cidade.nil? then %>

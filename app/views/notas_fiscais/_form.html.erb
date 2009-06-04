@@ -20,7 +20,7 @@
   </p>
   <p>
     <%= f.label :emissao %><br />
-    <%= f.calendar_date_select :emissao %>
+    <%= f.text_field :emissao %>
   </p>
   <p>
     <%= f.label :total_mercadoria %><br />
@@ -52,7 +52,7 @@
   </p>
   <p>
     <%= f.label :status %><br />
-    <%= f.text_field :status %>
+    <%= f.select :status,[['Impressa','S'],['Não Impressa','N']] %>
   </p>
   <p>
     <%= f.label :base_calculo_icms %><br />

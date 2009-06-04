@@ -90,16 +90,7 @@
 
 <p>
   <b>Status:</b>
-  <%=  @pedido.status %>
-  <% case @pedido.status %>
-  <%  when "A"
-  <%=   "Aprovado" %>
-  <%  when "B"
-  <%=   "Bloqueado" %>
-  <%  when "E"
-  <%=   "Em Análise" %>
-  <%  end %>
-
+  <%=h  @pedido.status %>
   </p>
 
 <p>
@@ -175,4 +166,3 @@
 <%= button_to 'Desconto', :action => :permitir_desconto_no_pedido, :id => @pedido.id %>
 
 <%= link_to 'Voltar', pedidos_path %>
-

@@ -1,27 +1,31 @@
-<h1>Listing notas_fiscais</h1>
+<h3>Notas Emitidas</h3>
 
 <table border="1">
   <tr>
-    <th>Numero nota</th>
+    <th>Nr Nota</th>
     <th>Selo</th>
-    <th>Serie</th>
-    <th>Cliente</th>
-    <th>Total nota</th>
-    <th>Status</th>
+    <th align="center">Serie</th>
+    <th align="left">Cliente</th>
+    <th align="right">Valor da Nota</th>
+    <th align="right">% ICMS</th>
+    <th align="right">Valor ICMS</th>
+    <th>Impressa?</th>
     <th colspan="3">Ação</th>
   </tr>
 
-<% @notas_fiscais.each do |nota_fiscal| %>
+<% @notas_fiscais.each do |n| %>
   <tr>
-    <td><%=h nota_fiscal.numero_nota %></td>
-    <td><%=h nota_fiscal.selo %></td>
-    <td><%=h nota_fiscal.serie %></td>
-    <td><%=h nota_fiscal.cliente_id %></td>
-    <td><%=h nota_fiscal.total_nota %></td>
-    <td><%=h nota_fiscal.status %></td>
-    <td><%= link_to 'Exibir', nota_fiscal %></td>
-    <td><%= link_to 'Alterar', edit_nota_fiscal_path(nota_fiscal) %></td>
-    <td><%= link_to 'Excluir', nota_fiscal, :confirm => "Excluindo Nota Fiscal Numero #{nota_fiscal.numero_nota}, Tem Certeza?", :method => :delete %></td>
+    <td align="center"><%=h n.numero_nota %></td>
+    <td align="center"><%=h n.selo %></td>
+    <td align="center"><%=h n.serie %></td>
+    <td align="left"><%=h n.cliente.razao_social %></td>
+    <td align="right"><%=h n.total_nota.real.real_formatado %></td>
+    <td align="right"><%=h n.percentual_icms.to_s + ' %' %></td>
+    <td align="right"><%=h n.valor_icms.real.real_formatado %></td>
+    <td align="center"><%=h n.status == 'S' ? 'Sim' : 'Não' %></td>
+    <td><%= link_to 'Exibir', n %></td>
+    <td><%= link_to 'Alterar', edit_nota_fiscal_path(n) if n.status != 'S' %></td>
+    <td><%= link_to 'Excluir', n, :confirm => "Excluir Nota Numero #{n.numero_nota}, Tem Certeza?", :method => :delete if n.status != 'S' %></td>
   </tr>
 <% end %>
 </table>
