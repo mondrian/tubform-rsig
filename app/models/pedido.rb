@@ -71,6 +71,8 @@ class Pedido < ActiveRecord::Base
             vlr_comissao += ( ((item_pedido.valor_venda.to_f * item_pedido.quantidade.to_f) * comissao) / 100 )
         end
     end
+    self.valor = 0 if self.valor.nil?
+    vlr_comissao = 0 if vlr_comissao.nil?
     percentual_comissao =  ((vlr_comissao / self.valor) * 100).to_f
   end
 
