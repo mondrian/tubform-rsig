@@ -2,6 +2,7 @@ class NotaFiscal < ActiveRecord::Base
   has_many :itens, :class_name => 'ItemNotaFiscal'
   belongs_to :cliente
   belongs_to :funcionario
+  has_many   :produtos, :through => :item_pedidos
 
   validates_uniqueness_of :numero_nota,   :message => "Esse Número já foi utilizado em outra Nota "
 

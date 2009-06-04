@@ -135,11 +135,11 @@ Factory.define :funcionario do |f|
     f.observacao 'Mystring'
     f.aci 'Mystring'
     f.email 'tubform@gmail.com'
-	  f.login 'tubform'
-	  f.password '123456'
-	  f.password_confirmation '123456'
-	  f.acoes Acao.find(:all, :conditions=>"controller_name='pedidos'")
-	#f.activated_at Time.now
+    f.login 'tubform'
+	f.password '123456'
+	f.password_confirmation '123456'
+	#f.acoes Acao.find(:all, :conditions=>"controller_name='pedidos'")
+	f.activated_at Time.now
 end
 
 Factory.define :fornecedor do |f|
