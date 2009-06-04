@@ -139,7 +139,7 @@ Factory.define :funcionario do |f|
   	f.password '123456'
   	f.password_confirmation '123456'
     f.acoes do |a|
-      [f.association(:acao), a.association(:acao)]
+      [a.association(:acao), a.association(:acao)]
     end
 	  f.activated_at Time.now
 end
