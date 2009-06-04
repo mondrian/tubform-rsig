@@ -64,14 +64,14 @@ class Pedido < ActiveRecord::Base
             if comissao < 0
                comissao = 0
             else
-                vlr_comissao += ( ((item_pedido.valor_venda * item_pedido.quantidade) * comissao) / 100 )
+                vlr_comissao += ( ((item_pedido.valor_venda.to_f * item_pedido.quantidade.to_f) * comissao) / 100 )
             end
         else
             comissao = comissao_padrao
-            vlr_comissao += ( ((item_pedido.valor_venda * item_pedido.quantidade) * comissao) / 100 )
+            vlr_comissao += ( ((item_pedido.valor_venda.to_f * item_pedido.quantidade.to_f) * comissao) / 100 )
         end
     end
-    percentual_comissao =  vlr_comissao / self.valor * 100
+    percentual_comissao =  ((vlr_comissao / self.valor) * 100).to_f
   end
 
   # A cada 15 dias de prazo acima do parametro, será calculada uma Unidade de Desconto na
