@@ -2,10 +2,12 @@
 
 <table>
   <tr>
+    <th>Código</th>
     <th>Descrição</th>
   </tr>
 <% @produtos.each do |produto| %>
   <tr>
+    <td><%=h produto.id %></td>
     <td><%=h produto.descricao %></td>
     <td><%= link_to 'Exibir', produto %></td>
     <td><%= link_to 'Editar', edit_produto_path(produto) %></td>

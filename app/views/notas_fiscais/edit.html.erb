@@ -1,0 +1,14 @@
+<h1>Editing nota_fiscal</h1>
+
+<% form_for(@nota_fiscal) do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => "form",  :locals => { :f => f} %>
+
+
+  <p>
+    <%= f.submit 'Salvar' %>
+  </p>
+<% end %>
+
+<%= link_to 'Exibir', @nota_fiscal %> |
+<%= link_to 'Retornar', notas_fiscais_path %>

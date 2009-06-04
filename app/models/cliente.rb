@@ -1,11 +1,11 @@
 class Cliente < ActiveRecord::Base
   before_save :remove_mascara
   has_many :pedidos
-  has_many :notasfiscais
   belongs_to  :cidade
   has_one  :regiao_entrega, :class_name => 'Regiao', :foreign_key => 'regiao_entrega_id'
   has_one  :cidade_entrega, :class_name => 'Cidade', :foreign_key => 'cidade_entrega_id'
   has_one  :area
+  has_many :notas_fiscais
 
   validates_presence_of :razao_social, :message => "Informe a RAZÃO SOCIAL"
   validates_presence_of :nome_fantasia, :message => "Informe o Nome de Fantasia"
@@ -28,5 +28,4 @@ public
   def ativo?
     !self.status
   end
-
 end

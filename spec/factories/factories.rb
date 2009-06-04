@@ -101,8 +101,8 @@ Factory.define :produto do |p|
 end
 
 Factory.define :funcionario do |f|
-	f.association :funcionario, :factory => :acao
-	f.tipo '1'
+	  f.association :funcionario, :factory => :acao
+	  f.tipo '1'
     f.nome 'Mystring'
     f.endereco 'Mystring'
     f.complemento 'Mystring'
@@ -142,6 +142,12 @@ Factory.define :funcionario do |f|
       [f.association(:acao), a.association(:acao)]
     end
 	  f.activated_at Time.now
+end
+
+Factory.define :fornecedor do |f|
+  f.nome 'Aço Cearense'
+  f.endereco 'Fortaleza'
+  f.cnpj '07811946000187'
 end
 
 Factory.define :transportadora do |t|

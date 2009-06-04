@@ -1,0 +1,32 @@
+<h3>Itens da Nota Fiscal</h3>
+
+<table border="1">
+  <tr>
+    <th>Nota fiscal</th>
+    <th>Produto</th>
+    <th>Quantidade</th>
+    <th>Valor item</th>
+    <th>Perc icms</th>
+    <th>Perc ipi</th>
+    <th colspan="3">Opções</th>
+  </tr>
+
+<% @itens_nota_fiscal.each do |i| %>
+  <tr>
+    <td><%=h i.nota_fiscal_id %></td>
+    <td><%=h i.produto_id %></td>
+    <td><%=h i.quantidade %></td>
+    <td><%=h i.valor_item %></td>
+    <td><%=h i.perc_icms %></td>
+    <td><%=h i.perc_ipi %></td>
+    <td><%= link_to 'Exibir', i %></td>
+    <td><%= link_to 'Alterar', edit_item_nota_fiscal_path(i) %></td>
+    <td><%= link_to 'Excluir', i, :confirm => "Excluindo item #{i.nota_fiscal_id}, Confirma?", :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Adicionar Item', new_item_nota_fiscal_path %>
+<%= link_to 'Retornar', :controller => "notas_fiscais",  :action => "show", :id => @itens_nota_fiscal.nota_fiscal_id %>

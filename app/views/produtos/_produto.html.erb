@@ -7,6 +7,11 @@
   </p>
 
   <p>
+    <%= f.label :valor_normal, 'Valor' %><br />
+    <%= f.text_field :valor_normal %>
+  </p>
+
+  <p>
     <%= f.submit @produto.new_record? ? 'Criar' : 'Atualizar' %>
   </p>
 
