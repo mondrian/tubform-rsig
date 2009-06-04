@@ -7,6 +7,18 @@ class ItemPedido < ActiveRecord::Base
   validate :valida_item
   
   before_save :trg_soma_itens
+  after_destroy :trg_soma_itens
+
+  public
+    def somar_itens
+      soma = 0
+      p = self.pedido.item_pedidos
+      if p.size > 0
+        for i in p do
+           soma += ((i.quantidade * i.valor_venda) - i.desconto)
+        end
+      end
+    end
   
   private
   def valida_item
@@ -14,30 +26,23 @@ class ItemPedido < ActiveRecord::Base
     existe = false
     if p.size > 0
       for i in p do 
-        if i.id == p.id then 
+        if i.id == self.id then 
           existe = true
         end 
       end
     
-     if existe == true
+     unless existe
       self.errors.add(:produto_id, 'Produto já adicionado neste pedido')
      end 
     end
   end
   
-  def somar_itens
-    soma = 0
-    p = self.pedido.item_pedidos
-    if p.size > 0
-      for i in p do
-         soma += ((p.quantidade * p.valor_venda) - p.valor_desconto)
-      end
-    end
-  end
+
   
   # rotina para Somar os Itens e Atualizar no Pedido
   def trg_soma_itens
    self.pedido.valor = self.somar_itens
    self.pedido.save
   end
+
  end 

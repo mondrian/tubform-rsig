@@ -7,8 +7,6 @@ def popula_acoes
 							 :action_name => 'permitir_desconto_no_pedido')
 end
 
-Cliente.destroy_all
-Acao.destroy_all
 
 Factory.define :acao do |a|
   a.association :funcionario
@@ -150,9 +148,6 @@ Factory.define :funcionario do |f|
 	f.password_confirmation '123456'
 	f.acoes Acao.find(:all, :conditions=>"controller_name='pedidos'")
 	f.activated_at Time.now
-	f.login 'tubform'
-	f.password '123456'
-	f.password_confirmation '123456'
 	f.popula_acoes
 end
 

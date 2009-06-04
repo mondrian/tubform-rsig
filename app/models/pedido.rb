@@ -186,7 +186,7 @@ class Pedido < ActiveRecord::Base
 
 # rotina chamada no before save
  def trg_save
-   self.percentual_comissao = percentual_comissao
+   self.percentual_comissao = self.comissao_desconto_item
    self.gerar_duplicatas if self.changed.include? "plano_de_pagamento" or self.changed.include? "valor"
  end
 end

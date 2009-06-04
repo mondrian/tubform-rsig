@@ -135,10 +135,10 @@
 
   <% total = 0 %>
   <% for i in @nota_fiscal.itens %>
-    <% total += i.valor_item %>
+    <% total += i.valor_item if i.valor_item%>
     <tr>
       <td><%= i.produto_id  %></td>
-      <td><%#= i.produto.descricao  %></td>
+      <td><%= i.produto.descricao if i.produto.descricao%></td>
       <td><%= i.quantidade  %></td>
       <td><%= i.valor_item  %></td>
       <td><%= link_to 'Editar', :controller => :itens_nota_fiscal, :action => :edit, :id => i.id %></td>
