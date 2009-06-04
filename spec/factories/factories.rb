@@ -109,8 +109,8 @@ Factory.define :produto do |p|
 end
 
 Factory.define :funcionario do |f|
-	  f.association :funcionario, :factory => :acao
-	  f.tipo '1'
+	f.association :funcionario, :factory => :acao
+	f.tipo '1'
     f.nome 'Mystring'
     f.endereco 'Mystring'
     f.complemento 'Mystring'
