@@ -111,8 +111,8 @@ Factory.define :produto do |p|
 end
 
 Factory.define :funcionario do |f|
-	  f.association :funcionario, :factory => :acao
-	  f.tipo '1'
+	f.association :funcionario, :factory => :acao
+	f.tipo '1'
     f.nome 'Mystring'
     f.endereco 'Mystring'
     f.complemento 'Mystring'
@@ -150,9 +150,6 @@ Factory.define :funcionario do |f|
 	f.password_confirmation '123456'
 	f.acoes Acao.find(:all, :conditions=>"controller_name='pedidos'")
 	f.activated_at Time.now
-	f.login 'tubform'
-	f.password '123456'
-	f.password_confirmation '123456'
 	f.popula_acoes
 end
 
