@@ -184,9 +184,26 @@ class Pedido < ActiveRecord::Base
     vencimentos
   end
 
+	# Método para Atualizar o Valor do Pedido a cada Item Acrescentado, Excluido ou Alterado
+    def somar_itens
+      soma = 0
+      p = self.item_pedidos
+      if p.size > 0
+        for i in p do
+           soma += ((i.quantidade * i.valor_venda) - i.desconto)
+        end
+      end
+    end
+
 # rotina chamada no before save
  def trg_save
-   self.percentual_comissao = self.comissao_desconto_item
+   self.gerenciar_acoes
    self.gerar_duplicatas if self.changed.include? "plano_de_pagamento" or self.changed.include? "valor"
  end
+ 
+ def gerenciar_acoes
+   self.valor =  self.somar_itens
+   self.percentual_comissao = self.comissao_desconto_item
+ end
+ 
 end

@@ -9,17 +9,6 @@ class ItemPedido < ActiveRecord::Base
   before_save :trg_soma_itens
   after_destroy :trg_soma_itens
 
-  public
-    def somar_itens
-      soma = 0
-      p = self.pedido.item_pedidos
-      if p.size > 0
-        for i in p do
-           soma += ((i.quantidade * i.valor_venda) - i.desconto)
-        end
-      end
-    end
-  
   private
   def valida_item
     p = ItemPedido.find_all_by_produto_id_and_pedido_id(self.produto_id, self.pedido_id)
@@ -37,11 +26,9 @@ class ItemPedido < ActiveRecord::Base
     end
   end
   
-
-  
   # rotina para Somar os Itens e Atualizar no Pedido
   def trg_soma_itens
-   self.pedido.valor = self.somar_itens
+   self.gerenciar_acoes
    self.pedido.save
   end
 
