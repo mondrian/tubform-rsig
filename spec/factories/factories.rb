@@ -1,8 +1,17 @@
+def popula_acoes
+	Acao.create(:controller_name => 'pedidos',
+							 :action_name => 'index',
+							 :controller_name => 'pedidos',
+							 :action_name => 'show',
+							 :controller_name => 'pedidos',
+							 :action_name => 'permitir_desconto_no_pedido')
+end
+
 Cliente.destroy_all
 Acao.destroy_all
 
 Factory.define :acao do |a|
-  a.association :acao, :factory => :funcionario
+  a.association :funcionario
   a.controller_name
   a.action_name
 end
@@ -39,6 +48,7 @@ Factory.define :cliente do |c|
   c.saldo_devedor 9.99
   c.prazo_medio_maximo 75
   c.data_inclusao_prazo_medio "2009-04-24"
+
 end
 
 Factory.define :pedido do |p|
@@ -138,8 +148,12 @@ Factory.define :funcionario do |f|
     f.login 'tubform'
 	f.password '123456'
 	f.password_confirmation '123456'
-	#f.acoes Acao.find(:all, :conditions=>"controller_name='pedidos'")
+	f.acoes Acao.find(:all, :conditions=>"controller_name='pedidos'")
 	f.activated_at Time.now
+	f.login 'tubform'
+	f.password '123456'
+	f.password_confirmation '123456'
+	f.popula_acoes
 end
 
 Factory.define :fornecedor do |f|
