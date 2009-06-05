@@ -28,11 +28,3 @@ git
     E defino valor_icms_substituicao_tributaria com o valor 40
     Quando eu salvar o registro
     Então preciso receber a mensagem "Nota Fiscal Gravada, Insira os Itens ..."
-
-Cenário: Alterando uma nota_fiscal válida
-    Dado que existe um(a) nota_fiscal
-    E que estou no detalhe de nota_fiscal 1
-    E seleciono sell com o valor BB
-    E defino status com o valor S
-    Quando eu salvar o registro
-    Então preciso receber a mensagem "Nota Fiscal Atualizada ...."
