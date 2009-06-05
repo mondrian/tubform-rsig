@@ -27,13 +27,6 @@ Então /^preciso receber a mensagem "([^\"]*)"$/ do |mensagem|
   response_body.should have_tag("p", :text=> mensagem)
 end
 
-Dado /^que estou logado com login (.*) e a senha (.*)$/ do |login, senha|
-  visit '/login'
-  fill_in 'login', :with => login
-  fill_in 'password', :with => senha
-  click_button "Entrar"
-end
-
 Dado /^que existem (\d+) (.+)$/ do |quantidade, entidade|
   entidade = entidade.gsub(/\s/, '_').singularize
   entidade_simbolo = entidade.to_sym
@@ -82,5 +75,43 @@ Então /^preciso ver (.*) (.*)$/ do |quantidade,entidades|
   registros = entidade.find(:all)
   registros.count.should == quantidade.to_i
   registros.each {|r| have_tag("td", :content => "#{r.id}")}
+end
+
+
+Dado /^que o usuário (.+) com senha (.+) existe$/ do |login, senha|
+  Factory(:funcionario, :login => login, :password => senha, :password_confirmation => senha)
+end
+
+Dado /^que o usuário (.+) possui as seguintes permissões:$/ do |login,tabela|
+  funcionario = Funcionario.find_by_login(login)
+  tabela.hashes.each do |hash|
+    acao = Factory(:acao, hash)
+    Factory(:acao_funcionario, :acao_id => acao.id, :funcionario_id => funcionario.id)
+  end
+end
+
+Dado /^que estou em (.*)$/ do |nome_da_pagina|
+  visit path_to(nome_da_pagina)
+end
+
+
+Quando /^eu pedir autenticação$/ do
+  click_button("Autenticar")
+end
+
+Dado /^que me identifiquei como (.+) com a senha (.+)$/ do |login, senha|
+  Funcionario.destroy_all
+  Acao.destroy_all
+  AcaoFuncionario.destroy_all
+  Dado "que o usuário #{login} com senha #{senha} existe"
+  Dado "que o usuário #{login} possui as seguintes permissões:", table(%{
+    | controller_name | action_name |
+    | pedidos         | new         |
+    | pedidos         | desconto    |
+  })
+  Dado "que estou em autenticação"
+  Dado "defino usuário com o valor #{login}"
+  Dado "defino senha com o valor #{senha}"
+  Quando "eu pedir autenticação"
 end
 

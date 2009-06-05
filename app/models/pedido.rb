@@ -17,6 +17,7 @@ class Pedido < ActiveRecord::Base
   validates_presence_of :operador_id, :message => "Operador não Informado, verifique ...."
 
   before_save :trg_save
+
   public
   def no_prazo_medio_maximo?
     self.cliente.prazo_medio_maximo <= self.prazo_medio
@@ -70,6 +71,11 @@ class Pedido < ActiveRecord::Base
         vlr_comissao += ( ((item_pedido.valor_venda.to_f * item_pedido.quantidade.to_f) * comissao) / 100 )
       end
     end
+    if self.valor.nil? 
+       self.valor = 1
+       vlr_comissao = 0
+    end
+    vlr_comissao = 0 if vlr_comissao.nil?
     percentual_comissao =  ((vlr_comissao / self.valor) * 100).to_f
   end
 
@@ -156,7 +162,8 @@ class Pedido < ActiveRecord::Base
            p.cliente_id = p.devedor_id = self.cliente_id
            p.pedido_id = self.id
            p.nome_devedor = self.nome_comprador
-           p.save
+           #p.save
+            self.duplicatas << p
            i += 1
          end
         'ok'

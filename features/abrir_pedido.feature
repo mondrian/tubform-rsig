@@ -1,11 +1,11 @@
+@foco
 Funcionalidade: Abrir pedido de Venda
   Como um vendedor
   Eu quero abrir um de venda
   Para que seja base para que o processo de venda continue
 
   Cenário: Adicionando um pedido válido
-    Dado que existe um(a) funcionario
-	E que estou logado como vendedor
+	Dado que me identifiquei como fulano com a senha 123456
 	E que existe um(a) transportadora
     E que existe um(a) cliente
     E que existe um(a) funcionario
