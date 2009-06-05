@@ -6,8 +6,8 @@ class ItemPedido < ActiveRecord::Base
   validates_numericality_of :quantidade, :message => "Informe Apenas Números"
   validate :valida_item
   
-  before_save :trg_soma_itens
-  after_destroy :trg_soma_itens
+  #before_save :trg_soma_itens
+  #after_destroy :trg_soma_itens
 
   private
   def valida_item
@@ -28,7 +28,7 @@ class ItemPedido < ActiveRecord::Base
   
   # rotina para Somar os Itens e Atualizar no Pedido
   def trg_soma_itens
-   self.gerenciar_acoes
+   self.pedido.gerenciar_acoes
    self.pedido.save
   end
 
