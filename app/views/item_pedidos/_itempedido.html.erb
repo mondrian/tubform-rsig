@@ -10,16 +10,16 @@
 </p>
 
 <p>
+  <%= f.label :valor_venda, 'Valor' %><br />
+  <%= f.text_field :valor_venda  %>
+</p>
+
+<p>
   <%= f.label :quantidade %> <br/>
   <%= f.text_field :quantidade %>
 </p>
 <div id="detalhe_produto">
 </div>
-
-<%= observe_field :item_pedido_produto_id, 
-   :update => "detalhe_produto", 
-   :url => "/item_pedidos/detalhe", 
-   :with => :item_pedido_produto_id %>
 
   <p>
     <%= f.submit @item_pedido.new_record? ? 'Salvar' : 'Atualizar' %>

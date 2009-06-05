@@ -1,9 +1,11 @@
 <p>
   <b>Tipo de Cliente:</b>
   <%=h @cliente.tipo_cliente == "F" ? "Pessoa Física" : "Pessoa Jurídica" %> -
-  <b>Cpf ou Cnpj:</b>
-  <%=h  @cliente.cpf %> -  <b>Status:</b>  <%=h @cliente.status == 'A' ? 'Ativo' : 'Inativo' %>
-</p>
+  <b>Cpf / Cnpj:</b>
+    <%=h @cliente.cpf.blank? ? @cliente.cnpj : @cliente.cpf %>
+    <%=h @cliente.cnpj.blank? ? @cliente.cpf : @cliente.cnpj %>
+     - <b>Status:</b>  <%=h @cliente.status == 'A' ? 'Ativo' : 'Inativo' %>
+  </p>
 
 <p>
   <b>Razao Social:</b>
@@ -16,13 +18,13 @@
 </p>
 
 <p>
-  <b>RG ou Inscrição Estadual:</b>
+  <b>RG / Inscrição Estadual:</b>
   <%=h @cliente.documento %>
 </p>
 
 <p>
   <b>Endereco:</b>
-  <%=h @cliente.endereco %>, <%=h @cliente.complemento %>
+  <%=h @cliente.endereco %> <%=h @cliente.complemento %>
 </p>
 
 <p>
