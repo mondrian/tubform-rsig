@@ -34,8 +34,7 @@ class Pedido < ActiveRecord::Base
   end
 
   def no_desconto_permitido?
-    faixa_de_desconto = FaixaDeDesconto.find(:first,
-      :conditions => "#{self.prazo_medio} >= de and #{self.prazo_medio} <= ate")
+    faixa_de_desconto = FaixaDeDesconto.find(:first, :conditions => "#{self.prazo_medio} >= de and #{self.prazo_medio} <= ate")
     self.desconto < faixa_de_desconto.desconto_permitido
   end
 
@@ -55,21 +54,21 @@ class Pedido < ActiveRecord::Base
 
     # Exemplo do calculo abaixo: 5.5-((25-23)*0.150)
     for item_pedido in self.item_pedidos
-        if item_pedido.desconto > 0
-            if item_pedido.desconto <= desconto_padrao
-               comissao = (comissao_padrao - ((item_pedido.desconto - comissao_padrao) * percentual_reducao ))
-            else
-               comissao = comissao_padrao
-            end
-            if comissao < 0
-               comissao = 0
-            else
-                vlr_comissao += ( ((item_pedido.valor_venda.to_f * item_pedido.quantidade.to_f) * comissao) / 100 )
-            end
+      if item_pedido.desconto > 0
+        if item_pedido.desconto <= desconto_padrao
+          comissao = (comissao_padrao - ((item_pedido.desconto - comissao_padrao) * percentual_reducao ))
         else
-            comissao = comissao_padrao
-            vlr_comissao += ( ((item_pedido.valor_venda.to_f * item_pedido.quantidade.to_f) * comissao) / 100 )
+          comissao = comissao_padrao
         end
+        if comissao < 0
+          comissao = 0
+        else
+         vlr_comissao += ( ((item_pedido.valor_venda.to_f * item_pedido.quantidade.to_f) * comissao) / 100 )
+        end
+      else
+        comissao = comissao_padrao
+        vlr_comissao += ( ((item_pedido.valor_venda.to_f * item_pedido.quantidade.to_f) * comissao) / 100 )
+      end
     end
     percentual_comissao =  ((vlr_comissao / self.valor) * 100).to_f
   end
@@ -203,7 +202,7 @@ class Pedido < ActiveRecord::Base
  
  def gerenciar_acoes
    self.valor =  self.somar_itens
-   self.percentual_comissao = self.comissao_desconto_item
+   self.percentual_comissao = self.comissao_desconto_item ? self.comissao_desconto_item : 5
  end
  
 end

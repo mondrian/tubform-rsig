@@ -45,8 +45,6 @@ function valor(v){
   return v
 }
 
-
-
 function cpf_cnpj(v) {
   if (v.length > 14) {
     return cnpj(v);

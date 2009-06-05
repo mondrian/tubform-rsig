@@ -28,8 +28,8 @@ class ItemPedido < ActiveRecord::Base
   
   # rotina para Somar os Itens e Atualizar no Pedido
   def trg_soma_itens
-   self.gerenciar_acoes
+   self.pedido.gerenciar_acoes
    self.pedido.save
   end
 
- end 
+ end
