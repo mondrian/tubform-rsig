@@ -179,3 +179,30 @@ Factory.define :produto_kit do |k|
   k.association :produto, :factory => :produto
 end
 
+Factory.define :nota_fiscal do |n|
+    n.numero_nota '1'
+    n.selo '12'
+    n.serie 'AA'
+    n.association :cliente 
+    n.percentual_icms 17
+    n.emissao '2009-05-02'
+    n.valor_frete 0
+    n.cfop '5102'
+    n.natureza_operacao 'VENDA'
+    n.valor_ipi 0
+    n.valor_desconto 0
+    n.total_nota 0
+    n.status 'N'
+    n.base_calculo_icms 0
+    n.valor_icms 0 
+    n.qtde_volumes 1
+    n.entrada '2009-05-01'
+    n.saida '2009-05-05'
+    n.percentual_desconto 0
+    n.observacao 'teste'
+    n.base_calculo_icms_substituicao_tributaria 0
+    n.percentual_icms_substituicao_tributaria 0 
+    n.valor_icms_substituicao_tributaria 0 
+    n.association :fornecedor
+  end
+

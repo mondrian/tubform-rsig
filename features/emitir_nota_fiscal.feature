@@ -2,7 +2,7 @@ Funcionalidade: Emitir Nota Fiscal
   Como um Operador
   Eu quero emitir uma Nota Fiscal
   Para que o processo de venda seja finalizado
-
+git 
   Cenário: Emitindo Uma Nota Fiscal Manualmente
     Dado que existe um(a) transportadora
     E que existe um(a) fornecedor
