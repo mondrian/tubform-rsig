@@ -12,3 +12,4 @@ Funcionalidade: Gerar Parcelas
     E que o Nome do Comprador é GUSTAVOLG.LG
     Quando eu Gerar as Parcelas
     Então eu preciso receber a mensagem ok
+    E estamos testando o merge
