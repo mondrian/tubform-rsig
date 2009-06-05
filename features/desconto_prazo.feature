@@ -5,7 +5,7 @@ Funcionalidade: Calcular Comissao
 
   Cenário: Calculando a Comissao
     Dado que existe um(a) item_pedido
-	E que estou logado com login tubform e a senha 123456
+	  E que me identifiquei como tubform com a senha 123456
     E que estou no item
     E o valor da tabela for 500
     E o valor da venda for 500

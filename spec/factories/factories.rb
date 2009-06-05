@@ -20,7 +20,7 @@ end
 
 Factory.define :cliente do |c|
   c.tipo_cliente "E"
-  c.sequence(:cpf) { |n| "000000000#{n}" }
+  c.sequence(:cpf) { |n| "00000000#{n}" }
   c.sequence(:cnpj) { |n| "000000000#{n}" }
   c.razao_social "MyString"
   c.nome_fantasia "MyString"
@@ -203,6 +203,5 @@ Factory.define :nota_fiscal do |n|
     n.base_calculo_icms_substituicao_tributaria 0
     n.percentual_icms_substituicao_tributaria 0 
     n.valor_icms_substituicao_tributaria 0 
-    n.association :fornecedor
   end
 
