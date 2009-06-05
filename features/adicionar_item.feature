@@ -8,7 +8,7 @@ Funcionalidade: Adicionar Item do Pedido
 	   Dado que me identifiquei como tubform com a senha 123456
     Quando eu requisitar um novo item
     E seleciono o produto
-	E receber a mensagem Produto não encontrado
+  	E receber a mensagem Produto não encontrado
 	E receber a mensagem Este produto não tem valor cadastrado e não pode ser inserido em um pedido
     E defino quantidade com o valor 10
     E defino valor_venda com o valor 100
