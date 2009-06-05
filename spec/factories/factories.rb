@@ -50,7 +50,6 @@ Factory.define :cliente do |c|
   c.saldo_devedor 9.99
   c.prazo_medio_maximo 75
   c.data_inclusao_prazo_medio "2009-04-24"
-
 end
 
 Factory.define :pedido do |p|
@@ -59,7 +58,7 @@ Factory.define :pedido do |p|
   p.previsao_entrega "2009-05-14"
   p.entrega "2009-05-14"
   p.programacao "2009-05-14"
-  p.association :cliente, :factory => :cliente
+  p.association :cliente
   p.valor 9.99
   p.acrescimo 9.99
   p.desconto 9.99
@@ -113,42 +112,42 @@ Factory.define :produto do |p|
 end
 
 Factory.define :funcionario do |f|
-	  f.tipo '1'
-    f.nome 'Mystring'
-    f.endereco 'Mystring'
-    f.complemento 'Mystring'
-    f.cep 'Mystring'
-    f.cidade_id 1
-    f.uf 'Mystring'
-    f.fone 'Mystring'
-    f.sequence(:cpf) { |n| "999999999#{n}" }
-    f.sequence(:rg) { |n| "999999999#{n}" }
-    f.pai 'Mystring'
-    f.mae 'Mystring'
-    f.numero_carteira_trabalho 'Mystring'
-    f.serie_carteira_trabalho 'Mystring'
-    f.titulo_eleitor 'Mystring'
-    f.zona_eleitoral 'Mystring'
-    f.admissao '2009-01-01'
-    f.registro '2009-01-01'
-    f.nascimento '2009-01-01'
-    f.naturalidade 'Mystring'
-    f.estado_civil 'Mystring'
-    f.grau_instrucao 'Mystring'
-    f.cadastro_pis 'Mystring'
-    f.numero_pis 'Mystring'
-    f.cod_banco_pis 'Mystring'
-    f.nome_banco_pis 'Mystring'
-    f.cod_agencia_pis 'Mystring'
-    f.nome_agencia_pis 'Mystring'
-    f.endereco_banco_pis 'Mystring'
-    f.demissao '2009-01-02'
-    f.observacao 'Mystring'
-    f.aci 'Mystring'
-    f.sequence(:email) { |n| "email#{n}@exemplo.com.br" }
-  	f.sequence(:login) { |n| "usuario#{n}" }
-  	f.password '123456'
-  	f.password_confirmation '123456'
+  f.tipo '1'
+  f.nome 'Mystring'
+  f.endereco 'Mystring'
+  f.complemento 'Mystring'
+  f.cep 'Mystring'
+  f.cidade_id 1
+  f.uf 'Mystring'
+  f.fone 'Mystring'
+  f.sequence(:cpf) { |n| "999999999#{n}" }
+  f.sequence(:rg) { |n| "999999999#{n}" }
+  f.pai 'Mystring'
+  f.mae 'Mystring'
+  f.numero_carteira_trabalho 'Mystring'
+  f.serie_carteira_trabalho 'Mystring'
+  f.titulo_eleitor 'Mystring'
+  f.zona_eleitoral 'Mystring'
+  f.admissao '2009-01-01'
+  f.registro '2009-01-01'
+  f.nascimento '2009-01-01'
+  f.naturalidade 'Mystring'
+  f.estado_civil 'Mystring'
+  f.grau_instrucao 'Mystring'
+  f.cadastro_pis 'Mystring'
+  f.numero_pis 'Mystring'
+  f.cod_banco_pis 'Mystring'
+  f.nome_banco_pis 'Mystring'
+  f.cod_agencia_pis 'Mystring'
+  f.nome_agencia_pis 'Mystring'
+  f.endereco_banco_pis 'Mystring'
+  f.demissao '2009-01-02'
+  f.observacao 'Mystring'
+  f.aci 'Mystring'
+  f.sequence(:email) { |n| "email#{n}@exemplo.com.br" }
+  f.sequence(:login) { |n| "usuario#{n}" }
+  f.password '123456'
+  f.password_confirmation '123456'
 end
 
 Factory.define :fornecedor do |f|
@@ -158,7 +157,7 @@ Factory.define :fornecedor do |f|
 end
 
 Factory.define :transportadora do |t|
-    t.razao_social 'Tubform'
+  t.razao_social 'Tubform'
 end
 
 Factory.define :item_pedido do |i|
