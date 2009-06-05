@@ -18,6 +18,11 @@
   <%= f.label :quantidade %> <br/>
   <%= f.text_field :quantidade %>
 </p>
+<%= observe_field :item_pedido_produto_id, 
+   :update => "valor_venda", 
+   :url => "/item_pedidos/detalhe", 
+   :with => :valor_venda %>
+
 <div id="detalhe_produto">
 </div>
 

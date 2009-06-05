@@ -13,8 +13,8 @@ class Cliente < ActiveRecord::Base
   #validates_uniqueness_of :cpf, :message => 'CPF já Cadastrado'
   #validates_uniqueness_of :cnpj, :message => 'CNPJ já Cadastrado'
 
-  usar_como_cpf :cpf
-  usar_como_cnpj :cnpj
+  #usar_como_cpf :cpf
+  #usar_como_cnpj :cnpj
   
 private
   def remove_mascara
