@@ -4,9 +4,11 @@ Dado /^que estou no formulário de cadastro de (.*)$/ do |entidade|
 end
 
 Quando /^defino (.*) com o valor (.*)$/ do |atributo,valor|
- atributo = atributo.gsub(/\s/, '_')
- atributo = @entidade_principal + "_" + atributo
- fill_in atributo, :with => valor
+  atributo = atributo.gsub(/\s/, '_')
+  if ((atributo != "login") and (atributo != "password")) then
+    atributo = @entidade_principal + "_" + atributo
+  end
+  fill_in atributo, :with => valor
 end
 
 Quando /^seleciono (.*) com o valor (.*)$/ do |atributo,valor|
@@ -96,7 +98,7 @@ end
 
 
 Quando /^eu pedir autenticação$/ do
-  click_button("Autenticar")
+  click_button("Entrar")
 end
 
 Dado /^que me identifiquei como (.+) com a senha (.+)$/ do |login, senha|
@@ -110,8 +112,8 @@ Dado /^que me identifiquei como (.+) com a senha (.+)$/ do |login, senha|
     | pedidos         | desconto    |
   })
   Dado "que estou em autenticação"
-  Dado "defino usuário com o valor #{login}"
-  Dado "defino senha com o valor #{senha}"
+  Dado "defino login com o valor #{login}"
+  Dado "defino password com o valor #{senha}"
   Quando "eu pedir autenticação"
 end
 
