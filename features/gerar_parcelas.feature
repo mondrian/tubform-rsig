@@ -5,11 +5,10 @@ Funcionalidade: Gerar Parcelas
 
   Cenário: Gerando Duplicatas
     Dado que existe um(a) pedido
-	E que estou logado com login tubform e a senha 123456
+	  Dado que me identifiquei como tubform com a senha 123456
     E que estou no(a) pedido
     E que o total do Pedido seja 1500
     E que o Plano de Pagamento é 030060090
     E que o Nome do Comprador é GUSTAVOLG.LG
     Quando eu Gerar as Parcelas
-   Então eu preciso receber a mensagem ok2
-
+    Então eu preciso receber a mensagem ok

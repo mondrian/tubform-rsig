@@ -5,7 +5,7 @@ Funcionalidade: Adicionar Item do Pedido
 
   Cenário: Adicionando um Pedido Válido
     Dado que existe um pedido
-	E que estou logado com login tubform e a senha 123456
+	Dado que me identifiquei como tubform com a senha 123456
     Quando eu requisitar um novo item
     E seleciono o produto
 	E receber a mensagem Produto não encontrado

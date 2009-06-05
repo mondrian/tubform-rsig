@@ -5,7 +5,7 @@ Funcionalidade: Abrir pedido de Venda
   Para que seja base para que o processo de venda continue
 
   Cenário: Adicionando um pedido válido
-	Dado que me identifiquei como fulano com a senha 123456
+	Dado que me identifiquei como tubform com a senha 123456
 	E que existe um(a) transportadora
     E que existe um(a) cliente
     E que existe um(a) funcionario
