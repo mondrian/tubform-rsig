@@ -3,7 +3,7 @@ Dado /^que estou no formulário de cadastro de (.*)$/ do |entidade|
   @entidade_principal = entidade
 end
 
-Quando /^defino (.*) com o valor (.*)$/ do |atributo,valor|
+Dado /^defino (.*) com o valor (.*)$/ do |atributo,valor|
   atributo = atributo.gsub(/\s/, '_')
   if ((atributo != "login") and (atributo != "password")) then
     atributo = @entidade_principal + "_" + atributo
