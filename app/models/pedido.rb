@@ -76,10 +76,12 @@ class Pedido < ActiveRecord::Base
        vlr_comissao = 0
     end
     vlr_comissao = 0 if vlr_comissao.nil?
-    percentual_comissao =  ((vlr_comissao / self.valor) * 100).to_f
-    if !percentual_comissao > 0 then
-       percentual_comissao = 0
+    if self.valor > 0
+       percentual_comissao =  ((vlr_comissao / self.valor) * 100).to_f
+    else
+       percentual_comissao = 0 
     end
+    
   end
 
   # A cada 15 dias de prazo acima do parametro, será calculada uma Unidade de Desconto na
