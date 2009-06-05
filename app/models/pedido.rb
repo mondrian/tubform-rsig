@@ -204,7 +204,7 @@ class Pedido < ActiveRecord::Base
  # rotina chamada no before save
  def trg_save
    self.gerenciar_acoes
-   self.gerar_duplicatas if self.changed.include? "plano_de_pagamento" or self.changed.include? "valor"
+   #self.gerar_duplicatas if self.changed.include? "plano_de_pagamento" or self.changed.include? "valor"
  end
  
  def gerenciar_acoes
