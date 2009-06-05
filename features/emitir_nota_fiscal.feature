@@ -2,7 +2,7 @@ Funcionalidade: Emitir Nota Fiscal
   Como um Operador
   Eu quero emitir uma Nota Fiscal
   Para que o processo de venda seja finalizado
-
+git 
   Cenário: Emitindo Uma Nota Fiscal Manualmente
     Dado que existe um(a) transportadora
     E que existe um(a) fornecedor
@@ -28,3 +28,11 @@ Funcionalidade: Emitir Nota Fiscal
     E defino valor_icms_substituicao_tributaria com o valor 40
     Quando eu salvar o registro
     Então preciso receber a mensagem "Nota Fiscal Gravada, Insira os Itens ..."
+
+Cenário: Alterando uma nota_fiscal válida
+    Dado que existe um(a) nota_fiscal
+    E que estou no detalhe de nota_fiscal 1
+    E seleciono sell com o valor BB
+    E defino status com o valor S
+    Quando eu salvar o registro
+    Então preciso receber a mensagem "Nota Fiscal Atualizada ...."
