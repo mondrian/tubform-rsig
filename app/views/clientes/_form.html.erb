@@ -4,11 +4,11 @@
 </p>
 <p>
   <label for="cpf">CPF: </label><br/>
-  <%= f.text_field :cpf, :onkeypress => 'mascara(this,cpf_cnpj)'  %>
+  <%= f.text_field :cpf, :onkeypress => 'mascara(this, cpf_cnpj)', :size => 14, :maxlength => 14 %>
 </p>
 <p>
   <label for="cnpj">CNPJ: </label><br/>
-  <%= f.text_field :cnpj, :onkeypress => 'mascara(this, cnpj)'  %>
+  <%= f.text_field :cnpj, :onkeypress => 'mascara(this, cpf_cnpj)', :size => 18, :maxlength => 18  %>
 </p>
 <p>
   <label for="razao_social">Razão Social: </label><br/>
@@ -35,12 +35,8 @@
   <%= f.text_field :complemento %>
 </p>
 <p>
-  <%= f.label "Estado:" %>
-  <%= f.select :uf, Uf.find(:all).collect { |p| [ p.descricao, p.uf ] }, :include_blank => true
-%>
-</p>
-<p>
-Cidade:
+  <%= f.label "Estado / Cidade:" %>
+  <%= f.select :uf, Uf.find(:all).collect { |p| [ p.descricao, p.uf ] }, :include_blank => true %>
   <div id="div_cidade">
     <% if !@cliente.cidade.nil? then %>
       <%=  select_tag('cliente[cidade_id]', "<option>#{@cliente.cidade.descricao}</option>", :disabled => true) %>
@@ -66,6 +62,10 @@ Cidade:
 <p>
   <%= f.label :fone_celular %><br />
   <%= f.text_field :fone_celular, :onkeypress => 'mascara(this, telefone)'  %>
+</p>
+<p>
+  <%= f.label :email %><br />
+  <%= f.text_field :email, :onkeypress => 'mascara(this, email)'  %>
 </p>
 <p>
   <%= f.label :endereco_entrega %><br />

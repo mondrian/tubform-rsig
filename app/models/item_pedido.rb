@@ -32,4 +32,4 @@ class ItemPedido < ActiveRecord::Base
    self.pedido.save
   end
 
- end 
+ end
