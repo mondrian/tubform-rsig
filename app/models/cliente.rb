@@ -15,7 +15,6 @@ class Cliente < ActiveRecord::Base
 
 #  usar_como_cpf :cpf
 #  usar_como_cnpj :cnpj
-
 private
   def remove_mascara
     self.cpf.gsub!(/[^0-9]/,'') if !self.cpf.nil?
@@ -57,4 +56,3 @@ public
 
  end
 end
-
