@@ -11,7 +11,7 @@ Quando /^defino (.*) com o valor (.*)$/ do |atributo,valor|
   fill_in atributo, :with => valor
 end
 
-Quando /^seleciono (.*) com o valor (.*)$/ do |atributo,valor|
+Dado /^seleciono (.*) com o valor (.*)$/ do |atributo,valor|
 #  atributo = atributo.gsub(/\s/, '_')
  atributo = @entidade_principal + "[" + atributo + "]"
  select(valor,atributo)
