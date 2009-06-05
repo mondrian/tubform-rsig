@@ -13,9 +13,14 @@ class Cliente < ActiveRecord::Base
   #validates_uniqueness_of :cpf, :message => 'CPF já Cadastrado'
   #validates_uniqueness_of :cnpj, :message => 'CNPJ já Cadastrado'
 
+<<<<<<< HEAD:app/models/cliente.rb
  # usar_como_cpf :cpf
  # usar_como_cnpj :cnpj
   
+=======
+#  usar_como_cpf :cpf
+#  usar_como_cnpj :cnpj
+>>>>>>> 6134f0a110969eb7abee06a7e89a41d13753a062:app/models/cliente.rb
 private
   def remove_mascara
     self.cpf.gsub!(/[^0-9]/,'') if !self.cpf.nil?
@@ -57,4 +62,3 @@ public
 
  end
 end
-
