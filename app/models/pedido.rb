@@ -69,14 +69,19 @@ class Pedido < ActiveRecord::Base
       else
         comissao = comissao_padrao
         vlr_comissao += ( ((item_pedido.valor_venda.to_f * item_pedido.quantidade.to_f) * comissao) / 100 )
-      end
+      end 
     end
     if self.valor.nil? 
        self.valor = 1
        vlr_comissao = 0
     end
     vlr_comissao = 0 if vlr_comissao.nil?
-    percentual_comissao =  ((vlr_comissao / self.valor) * 100).to_f
+    if self.valor > 0
+       percentual_comissao =  ((vlr_comissao / self.valor) * 100).to_f
+    else
+       percentual_comissao = 0 
+    end
+    
   end
 
   # A cada 15 dias de prazo acima do parametro, será calculada uma Unidade de Desconto na
@@ -201,10 +206,10 @@ class Pedido < ActiveRecord::Base
       end
     end
 
-# rotina chamada no before save
+ # rotina chamada no before save
  def trg_save
    self.gerenciar_acoes
-   self.gerar_duplicatas if self.changed.include? "plano_de_pagamento" or self.changed.include? "valor"
+   #self.gerar_duplicatas if self.changed.include? "plano_de_pagamento" or self.changed.include? "valor"
  end
  
  def gerenciar_acoes
