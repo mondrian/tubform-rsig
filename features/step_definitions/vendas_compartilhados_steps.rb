@@ -8,6 +8,7 @@ Dado /^defino (.*) com o valor (.*)$/ do |atributo,valor|
   if ((atributo != "login") and (atributo != "password")) then
     atributo = @entidade_principal + "_" + atributo
   end
+  puts atributo
   fill_in atributo, :with => valor
 end
 
@@ -20,6 +21,11 @@ end
 Quando /^eu salvar o registro$/ do
   click_button "Salvar"
 end
+
+Quando /^atualizar o registro$/ do
+  click_button "Atualizar"
+end
+
 
 Quando /^eu clicar em (.*)$/ do |botao|
   click_button botao
@@ -57,6 +63,7 @@ end
 
 Dado /^que estou no detalhe de (.*) (\d+)$/ do |entidade, id|
   klass = eval(entidade.camelize)
+  @entidade_principal = entidade
   @registro = klass.find(:first)
   visit "#{entidade.pluralize}/edit/#{@registro.id}"
 end
