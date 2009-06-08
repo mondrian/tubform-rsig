@@ -5,11 +5,11 @@ Para obter o valor do percentual de comissão
 
 Cenário: Obtendo percentual de comissão
   Dado que existe um(a) item_pedido
-  E eu estou no item
-  E o valor de tabela for 736.00
-  E o valor de venda for 662.40
-  E a quantidade for 1
-  E o percentual de desconto for 10
-  Quando salvar o item de pedido
+  E que estou no detalhe de item_pedido 1
+  E defino valor tabela com o valor 736.00
+  E defino valor venda com o valor 662.40
+  E defino quantidade com o valor 1
+  E defino desconto com o valor  10
+  Quando atualizar o registro
   Então o valor da comissao calculada deve ser 6.32
 

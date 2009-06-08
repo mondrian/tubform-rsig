@@ -23,5 +23,6 @@ Quando /^eu salvar o item de pedido$/ do
 end
 
 Então /^o valor da comissao calculada deve ser(.*)$/ do |comissao|
-  @item_pedido.pedido.comissao_desconto_item == comissao
+  @registro.pedido.comissao_desconto_item == comissao
 end
+

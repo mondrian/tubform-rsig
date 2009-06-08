@@ -13,9 +13,9 @@ class Cliente < ActiveRecord::Base
   #validates_uniqueness_of :cpf, :message => 'CPF já Cadastrado'
   #validates_uniqueness_of :cnpj, :message => 'CNPJ já Cadastrado'
 
-  usar_como_cpf :cpf
-  usar_como_cnpj :cnpj
-  
+#  usar_como_cpf :cpf
+#  usar_como_cnpj :cnpj
+
 private
   def remove_mascara
     self.cpf.gsub!(/[^0-9]/,'') if !self.cpf.nil?
@@ -31,7 +31,7 @@ public
   def ativo?
     !self.status
   end
-  
+
   def verifica_cnpj
   	if (self.cpf.nil? and self.cnpj.nil?)
   	  errors.add_to_base("CPF ou CNPJ Obrigatorio!")
@@ -45,7 +45,7 @@ public
         end
   	  end
   	end
-  	
+
   	if !self.cnpj.nil? then
   	  begin
         cnpj = Cliente.find_by_cnpj(self.cnpj)
@@ -56,4 +56,4 @@ public
   	end
 
  end
-end  
+end

@@ -3,13 +3,16 @@ Dado /^que estou no formulário de cadastro de (.*)$/ do |entidade|
   @entidade_principal = entidade
 end
 
-Quando /^defino (.*) com o valor (.*)$/ do |atributo,valor|
- atributo = atributo.gsub(/\s/, '_')
- atributo = @entidade_principal + "_" + atributo
- fill_in atributo, :with => valor
+Dado /^defino (.*) com o valor (.*)$/ do |atributo,valor|
+  atributo = atributo.gsub(/\s/, '_')
+  if ((atributo != "login") and (atributo != "password")) then
+    atributo = @entidade_principal + "_" + atributo
+  end
+  puts atributo
+  fill_in atributo, :with => valor
 end
 
-Quando /^seleciono (.*) com o valor (.*)$/ do |atributo,valor|
+Dado /^seleciono (.*) com o valor (.*)$/ do |atributo,valor|
 #  atributo = atributo.gsub(/\s/, '_')
  atributo = @entidade_principal + "[" + atributo + "]"
  select(valor,atributo)
@@ -18,6 +21,11 @@ end
 Quando /^eu salvar o registro$/ do
   click_button "Salvar"
 end
+
+Quando /^atualizar o registro$/ do
+  click_button "Atualizar"
+end
+
 
 Quando /^eu clicar em (.*)$/ do |botao|
   click_button botao
@@ -55,6 +63,7 @@ end
 
 Dado /^que estou no detalhe de (.*) (\d+)$/ do |entidade, id|
   klass = eval(entidade.camelize)
+  @entidade_principal = entidade
   @registro = klass.find(:first)
   visit "#{entidade.pluralize}/edit/#{@registro.id}"
 end
@@ -96,7 +105,7 @@ end
 
 
 Quando /^eu pedir autenticação$/ do
-  click_button("Autenticar")
+  click_button("Entrar")
 end
 
 Dado /^que me identifiquei como (.+) com a senha (.+)$/ do |login, senha|
@@ -110,8 +119,8 @@ Dado /^que me identifiquei como (.+) com a senha (.+)$/ do |login, senha|
     | pedidos         | desconto    |
   })
   Dado "que estou em autenticação"
-  Dado "defino usuário com o valor #{login}"
-  Dado "defino senha com o valor #{senha}"
+  Dado "defino login com o valor #{login}"
+  Dado "defino password com o valor #{senha}"
   Quando "eu pedir autenticação"
 end
 
