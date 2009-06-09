@@ -177,4 +177,6 @@
 
 <%= button_to 'Desconto', :action => :permitir_desconto_no_pedido, :id => @pedido.id %>
 
+<%= button_to 'Alterar Data Entrega', :action => :alterar_data_entrega_pedido, :id => @pedido.id %>
+
 <%= link_to 'Voltar', pedidos_path %>
