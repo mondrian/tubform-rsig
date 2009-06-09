@@ -353,6 +353,7 @@ ActiveRecord::Schema.define(:version => 20090609151847) do
     t.decimal  "percentual_comissao",                  :precision => 6, :scale => 2
     t.decimal  "comissao_vendedor",                    :precision => 6, :scale => 2
     t.decimal  "comissao_telemarketing",               :precision => 6, :scale => 2
+    t.date     "data_aprovacao_pedido"
   end
 
   create_table "planosdepagamento", :force => true do |t|
