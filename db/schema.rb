@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090609134425) do
+ActiveRecord::Schema.define(:version => 20090609151847) do
 
   create_table "acoes", :force => true do |t|
     t.string   "controller_name"
@@ -343,7 +343,6 @@ ActiveRecord::Schema.define(:version => 20090609134425) do
     t.integer  "autorizador_desconto_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "comprador"
     t.boolean  "especial"
     t.date     "registro"
     t.integer  "empresa_id"
