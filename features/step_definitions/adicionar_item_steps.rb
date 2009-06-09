@@ -12,7 +12,7 @@ end
 
 Quando /^eu requisitar um novo item$/ do
    @pedido = Factory(:pedido)
-  visit "/item_pedidos/new/#{@pedido.id}"
+   visit "/item_pedidos/new/#{@pedido.id}"
 end
 
 Quando /^seleciono o produto$/ do
