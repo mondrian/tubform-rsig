@@ -180,11 +180,11 @@
 </table>
 <br/><br/>
 
-<%# if @pedido.data_aprovacao_pedido %>
- <%#= button_to 'Desaprovar Pedido', :action => :desaprovar, :id => @pedido.id %>
-<%# else %>
+<% if @pedido.data_aprovacao_pedido %>
+ <%= button_to 'Desaprovar Pedido', :action => :desaprovar, :id => @pedido.id %>
+<% else %>
  <%= button_to 'Aprovar Pedido', :action => :aprovar, :id => @pedido.id %>
-<%# end %>
+<% end %>
 <%= button_to 'Comissão Acordada', :action => :comissao_acordada, :id => @pedido.id %>
 <%= button_to 'Desconto', :action => :permitir_desconto_no_pedido, :id => @pedido.id %>
 
