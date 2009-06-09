@@ -16,6 +16,6 @@ Dado /^os descontos aplicados no pedido são permitidos$/ do
 end
 
 Quando /^eu pedir aprovação de pedido$/ do
-  click_button "Aprovar"
+  click_button "Aprovar Pedido"
 end
 

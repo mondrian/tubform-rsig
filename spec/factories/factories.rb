@@ -79,6 +79,7 @@ Factory.define :pedido do |p|
   p.comissao_telemarketing 9.99
   p.venda_externa false
   p.autorizador_desconto_id 1
+	p.data_aprovacao_pedido "2009-05-14"
 end
 
 Factory.define :faixa_de_desconto do |f|

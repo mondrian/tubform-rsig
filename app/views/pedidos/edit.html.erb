@@ -6,6 +6,6 @@
 <%= render :partial => "form", :locals => { :f => f} %>
 <% end %>
 
-<%= button_to 'Aprovar', :action => :aprovar, :id => @pedido.id %>
+<%= button_to 'Aprovar Pedido', :action => :aprovar, :id => @pedido.id %>
 <%= link_to 'Exibir', @pedido %> |
 <%= link_to 'Retornar', pedidos_path %>

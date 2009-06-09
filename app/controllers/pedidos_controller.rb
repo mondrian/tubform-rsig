@@ -31,7 +31,6 @@ class PedidosController < ApplicationController
   def new
     @pedido = Pedido.new
     @pedido.cliente = Cliente.find(:first)
-    @pedido.cliente = Cliente.find(:first)
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @pedido }
@@ -85,7 +84,8 @@ class PedidosController < ApplicationController
 
   def aprovar
     @pedido = Pedido.find(params[:id])
-    @pedido.aprovar
+    @pedido.data_aprovacao_pedido = Date.today
+		@pedido.autorizador = current_user
     respond_to do |format|
       if @pedido.save
         flash[:notice] = 'Pedido Aprovado'
@@ -98,6 +98,23 @@ class PedidosController < ApplicationController
       end
     end
   end
+
+	def desaprovar
+    @pedido = Pedido.find(params[:id])
+    @pedido.data_aprovacao_pedido = nil
+		@pedido.autorizador = nil
+    respond_to do |format|
+      if @pedido.save
+        flash[:notice] = 'Pedido Desaprovado'
+        format.html { redirect_to(@pedido) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @pedido.errors,
+                             :status => :unprocessable_entity }
+      end
+    end
+	end
 
 	def comissao_acordada
     @pedido = Pedido.find(params[:id])

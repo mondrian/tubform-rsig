@@ -4,6 +4,8 @@ class Pedido < ActiveRecord::Base
   belongs_to :operador, :class_name => 'Funcionario', :foreign_key => 'operador_id'
   belongs_to :funcionario, :class_name => 'Funcionario', :foreign_key => 'funcionario_id'
   belongs_to :telemarketing, :class_name => 'Funcionario', :foreign_key => 'telemarketing_id'
+  belongs_to :autorizador, :class_name => 'Funcionario', :foreign_key => 'autorizador_id'
+
   belongs_to :transportadora
   belongs_to :minuta
   belongs_to :area
@@ -17,6 +19,7 @@ class Pedido < ActiveRecord::Base
   validates_presence_of :operador_id, :message => "Operador não Informado, verifique ...."
 
   before_save :trg_save
+  after_update :trg_save
 
   public
   def no_prazo_medio_maximo?
@@ -148,7 +151,7 @@ class Pedido < ActiveRecord::Base
          if duplicatas.size > 0 then
            for d in duplicatas do
              if d.possui_lancamentos?
-               raise StandartError, 'Pedido possui duplicatas pagas'
+               raise StandardError, 'Pedido possui duplicatas pagas'
              end
            end
 
@@ -166,7 +169,7 @@ class Pedido < ActiveRecord::Base
            p.valor = v.to_f
            p.cliente_id = p.devedor_id = self.cliente_id
            p.pedido_id = self.id
-           p.nome_devedor = self.nome_comprador
+           p.nome_devedor = nome_comprador
            #p.save
             self.duplicatas << p
            i += 1
@@ -187,9 +190,13 @@ class Pedido < ActiveRecord::Base
     prazo = 0
     i = 0
     vencimentos = []
+
+    # Verifica se a data de entrega foi preenchida e regera as duplicatas com base nessa data
+    # Se não estiver preenchida, gera com base na data do pedido
+    self.entrega.nil? ? data_inicial = self.data : data_inicial = self.entrega
     while i <= self.plano_de_pagamento.size
       prazo = self.plano_de_pagamento[i,3].to_i
-      vencimentos << (self.data + prazo.days)
+      vencimentos << (data_inicial + prazo.days)
       i += 3
     end
     vencimentos
@@ -200,16 +207,17 @@ class Pedido < ActiveRecord::Base
       soma = 0
       p = self.item_pedidos
       if p.size > 0
-        for i in p do
-           soma += ((i.quantidade * i.valor_venda) - i.desconto)
+        p.each do | i |
+           soma += (i.quantidade * i.valor_venda)
         end
+      soma
       end
     end
 
  # rotina chamada no before save
  def trg_save
    self.gerenciar_acoes
-   #self.gerar_duplicatas if self.changed.include? "plano_de_pagamento" or self.changed.include? "valor"
+   self.gerar_duplicatas if self.changed.include? "plano_de_pagamento" or self.changed.include? "valor"
  end
  
  def gerenciar_acoes
