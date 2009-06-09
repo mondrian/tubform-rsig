@@ -6,8 +6,8 @@ class ItemPedido < ActiveRecord::Base
   validates_numericality_of :quantidade, :message => "Informe Apenas Números"
   validate :valida_item
   
-  after_save :trg_soma_itens
-  after_destroy :trg_soma_itens
+  #after_save :trg_soma_itens
+  #after_destroy :trg_soma_itens
 
   private
   def valida_item
