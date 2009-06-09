@@ -207,7 +207,7 @@ class Pedido < ActiveRecord::Base
       soma = 0
       p = self.item_pedidos
       if p.size > 0
-        p.each do |i|
+        p.each do | i |
            soma += (i.quantidade * i.valor_venda)
         end
       soma
