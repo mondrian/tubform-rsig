@@ -4,6 +4,8 @@ class Pedido < ActiveRecord::Base
   belongs_to :operador, :class_name => 'Funcionario', :foreign_key => 'operador_id'
   belongs_to :funcionario, :class_name => 'Funcionario', :foreign_key => 'funcionario_id'
   belongs_to :telemarketing, :class_name => 'Funcionario', :foreign_key => 'telemarketing_id'
+  belongs_to :autorizador, :class_name => 'Funcionario', :foreign_key => 'autorizador_id'
+
   belongs_to :transportadora
   belongs_to :minuta
   belongs_to :area

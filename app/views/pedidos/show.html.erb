@@ -123,10 +123,17 @@
   <%=h @pedido.desconto_complementar %>
 </p>
 
-<p>
-  <b>Autorizador:</b>
-  <%=h @pedido.autorizador_id %>
-</p>
+<% if @pedido.data_aprovacao_pedido %>
+	<p>
+		<b>Autorizador:</b>
+		<%=h @pedido.autorizador.nome if @pedido.autorizador %>
+	</p>
+
+	<p>
+		<b>Data de Aprovação do Pedido:</b>
+		<%=h @pedido.data_aprovacao_pedido %>
+	</p>
+<% end %>
 
 <table with="100%" border="1">
   <tr>
@@ -159,7 +166,12 @@
 
 <%= link_to 'Item Pedido', :controller => 'item_pedidos', :action => 'new', :id => @pedido.id %> |
 <%= link_to 'Alterar', edit_pedido_path(@pedido) %> |
-<%= button_to 'Aprovar', :action => :aprovar, :id => @pedido.id %>
+
+<% if @pedido.data_aprovacao_pedido %>
+	<%= button_to 'Desaprovar Pedido', :action => :desaprovar, :id => @pedido.id %>
+<% else %>
+	<%= button_to 'Aprovar Pedido', :action => :aprovar, :id => @pedido.id %>
+<% end %>
 
 <%= button_to 'Comissão Acordada', :action => :comissao_acordada, :id => @pedido.id %>
 
