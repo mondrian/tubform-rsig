@@ -2,7 +2,6 @@ Funcionalidade: Emitir Nota Fiscal
   Como um Operador
   Eu quero emitir uma Nota Fiscal
   Para que o processo de venda seja finalizado
-git 
   Cenário: Emitindo Uma Nota Fiscal Manualmente
     Dado que existe um(a) transportadora
     E que existe um(a) fornecedor
@@ -18,7 +17,7 @@ git
     E defino natureza_operacao com o valor VENDA
     E defino valor_ipi com o valor 0
     E defino valor_desconto com o valor 0
-    E seleciono status com o valor Não Impressa
+    E defino status com o valor Não
     E defino qtde_volumes com o valor 1
     E defino entrada com o valor 2009-06-30
     E defino saida com o valor 2009-06-30
@@ -27,4 +26,4 @@ git
     E defino percentual_icms_substituicao_tributaria com o valor 3
     E defino valor_icms_substituicao_tributaria com o valor 40
     Quando eu salvar o registro
-    Então preciso receber a mensagem "Nota Fiscal Gravada, Insira os Itens ..."
+    Então preciso receber a mensagem "NF gravada com Sucesso"
