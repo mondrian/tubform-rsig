@@ -1,4 +1,5 @@
-Funcionalidade: Adicionar Item do Pedido
+# http://www.pivotaltracker.com/story/show/790964
+Feature: Adicionar Item do Pedido
   Como um vendedor
   Eu quero incluir um item no pedido
   Para que eu possa definir os produtos a serem vendidos
@@ -15,3 +16,4 @@ Funcionalidade: Adicionar Item do Pedido
     E eu salvar o registro
     Então preciso receber a mensagem "Item adicionado com Sucesso ao pedido."
     E o valor total do pedido deve ser 99.9
+

@@ -1,5 +1,5 @@
-@foco
-Funcionalidade: Abrir pedido de Venda
+# http://www.pivotaltracker.com/story/show/790926
+Feature: Abrir pedido de Venda
   Como um vendedor
   Eu quero abrir um de venda
   Para que seja base para que o processo de venda continue
