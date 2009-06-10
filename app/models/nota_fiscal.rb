@@ -4,7 +4,7 @@ class NotaFiscal < ActiveRecord::Base
   belongs_to :funcionario
   has_many   :produtos, :through => :item_pedidos
 
-  validates_uniqueness_of :numero_nota,   :message => "Esse Número já foi utilizado em outra Nota "
+  #validates_uniqueness_of :numero_nota,   :message => "Esse Número já foi utilizado em outra Nota "
 
   validates_presence_of :numero_nota,     :message => "Informe o Número da Nota"
   validates_presence_of :selo,     :message => "Informe o Número do Selo"

@@ -86,6 +86,7 @@ class PedidosController < ApplicationController
     @pedido = Pedido.find(params[:id])
     @pedido.data_aprovacao_pedido = Date.today
 		@pedido.autorizador = current_user
+		@pedido.status = 'Aprovado'
     respond_to do |format|
       if @pedido.save
         flash[:notice] = 'Pedido Aprovado'
@@ -103,9 +104,26 @@ class PedidosController < ApplicationController
     @pedido = Pedido.find(params[:id])
     @pedido.data_aprovacao_pedido = nil
 		@pedido.autorizador = nil
+		@pedido.status = 'Não Aprovado'
     respond_to do |format|
       if @pedido.save
         flash[:notice] = 'Pedido Desaprovado'
+        format.html { redirect_to(@pedido) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @pedido.errors,
+                             :status => :unprocessable_entity }
+      end
+    end
+	end
+
+	def alterar_data_entrega_pedido
+		@pedido = Pedido.find(params[:id])
+    @pedido.entrega = nil
+    respond_to do |format|
+      if @pedido.save
+        flash[:notice] = 'Data de Entrega Zerada'
         format.html { redirect_to(@pedido) }
         format.xml  { head :ok }
       else
