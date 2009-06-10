@@ -50,7 +50,7 @@
 
 <p>
   <b>Comprador:</b>
-  <%=h @pedido.comprador %>
+  <%=h @pedido.nome_comprador %>
 </p>
 
 <p>
@@ -123,46 +123,68 @@
   <%=h @pedido.desconto_complementar %>
 </p>
 
-<p>
-  <b>Autorizador:</b>
-  <%=h @pedido.autorizador_id %>
-</p>
+<% if @pedido.data_aprovacao_pedido %>
+	<p>
+		<b>Autorizador:</b>
+		<%=h @pedido.autorizador.nome if @pedido.autorizador %>
+	</p>
 
+	<p>
+		<b>Data de Aprovação do Pedido:</b>
+		<%=h @pedido.data_aprovacao_pedido %>
+	</p>
+<% end %>
+
+<%#= link_to 'Alterar', edit_pedido_path(@pedido) %> |
+<%#= link_to 'Voltar', pedidos_path %> |
+<%#= link_to 'Aprovar', :action => :aprovar, :id => @pedido.id %> |
+<%#= link_to 'Comissão Acordada', :action => :comissao_acordada, :id => @pedido.id %> |
+<%#= link_to 'Desconto', :action => :permitir_desconto_no_pedido, :id => @pedido.id %><br/><br/>
 <table with="100%" border="1">
   <tr>
-      <th>Cod Produto</th>
+       <th colspan="9">Itens do Pedido</th>
+  </tr>
+  <tr>
+       <th>Codigo</th>
        <th>Descrição</th>
-       <th>Quantidade</th>
+       <th align="center">Qtde</th>
+       <th>Valor Tabela</th>
+       <th>% Desconto</th>
        <th>Valor Venda</th>
        <th>Subtotal</th>
        <th colspan="2">Opções</th>
   </tr>
 
-
 <% total = 0 %>
 <% for i in @pedido.item_pedidos %>
-  <%  subtotal = i.quantidade * i.valor_venda %>
+  <%  subtotal = i.quantidade * (i.valor_tabela  - (i.valor_tabela * i.desconto)/100) %>
   <% total += subtotal %>
     <tr>
-      <td><%= i.produto_id  %></td>
+      <td align="center"><%= i.produto_id  %></td>
       <td><%= i.produto.descricao  %></td>
-       <td><%= i.quantidade  %></td>
-      <td><%= i.valor_venda  %></td>
-      <td><%= subtotal %></td>
+      <td align="center"><%= i.quantidade.to_i  %></td>
+      <td align="right"><%= i.valor_tabela.real.real_formatado  %></td>
+      <td align="right"><%= i.desconto.to_s + ' %'  %></td>
+      <td align="right"><%= i.valor_venda.real.real_formatado  %></td>
+      <td align="right"><%= subtotal.real.real_formatado %></td>
       <td><%= link_to 'Editar', :controller => :item_pedidos, :action => :edit, :id => i.id %></td>
-      <td><%= link_to 'Deletar', i, :confirm => 'Você tem certeza?', :method => :delete %></td>
+      <td><%= link_to 'Excluir', i, :confirm => "Excluir Item #{i.id}, Confirma?", :method => :delete %></td>
     </tr>
 <% end %>
+
+    <tr bgcolor="#EAAA0C">
+      <td colspan="5" align="right"><b>Valor Total do Pedido:</b></td>
+      <td colspan="2" align="right"><b><span id="total_pedido"><%= total.real.real_formatado %></span></b></td>
+      <td colspan="2" align="center"><%= link_to '<b>Adiciona Item</b>', :controller => 'item_pedidos', :action => 'new', :id => @pedido.id %>
+    </tr>
 </table>
+<br/><br/>
 
-<h2> Valor total do pedido: <span id="total_pedido"><%= total %></span></h2>
-
-<%= link_to 'Item Pedido', :controller => 'item_pedidos', :action => 'new', :id => @pedido.id %> |
-<%= link_to 'Alterar', edit_pedido_path(@pedido) %> |
-<%= button_to 'Aprovar', :action => :aprovar, :id => @pedido.id %>
-
+<%# if @pedido.data_aprovacao_pedido %>
+ <%#= button_to 'Desaprovar Pedido', :action => :desaprovar, :id => @pedido.id %>
+<%# else %>
+ <%= button_to 'Aprovar Pedido', :action => :aprovar, :id => @pedido.id %>
+<%# end %>
 <%= button_to 'Comissão Acordada', :action => :comissao_acordada, :id => @pedido.id %>
-
 <%= button_to 'Desconto', :action => :permitir_desconto_no_pedido, :id => @pedido.id %>
-
 <%= link_to 'Voltar', pedidos_path %>
