@@ -1,8 +1,8 @@
 Before do
-  @cliente = Cliente.find(:first)
-  @operador = Funcionario.find(:first)
-  @vendedor = Funcionario.find(:first)
-  @telemark = Funcionario.find(:first)
+  @cliente = Factory.build(:cliente)
+  @operador = Factory.build(:funcionario)
+  @vendedor = Factory.build(:funcionario)
+  @telemark = Factory.build(:funcionario)
   @entidade_principal = 'pedido'
 end
 

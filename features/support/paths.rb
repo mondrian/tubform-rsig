@@ -24,6 +24,9 @@ module NavigationHelpers
     when /autenticação/
      new_session_path
 
+		when /logout/
+			'/logout'
+
     # Add more mappings here.
     # Here is a more fancy example:
     #

@@ -10,14 +10,14 @@ class ApplicationController < ActionController::Base
       true
     else
       if logged_in?
-       acao = Acao.find(:first, :conditions => ["controller_name = ? and action_name = ?",self.controller_name, self.action_name])
-       if acao.nil? or current_user.acoes.include? acao
-        true
-       else
-        render :text => "Acesso negado a " + self.controller_name + ' acao ' + self.action_name + '. Você não tem acesso a esta ação.'
-       end
+		     acao = Acao.find(:first, :conditions => ["controller_name = ? and action_name = ?",self.controller_name, self.action_name])
+		     if acao.nil? or current_user.acoes.include? acao
+		      true
+		     else
+		      render :text => "Acesso negado a " + self.controller_name + ' acao ' + self.action_name + '. Você não tem acesso a esta ação.'
+		     end
       else
-        render :text => "Acesso negado a " + self.controller_name + ' acao ' + self.action_name + '. Você não está logado'
+        	render :text => "Acesso negado a " + self.controller_name + ' acao ' + self.action_name + '. Você não está logado'
       end
     end
   end

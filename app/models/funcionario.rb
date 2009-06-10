@@ -43,6 +43,10 @@ class Funcionario < ActiveRecord::Base
   # We really need a Dispatch Chain here or something.
   # This will also let us return a human error message.
   #
+  def popula_acoes
+    self.acoes = Acao.find(:all)    
+    self.save
+  end
 
   def name
 		self.nome

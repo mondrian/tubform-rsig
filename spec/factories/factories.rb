@@ -1,11 +1,4 @@
-def popula_acoes
-	Acao.create(:controller_name => 'pedidos',
-							 :action_name => 'index',
-							 :controller_name => 'pedidos',
-							 :action_name => 'show',
-							 :controller_name => 'pedidos',
-							 :action_name => 'permitir_desconto_no_pedido')
-end
+
 
 
 Factory.define :acao do |a|
@@ -149,6 +142,7 @@ Factory.define :funcionario do |f|
   f.sequence(:login) { |n| "usuario#{n}" }
   f.password '123456'
   f.password_confirmation '123456'
+  #f.popula_acoes
 end
 
 Factory.define :fornecedor do |f|
