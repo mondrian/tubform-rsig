@@ -7,7 +7,6 @@ def popula_acoes
 							 :action_name => 'permitir_desconto_no_pedido')
 end
 
-
 Factory.define :acao do |a|
   a.controller_name
   a.action_name
@@ -181,7 +180,7 @@ Factory.define :produto_kit do |k|
 end
 
 Factory.define :nota_fiscal do |n|
-    n.numero_nota '1'
+    n.sequence(:numero_nota) { |n| "0#{n}" }
     n.selo '12'
     n.serie 'AA'
     n.association :cliente 
