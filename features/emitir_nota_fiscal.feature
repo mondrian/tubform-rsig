@@ -7,7 +7,7 @@ Feature: Emitir Nota Fiscal
     Dado que existe um(a) transportadora
     E que existe um(a) fornecedor
     E que estou no formulário de cadastro de nota_fiscal
-    E defino numero_nota com o valor 1
+    E defino numero nota com o valor 2020
     E defino selo com o valor 1111
     E defino serie com o valor AA
     E defino cliente_id com o valor 1
@@ -27,5 +27,4 @@ Feature: Emitir Nota Fiscal
     E defino percentual_icms_substituicao_tributaria com o valor 3
     E defino valor_icms_substituicao_tributaria com o valor 40
     Quando eu salvar o registro
-    Então preciso receber a mensagem "NF gravada com Sucesso"
-
+    Então preciso receber a mensagem "Nota Fiscal Gravada, Insira os Itens ..."

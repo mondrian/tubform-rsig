@@ -15,7 +15,7 @@
 
 <p>
   <b>Cliente:</b>
-  <%#=h @nota_fiscal.cliente.razao_social %>
+  <%=h @nota_fiscal.cliente.razao_social %>
 </p>
 
 <p>
@@ -149,9 +149,8 @@
 
 <h2> Valor total da Nota: <span id="total_pedido"><%= total %></span></h2>
 
-
-<%#= link_to 'Alterar', edit_nota_fiscal_path(@nota_fiscal) if @nota_fiscal.status != 'S' %> |
-<%#= link_to 'Retornar', notas_fiscais_path %>
+<%= link_to 'Alterar', edit_nota_fiscal_path(@nota_fiscal) if @nota_fiscal.status != 'S' %> |
+<%= link_to 'Retornar', notas_fiscais_path %>
 <p>
-<%#= link_to 'Adicionar Item', :controller => 'itens_nota_fiscal', :action => 'new', :id => (@nota_fiscal.id  if @nota_fiscal.status != 'S')  %>
+<%= link_to 'Adicionar Item', :controller => 'itens_nota_fiscal', :action => 'new', :id => (@nota_fiscal.id  if @nota_fiscal.status != 'S')  %>
 </p>
