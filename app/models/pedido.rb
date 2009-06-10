@@ -9,9 +9,9 @@ class Pedido < ActiveRecord::Base
   belongs_to :transportadora
   belongs_to :minuta
   belongs_to :area
-  has_many   :item_pedidos
+  has_many   :item_pedidos, :dependent => :destroy
   has_many   :produtos, :through => :item_pedidos
-  has_many   :duplicatas
+  has_many   :duplicatas, :dependent => :destroy
 
   validates_presence_of :tipo, :message => "Informe o Tipo de Pedido"
   validates_presence_of :data, :message => "Informe a Data do Pedido"
@@ -42,11 +42,11 @@ class Pedido < ActiveRecord::Base
     self.desconto < faixa_de_desconto.desconto_permitido
   end
 
-  def aprovar
-    self.entrega = Time.now
-    self.status = 'A'
+  #def aprovar
+    #self.entrega = Time.now
+    #self.status = 'A'
     # Tem que rever isso aqui
-  end
+  #end
 
   # Calculo de comissao por desconto do item.
   def comissao_desconto_item
@@ -224,5 +224,11 @@ class Pedido < ActiveRecord::Base
    self.valor =  self.somar_itens
    self.percentual_comissao = self.comissao_desconto_item ? self.comissao_desconto_item : 5
  end
- 
+
+	# deleta os pedidos que não contem items de pedido
+	def deleta_pedido_sem_item
+		sql = "DELETE FROM pedidos WHERE id not in ( SELECT distinct(pedido_id) FROM item_pedidos )"
+		Pedido.find_by_sql(sql)
+	end
+
 end

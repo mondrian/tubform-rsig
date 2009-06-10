@@ -9,10 +9,20 @@ module NavigationHelpers
     case page_name
 
     when /the homepage/
-      '/'
+			root_path
+    #  '/'
+
+    #when /página inicial/
+    #  root_path
+
+    #when /página de novo usuário/
+    #  new_user_path
+
+    #when /página de nova sessão/
+    #  new_session_path
 
     when /autenticação/
-      new_session_path
+     new_session_path
 
     # Add more mappings here.
     # Here is a more fancy example:
@@ -28,4 +38,3 @@ module NavigationHelpers
 end
 
 World(NavigationHelpers)
-

@@ -1,0 +1,1 @@
+Olá <%= current_user.nome %>, seja bem vindo

@@ -6,7 +6,16 @@ class ItemPedido < ActiveRecord::Base
   validates_numericality_of :quantidade, :message => "Informe Apenas Números"
   validate :valida_item
   
+
+	after_destroy :log_item_pedido_destroy_action  
+
+	def log_item_pedido_destroy_action 
+		puts 'Item Pedido destroyed'
+	end 
+
+  #before_save :trg_soma_itens
   #after_save :trg_soma_itens
+
   #after_destroy :trg_soma_itens
 
   private
