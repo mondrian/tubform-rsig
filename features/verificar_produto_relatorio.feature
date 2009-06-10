@@ -1,4 +1,5 @@
-Funcionalidade: Verificar se o produto sairá no relatório
+# http://www.pivotaltracker.com/story/show/791135
+Feature: Verificar se o produto sairá no relatório
   Como um operador
   Eu quero inserir um Item de Pedido
   Para que eu possa verificar se o produto sairá na impressão do relatório
@@ -12,3 +13,4 @@ Funcionalidade: Verificar se o produto sairá no relatório
     E o valor de venda for 80
     E verificar se emite produto em relatorio
     E quando salvar o registro
+

@@ -1,4 +1,5 @@
-Funcionalidade: Aplicar Desconto Ponderado
+# http://www.pivotaltracker.com/story/show/791064
+Feature: Aplicar Desconto Ponderado
   Como um vendedor
   Eu quero aplicar um desconto ponderado
   Para que eu tenha o valor final do pedido
@@ -16,3 +17,4 @@ Funcionalidade: Aplicar Desconto Ponderado
     E que o valor de venda é 425
     Quando eu salvar o Item
     Então o valor do desconto ponderado deve ser 21.8
+

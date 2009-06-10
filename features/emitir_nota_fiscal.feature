@@ -1,4 +1,5 @@
-Funcionalidade: Emitir Nota Fiscal
+# http://www.pivotaltracker.com/story/show/791095
+Feature: Emitir Nota Fiscal
   Como um Operador
   Eu quero emitir uma Nota Fiscal
   Para que o processo de venda seja finalizado
@@ -27,3 +28,4 @@ Funcionalidade: Emitir Nota Fiscal
     E defino valor_icms_substituicao_tributaria com o valor 40
     Quando eu salvar o registro
     Então preciso receber a mensagem "NF gravada com Sucesso"
+

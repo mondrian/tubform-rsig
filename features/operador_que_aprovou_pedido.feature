@@ -1,4 +1,5 @@
-Funcionalidade: Verificar permissão do usuário para aprovar Pedido
+# http://www.pivotaltracker.com/story/show/791107
+Feature: Verificar permissão do usuário para aprovar Pedido
 	Como um operador
 	Eu quero aprovar um pedido
 	Para que eu possa dar desconto a item
@@ -8,3 +9,4 @@ Funcionalidade: Verificar permissão do usuário para aprovar Pedido
 		E que estou na exibição de pedido 1
 		Quando eu clicar no botão Aprovar
 		Então verifica se tenho permissão
+
