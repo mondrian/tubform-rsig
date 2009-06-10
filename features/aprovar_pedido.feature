@@ -1,4 +1,5 @@
-Funcionalidade: Aprovar Pedido de Venda
+# http://www.pivotaltracker.com/story/show/791001
+Feature: Aprovar Pedido de Venda
   Como um analista de venda
   Eu quero confirmar o pedido de venda
   Para que a venda seja efetivada
@@ -22,3 +23,4 @@ Funcionalidade: Aprovar Pedido de Venda
     E os descontos aplicados no pedido são permitidos
     Quando eu pedir aprovação de pedido
     Então preciso receber a mensagem "Pedido Aprovado"
+

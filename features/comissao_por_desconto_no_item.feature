@@ -1,4 +1,5 @@
-Funcionalidade: Comissão Por Desconto no Item
+# http://www.pivotaltracker.com/story/show/791062
+Feature: Comissão Por Desconto no Item
 Como um operador do sistema
 Eu quero informar um item com desconto
 Para obter o valor do percentual de comissão

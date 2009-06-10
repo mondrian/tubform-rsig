@@ -1,4 +1,5 @@
-Funcionalidade: Estabelecer uma comissão acordada
+# http://www.pivotaltracker.com/story/show/791007
+Feature: Estabelecer uma comissão acordada
   Como um operador
   Eu quero definir uma nova comissão
   Para que ela sobreponha qualquer comissão já informada
@@ -10,3 +11,4 @@ Funcionalidade: Estabelecer uma comissão acordada
     E defino comissao_telemarketing com o valor 2
     E eu salvar o registro
     Então preciso receber a mensagem "Pedido Atualizado com Sucesso"
+
