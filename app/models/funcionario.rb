@@ -8,7 +8,7 @@ class Funcionario < ActiveRecord::Base
 
   has_many :notasfiscais
   belongs_to :cidade
-	has_and_belongs_to_many :acoes
+  has_and_belongs_to_many :acoes
 
 
   validates_presence_of :tipo, :message => "Informe o Tipo do Funcionário"

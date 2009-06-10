@@ -6,6 +6,7 @@ class ItemPedido < ActiveRecord::Base
   validates_numericality_of :quantidade, :message => "Informe Apenas Números"
   validate :valida_item
   
+
 	after_destroy :log_item_pedido_destroy_action  
 
 	def log_item_pedido_destroy_action 
@@ -13,6 +14,8 @@ class ItemPedido < ActiveRecord::Base
 	end 
 
   #before_save :trg_soma_itens
+  #after_save :trg_soma_itens
+
   #after_destroy :trg_soma_itens
 
   private
@@ -55,6 +58,5 @@ class ItemPedido < ActiveRecord::Base
       self.pedido.percentual_comissao = 5
     end
  end
-  
-
+ 
  end
