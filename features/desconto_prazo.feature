@@ -1,4 +1,5 @@
-Funcionalidade: Calcular Comissao
+# http://www.pivotaltracker.com/story/show/791082
+Feature: Calcular Comissão
   Como um vendedor
   Eu quero inserir um Item de Pedido
   Para que seja calculada minha comissao
@@ -14,3 +15,4 @@ Funcionalidade: Calcular Comissao
     E eu pedir o Desconto por Prazo
     E eu salvar o pedido
     Então o valor da Comissao Calculada precisa ser 3
+

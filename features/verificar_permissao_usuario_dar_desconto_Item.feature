@@ -1,4 +1,5 @@
-Funcionalidade: Verificar permissão do usuário para dar desconto a Item
+# http://www.pivotaltracker.com/story/show/791117
+Feature: Verificar permissão do usuário para dar desconto a Item
 	Como um operador
 	Eu quero verificar se tenho permissão para desconto a item
 	Para que eu possa dar desconto a item
@@ -9,3 +10,4 @@ Funcionalidade: Verificar permissão do usuário para dar desconto a Item
 		Quando eu clicar no botão dar desconto
 		Então verifica se tenho permissão
     E me redireciona para a pagina de desconto
+

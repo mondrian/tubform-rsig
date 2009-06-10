@@ -1,4 +1,5 @@
-Funcionalidade: Emitir Nota Fiscal
+# http://www.pivotaltracker.com/story/show/791095
+Feature: Emitir Nota Fiscal
   Como um Operador
   Eu quero emitir uma Nota Fiscal
   Para que o processo de venda seja finalizado
@@ -6,7 +7,7 @@ Funcionalidade: Emitir Nota Fiscal
     Dado que existe um(a) transportadora
     E que existe um(a) fornecedor
     E que estou no formulário de cadastro de nota_fiscal
-    E defino numero nota com o valor 202020
+    E defino numero nota com o valor 2020
     E defino selo com o valor 1111
     E defino serie com o valor AA
     E defino cliente_id com o valor 1

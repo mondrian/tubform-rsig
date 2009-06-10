@@ -1,4 +1,5 @@
-Funcionalidade: Verificar se o produto é kit
+# http://www.pivotaltracker.com/story/show/791126
+Feature: Verificar se o produto é kit
   Como um operador
   Eu quero inserir um Item de Pedido
   Para que eu possa verificar se é do tipo kit

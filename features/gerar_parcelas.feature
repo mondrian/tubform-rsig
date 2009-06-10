@@ -1,4 +1,5 @@
-Funcionalidade: Gerar Parcelas
+# http://www.pivotaltracker.com/story/show/791104
+Feature: Gerar Parcelas
   Como um vendedor
   Eu quero Gerar Duplicatas
   Para que seja alimentado o Contas a Receber
@@ -12,3 +13,4 @@ Funcionalidade: Gerar Parcelas
     E que o Nome do Comprador é GUSTAVOLG.LG
     Quando eu Gerar as Parcelas
     Então eu preciso receber a mensagem ok
+

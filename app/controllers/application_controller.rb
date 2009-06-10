@@ -6,10 +6,12 @@ class ApplicationController < ActionController::Base
 
   private 
   def valida_permissao
- 	  if self.controller_name == 'sessions' and not self.action_name == 'index'
+ 	  if self.controller_name == 'sessions' and self.action_name == 'index'
+      true
+    else
       if logged_in?
        acao = Acao.find(:first, :conditions => ["controller_name = ? and action_name = ?",self.controller_name, self.action_name])
-       if current_user.acoes.include? acao
+       if acao.nil? or current_user.acoes.include? acao
         true
        else
         render :text => "Acesso negado a " + self.controller_name + ' acao ' + self.action_name + '. Você não tem acesso a esta ação.'
