@@ -225,10 +225,10 @@ class Pedido < ActiveRecord::Base
    self.percentual_comissao = self.comissao_desconto_item ? self.comissao_desconto_item : 5
  end
 
-	# deleta os pedidos que não contem items de pedido
-	def deleta_pedido_sem_item
-		sql = "DELETE FROM pedidos WHERE id not in ( SELECT distinct(pedido_id) FROM item_pedidos )"
-		Pedido.find_by_sql(sql)
-	end
+ # deleta os pedidos que não contem items de pedido
+ def deleta_pedido_sem_item
+	sql = "DELETE FROM pedidos WHERE id not in ( SELECT distinct(pedido_id) FROM item_pedidos )"
+	Pedido.find_by_sql(sql)
+ end
 
 end
