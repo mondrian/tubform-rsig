@@ -231,4 +231,30 @@ class Pedido < ActiveRecord::Base
 		Pedido.find_by_sql(sql)
 	end
 
+  # metodos para replicacao nos dbfs
+  def dbf_delete
+   sql = "select exluir_pedido_dbf(#{self.numero_pedido})"
+   Pedido.find_by_sql(sql)  
+  end
+  
+  def dbf_insert
+     # montar nesse ponto as variaveis para a funcao
+     # a funcao de insert no dbf recebe como parametros todos os campos da tabela
+     # na mesma ordem do dbf
+     # o mais importante e tratar os dados para o formato que o dbf va suportar
+     # podemos ver essa parte juntos, coloquem os valores corretos e a gente testa ai
+     sql = "select inserir_pedido_dbf(#{self.id}, #{self.tipo}, ...)" 
+     Pedido.find_by_sql(sql)
+  end
+  
+    def dbf_update
+     # montar nesse ponto as variaveis para a funcao
+     # a funcao de update no dbf recebe como parametros todos os campos da tabela
+     # na mesma ordem do dbf
+     # o mais importante e tratar os dados para o formato que o dbf va suportar
+     # podemos ver essa parte juntos, coloquem os valores corretos e a gente testa ai
+     sql = "select atualizar_pedido_dbf(#{self.id}, #{self.tipo}, ...)" 
+     Pedido.find_by_sql(sql)
+  end
+
 end
