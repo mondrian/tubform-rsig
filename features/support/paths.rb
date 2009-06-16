@@ -27,6 +27,9 @@ module NavigationHelpers
 		when /logout/
 			'/logout'
 
+		when /sair/
+			'/logout'
+
     # Add more mappings here.
     # Here is a more fancy example:
     #
@@ -41,3 +44,4 @@ module NavigationHelpers
 end
 
 World(NavigationHelpers)
+
