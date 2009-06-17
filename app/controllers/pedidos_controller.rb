@@ -43,6 +43,7 @@ class PedidosController < ApplicationController
 
   def create
     @pedido = Pedido.new(params[:pedido])
+
     @pedido.operador_id = 1 # Deverá vir na session (lembrar de arumar depois)
     respond_to do |format|
       if @pedido.save
@@ -50,6 +51,8 @@ class PedidosController < ApplicationController
         format.html { redirect_to(@pedido) }
         format.xml  { render :xml => @pedido, :status => :created, :location => @pedido }
       else
+          render :text => @pedido.errors.full_messages.to_s + @pedido.data.to_s
+         return
         flash[:notice] = @pedido.errors
         format.html { render :action => "new" }
         format.xml  { render :xml => @pedido.errors, :status => :unprocessable_entity }
@@ -142,3 +145,4 @@ class PedidosController < ApplicationController
 		@pedido = Pedido.find(params[:id])
 	end
 end
+

@@ -16,19 +16,19 @@
   </p>
   <p>
     <%= f.label :data_pedido %><br />
-    <%= f.text_field :data, :onkeypress => 'mascara(this, data)', :size => 10 %>
+    <%= f.text_field :data, :size => 10 %>
   </p>
   <p>
     <%= f.label :previsao_entrega %><br />
-    <%= f.text_field :previsao_entrega, :onkeypress => 'mascara(this, data)', :size => 10  %>
+    <%= f.text_field :previsao_entrega, :size => 10  %>
   </p>
   <p>
     <%= f.label :entrega %><br />
-    <%= f.text_field :entrega, :onkeypress => 'mascara(this, data)', :size => 10  %>
+    <%= f.text_field :entrega, :size => 10  %>
   </p>
   <p>
     <%= f.label :programacao %><br />
-    <%= f.text_field :programacao, :onkeypress => 'mascara(this, data)', :size => 10  %>
+    <%= f.text_field :programacao, :size => 10  %>
   </p>
   <p>
     <%= f.label :plano_de_pagamento %><br />
@@ -106,7 +106,7 @@
   <p>
     <%= f.label :operador_estorno_id %><br />
     <%= f.text_field :operador_estorno_id, :size => 5 %>
- 
+
    <%#= text_field_tag 'nome', @pedido.funcionario.nome , :disabled => true %>
   </p>
   <p>
@@ -125,3 +125,4 @@
     <%= f.submit 'Salvar' %>
   </p>
 <% end %>
+

@@ -4,10 +4,11 @@ class ApplicationController < ActionController::Base
   include AuthenticatedSystem
   before_filter :valida_permissao
 
-  private 
+  private
   def valida_permissao
  	  if self.controller_name == 'sessions' and self.action_name == 'index'
       true
+=begin
     else
       if logged_in?
 		     acao = Acao.find(:first, :conditions => ["controller_name = ? and action_name = ?",self.controller_name, self.action_name])
@@ -19,6 +20,8 @@ class ApplicationController < ActionController::Base
       else
         	render :text => "Acesso negado a " + self.controller_name + ' acao ' + self.action_name + '. Você não está logado'
       end
-    end
+=end
+   end
   end
 end
+

@@ -2,3 +2,5 @@ log/*
 nbproject/*
 config/*
 db/schema.rb
+.idea/*
+
