@@ -5,18 +5,18 @@ Feature: Abrir pedido de Venda
   Para que seja base para que o processo de venda continue
 
   Cenário: Adicionando um pedido válido
-	Dado que me identifiquei como tubform com a senha 123456
-	E que existe um(a) transportadora
+    Dado que me identifiquei como tubform com a senha 123456
+    E que existe um(a) transportadora
     E que existe um(a) cliente
     E que existe um(a) funcionario
     E que estou no formulário de cadastro de pedido
     E defino vendedor_id com o valor 1
     E defino cliente_id com o valor 1
     E defino plano_de_pagamento com o valor 000030060090120
-	E defino previsao_entrega com o valor 2009-05-30
-	E defino data com o valor 2009-05-30
-	E defino registro com o valor 2009-05-30
-	E seleciono transportadora_id com o valor Tubform
+    E defino previsao_entrega com o valor 2009-05-30
+    E defino data com o valor 2009-05-30
+    E defino registro com o valor 2009-05-30
+    E seleciono transportadora_id com o valor Tubform
     E seleciono tipo com o valor Interno
     E defino status com o valor B
     Quando eu salvar o registro
