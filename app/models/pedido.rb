@@ -20,7 +20,7 @@ class Pedido < ActiveRecord::Base
 
   before_save :trg_save
   after_update :trg_save
-  after_save :dbf_insert
+  after_create :dbf_insert
 
   public
   def no_prazo_medio_maximo?
@@ -256,19 +256,6 @@ class Pedido < ActiveRecord::Base
                                 self.plano_de_pagamento, self.endereco_entrega, nil, nil, nil, nil, nil, self.cliente.cidade_id.to_s, self.area_id.to_s,
                                 nil, nil, self.operador_id.to_s, nil, nil, self.registro, self.id.to_s, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil,
                                 nil, nil, nil, nil, nil, nil, nil])
-=begin
-     sql = "select inserir_pedido_dbf(#{self.id}, #{self.tipo}, #{self.data}, #{self.previsao_entrega}, null, null, #{self.cliente_id}, null, , , , ,
-                                      #{self.nome_comprador}, #{self.observacao}, #{self.vendedor_id}, #{self.plano_de_pagamento},
-                                      #{self.endereco_entrega}, , , , , , #{self.cliente.cidade_id}, #{self.area_id}, , , #{self.operador_id},
-                                      , , #{self.registro}, #{self.id}, , , , , , , , , , , , , , , , , , ,) as resultado"
-
-                                      NUM_PEDIDO, TIP_PEDIDO, DAT_PEDIDO, DAT_PREENT, DAT_ENTREG, DAT_PROGRA, COD_CLIENT, VAL_PEDIDO, VAL_NORPED
-                                      PER_ACRPED, PER_DSCPED, COD_TRANSP, NOM_COMPRA, OBS_PEDIDO, COD_FUNCIO, PLA_PAGAME, END_ENTCLI, CPL_ENTCLI
-                                      CID_ENTCLI, REG_ENTCLI, UFD_ENTCLI, CEP_ENTCLI, COD_CIDADE, COD_AREA, NUM_MINUTA, GER_MINUTA, COD_FUNDIG
-                                      PRC_ESPECI, COD_FUNMKT, DAT_REGIST, NUM_PEDINT, COD_LOJORI, COD_LOJDES, COD_CAIENT, SEQ_MOVENT, SEQ_CTRENT
-                                      VAL_ENTRAD, STA_ESTORN, DAT_ESTORN, FUN_ESTORN, COM_VENDED, COM_TELEMA, STA_COMVEN, STA_COMTEL, CONTADOR
-                                      PED_PALM, IDE_VENDA, DAT_EXPPAL, TOT_DSCITE, AUT_DSCEXT, STA_DSCEXT
-=end
      x = Pedido.find_by_sql(sql)
      x = x[0].resultado
 
