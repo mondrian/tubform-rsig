@@ -215,27 +215,27 @@ class Pedido < ActiveRecord::Base
       end
     end
 
- # rotina chamada no before save
- def trg_save
-   self.gerenciar_acoes
-   self.gerar_duplicatas if self.changed.include? "plano_de_pagamento" or self.changed.include? "valor"
- end
+  # rotina chamada no before save
+  def trg_save
+    self.gerenciar_acoes
+    self.gerar_duplicatas if self.changed.include? "plano_de_pagamento" or self.changed.include? "valor"
+  end 
 
- def gerenciar_acoes
-   self.valor =  self.somar_itens
-   self.percentual_comissao = self.comissao_desconto_item ? self.comissao_desconto_item : 5
- end
+  def gerenciar_acoes
+    self.valor =  self.somar_itens
+    self.percentual_comissao = self.comissao_desconto_item ? self.comissao_desconto_item : 5
+  end
 
-	# deleta os pedidos que não contem items de pedido
-	def deleta_pedido_sem_item
-		sql = "DELETE FROM pedidos WHERE id not in ( SELECT distinct(pedido_id) FROM item_pedidos )"
-		Pedido.find_by_sql(sql)
-	end
+  # deleta os pedidos que não contem items de pedido
+  def deleta_pedido_sem_item
+ 	sql = "DELETE FROM pedidos WHERE id not in ( SELECT distinct(pedido_id) FROM item_pedidos )" 
+	Pedido.find_by_sql(sql)
+  end
 
   # metodos para replicacao nos dbfs
   def dbf_delete
-   sql = "select exluir_pedido_dbf(#{self.numero_pedido})"
-   Pedido.find_by_sql(sql)
+    sql = "select exluir_pedido_dbf(#{self.numero_pedido})"
+    Pedido.find_by_sql(sql)  
   end
 
   def self.retorna_sql(s)
@@ -260,7 +260,6 @@ class Pedido < ActiveRecord::Base
      x = x[0].resultado
 
   end
-
     def dbf_update
      # montar nesse ponto as variaveis para a funcao
      # a funcao de update no dbf recebe como parametros todos os campos da tabela
