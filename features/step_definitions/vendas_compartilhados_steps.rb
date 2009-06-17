@@ -2,6 +2,7 @@ Dado /^que me identifiquei como (.+) com a senha (.+)$/ do |login, senha|
   Funcionario.destroy_all
   Acao.destroy_all
   AcaoFuncionario.destroy_all
+  Dado "que estou em sair"
   Dado "que o usuário #{login} com senha #{senha} existe"
   Dado "que o usuário #{login} possui as seguintes permissões:", table(%{
     | controller_name | action_name |
@@ -88,7 +89,6 @@ Dado /^defino (.*) com o valor (.*)$/ do |atributo,valor|
   if ((atributo != "login") and (atributo != "password")) then
     atributo = @entidade_principal + "_" + atributo
   end
-  puts atributo
   fill_in atributo, :with => valor
 end
 
@@ -129,3 +129,4 @@ Então /^preciso ver (.*) (.*)$/ do |quantidade,entidades|
   registros.count.should == quantidade.to_i
   registros.each {|r| have_tag("td", :content => "#{r.id}")}
 end
+
