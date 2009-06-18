@@ -11,3 +11,4 @@ config/database.yml
 *.swo
 *.LOCAL.*
 *.REMOTE.*
+*.orig
