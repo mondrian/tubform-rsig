@@ -20,7 +20,7 @@ class Pedido < ActiveRecord::Base
 
   before_save :trg_save
   after_update :trg_save
-  after_create :dbf_insert
+  #after_create :dbf_insert
 
   public
   def no_prazo_medio_maximo?
@@ -266,7 +266,11 @@ class Pedido < ActiveRecord::Base
      # na mesma ordem do dbf
      # o mais importante e tratar os dados para o formato que o dbf va suportar
      # podemos ver essa parte juntos, coloquem os valores corretos e a gente testa ai
-     sql = "select atualizar_pedido_dbf(#{self.id}, #{self.tipo}, ...)"
+      sql = Pedido.retorna_sql(["select alterar_pedido_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+                                 ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado", self.previsao_entrega, self.data,
+                                 nil, nil, self.cliente_id.to_s, nil, nil, nil, nil, nil, self.nome_comprador, self.observacao, self.vendedor_id.to_s,
+                                 self.plano_de_pagamento, self.endereco_entrega, nil, nil, nil, nil, nil, self.cliente.cidade_id.to_s, self.area_id.to_s,
+                                 nil, nil, self.operador_id.to_s, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil])
      Pedido.find_by_sql(sql)
   end
 
