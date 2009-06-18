@@ -9,3 +9,5 @@ config/database.yml
 *~
 *.swp
 *.swo
+*.LOCAL.*
+*.REMOTE.*

@@ -13,7 +13,7 @@
 </p>
 <p>
   <b>Cliente:</b>
-  <%=h @nota_fiscal.cliente.razao_social %>
+  <%#=h @nota_fiscal.cliente.razao_social %>
 </p>
 
 <p>
@@ -152,3 +152,4 @@
 <p>
 <%= link_to 'Adicionar Item', :controller => 'itens_nota_fiscal', :action => 'new', :id => (@nota_fiscal.id  if @nota_fiscal.status != 'S')  %>
 </p>
+

@@ -5,7 +5,8 @@ Feature: Estabelecer uma comissão acordada
   Para que ela sobreponha qualquer comissão já informada
 
   Cenário: Informar uma nova comissão acordada para pedido
-    Dado que estou na exibição de pedido 1
+    Dado que me identifiquei como tubform com a senha 123456
+    E que estou na exibição de pedido 1
     Quando eu clicar em Comissão Acordada
     E defino comissao_vendedor com o valor 1
     E defino comissao_telemarketing com o valor 2

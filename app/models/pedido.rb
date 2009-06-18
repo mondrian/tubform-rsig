@@ -14,12 +14,13 @@ class Pedido < ActiveRecord::Base
   has_many   :duplicatas, :dependent => :destroy
 
   validates_presence_of :tipo, :message => "Informe o Tipo de Pedido"
-  validates_presence_of :data, :message => "Informe a Data do Pedido"
+  validates_presence_of :data, :message => "Informe a Data do Pedido..."
   validates_presence_of :cliente_id, :message => "Informe o Código do Cliente"
   validates_presence_of :operador_id, :message => "Operador não Informado, verifique ...."
 
   before_save :trg_save
   after_update :trg_save
+  #after_create :dbf_insert
 
   public
   def no_prazo_medio_maximo?
@@ -72,9 +73,9 @@ class Pedido < ActiveRecord::Base
       else
         comissao = comissao_padrao
         vlr_comissao += ( ((item_pedido.valor_venda.to_f * item_pedido.quantidade.to_f) * comissao) / 100 )
-      end 
+      end
     end
-    if self.valor.nil? 
+    if self.valor.nil?
        self.valor = 1
        vlr_comissao = 0
     end
@@ -82,9 +83,9 @@ class Pedido < ActiveRecord::Base
     if self.valor > 0
        percentual_comissao =  ((vlr_comissao / self.valor) * 100).to_f
     else
-       percentual_comissao = 0 
+       percentual_comissao = 0
     end
-    
+
   end
 
   # A cada 15 dias de prazo acima do parametro, será calculada uma Unidade de Desconto na
@@ -214,46 +215,62 @@ class Pedido < ActiveRecord::Base
       end
     end
 
- # rotina chamada no before save
- def trg_save
-   self.gerenciar_acoes
-   self.gerar_duplicatas if self.changed.include? "plano_de_pagamento" or self.changed.include? "valor"
- end
- 
- def gerenciar_acoes
-   self.valor =  self.somar_itens
-   self.percentual_comissao = self.comissao_desconto_item ? self.comissao_desconto_item : 5
- end
+  # rotina chamada no before save
+  def trg_save
+    self.gerenciar_acoes
+    self.gerar_duplicatas if self.changed.include? "plano_de_pagamento" or self.changed.include? "valor"
+  end 
 
-	# deleta os pedidos que não contem items de pedido
-	def deleta_pedido_sem_item
-		sql = "DELETE FROM pedidos WHERE id not in ( SELECT distinct(pedido_id) FROM item_pedidos )"
-		Pedido.find_by_sql(sql)
-	end
+  def gerenciar_acoes
+    self.valor =  self.somar_itens
+    self.percentual_comissao = self.comissao_desconto_item ? self.comissao_desconto_item : 5
+  end
+
+  # deleta os pedidos que não contem items de pedido
+  def deleta_pedido_sem_item
+ 	sql = "DELETE FROM pedidos WHERE id not in ( SELECT distinct(pedido_id) FROM item_pedidos )" 
+	Pedido.find_by_sql(sql)
+  end
 
   # metodos para replicacao nos dbfs
   def dbf_delete
-   sql = "select exluir_pedido_dbf(#{self.numero_pedido})"
-   Pedido.find_by_sql(sql)  
+    sql = "select exluir_pedido_dbf(#{self.numero_pedido})"
+    Pedido.find_by_sql(sql)  
   end
-  
+
+  def self.retorna_sql(s)
+    sanitize_sql(s)
+  end
+
   def dbf_insert
      # montar nesse ponto as variaveis para a funcao
      # a funcao de insert no dbf recebe como parametros todos os campos da tabela
      # na mesma ordem do dbf
      # o mais importante e tratar os dados para o formato que o dbf va suportar
      # podemos ver essa parte juntos, coloquem os valores corretos e a gente testa ai
-     sql = "select inserir_pedido_dbf(#{self.id}, #{self.tipo}, ...)" 
-     Pedido.find_by_sql(sql)
+     #vtipo = 1.to_i ? self.tipo == 'I' : vtipo = 2
+     self.tipo == 'I' ? vtipo = 1 : vtipo = 2
+     sql = Pedido.retorna_sql(["select inserir_pedido_dbf(?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+                                ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado", self.id.to_s, vtipo, self.data, self.previsao_entrega,
+                                nil, nil, self.cliente_id.to_s, nil, nil, nil, nil, nil, self.nome_comprador, self.observacao, self.vendedor_id.to_s, 
+                                self.plano_de_pagamento, self.endereco_entrega, nil, nil, nil, nil, nil, self.cliente.cidade_id.to_s, self.area_id.to_s,
+                                nil, nil, self.operador_id.to_s, nil, nil, self.registro, self.id.to_s, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil,
+                                nil, nil, nil, nil, nil, nil, nil])
+     x = Pedido.find_by_sql(sql)
+     x = x[0].resultado
+
   end
-  
     def dbf_update
      # montar nesse ponto as variaveis para a funcao
      # a funcao de update no dbf recebe como parametros todos os campos da tabela
      # na mesma ordem do dbf
      # o mais importante e tratar os dados para o formato que o dbf va suportar
      # podemos ver essa parte juntos, coloquem os valores corretos e a gente testa ai
-     sql = "select atualizar_pedido_dbf(#{self.id}, #{self.tipo}, ...)" 
+      sql = Pedido.retorna_sql(["select alterar_pedido_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+                                 ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado", self.previsao_entrega, self.data,
+                                 nil, nil, self.cliente_id.to_s, nil, nil, nil, nil, nil, self.nome_comprador, self.observacao, self.vendedor_id.to_s,
+                                 self.plano_de_pagamento, self.endereco_entrega, nil, nil, nil, nil, nil, self.cliente.cidade_id.to_s, self.area_id.to_s,
+                                 nil, nil, self.operador_id.to_s, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil])
      Pedido.find_by_sql(sql)
   end
 

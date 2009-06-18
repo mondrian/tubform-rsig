@@ -43,13 +43,16 @@ class PedidosController < ApplicationController
 
   def create
     @pedido = Pedido.new(params[:pedido])
-    @pedido.operador_id = 1 # Deverá vir na session (lembrar de arumar depois)
+
+    @pedido.operador_id = 1 # Deverá vir na session (lembrar de arrumar depois)
     respond_to do |format|
       if @pedido.save
         flash[:notice] = 'Pedido Cadastrado com Sucesso'
         format.html { redirect_to(@pedido) }
         format.xml  { render :xml => @pedido, :status => :created, :location => @pedido }
       else
+        render :text => @pedido.errors.full_messages.to_s + @pedido.data.to_s
+        return
         flash[:notice] = @pedido.errors
         format.html { render :action => "new" }
         format.xml  { render :xml => @pedido.errors, :status => :unprocessable_entity }
@@ -85,8 +88,8 @@ class PedidosController < ApplicationController
   def aprovar
     @pedido = Pedido.find(params[:id])
     @pedido.data_aprovacao_pedido = Date.today
-		@pedido.autorizador = current_user
-		@pedido.status = 'Aprovado'
+    @pedido.autorizador = current_user
+    @pedido.status = 'Aprovado'
     respond_to do |format|
       if @pedido.save
         flash[:notice] = 'Pedido Aprovado'
@@ -100,11 +103,11 @@ class PedidosController < ApplicationController
     end
   end
 
-	def desaprovar
+  def desaprovar
     @pedido = Pedido.find(params[:id])
     @pedido.data_aprovacao_pedido = nil
-		@pedido.autorizador = nil
-		@pedido.status = 'Não Aprovado'
+    @pedido.autorizador = nil
+    @pedido.status = 'Não Aprovado'
     respond_to do |format|
       if @pedido.save
         flash[:notice] = 'Pedido Desaprovado'
@@ -116,10 +119,10 @@ class PedidosController < ApplicationController
                              :status => :unprocessable_entity }
       end
     end
-	end
+  end
 
-	def alterar_data_entrega_pedido
-		@pedido = Pedido.find(params[:id])
+  def alterar_data_entrega_pedido
+    @pedido = Pedido.find(params[:id])
     @pedido.entrega = nil
     respond_to do |format|
       if @pedido.save
@@ -132,13 +135,14 @@ class PedidosController < ApplicationController
                              :status => :unprocessable_entity }
       end
     end
-	end
+  end
 
-	def comissao_acordada
+  def comissao_acordada
     @pedido = Pedido.find(params[:id])
-	end
+  end
 
-	def permitir_desconto_no_pedido
-		@pedido = Pedido.find(params[:id])
-	end
+  def permitir_desconto_no_pedido
+    @pedido = Pedido.find(params[:id])
+  end
 end
+
