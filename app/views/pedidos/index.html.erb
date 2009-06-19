@@ -1,3 +1,4 @@
+<p>Encontrado(s) <%= @qtd_pedidos %> registro(s) de pedido.</p>
 <h1>Últimos Pedidos</h1>
 
 <table border="1">
@@ -11,7 +12,7 @@
   </tr>
 
   <% @pedidos.each do |pedido| %>
-      <tr>
+      <tr id="linha_pedido_<%= h pedido.id %>">
         <td><%= h pedido.tipo == 'I' ? 'Interno' : 'Externo' %></td>
         <td><%= h pedido.data.to_s_br %></td>
         <td><%= h pedido.cliente.razao_social if pedido.cliente %></td>
@@ -27,3 +28,4 @@
 <br/>
 
 <%= link_to 'Novo Pedido', new_pedido_path %>
+

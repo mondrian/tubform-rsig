@@ -157,16 +157,16 @@
 
 <% total = 0 %>
 <% for i in @pedido.item_pedidos %>
-  <%  subtotal = i.quantidade * (i.valor_tabela  - (i.valor_tabela * i.desconto)/100) %>
-  <% total += subtotal %>
+  <%  subtotal = i.quantidade * (i.valor_tabela  - (i.valor_tabela * i.desconto)/100) if (i.quantidade && i.valor_tabela && i.desconto) %>
+  <% total += subtotal if subtotal %>
     <tr>
       <td align="center"><%= i.produto_id  %></td>
       <td><%= i.produto.descricao  %></td>
-      <td align="center"><%= i.quantidade.to_i  %></td>
-      <td align="right"><%= i.valor_tabela.real.real_formatado  %></td>
-      <td align="right"><%= i.desconto.to_s + ' %'  %></td>
-      <td align="right"><%= i.valor_venda.real.real_formatado  %></td>
-      <td align="right"><%= subtotal.real.real_formatado %></td>
+      <td align="center"><%= i.quantidade.to_i if i.quantidade  %></td>
+      <td align="right"><%= i.valor_tabela.real.real_formatado if i.valor_tabela %></td>
+      <td align="right"><%= i.desconto.to_s + ' %'  if i.desconto %></td>
+      <td align="right"><%= i.valor_venda.real.real_formatado if i.valor_venda  %></td>
+      <td align="right"><%= subtotal.real.real_formatado if subtotal.real.real_formatado %></td>
       <td><%= link_to 'Editar', :controller => :item_pedidos, :action => :edit, :id => i.id %></td>
       <td><%= link_to 'Excluir', i, :confirm => "Excluir Item #{i.id}, Confirma?", :method => :delete %></td>
     </tr>
@@ -192,3 +192,4 @@
 <%= button_to 'Alterar Data Entrega', :action => :alterar_data_entrega_pedido, :id => @pedido.id %>
 
 <%= link_to 'Voltar', pedidos_path %>
+

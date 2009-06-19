@@ -1,4 +1,4 @@
-# This controller handles the login/logout function of the site.  
+# This controller handles the login/logout function of the site.
 class SessionsController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
   before_filter :valida_permissao, :only => :index
@@ -11,22 +11,16 @@ class SessionsController < ApplicationController
   end
 
   def create
-    logout_keeping_session!
-    user = Funcionario.authenticate(params[:login], params[:password])
-    if user
-      # Protects against session fixation attacks, causes request forgery
-      # protection if user resubmits an earlier form using back
-      # button. Uncomment if you understand the tradeoffs.
-      #reset_session
-      self.current_user = user
-      #new_cookie_flag = (params[:remember_me] == "1")
-      #handle_remember_cookie! new_cookie_flag
-      flash[:notice] = "Autenticação coisada"
-      redirect_to(:action => 'index')
+    self.current_user = Funcionario.authenticate(params[:login], params[:password])
+    if logged_in?
+      if params[:remember_me] == '1'
+        current_user.remember_me unless current_user.remember_token?
+        cookies[:auth_token] = { :value => self.current_user.remember_token, :expires => self.current_user.remember_token_expires_at }
+      end
+      flash[:notice] = "#{self.current_user.nome}, seja bem vindo!"
+      redirect_back_or_default('/')
     else
       note_failed_signin
-      @login       = params[:login]
-      @remember_me = params[:remember_me]
       render :action => 'new'
     end
   end
@@ -40,7 +34,8 @@ class SessionsController < ApplicationController
 protected
   # Track failed login attempts
   def note_failed_signin
-    flash[:error] = "Não foi possível autenticar o Operador '#{params[:login]}'"
+    flash[:error] = "Autenticação inválida, verifique seus dados."
     logger.warn "Falha de Autenticação para '#{params[:login]}' de #{request.remote_ip} em #{Time.now.utc}"
   end
 end
+

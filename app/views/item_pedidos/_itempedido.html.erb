@@ -2,7 +2,7 @@
   <%= f.error_messages %>
 
     <%= f.hidden_field(:pedido_id) %>
-    
+
  <h2>Adicionar ítem ao pedido <%= params[:id] %></h2>
 <p>
   <%= f.label :produto_id, 'Produto' %><br />
@@ -20,7 +20,7 @@
 </p>
 
 <p>
-  <%= f.label :valor_venda, 'Valor' %><br />
+  <%= f.label :valor_venda, 'Valor de Venda' %><br />
   <%= f.text_field :valor_venda  %>
 </p>
 
@@ -28,9 +28,9 @@
   <%= f.label :quantidade %> <br/>
   <%= f.text_field :quantidade %>
 </p>
-<%= observe_field :item_pedido_produto_id, 
-   :update => "valor_venda", 
-   :url => "/item_pedidos/detalhe", 
+<%= observe_field :item_pedido_produto_id,
+   :update => "valor_venda",
+   :url => "/item_pedidos/detalhe",
    :with => :valor_venda %>
 
 <div id="detalhe_produto">
@@ -41,3 +41,4 @@
   </p>
 
 <% end %>
+

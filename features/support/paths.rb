@@ -21,14 +21,20 @@ module NavigationHelpers
     #when /página de nova sessão/
     #  new_session_path
 
-    when /autenticação/
-     new_session_path
+    when /autenticação de usuário/
+      new_session_path
 
-		when /logout/
-			'/logout'
+    when /sair do sistema/
+      '/logout'
 
-		when /sair/
-			'/logout'
+    when /cadastro de pedido/
+      new_pedido_path
+
+    when /listagem de pedidos/
+      pedidos_path
+
+    when /cadastro de item/
+      '/item_pedidos/new/10'
 
     # Add more mappings here.
     # Here is a more fancy example:
