@@ -11,7 +11,7 @@ require 'webrat'
 
 Webrat.configure do |config|
   config.mode = :selenium
-  #config.timeout_in_seconds = 10
+  # config.timeout_in_seconds = 10
   # opcional:
   # padrão é 3001. Evitar a porta padrão do Selenium, 4444
   config.application_port = 4567
