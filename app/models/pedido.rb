@@ -234,7 +234,7 @@ class Pedido < ActiveRecord::Base
 
   # metodos para replicacao nos dbfs
   def dbf_delete
-    sql = "select exluir_pedido_dbf(#{self.numero_pedido})"
+    sql = "select excluir_pedido_dbf(#{self.numero_pedido})"
     Pedido.find_by_sql(sql)  
   end
 
@@ -266,12 +266,16 @@ class Pedido < ActiveRecord::Base
      # na mesma ordem do dbf
      # o mais importante e tratar os dados para o formato que o dbf va suportar
      # podemos ver essa parte juntos, coloquem os valores corretos e a gente testa ai
-      sql = Pedido.retorna_sql(["select alterar_pedido_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
-                                 ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado", self.previsao_entrega, self.data,
-                                 nil, nil, self.cliente_id.to_s, nil, nil, nil, nil, nil, self.nome_comprador, self.observacao, self.vendedor_id.to_s,
-                                 self.plano_de_pagamento, self.endereco_entrega, nil, nil, nil, nil, nil, self.cliente.cidade_id.to_s, self.area_id.to_s,
-                                 nil, nil, self.operador_id.to_s, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil])
+      sql = Pedido.retorna_sql(["select alterar_pedido_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+                                                           ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
+                                 self.data, self.previsao_entrega, self.entrega, self.programacao, self.cliente_id, self.valor,
+                                 self.valor_normal, self.acrescimo, self.desconto, self.transportadora_id, self.nome_comprador,
+                                 self.observacao, self.funcionario_id, self.plano_de_pagamento, self.cliente.endereco_entrega,
+                                 self.cliente.complemento, self.cliente.cidade_id, self.cliente.regiao_entrega, self.cliente.uf,
+                                 self.cliente.cep, self.cliente.cidade_id, self.cliente.area_id, self.minuta_id, self.gera_minuta,
+                                 self.funcionario_id, self.especial, self.telemarketing_id, self.estorno, self.data_estorno,
+                                 self.funcionario_estorno_id, self.comissao_vendedor, self.comissao_telemarketing,
+                                 self.identificador_venda, self.desconto_item, self.autorizador_desconto_id, self.status])
      Pedido.find_by_sql(sql)
   end
-
 end

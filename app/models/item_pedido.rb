@@ -52,5 +52,45 @@ class ItemPedido < ActiveRecord::Base
       self.pedido.percentual_comissao = 5
     end
  end
- 
+
+  def dbf_insert
+     # montar nesse ponto as variaveis para a funcao
+     # a funcao de insert no dbf recebe como parametros todos os campos da tabela
+     # na mesma ordem do dbf
+     # o mais importante e tratar os dados para o formato que o dbf va suportar
+     # podemos ver essa parte juntos, coloquem os valores corretos e a gente testa ai
+     #vtipo = 1.to_i ? self.tipo == 'I' : vtipo = 2
+     sql = ItemPedido.retorna_sql(["select inserir_item_pedido_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
+                                     self.pedido.id, self.produto.id, self.quantidade, self.valor_venda, , SEQ_MOVIME,
+                                     SEQ_MOV_DES, self.valor_tabela, self.produto.emissao_relatorio, self.item_pedido_kit.id,
+                                     self.desconto])
+
+=begin
+     t.decimal  "quantidade"
+     t.decimal  "valor_tabela"
+     t.decimal  "valor_venda"
+     t.decimal  "desconto"
+     t.datetime "created_at"
+     t.datetime "updated_at"
+     t.integer  "produto_id"
+     t.integer  "pedido_id"
+     t.boolean  "emissao_relatorio"     (vem da tabela de produto)
+
+     1  NUM_PEDIDO  Character      8
+     2  COD_PRODUT  Character      5
+     3  QTD_ITEPED  Numeric        7
+     4  VAL_ITEPED  Numeric       11      2
+     5  CONTADOR    Character      1
+     6  SEQ_MOVIME  Character      3
+     7  SEQ_MOVDES  Character      3
+     8  VAL_ITENOR  Numeric       10      2
+     9  STA_EMIREL  Logical        1
+    10  COD_PROKIT  Character      5
+    11  PER_DSCITE  Numeric        6      2
+=end     
+     x = Pedido.find_by_sql(sql)
+     x = x[0].resultado
+
+  end
+
  end
