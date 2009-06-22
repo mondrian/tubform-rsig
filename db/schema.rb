@@ -1,4 +1,4 @@
-# This file is auto-generated from the current state of the database. Instead of editing this file, 
+# This file is auto-generated from the current state of the database. Instead of editing this file,
 # please use the migrations feature of Active Record to incrementally modify your database, and
 # then regenerate this schema definition.
 #
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(:version => 20090619202739) do
     t.string   "fone_celular"
     t.string   "endereco_entrega"
     t.integer  "regiao_entrega_id"
+    t.string   "cidade_entrega_id"
+    t.string   "area_id"
     t.text     "referencias_bancaria"
     t.text     "referencias_comerciais"
     t.text     "observacao"
@@ -373,6 +375,8 @@ ActiveRecord::Schema.define(:version => 20090619202739) do
     t.date     "data_estorno"
     t.string   "identificador_venda",     :limit => 1
     t.decimal  "total_desconto_item",                  :precision => 12, :scale => 2, :default => 0.0
+    t.string   "nosso_numero",            :limit => 7
+    t.boolean  "status_estorno",                                                      :default => false, :null => false
   end
 
   create_table "planosdepagamento", :force => true do |t|
@@ -446,3 +450,4 @@ ActiveRecord::Schema.define(:version => 20090619202739) do
   end
 
 end
+

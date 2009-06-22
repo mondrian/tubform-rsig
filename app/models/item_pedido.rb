@@ -30,10 +30,10 @@ class ItemPedido < ActiveRecord::Base
 
   #Trigguer para Aplicar o Desconto no Valor de Tabela
   def aplica_desconto
-      desconto = self.desconto
-      vlr_tabela = self.valor_tabela
-      vlr_venda = (self.valor_tabela - (self.valor_tabela * self.desconto ) /100 )
-      self.valor_venda = vlr_venda
+    desconto = self.desconto
+    vlr_tabela = self.valor_tabela
+    vlr_venda = (self.valor_tabela - (self.valor_tabela * self.desconto ) /100 )
+    self.valor_venda = vlr_venda
   end
 
 
@@ -52,6 +52,61 @@ class ItemPedido < ActiveRecord::Base
     else
       self.pedido.percentual_comissao = 5
     end
+<<<<<<< HEAD:app/models/item_pedido.rb
+=======
+  end
+
+  def dbf_delete
+    sql = "select excluir_item_pedido_dbf(#{self.pedido.id.to_s}, #{self.produto.id.to_s})"
+    ItemPedido.find_by_sql(sql)
+  end
+
+  def dbf_insert
+    # montar nesse ponto as variaveis para a funcao a funcao de insert no dbf recebe como parametros todos os campos da tabela
+    # na mesma ordem do dbf o mais importante e tratar os dados para o formato que o dbf va suportar
+    # podemos ver essa parte juntos, coloquem os valores corretos e a gente testa ai
+    sql = ItemPedido.retorna_sql(["select inserir_item_pedido_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
+                                  self.pedido.id.to_s,
+                                  self.produto.id.to_s,
+                                  self.quantidade,
+                                  self.valor_venda, ,
+                                  SEQ_MOVIME,
+                                  SEQ_MOV_DES,
+                                  self.valor_tabela,
+                                  self.produto.emissao_relatorio,
+                                  self.item_pedido_kit.id,
+                                  self.desconto])
+
+    x = ItemPedido.find_by_sql(sql)
+    x = x[0].resultado
+
+  end
+
+  def dbf_update
+     # montar nesse ponto as variaveis para a funcao a funcao de update no dbf recebe como parametros todos os campos da tabela
+     # na mesma ordem do dbf o mais importante e tratar os dados para o formato que o dbf va suportar
+     # podemos ver essa parte juntos, coloquem os valores corretos e a gente testa ai
+     sql = ItemPedido.retorna_sql(["select alterar_item_pedido_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
+                                  self.pedido.id.to_s,
+                                  self.produto.id.to_s,
+                                  self.quantidade,
+                                  self.valor_venda, ,
+                                  SEQ_MOVIME,
+                                  SEQ_MOV_DES,
+                                  self.valor_tabela,
+                                  self.produto.emissao_relatorio,
+                                  self.item_pedido_kit.id,
+                                  self.desconto])
+
+    x = ItemPedido.find_by_sql(sql)
+    x = x[0].resultado
+>>>>>>> d064378025c79c7509d38a576b65d68e8bc92e47:app/models/item_pedido.rb
   end
 end
+
+<<<<<<< HEAD:app/models/item_pedido.rb
+=======
+ end
+
+>>>>>>> d064378025c79c7509d38a576b65d68e8bc92e47:app/models/item_pedido.rb
 

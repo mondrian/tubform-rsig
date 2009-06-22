@@ -14,6 +14,10 @@
     <%#= f.select :cliente_id, :size => 5 %>
     <%#= text_field_tag 'nome_cliente', @pedido.cliente.razao_social, :disabled => true %>
   </p>
+    <p>
+      <%= f.label :nosso_numero %><br />
+      <%= f.text_field :nosso_numero, :size => 10 %>
+    </p>
   <p>
     <%= f.label :data, 'Data do pedido' %><br />
     <%= f.text_field :data, :size => 10 %>
@@ -36,11 +40,12 @@
   </p>
   <p>
     <%= f.label :vendedor %><br />
-    <% if Funcionario.count > 0 %>
-      <%= f.select :vendedor_id, Funcionario.all.collect { |c| [c.nome,c.id] }, :prompt => "" %>
-    <% else %>
+    <%= f.text_field :vendedor_id %>
+    <%# if Funcionario.count > 0 %>
+      <%#= f.select :vendedor_id, Funcionario.all.collect { |c| [c.nome,c.id] }, :prompt => "" %>
+    <%# else %>
        <b> Nenhum vendedor cadastrado.</b>
-    <% end %>
+    <%# end %>
 
     <%#= f.text_field :vendedor_id, :size => 5 %>
     <%#= text_field_tag 'nome', @pedido.funcionario.nome, :disabled => true %>
@@ -88,8 +93,8 @@
     <%#= text_field_tag 'nome', @pedido.funcionario.nome, :disabled => true %>
   </p>
   <p>
-    <%= f.label :registro, 'Data do Registro' %><br />
-    <%= f.text_field :registro, :onkeypress => 'mascara(this, data)', :size => 10 %>
+    <%= f.label :registro %><br />
+    <%= f.text_field :registro, :size => 10 %>
   </p>
   <p>
     <%= f.label :empresa_id %><br />
@@ -100,8 +105,8 @@
     <%= f.text_field :status %>
   </p>
   <p>
-    <%= f.label :estorno %><br />
-    <%= f.text_field :estorno, :onkeypress => 'mascara(this, data)', :size => 10 %>
+    <%= f.label :status_estorno %><br />
+    <%= f.text_field :status_estorno %>
   </p>
   <p>
     <%= f.label :operador_estorno_id %><br />

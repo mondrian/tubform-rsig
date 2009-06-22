@@ -3,7 +3,7 @@ class Pedido < ActiveRecord::Base
   belongs_to :vendedor, :class_name => 'Funcionario', :foreign_key => 'vendedor_id'
   belongs_to :operador, :class_name => 'Funcionario', :foreign_key => 'operador_id'
   belongs_to :funcionario, :class_name => 'Funcionario', :foreign_key => 'funcionario_id'
-  has_one :telemarketing, :class_name => 'Funcionario', :foreign_key => 'telemarketing_id'
+  has_one :telemarketing, :class_name => 'Funcionario', :foreign_key => 'id'
   has_one :autorizador, :class_name => 'Funcionario', :foreign_key => 'id'
   has_one :autorizador_desconto, :class_name => 'Funcionario', :foreign_key => 'id'
   has_one :funcionario_estorno, :class_name => 'Funcionario', :foreign_key => 'id'
@@ -19,6 +19,7 @@ class Pedido < ActiveRecord::Base
   validates_presence_of :data, :message => "Informe a Data do Pedido..."
   validates_presence_of :cliente_id, :message => "Informe o Código do Cliente"
   validates_presence_of :operador_id, :message => "Operador não Informado, verifique ...."
+  validates_presence_of :nosso_numero, :message => "Informe 'Nosso Numero' ...."
 
   before_save :trg_save, :desconto_comissao_prazo!
   after_update :trg_save
@@ -241,8 +242,9 @@ class Pedido < ActiveRecord::Base
 
   # deleta os pedidos que não contem items de pedido
   def deleta_pedido_sem_item
- 	sql = "DELETE FROM pedidos WHERE id not in ( SELECT distinct(pedido_id) FROM item_pedidos )"
-	Pedido.find_by_sql(sql)
+ 	#sql = "DELETE FROM pedidos WHERE id not in ( SELECT distinct(pedido_id) FROM item_pedidos )"
+	#Pedido.find_by_sql(sql)
+    Pedido.delete_all(:conditions => 'id not in ( SELECT distinct(pedido_id) FROM item_pedidos )')
   end
 
   # metodos para replicacao nos dbfs
@@ -255,40 +257,41 @@ class Pedido < ActiveRecord::Base
     sanitize_sql(s)
   end
 
+  # montar nesse ponto as variaveis para a funcao a funcao de insert no dbf recebe como parametros todos os campos da tabela
+  # na mesma ordem do dbf o mais importante e tratar os dados para o formato que o dbf va suportar  podemos ver essa parte
+  # juntos, coloquem os valores corretos e a gente testa ai.
+
   def dbf_insert
-     # montar nesse ponto as variaveis para a funcao
-     # a funcao de insert no dbf recebe como parametros todos os campos da tabela
-     # na mesma ordem do dbf
-     # o mais importante e tratar os dados para o formato que o dbf va suportar
-     # podemos ver essa parte juntos, coloquem os valores corretos e a gente testa ai
-     #vtipo = 1.to_i ? self.tipo == 'I' : vtipo = 2
      self.tipo == 'I' ? vtipo = 1 : vtipo = 2
-     sql = Pedido.retorna_sql(["select inserir_pedido_dbf(?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
-                                ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado", self.id.to_s, vtipo, self.data, self.previsao_entrega,
-                                nil, nil, self.cliente_id.to_s, nil, nil, nil, nil, nil, self.nome_comprador, self.observacao, self.vendedor_id.to_s,
-                                self.plano_de_pagamento, self.endereco_entrega, nil, nil, nil, nil, nil, self.cliente.cidade_id.to_s, self.area_id.to_s,
-                                nil, nil, self.operador_id.to_s, nil, nil, self.registro, self.id.to_s, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil,
-                                nil, nil, nil, nil, nil, nil, nil])
+     self.gera_minuta? ? vgera = 1 : vgera = 2
+     self.especial? ? vespecial = 1 : vespecial = 2
+     self.status_estorno? ? vestorno = 'T' : vestorno = 'F'
+     vreg = self.created_at.to_date
+     sql = Pedido.retorna_sql(["select inserir_pedido_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
+            self.id.to_s, vtipo.to_s, self.data, self.previsao_entrega, self.programacao, self.cliente_id.to_s, self.transportadora_id.to_s,
+            self.nome_comprador, self.observacao, self.vendedor_id.to_s, self.plano_de_pagamento, self.endereco_entrega, self.cliente.complemento,
+            self.cliente.cidade_id.to_s, self.cliente.regiao_entrega_id.to_s, self.cliente.uf, self.cliente.cep, self.cliente.cidade_id.to_s,
+            self.area_id.to_s, self.minuta_id.to_s, vgera.to_s, self.operador_id.to_s, vespecial.to_s, self.telemarketing_id.to_s, vreg,
+            self.nosso_numero, self.identificador_venda])
      x = Pedido.find_by_sql(sql)
      x = x[0].resultado
 
   end
     def dbf_update
-     # montar nesse ponto as variaveis para a funcao
-     # a funcao de update no dbf recebe como parametros todos os campos da tabela
-     # na mesma ordem do dbf
-     # o mais importante e tratar os dados para o formato que o dbf va suportar
-     # podemos ver essa parte juntos, coloquem os valores corretos e a gente testa ai
-      sql = Pedido.retorna_sql(["select alterar_pedido_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
-                                                           ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
-                                 self.data, self.previsao_entrega, self.entrega, self.programacao, self.cliente_id, self.valor,
-                                 self.valor_normal, self.acrescimo, self.desconto, self.transportadora_id, self.nome_comprador,
-                                 self.observacao, self.funcionario_id, self.plano_de_pagamento, self.cliente.endereco_entrega,
-                                 self.cliente.complemento, self.cliente.cidade_id, self.cliente.regiao_entrega, self.cliente.uf,
-                                 self.cliente.cep, self.cliente.cidade_id, self.cliente.area_id, self.minuta_id, self.gera_minuta,
-                                 self.funcionario_id, self.especial, self.telemarketing_id, self.estorno, self.data_estorno,
-                                 self.funcionario_estorno_id, self.comissao_vendedor, self.comissao_telemarketing,
-                                 self.identificador_venda, self.desconto_item, self.autorizador_desconto_id, self.status])
+      self.especial? ? vespecial = 1 : vespecial = 2
+      self.status_estorno? ? vestorno = 'T' : vestorno = 'F'
+      self.gera_minuta? ? vgera = 1 : vgera = 2
+      sql = Pedido.retorna_sql(["select alterar_pedido_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+                                                           ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
+      self.data, self.previsao_entrega, self.entrega, self.programacao, self.cliente_id.to_s, self.valor, self.valor_normal,
+      self.acrescimo, self.desconto, self.transportadora_id, self.nome_comprador, self.observacao, self.operador_id.to_s,
+      self.plano_de_pagamento, self.endereco_entrega, self.cliente.complemento, self.cliente.cidade_id.to_s, self.cliente.regiao_entrega,
+      self.cliente.uf, self.cliente.cep, self.cliente.cidade_id.to_s, self.cliente.area_id.to_s, self.minuta_id.to_s, vgera,
+      self.operador_id.to_s, vespecial, self.telemarketing_id.to_s, self.status_estorno?, self.data_estorno, self.funcionario_estorno_id.to_s,
+      self.comissao_vendedor, self.comissao_telemarketing, self.identificador_venda, self.total_desconto_item, self.autorizador_desconto_id,
+      self.status])
+
+      self.vencimentos.
      Pedido.find_by_sql(sql)
   end
 end

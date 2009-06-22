@@ -2,8 +2,8 @@ class Cliente < ActiveRecord::Base
   before_save :remove_mascara
   has_many :pedidos
   belongs_to  :cidade
-  has_one  :regiao_entrega, :class_name => 'Regiao', :foreign_key => 'regiao_entrega_id'
-  has_one  :cidade_entrega, :class_name => 'Cidade', :foreign_key => 'cidade_entrega_id'
+  has_one  :regiao_entrega, :class_name => 'Regiao', :foreign_key => 'id'
+  has_one  :cidade_entrega, :class_name => 'Cidade', :foreign_key => 'id'
   has_one  :area
   has_many :notas_fiscais
 

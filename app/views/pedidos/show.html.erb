@@ -1,4 +1,14 @@
 <p>
+  <b>Pedido:</b>
+  <%=h @pedido.id %>
+</p>
+
+<p>
+  <b>Nosso Número:</b>
+  <%=h @pedido.nosso_numero %>
+</p>
+
+<p>
   <b>Tipo:</b>
   <%=h @pedido.tipo == 'I' ? 'Interno' : 'Externo' %>
 </p>
@@ -90,7 +100,7 @@
 
 <p>
   <b>Estorno:</b>
-  <%=h @pedido.estorno %>
+  <%=h @pedido.status_estorno %>
 </p>
 
 <p>
