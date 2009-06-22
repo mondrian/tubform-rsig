@@ -1,5 +1,4 @@
 # http://www.pivotaltracker.com/story/show/790964
-@trabalhando
 Feature: Adicionar Item ao Pedido
   Como um vendedor
   Eu quero incluir um item no pedido

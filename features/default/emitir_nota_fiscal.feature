@@ -1,5 +1,4 @@
 # http://www.pivotaltracker.com/story/show/791095
-@trabalhando
 Feature: Emitir Nota Fiscal
   Como um expedidor
   Eu quero emitir uma Nota Fiscal

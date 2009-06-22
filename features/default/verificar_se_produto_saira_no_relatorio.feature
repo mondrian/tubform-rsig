@@ -7,8 +7,8 @@ Feature: Verificar se o produto sairá no relatório
 
   Cenário: Verificando produto que sairá nos relatórios
     Dado que existe(m) registro(s) de produto com os seguintes dados:
-      |id | valor normal | emissao relatorio |
-      |1  | 736          | sim               |
+      |id | descricao        |valor normal | emissao relatorio |
+      |1  | Produto de Teste |736          | sim               |
     Dado que existe um pedido
     E que estou em adicionar item ao pedido
     E seleciono o(a) produto "Produto de Teste"
@@ -20,8 +20,8 @@ Feature: Verificar se o produto sairá no relatório
 
   Cenário: Verificando produto que não sairá no relatórios
     Dado que existe(m) registro(s) de produto com os seguintes dados:
-      |id | valor normal | emissao relatorio |
-      |1  | 736          | não               |
+      |id | descricao        |valor normal | emissao relatorio |
+      |1  | Produto de Teste |736          | sim               |
     Dado que existe um pedido
     E que estou em adicionar item ao pedido
     E seleciono o(a) produto "Produto de Teste"

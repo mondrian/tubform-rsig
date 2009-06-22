@@ -1,5 +1,4 @@
 # http://www.pivotaltracker.com/story/show/791064
-@trabalhando
 Feature: Aplicar Desconto Ponderado
   Como um vendedor
   Eu quero aplicar um desconto ponderado
