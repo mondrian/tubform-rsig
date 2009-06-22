@@ -13,8 +13,7 @@ Feature: Adicionar Item ao Pedido
     E possuo permissão para "Ver Itens de Pedido"
 
   Cenário: Adicionando um item sem preço especial a um pedido
-    Dado que existe um pedido
-    E que estou em adicionar item ao pedido
+    E que estou adicionando item a um pedido
     E seleciono o(a) produto "Produto de Teste"
     E defino quantidade como "10"
     E defino valor de venda como "100"

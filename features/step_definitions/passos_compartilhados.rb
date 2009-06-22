@@ -61,6 +61,11 @@ Dado /^que existe um item de pedido$/ do
   Factory(:item_pedido, :id => 1)
 end
 
+Dado /^que existe um produto$/ do
+  Produto.destroy_all
+  Factory(:produto, :id => 1)
+end
+
 Dado /^que estou em (.+)$/ do |nome_da_pagina|
   visit path_to(nome_da_pagina)
 end
