@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  chave: MyString
+  valor: MyString
+  descricao: MyString
+  empresa_id: 1
+
+two:
+  chave: MyString
+  valor: MyString
+  descricao: MyString
+  empresa_id: 1
