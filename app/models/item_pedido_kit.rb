@@ -18,7 +18,7 @@ class ItemPedidoKit < ActiveRecord::Base
                                   self.pedido.id.to_s,
                                   self.produto.id.to_s,
                                   self.quantidade,
-                                  self.valor_venda, ,
+                                  self.valor_venda,
                                   SEQ_MOVIME,
                                   SEQ_MOV_DES,
                                   self.valor_tabela,
@@ -30,7 +30,7 @@ class ItemPedidoKit < ActiveRecord::Base
     x = x[0].resultado
 
   end
-  
+
   def dbf_update
      # montar nesse ponto as variaveis para a funcao
      # a funcao de update no dbf recebe como parametros todos os campos da tabela
@@ -41,7 +41,7 @@ class ItemPedidoKit < ActiveRecord::Base
                                   self.pedido.id.to_s,
                                   self.produto.id.to_s,
                                   self.quantidade,
-                                  self.valor_venda, ,
+                                  self.valor_venda,
                                   SEQ_MOVIME,
                                   SEQ_MOV_DES,
                                   self.valor_tabela,
@@ -54,3 +54,4 @@ class ItemPedidoKit < ActiveRecord::Base
   end
 
 end
+

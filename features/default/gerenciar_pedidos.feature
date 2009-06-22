@@ -19,7 +19,7 @@ Feature: Gerenciar pedidos
     E defino plano de pagamento como "000030060090120"
     E defino previsão de entrega como "2009-05-30"
     E defino data do pedido como "2009-05-30"
-    E defino data do registro como "2009-05-30"
+    E defino nosso numero como "1111111"
     E seleciono o(a) transportadora "Transportadora de Teste"
     E seleciono o(a) tipo "Interno"
     E defino status como "A"

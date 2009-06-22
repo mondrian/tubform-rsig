@@ -19,12 +19,13 @@ Factory.define :pedido do |p|
   p.association :minuta
   p.association :area
   p.status nil
-  p.estorno "2009-04-24"
+  p.status_estorno "2009-04-24"
   p.association :funcionario_estorno, :factory => :funcionario
   p.comissao_vendedor 0.00
   p.comissao_telemarketing 9.99
   p.venda_externa false
   p.association :autorizador_desconto, :factory => :funcionario
   p.data_aprovacao_pedido "2009-05-14"
+  p.nosso_numero '1111111'
 end
 

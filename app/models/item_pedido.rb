@@ -52,8 +52,6 @@ class ItemPedido < ActiveRecord::Base
     else
       self.pedido.percentual_comissao = 5
     end
-<<<<<<< HEAD:app/models/item_pedido.rb
-=======
   end
 
   def dbf_delete
@@ -69,7 +67,7 @@ class ItemPedido < ActiveRecord::Base
                                   self.pedido.id.to_s,
                                   self.produto.id.to_s,
                                   self.quantidade,
-                                  self.valor_venda, ,
+                                  self.valor_venda,
                                   SEQ_MOVIME,
                                   SEQ_MOV_DES,
                                   self.valor_tabela,
@@ -90,7 +88,7 @@ class ItemPedido < ActiveRecord::Base
                                   self.pedido.id.to_s,
                                   self.produto.id.to_s,
                                   self.quantidade,
-                                  self.valor_venda, ,
+                                  self.valor_venda,
                                   SEQ_MOVIME,
                                   SEQ_MOV_DES,
                                   self.valor_tabela,
@@ -100,13 +98,6 @@ class ItemPedido < ActiveRecord::Base
 
     x = ItemPedido.find_by_sql(sql)
     x = x[0].resultado
->>>>>>> d064378025c79c7509d38a576b65d68e8bc92e47:app/models/item_pedido.rb
   end
 end
-
-<<<<<<< HEAD:app/models/item_pedido.rb
-=======
- end
-
->>>>>>> d064378025c79c7509d38a576b65d68e8bc92e47:app/models/item_pedido.rb
 
