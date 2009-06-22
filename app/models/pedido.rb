@@ -228,14 +228,14 @@ class Pedido < ActiveRecord::Base
 
   # deleta os pedidos que não contem items de pedido
   def deleta_pedido_sem_item
- 	sql = "DELETE FROM pedidos WHERE id not in ( SELECT distinct(pedido_id) FROM item_pedidos )" 
-	Pedido.find_by_sql(sql)
+ 		sql = "DELETE FROM pedidos WHERE id not in ( SELECT distinct(pedido_id) FROM item_pedidos )" 
+		x = Pedido.replicando_no_banco(sql)
   end
 
   # metodos para replicacao nos dbfs
   def dbf_delete
     sql = "select exluir_pedido_dbf(#{self.numero_pedido})"
-    Pedido.find_by_sql(sql)  
+    x = Pedido.replicando_no_banco(sql)
   end
 
   def self.retorna_sql(s)
@@ -256,8 +256,7 @@ class Pedido < ActiveRecord::Base
                                 self.plano_de_pagamento, self.endereco_entrega, nil, nil, nil, nil, nil, self.cliente.cidade_id.to_s, self.area_id.to_s,
                                 nil, nil, self.operador_id.to_s, nil, nil, self.registro, self.id.to_s, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil,
                                 nil, nil, nil, nil, nil, nil, nil])
-     x = Pedido.find_by_sql(sql)
-     x = x[0].resultado
+     x = Pedido.replicando_no_banco(sql)
 
   end
     def dbf_update
@@ -271,7 +270,13 @@ class Pedido < ActiveRecord::Base
                                  nil, nil, self.cliente_id.to_s, nil, nil, nil, nil, nil, self.nome_comprador, self.observacao, self.vendedor_id.to_s,
                                  self.plano_de_pagamento, self.endereco_entrega, nil, nil, nil, nil, nil, self.cliente.cidade_id.to_s, self.area_id.to_s,
                                  nil, nil, self.operador_id.to_s, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil])
-     Pedido.find_by_sql(sql)
+
+     x = Pedido.replicando_no_banco(sql)
   end
+
+	def self.replicando_no_banco(s)
+		 x = Pedido.find_by_sql("select replica_dbf(#{(s)}) as resultado")
+     x = x[0].resultado
+	end
 
 end
