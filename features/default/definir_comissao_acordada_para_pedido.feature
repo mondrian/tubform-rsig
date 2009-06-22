@@ -1,5 +1,4 @@
 # http://www.pivotaltracker.com/story/show/791007
-@trabalhando
 Feature: Definir comissão acordada para pedido
   Como um gerente de vendas
   Eu quero definir uma nova comissão
