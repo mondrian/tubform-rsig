@@ -5,7 +5,7 @@ class Duplicata < ActiveRecord::Base
   def possui_lancamentos?
     self.contra_partidas.size > 0
   end
-
+=begin
   sql = Pedido.retorna_sql(["select inserir_duplicata_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                              as resultado", self.id, self.banco.id, self.agencia.id, contador, self.plano_de_conta_id, ])
   x = Pedido.find_by_sql(sql)
@@ -49,5 +49,7 @@ class Duplicata < ActiveRecord::Base
  22  A           Character      1            Asc   Machine
  23  HIS_DUPLIC  Character     30
 
+
+=end
 
 end

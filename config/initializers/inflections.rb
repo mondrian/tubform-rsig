@@ -10,5 +10,6 @@
    inflect.irregular 'nota_fiscal', 'notas_fiscais'
    inflect.irregular 'item_nota_fiscal','itens_nota_fiscal'
    inflect.irregular 'fornecedor','fornecedores'
+   inflect.irregular 'regiao','regioes'
  #   inflect.uncountable %w( fish sheep )
  end

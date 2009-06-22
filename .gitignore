@@ -1,8 +1,7 @@
 log/*.log
 tmp/**/*
 .DS_Store
-nbproject
-db/schema.rb
+nbproject/*
 doc/api
 doc/app
 config/database.yml
@@ -12,3 +11,5 @@ config/database.yml
 *.LOCAL.*
 *.REMOTE.*
 *.orig
+.idea/*
+.idea/.rakeTasks

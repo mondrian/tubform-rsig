@@ -53,18 +53,18 @@ class ItemPedido < ActiveRecord::Base
     end
  end
 
-  def dbf_insert
+  #def dbf_insert
      # montar nesse ponto as variaveis para a funcao
      # a funcao de insert no dbf recebe como parametros todos os campos da tabela
      # na mesma ordem do dbf
      # o mais importante e tratar os dados para o formato que o dbf va suportar
      # podemos ver essa parte juntos, coloquem os valores corretos e a gente testa ai
      #vtipo = 1.to_i ? self.tipo == 'I' : vtipo = 2
-     sql = ItemPedido.retorna_sql(["select inserir_item_pedido_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
-                                     self.pedido.id, self.produto.id, self.quantidade, self.valor_venda, , SEQ_MOVIME,
-                                     SEQ_MOV_DES, self.valor_tabela, self.produto.emissao_relatorio, self.item_pedido_kit.id,
-                                     self.desconto])
-
+     #sql = ItemPedido.retorna_sql(["select inserir_item_pedido_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
+     #                                self.pedido.id, self.produto.id, self.quantidade, self.valor_venda, , SEQ_MOVIME,
+     #                                SEQ_MOV_DES, self.valor_tabela, self.produto.emissao_relatorio, self.item_pedido_kit.id,
+     #                                self.desconto])
+     #
 =begin
      t.decimal  "quantidade"
      t.decimal  "valor_tabela"
@@ -88,9 +88,9 @@ class ItemPedido < ActiveRecord::Base
     10  COD_PROKIT  Character      5
     11  PER_DSCITE  Numeric        6      2
 =end     
-     x = Pedido.find_by_sql(sql)
-     x = x[0].resultado
-
-  end
+  #   x = Pedido.find_by_sql(sql)
+  #   x = x[0].resultado
+  #
+  #end
 
  end
