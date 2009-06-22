@@ -1,4 +1,5 @@
 # http://www.pivotaltracker.com/story/show/791062
+@trabalhando
 Feature: Aplicar Desconto Da Comissão Por Desconto No Item
   Como um vendedor
   Eu quero informar um item com desconto

@@ -1,5 +1,4 @@
 # http://www.pivotaltracker.com/story/show/790926
-@trabalhando
 Feature: Gerenciar pedidos
   Como um vendedor
   Eu quero abrir um de venda

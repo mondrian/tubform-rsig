@@ -1,5 +1,4 @@
 # http://www.pivotaltracker.com/story/show/791082
-@trabalhando
 Feature: Aplicar Desconto da Comissão por Prazo
   Como um vendedor
   Eu quero inserir um Item de Pedido
