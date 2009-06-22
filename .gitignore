@@ -2,7 +2,6 @@ log/*.log
 tmp/**/*
 .DS_Store
 nbproject
-db/schema.rb
 doc/api
 doc/app
 config/database.yml
@@ -12,3 +11,4 @@ config/database.yml
 *.LOCAL.*
 *.REMOTE.*
 *.orig
+
