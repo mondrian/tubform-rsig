@@ -6,48 +6,40 @@ class Duplicata < ActiveRecord::Base
     self.contra_partidas.size > 0
   end
 
-  sql = Pedido.retorna_sql(["select inserir_duplicata_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                             as resultado", self.id, self.banco.id, self.agencia.id, contador, self.plano_de_conta_id, ])
-  x = Pedido.find_by_sql(sql)
-  x = x[0].resultado
+  # metodos para replicacao nos dbfs
+  def dbf_delete
+    sql = "select excluir_duplicata_receber_dbf(#{self.id}) as resultado"
+    x = Duplicata.find_by_sql(sql)
+    x = x[0].resultado
+  end
 
- end
+  def self.retorna_sql(s)
+    sanitize_sql(s)
+  end
 
-  t.integer  "plano_de_conta_id"
-  t.string   "tipo_cobranca"
-  t.date     "data_emissao"
-  t.date     "data_vencimento"
-  t.decimal  "valor"
-  t.integer  "cliente_id"
-  t.integer  "pedido_id"
-  t.string   "nome_devedor"
-  t.integer  "devedor_id"
-  t.datetime "created_at"
-  t.datetime "updated_at"
+  def dbf_insert
+     # montar nesse ponto as variaveis para a funcao
+     # a funcao de insert no dbf recebe como parametros todos os campos da tabela
+     # na mesma ordem do dbf
+     # o mais importante e tratar os dados para o formato que o dbf va suportar
+     # podemos ver essa parte juntos, coloquem os valores corretos e a gente testa ai
+     #vtipo = 1.to_i ? self.tipo == 'I' : vtipo = 2
+     self.tipo == 'I' ? vtipo = 1 : vtipo = 2
+     sql = Duplicata.retorna_sql(["select inserir_duplicata_receber_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
+                                 self.id.to_s,
+                                 self.plano_de_conta_id.to_s,
+                                 self.tipo_cobranca.to_s,
+                                 self.created_at.to_date,
+                                 self.data_emissao,
+                                 self.data_vencimento,
+                                 self.valor,
+                                 self.cliente_id.to_s,
+                                 self.pedido_id.to_s,
+                                 self.nome_devedor])
 
-  1  COD_DUPLIC  Character      6  *
-  2  COD_BANCO   Character      3
-  3  COD_AGENCI  Character      4
-  4  CONTADOR    Character      1
-  5  COD_PLACON  Character      5  *
-  6  NUM_DUPLIC  Character     15
-  7  TIP_COBRAN  Character      1  *
-  8  DAT_REGDPL  Date           8  *
-  9  DAT_EMIDPL  Date           8  *
- 10  DAT_VENDPL  Date           8  *
- 11  VAL_DUPLIC  Numeric       15  *
- 12  COD_CLIENT  Character      5  *
- 13  NUM_PEDIDO  Character      8  *
- 14  NUM_LANCAM  Character      6
- 15  COD_DEVEDO  Character      5
- 16  NOM_DEVEDO  Character     40  *
- 17  STR_NOMINA  Character     35
- 18  NUM_DOCORI  Character      6
- 19  SER_DOCORI  Character      6
- 20  IMP_DUPLIC  Logical        1
- 21  COD_VENDED  Character      5
- 22  A           Character      1            Asc   Machine
- 23  HIS_DUPLIC  Character     30
+     x = Duplicata.find_by_sql(sql)
+     x = x[0].resultado
 
+  end
 
 end
