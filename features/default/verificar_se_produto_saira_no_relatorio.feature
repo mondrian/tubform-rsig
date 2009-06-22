@@ -16,7 +16,7 @@ Feature: Verificar se o produto sairá no relatório
     E defino quantidade como "1"
     E peço para salvar
     Quando eu estiver em relatório X
-    E preciso ver "Produto de Teste"
+    Então preciso ver "Produto de Teste"
 
   Cenário: Verificando produto que não sairá no relatórios
     Dado que existe(m) registro(s) de produto com os seguintes dados:
@@ -29,5 +29,5 @@ Feature: Verificar se o produto sairá no relatório
     E defino quantidade como "1"
     E peço para salvar
     Quando eu estiver em relatório X
-    E não devo ver "Produto de Teste"
+    Então não devo ver "Produto de Teste"
 

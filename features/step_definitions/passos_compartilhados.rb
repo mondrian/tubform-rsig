@@ -108,6 +108,11 @@ Então /^preciso ver "([^\"]*)"$/ do |texto|
   response.should contain(texto)
 end
 
+Então /^não devo ver "([^\"]*)"$/ do |texto|
+  response.should_not contain(texto)
+end
+
+
 Então /^eu preciso ver os seguintes registros:$/ do |tabela|
   tabela.hashes.each do |hash|
     hash.each_value do |valor|
