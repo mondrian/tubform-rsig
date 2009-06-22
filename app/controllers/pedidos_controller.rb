@@ -12,6 +12,7 @@ class PedidosController < ApplicationController
 
   def index
     @pedidos = Pedido.all
+    @qtd_pedidos = @pedidos.count
 
     respond_to do |format|
       format.html # index.html.erb

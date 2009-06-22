@@ -3,8 +3,10 @@ class Pedido < ActiveRecord::Base
   belongs_to :vendedor, :class_name => 'Funcionario', :foreign_key => 'vendedor_id'
   belongs_to :operador, :class_name => 'Funcionario', :foreign_key => 'operador_id'
   belongs_to :funcionario, :class_name => 'Funcionario', :foreign_key => 'funcionario_id'
-  belongs_to :telemarketing, :class_name => 'Funcionario', :foreign_key => 'telemarketing_id'
-  belongs_to :autorizador, :class_name => 'Funcionario', :foreign_key => 'autorizador_id'
+  has_one :telemarketing, :class_name => 'Funcionario', :foreign_key => 'id'
+  has_one :autorizador, :class_name => 'Funcionario', :foreign_key => 'id'
+  has_one :autorizador_desconto, :class_name => 'Funcionario', :foreign_key => 'id'
+  has_one :funcionario_estorno, :class_name => 'Funcionario', :foreign_key => 'id'
 
   belongs_to :transportadora
   belongs_to :minuta
@@ -17,12 +19,14 @@ class Pedido < ActiveRecord::Base
   validates_presence_of :data, :message => "Informe a Data do Pedido..."
   validates_presence_of :cliente_id, :message => "Informe o Código do Cliente"
   validates_presence_of :operador_id, :message => "Operador não Informado, verifique ...."
+  validates_presence_of :nosso_numero, :message => "Informe 'Nosso Numero' ...."
 
-  before_save :trg_save
+  before_save :trg_save, :desconto_comissao_prazo!
   after_update :trg_save
   #after_create :dbf_insert
 
   public
+
   def no_prazo_medio_maximo?
     self.cliente.prazo_medio_maximo <= self.prazo_medio
   end
@@ -58,7 +62,9 @@ class Pedido < ActiveRecord::Base
     vlr_comissao = 0.00         #variavel local.
 
     # Exemplo do calculo abaixo: 5.5-((25-23)*0.150)
-    for item_pedido in self.item_pedidos
+
+    self.item_pedidos.each do |item_pedido|
+      item_pedido.desconto = 0 unless item_pedido.desconto
       if item_pedido.desconto > 0
         if item_pedido.desconto <= desconto_padrao
           comissao = (comissao_padrao - ((item_pedido.desconto - comissao_padrao) * percentual_reducao ))
@@ -91,25 +97,25 @@ class Pedido < ActiveRecord::Base
   # A cada 15 dias de prazo acima do parametro, será calculada uma Unidade de Desconto na
   # comissão do Vendedor, conforme abaixo
   def desconto_comissao_prazo!
-    prazo_param = 75  # Deverá vir da Tabela de Parâmetros ( param.prazo_medio )
+    prazo_param = Parametro.find_by_empresa_id_and_chave(1, 'prazo médio').valor
+    prazo_param = prazo_param.to_i unless prazo_param.class == Dinheiro
     comissao = self.comissao_desconto_item / 100   # Retorno de desconto por item
     unidade = 15.000  # Deverá vir da Tabela de Parâmetros ( param.unidade )
     fator = 0.500     # Deverá vir da Tabela de Parâmetros ( param.fator )
     prazo_pedido = self.prazo_medio
-    valor_comissao = 0
+    valor_comissao = 5.5 # parametros
 
     # Verifica se o Vendedor "estourou" o prazo do Cliente e Aplica a Regra
     if(prazo_pedido > prazo_param)
       for i in self.item_pedidos do
         valor_total = i.valor_venda * i.quantidade
         desconto = ((prazo_pedido - prazo_param ) / unidade) * fator
-        valor_base = valor_total - ( desconto * valor_total )
-        valor_comissao += valor_base * comissao
+#        valor_base = valor_total - ( desconto * valor_total )
+        valor_comissao = valor_comissao - desconto
       end
-
-      # Atualiza o valor da Comissão na Tabela de Pedidos
-      self.comissao_vendedor =  valor_comissao / self.valor * 100
     end
+    # Atualiza o valor da Comissão na Tabela de Pedidos
+    self.comissao_vendedor =  valor_comissao
   end
 
   #metodo que retorna a media ponderada dos descontos dos itens do pedido em valor
@@ -124,19 +130,27 @@ class Pedido < ActiveRecord::Base
   #metodo que retorna a media ponderada dos descontos dos itens do pedido em percentual
   def media_desconto_ponderada_itens_perc
     valor = 0
+
     for i in self.item_pedidos do
-       valor += ((i.valor_tabela * i.quantidade) * i.desconto) / 100
+       i.valor_tabela = 0 unless i.valor_tabela
+       i.quantidade = 0 unless i.quantidade
+       i.desconto = 0 unless i.desconto
+
+       valor += ((i.valor_venda * i.quantidade) * i.desconto) / 100
     end
     ret = (valor / self.valor) * 100
   end
 
   # metodo que acumula o desconto ponderado nos itens + o desconto informado no proprio pedido para chegar ao desconto final do pedido
   def desconto_acumulado_geral
+     self.valor = 0 unless self.valor
+     self.media_desconto_ponderada_itens_perc = 0 unless self.media_desconto_ponderada_itens_perc
+     self.desconto = 0 unless self.desconto
      desc_itens = self.media_desconto_ponderada_itens_perc # tras o desconto ponderado dos itens
      base_desc_ped = self.valor - (self.valor * desc_itens / 100)             # acha a base de calculo para o desconto do pedido
      vl_tot_desc = ((base_desc_ped * self.desconto) / 100) + (self.valor - base_desc_ped)  # acha o valor total de desconto
      rep = (vl_tot_desc / self.valor) * 100                # acha a representação do desconto em cima do valor original do pedido
-     rep
+     rep = rep.to_f.round_with_precision(2)
   end
 
   #gerar duplicatas do pedido
@@ -219,7 +233,7 @@ class Pedido < ActiveRecord::Base
   def trg_save
     self.gerenciar_acoes
     self.gerar_duplicatas if self.changed.include? "plano_de_pagamento" or self.changed.include? "valor"
-  end 
+  end
 
   def gerenciar_acoes
     self.valor =  self.somar_itens
@@ -228,28 +242,38 @@ class Pedido < ActiveRecord::Base
 
   # deleta os pedidos que não contem items de pedido
   def deleta_pedido_sem_item
+<<<<<<< HEAD:app/models/pedido.rb
  		sql = "DELETE FROM pedidos WHERE id not in ( SELECT distinct(pedido_id) FROM item_pedidos )" 
 		x = Pedido.replicando_no_banco(sql)
+=======
+ 	#sql = "DELETE FROM pedidos WHERE id not in ( SELECT distinct(pedido_id) FROM item_pedidos )"
+	#Pedido.find_by_sql(sql)
+    Pedido.delete_all(:conditions => 'id not in ( SELECT distinct(pedido_id) FROM item_pedidos )')
+>>>>>>> bc66cd6fe3368ce3bc747317bd0b28490a4f8179:app/models/pedido.rb
   end
 
   # metodos para replicacao nos dbfs
   def dbf_delete
+<<<<<<< HEAD:app/models/pedido.rb
     sql = "select exluir_pedido_dbf(#{self.numero_pedido})"
     x = Pedido.replicando_no_banco(sql)
+=======
+    sql = "select excluir_pedido_dbf(#{self.numero_pedido})"
+    Pedido.find_by_sql(sql)
+>>>>>>> bc66cd6fe3368ce3bc747317bd0b28490a4f8179:app/models/pedido.rb
   end
 
   def self.retorna_sql(s)
     sanitize_sql(s)
   end
 
+  # montar nesse ponto as variaveis para a funcao a funcao de insert no dbf recebe como parametros todos os campos da tabela
+  # na mesma ordem do dbf o mais importante e tratar os dados para o formato que o dbf va suportar  podemos ver essa parte
+  # juntos, coloquem os valores corretos e a gente testa ai.
+
   def dbf_insert
-     # montar nesse ponto as variaveis para a funcao
-     # a funcao de insert no dbf recebe como parametros todos os campos da tabela
-     # na mesma ordem do dbf
-     # o mais importante e tratar os dados para o formato que o dbf va suportar
-     # podemos ver essa parte juntos, coloquem os valores corretos e a gente testa ai
-     #vtipo = 1.to_i ? self.tipo == 'I' : vtipo = 2
      self.tipo == 'I' ? vtipo = 1 : vtipo = 2
+<<<<<<< HEAD:app/models/pedido.rb
      sql = Pedido.retorna_sql(["select inserir_pedido_dbf(?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
                                 ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado", self.id.to_s, vtipo, self.data, self.previsao_entrega,
                                 nil, nil, self.cliente_id.to_s, nil, nil, nil, nil, nil, self.nome_comprador, self.observacao, self.vendedor_id.to_s, 
@@ -272,11 +296,47 @@ class Pedido < ActiveRecord::Base
                                  nil, nil, self.operador_id.to_s, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil])
 
      x = Pedido.replicando_no_banco(sql)
-  end
+=======
+     self.gera_minuta? ? vgera = 1 : vgera = 2
+     self.especial? ? vespecial = 1 : vespecial = 2
+     self.status_estorno? ? vestorno = 'T' : vestorno = 'F'
+     vreg = self.created_at.to_date
+     sql = Pedido.retorna_sql(["select inserir_pedido_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
+            self.id.to_s, vtipo.to_s, self.data, self.previsao_entrega, self.programacao, self.cliente_id.to_s, self.transportadora_id.to_s,
+            self.nome_comprador, self.observacao, self.vendedor_id.to_s, self.plano_de_pagamento, self.endereco_entrega, self.cliente.complemento,
+            self.cliente.cidade_id.to_s, self.cliente.regiao_entrega_id.to_s, self.cliente.uf, self.cliente.cep, self.cliente.cidade_id.to_s,
+            self.area_id.to_s, self.minuta_id.to_s, vgera.to_s, self.operador_id.to_s, vespecial.to_s, self.telemarketing_id.to_s, vreg,
+            self.nosso_numero, self.identificador_venda])
+     x = Pedido.find_by_sql(sql)
+     x = x[0].resultado
 
+  end
+    def dbf_update
+      self.especial? ? vespecial = 1 : vespecial = 2
+      self.status_estorno? ? vestorno = 'T' : vestorno = 'F'
+      self.gera_minuta? ? vgera = 1 : vgera = 2
+      sql = Pedido.retorna_sql(["select alterar_pedido_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+                                                           ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
+      self.data, self.previsao_entrega, self.entrega, self.programacao, self.cliente_id.to_s, self.valor, self.valor_normal,
+      self.acrescimo, self.desconto, self.transportadora_id, self.nome_comprador, self.observacao, self.operador_id.to_s,
+      self.plano_de_pagamento, self.endereco_entrega, self.cliente.complemento, self.cliente.cidade_id.to_s, self.cliente.regiao_entrega,
+      self.cliente.uf, self.cliente.cep, self.cliente.cidade_id.to_s, self.cliente.area_id.to_s, self.minuta_id.to_s, vgera,
+      self.operador_id.to_s, vespecial, self.telemarketing_id.to_s, self.status_estorno?, self.data_estorno, self.funcionario_estorno_id.to_s,
+      self.comissao_vendedor, self.comissao_telemarketing, self.identificador_venda, self.total_desconto_item, self.autorizador_desconto_id,
+      self.status])
+
+      self.vencimentos.
+     Pedido.find_by_sql(sql)
+>>>>>>> bc66cd6fe3368ce3bc747317bd0b28490a4f8179:app/models/pedido.rb
+  end
+end
+
+<<<<<<< HEAD:app/models/pedido.rb
 	def self.replicando_no_banco(s)
 		 x = Pedido.find_by_sql("select replica_dbf(#{(s)}) as resultado")
      x = x[0].resultado
 	end
 
 end
+=======
+>>>>>>> bc66cd6fe3368ce3bc747317bd0b28490a4f8179:app/models/pedido.rb

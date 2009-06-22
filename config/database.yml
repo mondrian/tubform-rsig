@@ -5,7 +5,7 @@ development:
   username: postgres
   password: postgres
 
-test:
+test: &TEST
   adapter: postgresql
   database: rsig_test
   host: localhost
@@ -19,3 +19,8 @@ production:
   username: postgres
   password: postgres
 
+
+cucumber:
+  <<: *TEST
+cucumber:
+  <<: *TEST

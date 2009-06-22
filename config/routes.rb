@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :parametros
+
+  map.resources :classes
+
   map.resources :fornecedores
 
   map.resources :notas_fiscais

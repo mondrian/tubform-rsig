@@ -1,0 +1,16 @@
+<h1>Editing classe</h1>
+
+<% form_for(@classe) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :descricao %><br />
+    <%= f.text_field :descricao %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @classe %> |
+<%= link_to 'Back', classes_path %>

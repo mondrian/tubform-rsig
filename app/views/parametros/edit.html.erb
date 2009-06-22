@@ -1,0 +1,28 @@
+<h1>Editing parametro</h1>
+
+<% form_for(@parametro) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :chave %><br />
+    <%= f.text_field :chave %>
+  </p>
+  <p>
+    <%= f.label :valor %><br />
+    <%= f.text_field :valor %>
+  </p>
+  <p>
+    <%= f.label :descricao %><br />
+    <%= f.text_field :descricao %>
+  </p>
+  <p>
+    <%= f.label :empresa_id %><br />
+    <%= f.text_field :empresa_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @parametro %> |
+<%= link_to 'Back', parametros_path %>

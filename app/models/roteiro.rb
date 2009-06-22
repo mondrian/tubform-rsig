@@ -4,7 +4,8 @@ class Roteiro < ActiveRecord::Base
   has_many :areas
 
   validates_presence_of :descricao, :message => "Informe a Descrição do Roteiro"
-  validates_presence_of :funcionario_id, :message => "Informe o Código do Funcionário"
-  validates_presence_of :regiao_id, :message => "Informe o Código da Região"
+  validates_presence_of :funcionario, :message => "Informe o Código do Funcionário"
+  validates_presence_of :regiao, :message => "Informe o Código da Região"
 
 end
+

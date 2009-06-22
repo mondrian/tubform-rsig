@@ -1,0 +1,23 @@
+<p>
+  <b>Chave:</b>
+  <%=h @parametro.chave %>
+</p>
+
+<p>
+  <b>Valor:</b>
+  <%=h @parametro.valor %>
+</p>
+
+<p>
+  <b>Descricao:</b>
+  <%=h @parametro.descricao %>
+</p>
+
+<p>
+  <b>Empresa:</b>
+  <%=h @parametro.empresa_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_parametro_path(@parametro) %> |
+<%= link_to 'Back', parametros_path %>
