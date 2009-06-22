@@ -1,4 +1,5 @@
 # http://www.pivotaltracker.com/story/show/790926
+@trabalhando
 Feature: Gerenciar pedidos
   Como um vendedor
   Eu quero abrir um de venda
@@ -22,7 +23,7 @@ Feature: Gerenciar pedidos
     E seleciono o(a) transportadora "Transportadora de Teste"
     E seleciono o(a) tipo "Interno"
     E defino status como "A"
-    Quando eu salvar o registro
+    Quando peço para salvar
     Então preciso ver "Pedido Cadastrado com Sucesso"
 
   Cenário: Alterando um pedido válido
@@ -30,7 +31,7 @@ Feature: Gerenciar pedidos
     E peço a alteração do pedido que o(a) data é "2009-05-14"
     E seleciono o(a) tipo "Externo"
     E defino status como "P"
-    Quando eu salvar o registro
+    Quando peço para salvar
     Então preciso ver "Pedido Atualizado com Sucesso"
 
   Cenário: Listar Pedidos Cadastrados

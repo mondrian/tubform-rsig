@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :parametros
+
   map.resources :classes
 
   map.resources :fornecedores

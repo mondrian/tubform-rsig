@@ -20,11 +20,12 @@ class Pedido < ActiveRecord::Base
   validates_presence_of :cliente_id, :message => "Informe o Código do Cliente"
   validates_presence_of :operador_id, :message => "Operador não Informado, verifique ...."
 
-  before_save :trg_save
+  before_save :trg_save, :desconto_comissao_prazo!
   after_update :trg_save
   #after_create :dbf_insert
 
   public
+
   def no_prazo_medio_maximo?
     self.cliente.prazo_medio_maximo <= self.prazo_medio
   end
@@ -60,7 +61,9 @@ class Pedido < ActiveRecord::Base
     vlr_comissao = 0.00         #variavel local.
 
     # Exemplo do calculo abaixo: 5.5-((25-23)*0.150)
-    for item_pedido in self.item_pedidos
+
+    self.item_pedidos.each do |item_pedido|
+      item_pedido.desconto = 0 unless item_pedido.desconto
       if item_pedido.desconto > 0
         if item_pedido.desconto <= desconto_padrao
           comissao = (comissao_padrao - ((item_pedido.desconto - comissao_padrao) * percentual_reducao ))
@@ -93,25 +96,25 @@ class Pedido < ActiveRecord::Base
   # A cada 15 dias de prazo acima do parametro, será calculada uma Unidade de Desconto na
   # comissão do Vendedor, conforme abaixo
   def desconto_comissao_prazo!
-    prazo_param = 75  # Deverá vir da Tabela de Parâmetros ( param.prazo_medio )
+    prazo_param = Parametro.find_by_empresa_id_and_chave(1, 'prazo médio').valor
+    prazo_param = prazo_param.to_i unless prazo_param.class == Dinheiro
     comissao = self.comissao_desconto_item / 100   # Retorno de desconto por item
     unidade = 15.000  # Deverá vir da Tabela de Parâmetros ( param.unidade )
     fator = 0.500     # Deverá vir da Tabela de Parâmetros ( param.fator )
     prazo_pedido = self.prazo_medio
-    valor_comissao = 0
+    valor_comissao = 5.5 # parametros
 
     # Verifica se o Vendedor "estourou" o prazo do Cliente e Aplica a Regra
     if(prazo_pedido > prazo_param)
       for i in self.item_pedidos do
         valor_total = i.valor_venda * i.quantidade
         desconto = ((prazo_pedido - prazo_param ) / unidade) * fator
-        valor_base = valor_total - ( desconto * valor_total )
-        valor_comissao += valor_base * comissao
+#        valor_base = valor_total - ( desconto * valor_total )
+        valor_comissao = valor_comissao - desconto
       end
-
-      # Atualiza o valor da Comissão na Tabela de Pedidos
-      self.comissao_vendedor =  valor_comissao / self.valor * 100
     end
+    # Atualiza o valor da Comissão na Tabela de Pedidos
+    self.comissao_vendedor =  valor_comissao
   end
 
   #metodo que retorna a media ponderada dos descontos dos itens do pedido em valor
@@ -126,19 +129,27 @@ class Pedido < ActiveRecord::Base
   #metodo que retorna a media ponderada dos descontos dos itens do pedido em percentual
   def media_desconto_ponderada_itens_perc
     valor = 0
+
     for i in self.item_pedidos do
-       valor += ((i.valor_tabela * i.quantidade) * i.desconto) / 100
+       i.valor_tabela = 0 unless i.valor_tabela
+       i.quantidade = 0 unless i.quantidade
+       i.desconto = 0 unless i.desconto
+
+       valor += ((i.valor_venda * i.quantidade) * i.desconto) / 100
     end
     ret = (valor / self.valor) * 100
   end
 
   # metodo que acumula o desconto ponderado nos itens + o desconto informado no proprio pedido para chegar ao desconto final do pedido
   def desconto_acumulado_geral
+     self.valor = 0 unless self.valor
+     self.media_desconto_ponderada_itens_perc = 0 unless self.media_desconto_ponderada_itens_perc
+     self.desconto = 0 unless self.desconto
      desc_itens = self.media_desconto_ponderada_itens_perc # tras o desconto ponderado dos itens
      base_desc_ped = self.valor - (self.valor * desc_itens / 100)             # acha a base de calculo para o desconto do pedido
      vl_tot_desc = ((base_desc_ped * self.desconto) / 100) + (self.valor - base_desc_ped)  # acha o valor total de desconto
      rep = (vl_tot_desc / self.valor) * 100                # acha a representação do desconto em cima do valor original do pedido
-     rep
+     rep = rep.to_f.round_with_precision(2)
   end
 
   #gerar duplicatas do pedido

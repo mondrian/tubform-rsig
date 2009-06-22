@@ -5,7 +5,7 @@ Feature: Verificar se o produto é kit
   Para que eu possa verificar se é do tipo kit
 
   Cenário: Verificando produto kit
-    Dado que existe um(a) pedido
+    Dado que existe um pedido
     Quando eu adicionar o item ao pedido
     E seleciono um produto
     E a quantidade for 1

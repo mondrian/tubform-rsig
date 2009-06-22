@@ -13,3 +13,13 @@ require 'webrat/core/matchers'
 require 'factory_girl'
 Dir.glob(File.join(File.dirname(__FILE__), '../../spec/factories/*.rb')).each {|f| require f }
 
+def inspecionar_erro
+  begin
+    yield
+  rescue Exception => e
+    puts e.inspect
+    puts e.backtrace.join("\n")
+    raise e
+  end
+end
+

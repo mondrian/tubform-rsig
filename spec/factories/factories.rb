@@ -1,13 +1,3 @@
-Factory.define :acao do |a|
-  a.controller_name
-  a.action_name
-end
-
-Factory.define :acao_funcionario do |a|
-  a.association :acao
-  a.association :funcionario
-end
-
 Factory.define :faixa_de_desconto do |f|
   f.de 0
   f.ate 75
@@ -18,16 +8,6 @@ Factory.define :fornecedor do |f|
   f.nome 'Aço Cearense'
   f.endereco 'Fortaleza'
   f.cnpj '07811946000187'
-end
-
-Factory.define :item_pedido do |i|
-  i.quantidade 1
-  i.valor_tabela 736
-  i.valor_venda 662.40
-  i.desconto 10
-  i.emissao_relatorio true
-  i.association :produto, :factory => :produto
-  i.association :pedido, :factory => :pedido
 end
 
 Factory.define :produto_kit do |k|

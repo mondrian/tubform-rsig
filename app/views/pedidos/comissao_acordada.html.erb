@@ -1,14 +1,15 @@
 <% form_for(@pedido) do |f| %>
   <%= f.error_messages %>
 	<p>
-	  <%= f.label :comissao_vendedor %><br />
+	  <%= f.label :comissao_vendedor, 'Comissão do vendedor' %><br />
 	  <%= f.text_field :comissao_vendedor %>
 	</p>
 	<p>
-	  <%= f.label :comissao_telemarketing %><br />
+	  <%= f.label :comissao_telemarketing, 'Comissão do telemarketing' %><br />
 	  <%= f.text_field :comissao_telemarketing %>
 	</p>
   <p>
     <%= f.submit 'Salvar' %>
   </p>
 <% end %>
+

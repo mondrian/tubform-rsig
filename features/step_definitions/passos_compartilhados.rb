@@ -10,14 +10,55 @@ Dado /^que existe\(m\) (\d+) registro\(s\) de (.+)$/ do |quantidade, entidade|
   end
 end
 
+Dado /^que existe\(m\) registro\(s\) de (.+) com os seguintes dados:$/ do |entidade,tabela|
+  entidade = entidade.gsub(/\s/, '_')
+  entidade_simbolo = entidade.to_sym
+  classe = eval(entidade.camelize)
+  parametros = {}
+  classe.transaction do
+    classe.destroy_all
+    tabela.hashes.each do |hash|
+      parametros = {}
+      hash.each_pair do |chave, valor|
+        chave = chave.gsub(/\s/, '_')
+        if valor == 'sim'
+          valor = true
+        elsif valor == 'não'
+          valor =  false
+        else
+          parametros[chave] = valor
+        end
+      end
+      Factory(entidade_simbolo, parametros)
+    end
+  end
+end
+
+Dado /^que o (.+) em parâmetros é "([^\"]*)"$/ do |chave, valor|
+  Parametro.transaction do
+    Parametro.destroy_all
+    Factory(:parametro, :chave => chave , :valor => valor)
+  end
+end
+
+Dado /^que existe um cliente$/ do
+  Cliente.destroy_all
+  Factory(:cliente, :nome_fantasia => 'Cliente de Teste')
+end
+
 Dado /^que existe um usuário$/ do
   Funcionario.destroy_all
   Factory(:funcionario, :login => 'usuario1')
 end
 
 Dado /^que existe um pedido$/ do
-  Funcionario.destroy_all
-  Factory(:pedido, :id => 10)
+  Pedido.destroy_all
+  Factory(:pedido, :id => 1)
+end
+
+Dado /^que existe um item de pedido$/ do
+  ItemPedido.destroy_all
+  Factory(:item_pedido, :id => 1)
 end
 
 Dado /^que estou em (.+)$/ do |nome_da_pagina|
@@ -50,7 +91,9 @@ Dado /^possuo permissão para "([^\"]*)"$/ do |permissao|
 end
 
 Quando /^peço para (.+)$/ do |acao|
-  click_button(acao.capitalize)
+  inspecionar_erro do
+    click_button(acao.capitalize)
+  end
 end
 
 Quando /^eu pedir para (.+)$/ do |acao|
@@ -65,57 +108,11 @@ Então /^preciso ver "([^\"]*)"$/ do |texto|
   response.should contain(texto)
 end
 
-Dado /^que o usuário (.+) possui as seguintes permissões:$/ do |login,tabela|
-  funcionario = Funcionario.find_by_login(login)
-  #tabela.hashes.each do |hash|
-  #  acao = Factory(:acao, hash)
-  #  Factory(:acao_funcionario, :acao_id => acao.id, :funcionario_id => funcionario.id)
-  #end
-  funcionario.popula_acoes
-end
-
-Dado /^este (.*) está atribuido a um determinado\(a\) (.*)$/ do |pai, entidade|
-  entidade = entidade.gsub(/\s/, '_').singularize
-  entidade_simbolo = entidade.to_sym
-  klass = eval(entidade.camelize)
-  Factory(entidade_simbolo)
-end
-
-Dado /^que estou no detalhe de (.*) (\d+)$/ do |entidade, id|
-  klass = eval(entidade.camelize)
-  @entidade_principal = entidade
-  @registro = klass.find(:first)
-  visit "#{entidade.pluralize}/edit/#{@registro.id}"
-end
-
-Dado /^que estou na exibição de (.*) (\d+)$/ do |entidade, id|
-  klass = eval(entidade.camelize)
-  Factory(entidade.to_sym)
-  @registro = klass.find(:first)
-  visit "#{entidade.pluralize}/show/#{@registro.id}"
-end
-
-Dado /^que estou no formulário de cadastro de (.*)$/ do |entidade|
-	Dado "que me identifiquei como tubform com a senha 123456"
-  visit "#{entidade.pluralize}/new"
-  @entidade_principal = entidade
-end
-
-Dado /^seleciono (.*) com o valor (.*)$/ do |atributo,valor|
-#  atributo = atributo.gsub(/\s/, '_')
- atributo = @entidade_principal + "[" + atributo + "]"
-end
-
-Quando /^eu salvar o registro$/ do
-  click_button "Salvar"
-end
-
-Quando /^atualizar o registro$/ do
-  click_button "Atualizar"
-end
-
-
-Quando /^eu clicar em (.*)$/ do |botao|
-  click_button botao
+Então /^eu preciso ver os seguintes registros:$/ do |tabela|
+  tabela.hashes.each do |hash|
+    hash.each_value do |valor|
+      response.should contain(valor)
+    end
+  end
 end
 

@@ -29,11 +29,6 @@
 </p>
 
 <p>
-  <b>Valor:</b>
-  <%=h @pedido.valor.to_extenso_real if @pedido.valor %>
-</p>
-
-<p>
   <b>Acrescimo:</b>
   <%=h @pedido.acrescimo.to_extenso_real if @pedido.acrescimo %>
 </p>
@@ -174,18 +169,33 @@
 
     <tr bgcolor="#EAAA0C">
       <td colspan="5" align="right"><b>Valor Total do Pedido:</b></td>
-      <td colspan="2" align="right"><b><span id="total_pedido"><%= total.real.real_formatado %></span></b></td>
+      <td colspan="2" align="right"><b><span id="total_pedido"><%= total.real.real_formatado if total.real.real_formatado %></span></b></td>
       <td colspan="2" align="center"><%= link_to '<b>Adiciona Item</b>', :controller => 'item_pedidos', :action => 'new', :id => @pedido.id %>
     </tr>
 </table>
 <br/><br/>
+
+<p>
+  <b>Total do Pedido: <%= @pedido.valor.real.real_formatado if @pedido.valor %></b>
+</p>
+
+<p>
+  <b>Valor do desconto ponderado: <%= @pedido.desconto_acumulado_geral if @pedido.desconto_acumulado_geral %>%</b>
+</p>
+
+
+<p>
+  <b>Comissão do vendedor: <%= @pedido.comissao_vendedor if @pedido.comissao_vendedor %>%</b>
+</p>
+
+
 
 <% if @pedido.data_aprovacao_pedido %>
  <%= button_to 'Desaprovar Pedido', :action => :desaprovar, :id => @pedido.id %>
 <% else %>
  <%= button_to 'Aprovar Pedido', :action => :aprovar, :id => @pedido.id %>
 <% end %>
-<%= button_to 'Comissão Acordada', :action => :comissao_acordada, :id => @pedido.id %>
+<%= button_to 'Alterar comissão', :action => :comissao_acordada, :id => @pedido.id %>
 <%= button_to 'Desconto', :action => :permitir_desconto_no_pedido, :id => @pedido.id %>
 
 

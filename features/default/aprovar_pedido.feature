@@ -1,5 +1,6 @@
 # http://www.pivotaltracker.com/story/show/791001
-Feature: Aprovar Pedido de Venda
+@trabalhando
+Feature: Aprovar Pedido
   Como um analista de venda
   Eu quero confirmar o pedido de venda
   Para que a venda seja efetivada
@@ -13,8 +14,7 @@ Feature: Aprovar Pedido de Venda
 
   Cenário: Aprovando Pedido de Venda na Alteração
     Dado que existe um pedido
-    E que estou em listagem de pedidos
-    E peço a alteração do pedido que o(a) data é "2009-05-14"
+    E que estou em alteração desse pedido
     Quando peço para aprovar
     Então preciso ver "Pedido Aprovado"
 

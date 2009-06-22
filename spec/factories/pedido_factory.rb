@@ -2,12 +2,12 @@ Factory.define :pedido do |p|
   p.tipo 1
   p.data "2009-05-14"
   p.previsao_entrega "2009-05-14"
-  p.entrega "2009-05-14"
+  p.entrega nil
   p.programacao "2009-05-14"
   p.association :cliente
-  p.valor 9.99
+  p.valor 0.00
   p.acrescimo 9.99
-  p.desconto 9.99
+  p.desconto 0.00
   p.association :transportadora
   p.nome_comprador "Comprador de Teste"
   p.observacao "Observacao de Teste"
@@ -21,7 +21,7 @@ Factory.define :pedido do |p|
   p.status nil
   p.estorno "2009-04-24"
   p.association :funcionario_estorno, :factory => :funcionario
-  p.comissao_vendedor 9.99
+  p.comissao_vendedor 0.00
   p.comissao_telemarketing 9.99
   p.venda_externa false
   p.association :autorizador_desconto, :factory => :funcionario

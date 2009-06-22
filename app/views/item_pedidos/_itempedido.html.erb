@@ -10,12 +10,12 @@
 </p>
 
 <p>
-  <%= f.label :valor_tabela, 'Valor tabela' %><br />
+  <%= f.label :valor_tabela, 'Valor de tabela' %><br />
   <%= f.text_field :valor_tabela  %>
 </p>
 
 <p>
-  <%= f.label :desconto, 'Valor' %><br />
+  <%= f.label :desconto, 'Percentual de desconto' %><br />
   <%= f.text_field :desconto  %>
 </p>
 
@@ -37,7 +37,7 @@
 </div>
 
   <p>
-    <%= f.submit @item_pedido.new_record? ? 'Salvar' : 'Atualizar' %>
+    <%= f.submit 'Salvar' %>
   </p>
 
 <% end %>

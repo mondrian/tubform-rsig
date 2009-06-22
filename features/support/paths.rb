@@ -33,9 +33,23 @@ module NavigationHelpers
     when /listagem de pedidos/
       pedidos_path
 
-    when /cadastro de item/
-      '/item_pedidos/new/10'
+    when /adicionar item ao pedido/
+      '/item_pedidos/new/1'
 
+    when /exibição desse pedido/
+      '/pedidos/show/1'
+
+    when /alteração desse pedido/
+      '/pedidos/edit/1'
+
+    when /cadastro de nota fiscal/
+      new_nota_fiscal_path
+
+    when /listagem de duplicatas/
+      duplicatas_path
+
+    when /alteração desse item de pedido/
+      '/item_pedidos/edit/1'
     # Add more mappings here.
     # Here is a more fancy example:
     #
