@@ -21,7 +21,7 @@ class Duplicata < ActiveRecord::Base
      # na mesma ordem do dbf  o mais importante e tratar os dados para o formato que o dbf va suportar
      # podemos ver essa parte juntos, coloquem os valores corretos e a gente testa ai
      self.tipo == 'I' ? vtipo = 1 : vtipo = 2
-     sql = Duplicata.retorna_sql(["select inserir_duplicata_receber_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
+     sql = Duplicata.retorna_sql("select inserir_duplicata_receber_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
                                  self.id.to_s,
                                  self.plano_de_conta_id.to_s,
                                  self.tipo_cobranca.to_s,
@@ -31,7 +31,7 @@ class Duplicata < ActiveRecord::Base
                                  self.valor,
                                  self.cliente_id.to_s,
                                  self.pedido_id.to_s,
-                                 self.nome_devedor])
+                                 self.nome_devedor)
 
      x = Duplicata.replicando_no_banco(sql)
 
