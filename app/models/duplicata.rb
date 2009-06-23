@@ -9,8 +9,7 @@ class Duplicata < ActiveRecord::Base
   # metodos para replicacao nos dbfs
   def dbf_delete
     sql = "select excluir_duplicata_receber_dbf(#{self.id}) as resultado"
-    x = Duplicata.find_by_sql(sql)
-    x = x[0].resultado
+    x = Duplicata.replicando_no_banco(sql)
   end
 
   def self.retorna_sql(s)
@@ -34,10 +33,14 @@ class Duplicata < ActiveRecord::Base
                                  self.pedido_id.to_s,
                                  self.nome_devedor])
 
-     x = Duplicata.find_by_sql(sql)
-     x = x[0].resultado
+     x = Duplicata.replicando_no_banco(sql)
 
   end
+
+	def self.replicando_no_banco(s)
+		 x = Pedido.find_by_sql("select replica_dbf(#{(s)}) as resultado")
+     x = x[0].resultado
+	end
 
 end
 

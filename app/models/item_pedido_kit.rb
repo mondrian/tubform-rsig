@@ -4,7 +4,7 @@ class ItemPedidoKit < ActiveRecord::Base
 
   def dbf_delete
     sql = "select excluir_item_pedido_kit_dbf(#{self.pedido.id.to_s}, #{self.produto.id.to_s})"
-    ItemPedidoKit.find_by_sql(sql)
+    x = ItemPedidoKit.replicando_no_banco(sql)
   end
 
   def dbf_insert
@@ -26,8 +26,7 @@ class ItemPedidoKit < ActiveRecord::Base
                                   self.item_pedido_kit.id,
                                   self.desconto])
 
-    x = ItemPedidoKit.find_by_sql(sql)
-    x = x[0].resultado
+    x = ItemPedidoKit.replicando_no_banco(sql)
 
   end
 
@@ -49,9 +48,12 @@ class ItemPedidoKit < ActiveRecord::Base
                                   self.item_pedido_kit.id,
                                   self.desconto])
 
-    x = ItemPedidoKit.find_by_sql(sql)
-    x = x[0].resultado
+    x = ItemPedidoKit.replicando_no_banco(sql)
   end
 
+	def self.replicando_no_banco(s)
+		 x = Pedido.find_by_sql("select replica_dbf(#{(s)}) as resultado")
+     x = x[0].resultado
+	end
 end
 
