@@ -1,4 +1,5 @@
 # http://www.pivotaltracker.com/story/show/791001
+@trabalhando
 Feature: Aprovar Pedido
   Como um analista de venda
   Eu quero confirmar o pedido de venda
