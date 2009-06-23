@@ -1,5 +1,4 @@
 # http://www.pivotaltracker.com/story/show/791135
-@trabalhando
 Feature: Verificar se o produto sairá no relatório
   Como um operador
   Eu quero inserir um Item de Pedido

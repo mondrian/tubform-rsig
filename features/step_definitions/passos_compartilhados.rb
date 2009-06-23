@@ -47,8 +47,10 @@ Dado /^que existe um cliente$/ do
 end
 
 Dado /^que existe um usuário$/ do
-  Funcionario.destroy_all
-  Factory(:funcionario, :login => 'usuario1')
+  Funcionario.transaction do
+    Funcionario.destroy_all
+    Factory(:funcionario, :login => 'usuario')
+  end
 end
 
 Dado /^que existe um pedido$/ do
@@ -82,7 +84,7 @@ Dado /^que me identifiquei$/ do
   Dado "que estou em sair do sistema"
   Dado "que existe um usuário"
   Dado "que estou em autenticação de usuário"
-  Dado "defino usuário como \"usuario1\""
+  Dado "defino usuário como \"usuario\""
   Dado "defino senha como \"123456\""
   Dado "peço para autenticar"
   Dado "preciso ver \"Funcionário de Teste, seja bem vindo!\""
@@ -90,7 +92,7 @@ end
 
 Dado /^possuo permissão para "([^\"]*)"$/ do |permissao|
   acao = Acao.find_by_descricao(permissao)
-  funcionario = Funcionario.find_by_login('usuario1')
+  funcionario = Funcionario.find_by_login('usuario')
   funcionario.acoes << acao
   funcionario.save!
 end

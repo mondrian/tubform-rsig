@@ -4,10 +4,11 @@ class ItemPedido < ActiveRecord::Base
 
   validates_presence_of :quantidade, :message => "Informe a Quantidade"
   validates_numericality_of :quantidade, :message => "Informe Apenas Números"
+  validates_presence_of :valor_venda
   validate :valida_item
 
-  #before_save :trg_soma_itens
   after_save :trg_soma_itens
+  #after_save :trg_soma_itens
 
   #after_destroy :trg_soma_itens
 

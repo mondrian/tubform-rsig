@@ -1,4 +1,5 @@
 # http://www.pivotaltracker.com/story/show/791104
+@trabalhando
 Feature: Gerar Duplicatas
   Como um vendedor
   Eu quero gerar duplicatas
