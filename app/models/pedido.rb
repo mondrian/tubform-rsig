@@ -23,7 +23,8 @@ class Pedido < ActiveRecord::Base
  
   before_save :trg_save, :desconto_comissao_prazo!
   after_update :trg_save
-  #after_create :dbf_insert
+  after_create :dbf_insert
+
  
   public
  
@@ -267,13 +268,13 @@ class Pedido < ActiveRecord::Base
      self.especial? ? vespecial = 1 : vespecial = 2
      self.status_estorno? ? vestorno = 'T' : vestorno = 'F'
      vreg = self.created_at.to_date
-     sql = Pedido.retorna_sql(["select inserir_pedido_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
+     sql = Pedido.retorna_sql(["select inserir_pedido_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
             self.id.to_s, vtipo.to_s, self.data, self.previsao_entrega, self.programacao, self.cliente_id.to_s, self.transportadora_id.to_s,
             self.nome_comprador, self.observacao, self.vendedor_id.to_s, self.plano_de_pagamento, self.endereco_entrega, self.cliente.complemento,
             self.cliente.cidade_id.to_s, self.cliente.regiao_entrega_id.to_s, self.cliente.uf, self.cliente.cep, self.cliente.cidade_id.to_s,
-            self.area_id.to_s, self.minuta_id.to_s, vgera.to_s, self.operador_id.to_s, vespecial.to_s, self.telemarketing_id.to_s, vreg,
+            self.area_id.to_s, self.minuta_id.to_s, vgera.to_s, self.operador_id.to_s, self.telemarketing_id.to_s, vreg,
             self.nosso_numero, self.identificador_venda])
-     x = Pedido.replicando_no_banco(sql)
+     x = Pedido.replicando_no_banco(sql.to_s)
  
   end
     def dbf_update
@@ -281,8 +282,8 @@ class Pedido < ActiveRecord::Base
       self.status_estorno? ? vestorno = 'T' : vestorno = 'F'
       self.gera_minuta? ? vgera = 1 : vgera = 2
       sql = Pedido.retorna_sql(["select alterar_pedido_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
-?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
-      self.data, self.previsao_entrega, self.entrega, self.programacao, self.cliente_id.to_s, self.valor, self.valor_normal,
+                                 ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
+      self.id, self.data, self.previsao_entrega, self.entrega, self.programacao, self.cliente_id.to_s, self.valor, self.valor_normal,
       self.acrescimo, self.desconto, self.transportadora_id, self.nome_comprador, self.observacao, self.operador_id.to_s,
       self.plano_de_pagamento, self.endereco_entrega, self.cliente.complemento, self.cliente.cidade_id.to_s, self.cliente.regiao_entrega,
       self.cliente.uf, self.cliente.cep, self.cliente.cidade_id.to_s, self.cliente.area_id.to_s, self.minuta_id.to_s, vgera,
@@ -295,7 +296,8 @@ class Pedido < ActiveRecord::Base
   end
 
 	def self.replicando_no_banco(s)
-		 x = Pedido.find_by_sql("select replica_dbf(#{(s)}) as resultado")
+     sql = retorna_sql(["select replica_dbf(?) as resultado",s])
+		 x = Pedido.find_by_sql(sql)
      x = x[0].resultado
 	end
 
