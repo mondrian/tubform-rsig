@@ -1,8 +1,12 @@
 # http://www.pivotaltracker.com/story/show/791062
+@incompleta
 Feature: Aplicar Desconto Da Comissão Por Desconto No Item
   Como um vendedor
   Eu quero informar um item com desconto
   Para obter o valor do percentual de comissão
+
+  Só é possível o usuário definir preço de venda em produto que possui preço especial,
+  produtos que não possuem preço especial o desconto é apenas em percentual
 
   Contexto:
     Dado que me identifiquei
@@ -72,7 +76,4 @@ Feature: Aplicar Desconto Da Comissão Por Desconto No Item
     Quando peço para salvar
     Então preciso ver "Desconto: 10"
     Então preciso ver "Produto em preço especial"
-
-# Só é possível o usuário definir preço de venda em produto que possui preço especial,
-# produtos que não possuem preço especial o desconto é apenas em percentual
 
