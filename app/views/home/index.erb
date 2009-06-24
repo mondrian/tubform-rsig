@@ -1,0 +1,27 @@
+<%= render :partial => 'header' %>
+<h1>Welcome</h1>
+
+<% if logged_in? %>
+	<div id="north">
+		<div id="user_info">
+ <% if flash[:notice] %>
+	<p style="color: green">
+		<%= flash[:notice] %>
+
+	</p>
+ <% end %>
+ <% if flash[:error] %>
+  <p style="color: red"><%= flash[:error] %></p>
+ <% end %>
+
+<%=h current_user.login %>
+<%= link_to 'Logout', logout_path %>
+
+		</div>
+	</div>
+	<%= render :partial => 'home' %>
+<% else %>
+	<%= link_to 'Login', login_path %>
+<% end %>
+<%= render :partial => 'footer' %>
+
