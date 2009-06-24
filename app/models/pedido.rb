@@ -21,9 +21,10 @@ class Pedido < ActiveRecord::Base
   validates_presence_of :operador_id, :message => "Operador não Informado, verifique ...."
   validates_presence_of :nosso_numero, :message => "Informe 'Nosso Numero' ...."
  
-  before_save :trg_save, :desconto_comissao_prazo!
+  after_save :trg_save, :desconto_comissao_prazo!
   after_update :trg_save
-  #after_create :dbf_insert
+  after_create :dbf_insert
+  after_save :dbf_update
  
   public
  
@@ -281,8 +282,8 @@ class Pedido < ActiveRecord::Base
       self.status_estorno? ? vestorno = 'T' : vestorno = 'F'
       self.gera_minuta? ? vgera = 1 : vgera = 2
       sql = Pedido.retorna_sql(["select alterar_pedido_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
-?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
-      self.data, self.previsao_entrega, self.entrega, self.programacao, self.cliente_id.to_s, self.valor, self.valor_normal,
+                                 ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
+      self.id, self.data, self.previsao_entrega, self.entrega, self.programacao, self.cliente_id.to_s, self.valor, self.valor_normal,
       self.acrescimo, self.desconto, self.transportadora_id, self.nome_comprador, self.observacao, self.operador_id.to_s,
       self.plano_de_pagamento, self.endereco_entrega, self.cliente.complemento, self.cliente.cidade_id.to_s, self.cliente.regiao_entrega,
       self.cliente.uf, self.cliente.cep, self.cliente.cidade_id.to_s, self.cliente.area_id.to_s, self.minuta_id.to_s, vgera,
