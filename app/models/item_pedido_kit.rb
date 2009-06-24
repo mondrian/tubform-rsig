@@ -14,7 +14,7 @@ class ItemPedidoKit < ActiveRecord::Base
     # o mais importante e tratar os dados para o formato que o dbf va suportar
     # podemos ver essa parte juntos, coloquem os valores corretos e a gente testa ai
     #vtipo = 1.to_i ? self.tipo == 'I' : vtipo = 2
-    sql = ItemPedidoKit.retorna_sql("select inserir_item_pedido_kit_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
+    sql = ItemPedidoKit.retorna_sql(["select inserir_item_pedido_kit_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
                                   self.pedido.id.to_s,
                                   self.produto.id.to_s,
                                   self.quantidade,
@@ -24,7 +24,7 @@ class ItemPedidoKit < ActiveRecord::Base
                                   self.valor_tabela,
                                   self.produto.emissao_relatorio,
                                   self.item_pedido_kit.id,
-                                  self.desconto)
+                                  self.desconto])
 
     x = ItemPedidoKit.replicando_no_banco(sql)
 
@@ -36,7 +36,7 @@ class ItemPedidoKit < ActiveRecord::Base
      # na mesma ordem do dbf
      # o mais importante e tratar os dados para o formato que o dbf va suportar
      # podemos ver essa parte juntos, coloquem os valores corretos e a gente testa ai
-     sql = ItemPedidoKit.retorna_sql("select alterar_item_pedido_kit_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
+     sql = ItemPedidoKit.retorna_sql(["select alterar_item_pedido_kit_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
                                   self.pedido.id.to_s,
                                   self.produto.id.to_s,
                                   self.quantidade,
@@ -46,7 +46,7 @@ class ItemPedidoKit < ActiveRecord::Base
                                   self.valor_tabela,
                                   self.produto.emissao_relatorio,
                                   self.item_pedido_kit.id,
-                                  self.desconto)
+                                  self.desconto])
 
     x = ItemPedidoKit.replicando_no_banco(sql)
   end
