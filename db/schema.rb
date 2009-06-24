@@ -1,4 +1,4 @@
-# This file is auto-generated from the current state of the database. Instead of editing this file,
+# This file is auto-generated from the current state of the database. Instead of editing this file, 
 # please use the migrations feature of Active Record to incrementally modify your database, and
 # then regenerate this schema definition.
 #
@@ -9,7 +9,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090624134011) do
+ActiveRecord::Schema.define(:version => 20090624185833) do
+
   create_table "acoes", :force => true do |t|
     t.string   "controller_name"
     t.string   "action_name"
@@ -83,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20090624134011) do
     t.string   "cnpj",                       :limit => 14
     t.integer  "cidade_entrega_id"
     t.integer  "area_id"
+    t.string   "escricao_estadual"
   end
 
   create_table "contra_partidas", :force => true do |t|
@@ -325,7 +327,7 @@ ActiveRecord::Schema.define(:version => 20090624134011) do
 
   create_table "parametros", :force => true do |t|
     t.string   "chave"
-    t.string   "valor_do_parametro"
+    t.string   "valor"
     t.string   "descricao"
     t.integer  "empresa_id"
     t.datetime "created_at"
@@ -427,6 +429,13 @@ ActiveRecord::Schema.define(:version => 20090624134011) do
     t.datetime "updated_at"
   end
 
+  create_table "replicacoes_pendentes", :force => true do |t|
+    t.text     "sql"
+    t.integer  "status",       :limit => 2
+    t.datetime "temporizador"
+    t.integer  "contador"
+  end
+
   create_table "roteiros", :force => true do |t|
     t.string   "descricao"
     t.integer  "funcionario_id"
@@ -449,4 +458,3 @@ ActiveRecord::Schema.define(:version => 20090624134011) do
   end
 
 end
-
