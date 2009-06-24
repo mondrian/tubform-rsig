@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090619202739) do
+ActiveRecord::Schema.define(:version => 20090624131651) do
 
   create_table "acoes", :force => true do |t|
     t.string   "controller_name"
@@ -324,7 +324,7 @@ ActiveRecord::Schema.define(:version => 20090619202739) do
 
   create_table "parametros", :force => true do |t|
     t.string   "chave"
-    t.string   "valor"
+    t.string   "valor_do_parametro"
     t.string   "descricao"
     t.integer  "empresa_id"
     t.datetime "created_at"
@@ -391,6 +391,7 @@ ActiveRecord::Schema.define(:version => 20090619202739) do
     t.decimal  "preco_especial"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "item_id"
   end
 
   create_table "produtos", :force => true do |t|
@@ -404,7 +405,6 @@ ActiveRecord::Schema.define(:version => 20090619202739) do
     t.integer  "situacao_tributaria"
     t.decimal  "preco_minimo_nota_fiscal"
     t.decimal  "ipi"
-    t.integer  "classificacao_fiscal"
     t.integer  "peso_liquido"
     t.integer  "cod_emissao_nota_fiscal"
     t.string   "descricao_nota_fiscal"
@@ -417,19 +417,13 @@ ActiveRecord::Schema.define(:version => 20090619202739) do
     t.boolean  "kit"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "classificacao_fiscal"
   end
 
   create_table "regioes", :force => true do |t|
     t.string   "descricao"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "replicacoes_pendentes", :force => true do |t|
-    t.text     "sql"
-    t.integer  "status",       :limit => 2
-    t.datetime "temporizador"
-    t.integer  "contador"
   end
 
   create_table "roteiros", :force => true do |t|
