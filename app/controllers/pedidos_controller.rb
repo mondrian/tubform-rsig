@@ -11,10 +11,21 @@ class PedidosController < ApplicationController
   end
 
   def index
-    @pedidos = Pedido.all
+
+ 	@pedidos = Pedido.find(:all, :include => [:cliente], :offset => params[:start], :limit => params[:limit] )
+	puts "*********"
+	puts @pedidos[0].cliente.razao_social
+	puts "*********"
+    @dto = Hash.new
+    @dto[:total] = Pedido.count
+    @dto[:results] = @pedidos
+
+    #@pedidos = Pedido.all
     @qtd_pedidos = @pedidos.count
 
     respond_to do |format|
+	  format.json { render :layout => false,
+                           :json => @dto.to_json }
       format.html # index.html.erb
       format.xml  { render :xml => @pedidos }
     end

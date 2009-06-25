@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090619202739) do
+ActiveRecord::Schema.define(:version => 20090624185833) do
 
   create_table "acoes", :force => true do |t|
     t.string   "controller_name"
@@ -82,6 +82,9 @@ ActiveRecord::Schema.define(:version => 20090619202739) do
     t.string   "bairro"
     t.string   "cpf",                        :limit => 11
     t.string   "cnpj",                       :limit => 14
+    t.integer  "cidade_entrega_id"
+    t.integer  "area_id"
+    t.string   "escricao_estadual"
   end
 
   create_table "contra_partidas", :force => true do |t|
@@ -391,6 +394,7 @@ ActiveRecord::Schema.define(:version => 20090619202739) do
     t.decimal  "preco_especial"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "item_id"
   end
 
   create_table "produtos", :force => true do |t|
@@ -404,7 +408,6 @@ ActiveRecord::Schema.define(:version => 20090619202739) do
     t.integer  "situacao_tributaria"
     t.decimal  "preco_minimo_nota_fiscal"
     t.decimal  "ipi"
-    t.integer  "classificacao_fiscal"
     t.integer  "peso_liquido"
     t.integer  "cod_emissao_nota_fiscal"
     t.string   "descricao_nota_fiscal"
@@ -417,6 +420,7 @@ ActiveRecord::Schema.define(:version => 20090619202739) do
     t.boolean  "kit"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "classificacao_fiscal"
   end
 
   create_table "regioes", :force => true do |t|

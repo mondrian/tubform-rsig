@@ -1,0 +1,96 @@
+<div id="west">
+	<div id="west-panel">
+		<div id="usuarios_nav" class="text-content">
+			<ul>
+				<li id="li1">Usu&aacute;rios</li>
+				<li id="li2">Perfis</li>
+			</ul>
+		</div>
+		<div id="pedidos_nav" class="text-content">
+			<ul>
+				<li id="di1">Pedido</li>
+				<li id="di2">Minuta</li>
+				<li id="di3">Teste</li>
+			</ul>
+		</div>
+		<div id="cadastros_nav" class="text-content">
+
+		</div>
+	</div>
+</div>
+
+<div id="center1">
+	<p></p>
+</div>
+
+
+<script type="text/javascript">
+
+var viewport = new Ext.Viewport({
+	layout:'border',
+	items:[
+
+		{
+			region:'north',contentEl:'north',height:39
+		}
+		,
+		{
+			region:'west',id:'west-panel',title:'Menu',split:true,
+			width:170,minSize: 170,
+			maxSize: 400,collapsible:true,margins:'0 0 0 5',
+			layout:'accordion',layoutConfig:{animate:true},
+			items: [{
+				contentEl:'usuarios_nav',collapsed:true,
+				title:'Controle de usu&aacute;rios',
+				border:false,iconCls:'nav'
+			},{
+				contentEl:'pedidos_nav',
+				title:'Pedido',border:false,iconCls:'settings'
+			},{
+				contentEl:'cadastros_nav',
+				title:'Cadastros',border:false,iconCls:'settings'
+			}]
+		},
+		new Ext.TabPanel({
+			id:'centro',
+			region:'center',deferredRender:false,activeTab:0,
+			items:[{id:'dashboard',contentEl:'center1',title: 'HOME',closable:false,autoScroll:true}]
+		})
+	]
+});
+Ext.get('di1').on('click', function(e){
+	var tabs = viewport.getComponent("centro");
+	var destroyed = tabs.getComponent("pedidos");
+	if(destroyed == undefined) {
+		console.log(destroyed);
+		var panel = new Ext.Panel({
+			id:'pedidos',
+			title:'Pedidos',
+			//autoShow:true,
+			closable:true,
+			listeners: {
+				activate: function(tab){
+					tab.getUpdater().refresh();
+        		}
+        	},
+			autoLoad:{
+				scripts: true,
+				url:'/pedidos'//,disableCaching:false
+			}
+		});
+		tabs.add(panel).show();
+	} else {
+		console.log(destroyed);
+		destroyed.getUpdater().refresh();
+	}
+	//tabs.remove(panel);
+	tabs.add(panel).show();
+	//panel.setTitle("Pedidos");
+	//panel.doLayout(true);
+	//tabs.getActiveTab().doLayout(true);
+	//panel.setHeight(600);
+});
+
+
+</script>
+

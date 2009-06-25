@@ -1,9 +1,0 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  controller_name: MyString
-  action_name: MyString
-
-two:
-  controller_name: MyString
-  action_name: MyString

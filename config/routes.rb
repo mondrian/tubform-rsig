@@ -8,7 +8,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :notas_fiscais
   map.resources :itens_nota_fiscal
 
-  map.root :controller => 'sessions', :action => 'new'
+  map.root :controller => "home"
+  #map.root :controller => 'sessions', :action => 'new'
   map.resources :acoes
 
   map.resources :contra_partidas
@@ -47,7 +48,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # Sample resource route with sub-resources:
   #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
-  
+
   # Sample resource route with more complex sub-resources
   #   map.resources :products do |products|
   #     products.resources :comments
@@ -71,3 +72,4 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end
+
