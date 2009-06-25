@@ -1,3 +1,24 @@
+    <link rel="stylesheet" type="text/css" href="/javascripts/ext-2.2.1/resources/css/ext-all.css" />
+    <link rel="stylesheet" type="text/css" href="/javascripts/ext-2.2.1/resources/css/xtheme-gray.css">
+    <script type="text/javascript" src="/javascripts/ext-2.2.1/adapter/ext/ext-base.js"></script>
+	<script type="text/javascript" src="/javascripts/ext-2.2.1/ext-all.js"></script>
+    <script type="text/javascript" src="/javascripts/ext-2.2.1/build/locale/ext-lang-pt_BR-min.js"></script>
+
+<style>
+.x-box { width:300; margin-left:auto;margin-right:auto; }
+</style>
+
+<script>
+Ext.onReady(function(){
+	var form0 = Ext.fly(Ext.query("form:first")[0]).boxWrap('x-box');
+	//var box = Ext.fly(form0).boxWrap('x-box');
+	//var frm = new Ext.form.BasicForm(form0);
+	//console.log("deu certo? " + frm.getValues());
+
+	console.log("unico " + Ext.query("form:first")[0].action);
+});
+</script>
+
 <h4>Acesso ao Sistema</h4>
 <% form_tag session_path do -%>
   <p>
