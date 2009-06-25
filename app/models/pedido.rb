@@ -23,7 +23,7 @@ class Pedido < ActiveRecord::Base
  
   before_save :trg_save, :desconto_comissao_prazo!
   after_update :trg_save
-  after_create :dbf_insert
+  #after_create :dbf_insert
 
  
   public
@@ -240,6 +240,7 @@ class Pedido < ActiveRecord::Base
     self.valor = self.somar_itens
     self.percentual_comissao = self.comissao_desconto_item ? self.comissao_desconto_item : 5
   end
+=begin
  
   # deleta os pedidos que não contem items de pedido
   def deleta_pedido_sem_item
@@ -305,11 +306,10 @@ class Pedido < ActiveRecord::Base
       self.vencimentos.
       x = Pedido.replicando_no_banco(sql)
   end
-
 	def self.replicando_no_banco(s)
      sql = retorna_sql(["select replica_dbf(?) as resultado",s])
 		 x = Pedido.find_by_sql(sql)
      x = x[0].resultado
 	end
-
+=end
 end
