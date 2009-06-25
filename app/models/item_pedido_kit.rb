@@ -23,7 +23,7 @@ class ItemPedidoKit < ActiveRecord::Base
                                   SEQ_MOV_DES,
                                   self.valor_tabela,
                                   self.produto.emissao_relatorio,
-                                  self.item_pedido_kit.id,
+                                  self.item_pedido_kit.id.to_s,
                                   self.desconto])
 
     x = ItemPedidoKit.replicando_no_banco(sql)
@@ -45,7 +45,7 @@ class ItemPedidoKit < ActiveRecord::Base
                                   SEQ_MOV_DES,
                                   self.valor_tabela,
                                   self.produto.emissao_relatorio,
-                                  self.item_pedido_kit.id,
+                                  self.item_pedido_kit.id.to_s,
                                   self.desconto])
 
     x = ItemPedidoKit.replicando_no_banco(sql)

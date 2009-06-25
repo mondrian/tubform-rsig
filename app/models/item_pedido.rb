@@ -73,7 +73,7 @@ class ItemPedido < ActiveRecord::Base
                                   SEQ_MOV_DES,
                                   self.valor_tabela,
                                   self.produto.emissao_relatorio,
-                                  self.item_pedido_kit.id,
+                                  self.item_pedido_kit.id.to_s,
                                   self.desconto])
 
     x = ItemPedido.replicando_no_banco(sql)
@@ -93,15 +93,15 @@ class ItemPedido < ActiveRecord::Base
                                   SEQ_MOV_DES,
                                   self.valor_tabela,
                                   self.produto.emissao_relatorio,
-                                  self.item_pedido_kit.id,
+                                  self.item_pedido_kit.id.to_s,
                                   self.desconto])
 
     x = ItemPedido.replicando_no_banco(sql)
   end
 
-	def self.replicando_no_banco(s)
-		 x = Pedido.find_by_sql("select replica_dbf(#{(s)}) as resultado")
-     x = x[0].resultado
-	end
+  def self.replicando_no_banco(s)
+	  x = Pedido.find_by_sql("select replica_dbf(#{(s)}) as resultado")
+      x = x[0].resultado
+  end
 end
 

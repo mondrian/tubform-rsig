@@ -283,15 +283,45 @@ class Pedido < ActiveRecord::Base
       self.gera_minuta? ? vgera = 1 : vgera = 2
       sql = Pedido.retorna_sql(["select alterar_pedido_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
                                  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
-      self.id, self.data, self.previsao_entrega, self.entrega, self.programacao, self.cliente_id.to_s, self.valor, self.valor_normal,
-      self.acrescimo, self.desconto, self.transportadora_id, self.nome_comprador, self.observacao, self.operador_id.to_s,
-      self.plano_de_pagamento, self.endereco_entrega, self.cliente.complemento, self.cliente.cidade_id.to_s, self.cliente.regiao_entrega,
-      self.cliente.uf, self.cliente.cep, self.cliente.cidade_id.to_s, self.cliente.area_id.to_s, self.minuta_id.to_s, vgera,
-      self.operador_id.to_s, vespecial, self.telemarketing_id.to_s, self.status_estorno?, self.data_estorno, self.funcionario_estorno_id.to_s,
-      self.comissao_vendedor, self.comissao_telemarketing, self.identificador_venda, self.total_desconto_item, self.autorizador_desconto_id,
-      self.status])
+          self.id.to_s,
+          self.data,
+          self.previsao_entrega,
+          self.entrega,
+          self.programacao,
+          self.cliente_id.to_s,
+          self.valor,
+          self.valor_normal,
+          self.acrescimo,
+          self.desconto,
+          self.transportadora_id,
+          self.nome_comprador,
+          self.observacao,
+          self.operador_id.to_s,
+          self.plano_de_pagamento,
+          self.endereco_entrega,
+          self.cliente.complemento,
+          self.cliente.cidade_id.to_s,
+          self.cliente.regiao_entrega,
+          self.cliente.uf,
+          self.cliente.cep,
+          self.cliente.cidade_id.to_s,
+          self.cliente.area_id.to_s,
+          self.minuta_id.to_s,
+          vgera,
+          self.operador_id.to_s,
+          vespecial,
+          self.telemarketing_id.to_s,
+          self.status_estorno?,
+          self.data_estorno,
+          self.funcionario_estorno_id.to_s,
+          self.comissao_vendedor,
+          self.comissao_telemarketing,
+          self.identificador_venda,
+          self.total_desconto_item,
+          self.autorizador_desconto_id,
+          self.status])
  
-      self.vencimentos.
+     self.vencimentos.
      x = Pedido.replicando_no_banco(sql)
   end
 
