@@ -37,8 +37,6 @@ class ItemPedido < ActiveRecord::Base
     self.valor_venda = vlr_venda
   end
 
-
-
   # rotina para Somar os Itens e Atualizar no Pedido
   def trg_soma_itens
     self.pedido.gerenciar_acoes
@@ -55,6 +53,8 @@ class ItemPedido < ActiveRecord::Base
     end
   end
 
+  # ATENçÃO: A tabela pedidokt.dbf deverá receber os dados enviado por esse método.
+  # -------------------------------------------------------------------------------
   def dbf_delete
     sql = "select excluir_item_pedido_dbf(#{self.pedido.id.to_s}, #{self.produto.id.to_s})"
     x = ItemPedido.replicando_no_banco(sql)
@@ -64,6 +64,9 @@ class ItemPedido < ActiveRecord::Base
     # montar nesse ponto as variaveis para a funcao a funcao de insert no dbf recebe como parametros todos os campos da tabela
     # na mesma ordem do dbf o mais importante e tratar os dados para o formato que o dbf va suportar
     # podemos ver essa parte juntos, coloquem os valores corretos e a gente testa ai
+
+    # ATENçÃO: A tabela pedidokt.dbf deverá receber os dados enviado por esse método.
+    # -------------------------------------------------------------------------------
     sql = ItemPedido.retorna_sql(["select inserir_item_pedido_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
                                   self.pedido.id.to_s,
                                   self.produto.id.to_s,
@@ -73,7 +76,7 @@ class ItemPedido < ActiveRecord::Base
                                   SEQ_MOV_DES,
                                   self.valor_tabela,
                                   self.produto.emissao_relatorio,
-                                  self.item_pedido_kit.id,
+                                  self.item_pedido_kit.id.to_s,
                                   self.desconto])
 
     x = ItemPedido.replicando_no_banco(sql)
@@ -84,6 +87,9 @@ class ItemPedido < ActiveRecord::Base
      # montar nesse ponto as variaveis para a funcao a funcao de update no dbf recebe como parametros todos os campos da tabela
      # na mesma ordem do dbf o mais importante e tratar os dados para o formato que o dbf va suportar
      # podemos ver essa parte juntos, coloquem os valores corretos e a gente testa ai
+
+     # ATENçÃO: A tabela pedidokt.dbf deverá receber os dados enviado por esse método.
+     # -------------------------------------------------------------------------------
      sql = ItemPedido.retorna_sql(["select alterar_item_pedido_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
                                   self.pedido.id.to_s,
                                   self.produto.id.to_s,
@@ -93,15 +99,15 @@ class ItemPedido < ActiveRecord::Base
                                   SEQ_MOV_DES,
                                   self.valor_tabela,
                                   self.produto.emissao_relatorio,
-                                  self.item_pedido_kit.id,
+                                  self.item_pedido_kit.id.to_s,
                                   self.desconto])
 
     x = ItemPedido.replicando_no_banco(sql)
   end
 
-	def self.replicando_no_banco(s)
-		 x = Pedido.find_by_sql("select replica_dbf(#{(s)}) as resultado")
-     x = x[0].resultado
-	end
+  def self.replicando_no_banco(s)
+	  x = Pedido.find_by_sql("select replica_dbf(#{(s)}) as resultado")
+      x = x[0].resultado
+  end
 end
 
