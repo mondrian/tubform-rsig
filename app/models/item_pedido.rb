@@ -37,8 +37,6 @@ class ItemPedido < ActiveRecord::Base
     self.valor_venda = vlr_venda
   end
 
-
-
   # rotina para Somar os Itens e Atualizar no Pedido
   def trg_soma_itens
     self.pedido.gerenciar_acoes
