@@ -39,7 +39,7 @@ class Duplicata < ActiveRecord::Base
 
 	def self.replicando_no_banco(s)
 		 x = Pedido.find_by_sql("select replica_dbf(#{(s)}) as resultado")
-     x = x[0].resultado
+         x = x[0].resultado
 	end
 
 end
