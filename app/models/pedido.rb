@@ -269,16 +269,15 @@ class Pedido < ActiveRecord::Base
      self.status_estorno? ? vestorno = 'T' : vestorno = 'F'
      vreg = self.created_at.to_date
      sql = Pedido.retorna_sql(["select inserir_pedido_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
-            self.id.to_s, vtipo.to_s, self.data, self.previsao_entrega,
-            self.programacao, self.cliente_id.to_s, self.transportadora_id.to_s,
-            self.nome_comprador, self.observacao, self.vendedor_id.to_s,
-            self.plano_de_pagamento, self.endereco_entrega,
-            self.cliente.complemento, self.cliente.cidade_id.to_s,
-            self.cliente.regiao_entrega_id.to_s, self.cliente.uf,
-            self.cliente.cep, self.cliente.cidade_id.to_s,
-            self.area_id.to_s, self.minuta_id.to_s, vgera.to_s,
-            self.operador_id.to_s, self.telemarketing_id.to_s, vreg,
-            self.nosso_numero, self.identificador_venda])
+           self.id.to_s, vtipo.to_s, self.data,
+           self.previsao_entrega, self.programacao, self.cliente_id.to_s,
+           self.transportadora_id.to_s, self.nome_comprador, self.observacao,
+           self.vendedor_id.to_s, self.plano_de_pagamento, self.endereco_entrega,
+           self.cliente.complemento, self.cliente.cidade_id.to_s, self.cliente.regiao_entrega_id.to_s,
+           self.cliente.uf, self.cliente.cep, self.cliente.cidade_id.to_s,
+           self.area_id.to_s, self.minuta_id.to_s, vgera.to_s,
+           self.operador_id.to_s, self.telemarketing_id.to_s, vreg,
+           self.nosso_numero, self.identificador_venda])
      
      x = Pedido.replicando_no_banco(sql.to_s)
  
@@ -290,17 +289,19 @@ class Pedido < ActiveRecord::Base
       self.minuta_id.to_s.blank? ? vminuta = nil : vminuta = self.minuta_id.to_s
       sql = Pedido.retorna_sql(["select alterar_pedido_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
                                  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
-          self.id.to_s, self.data, self.previsao_entrega, self.entrega,
-          self.programacao, self.cliente_id.to_s, self.valor, self.valor_normal,
-          self.acrescimo, self.desconto, self.transportadora_id, self.nome_comprador,
+          self.id.to_s, self.data, self.previsao_entrega,
+          self.entrega, self.programacao, self.cliente_id.to_s,
+          self.valor, self.valor_normal, self.acrescimo,
+          self.desconto, self.transportadora_id, self.nome_comprador,
           self.observacao, self.operador_id.to_s, self.plano_de_pagamento,
           self.endereco_entrega, self.cliente.complemento, self.cliente.cidade_id.to_s,
           self.cliente.regiao_entrega, self.cliente.uf, self.cliente.cep,
           self.cliente.cidade_id.to_s, self.cliente.area_id.to_s, self.minuta_id.to_s,
-          vgera, self.operador_id.to_s, vespecial, self.telemarketing_id.to_s,
-          self.status_estorno?, self.data_estorno, self.funcionario_estorno_id.to_s,
-          self.comissao_vendedor, self.comissao_telemarketing, self.identificador_venda,
-          self.total_desconto_item, self.autorizador_desconto_id, self.status])
+          vgera, self.operador_id.to_s, vespecial,
+          self.telemarketing_id.to_s, self.status_estorno?, self.data_estorno,
+          self.funcionario_estorno_id.to_s, self.comissao_vendedor, self.comissao_telemarketing,
+          self.identificador_venda, self.total_desconto_item, self.autorizador_desconto_id,
+          self.status])
  
       self.vencimentos.
       x = Pedido.replicando_no_banco(sql)
