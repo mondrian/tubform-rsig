@@ -1,4 +1,4 @@
-@incompleta
+@trabalhando
 Feature: Gerenciar produtos
   Como um estoquista
   Eu quero gerenciar os cadastros de produtos
@@ -62,6 +62,7 @@ Feature: Gerenciar produtos
     E defino descrição na nota fiscal como "Descrição de Teste"
     E seleciono o(a) funcionário "Funcionário de Teste"
     E defino emissão em relatório como "sim"
+
     E defino custo como "3"
     E defino data de cadastro do custo como "2009-06-24"
     Quando peço para salvar
@@ -78,4 +79,3 @@ Feature: Gerenciar produtos
   Cenário: Listar produtos
     Quando eu estiver em listagem de produtos
     Então preciso ver "Encontrado(s) 3 registro(s)."
-

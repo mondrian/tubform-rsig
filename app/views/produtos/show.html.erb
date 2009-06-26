@@ -1,6 +1,18 @@
 <p>
+  <b>Id</b>
+  <%= @produto.id    %>
+</p>
+<p>
   <b>Descrição</b>
   <%= @produto.descricao %>
+</p>
+<p>
+  <b>Valor Normal</b>
+  <%= @produto.valor_normal %>
+</p>
+<p>
+  <b>Valor Especial</b>
+  <%= @produto.valor_especial %>
 </p>
 
 <%= link_to 'Editar', edit_produto_path(@produto) %>

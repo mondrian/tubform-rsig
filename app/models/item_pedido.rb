@@ -4,13 +4,12 @@ class ItemPedido < ActiveRecord::Base
 
   validates_presence_of :quantidade, :message => "Informe a Quantidade"
   validates_numericality_of :quantidade, :message => "Informe Apenas Números"
-  validates_presence_of :valor_venda
+  validates_presence_of :valor_venda, :message => "Informe o Valor de Venda"
   validate :valida_item
 
   after_save :trg_soma_itens
-  #after_save :trg_soma_itens
-
-  #after_destroy :trg_soma_itens
+  
+  after_destroy :trg_soma_itens
 
   private
   def valida_item
@@ -110,4 +109,3 @@ class ItemPedido < ActiveRecord::Base
       x = x[0].resultado
   end
 end
-
