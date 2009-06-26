@@ -12,5 +12,4 @@ config/database.yml
 *.REMOTE.*
 *.orig
 .idea/*
-.idea/.rakeTasks
 

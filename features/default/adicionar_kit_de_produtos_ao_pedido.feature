@@ -20,8 +20,10 @@ Feature: Adicionar kit de produtos ao pedido
     E seleciono o(a) produto "Kit de Teste"
     E defino percentual de desconto como "10"
     E defino quantidade como "1"
-    E peço para salvar
-    Então preciso adicinar na tabela de item_pedido_kit os produtos que compoe o kit.
+    Quando peço para salvar
+    Entao eu preciso ver os seguintes registros
+      | produto id | descricao      |  desconto  |  quantidade  |
+      | 1          | Kit de Teste   |  10        |  1           |
 
   Cenário: Adicionar kit de produto inválido
     Dado que existe(m) registro(s) de produto com os seguintes dados:
@@ -33,5 +35,5 @@ Feature: Adicionar kit de produtos ao pedido
     E defino percentual de desconto como "10"
     E defino quantidade como "1"
     E peço para salvar
-    Então preciso adicinar na tabela de item_pedido_kit os produtos que compoe o kit.
+    Então preciso adicionar na tabela de item_pedido_kit os produtos que compoe o kit.
 
