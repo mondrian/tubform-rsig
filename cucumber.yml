@@ -2,5 +2,5 @@ default: --format pretty -l pt -r features/support/env.rb -r features/support/de
 selenium: --format pretty -l pt -r features/support/env.rb -r features/support/selenium.rb -r features/step_definitions features/ -e features/step_definitions/passos_webrat.rb
 trabalhando: --format pretty -l pt -t trabalhando -r features/support/env.rb -r features/support/default.rb -r features/step_definitions features/default/ -e features/step_definitions/passos_selenium.rb
 trabalhando_selenium: --format pretty -l pt -t trabalhando -r features/support/env.rb -r features/support/selenium.rb -r features/step_definitions features/ -e features/step_definitions/passos_webrat.rb
-luciano: --format pretty -l pt -t luciano -r features/support/env.rb -r features/support/default.rb -r features/step_definitions features/default/ -e features/step_definitions/passos_selenium.rb
+incompleta: --format pretty -l pt -t incompleta -r features/support/env.rb -r features/support/default.rb -r features/step_definitions features/default/ -e features/step_definitions/passos_webrat.rb
 
