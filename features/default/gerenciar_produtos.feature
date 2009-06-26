@@ -20,16 +20,16 @@ Feature: Gerenciar produtos
     E seleciono o(a) classe "Classe de Teste"
     E seleciono o(a) grupo "Grupo de Teste"
     E seleciono o(a) grupo "Grupo de Teste"
-    E marco ativo
+    E defino ativo como "sim"
     E defino situação tributária como "1"
     E defino preço mínimo nota fiscal como "5"
     E defino ipi como "0.35"
     E defino classificação fiscal como "0200"
     E defino peso liquido como "3000"
-    E defino código da emissão na nota fiscal "12345"
-    E defino descrição na nota fiscal "Descrição de Teste"
+    E defino código da emissão na nota fiscal como "12345"
+    E defino descrição na nota fiscal como "Descrição de Teste"
     E seleciono o(a) funcionário "Funcionário de Teste"
-    E marco emissão em relatório
+    E defino emissão em relatório como "sim"
     E defino custo como "3"
     E defino data de cadastro do custo como "2009-06-24"
     Quando peço para salvar
@@ -52,16 +52,16 @@ Feature: Gerenciar produtos
     E seleciono o(a) classe "Classe de Teste"
     E seleciono o(a) grupo "Grupo de Teste"
     E seleciono o(a) grupo "Grupo de Teste"
-    E marco ativo
+    E defino ativo como "sim"
     E defino situação tributária como "1"
     E defino preço mínimo nota fiscal como "5"
     E defino ipi como "0.35"
     E defino classificação fiscal como "0200"
     E defino peso liquido como "3000"
-    E defino código da emissão na nota fiscal "12345"
-    E defino descrição na nota fiscal "Descrição de Teste"
+    E defino código da emissão na nota fiscal como "12345"
+    E defino descrição na nota fiscal como "Descrição de Teste"
     E seleciono o(a) funcionário "Funcionário de Teste"
-    E marco emissão em relatório
+    E defino emissão em relatório como "sim"
     E defino custo como "3"
     E defino data de cadastro do custo como "2009-06-24"
     Quando peço para salvar
