@@ -26,6 +26,12 @@ begin
     sh "cucumber -p trabalhando_selenium"
   end
 
+  task :incompleta do
+    sh "rake db:test:prepare"
+    sh "rake RAILS_ENV=test db:migrate:reset"
+    sh "cucumber -p incompleta"
+  end
+
   task :features_selenium do
     sh "rake db:test:prepare"
     sh "rake RAILS_ENV=test db:migrate"
@@ -43,4 +49,3 @@ rescue LoadError
     abort 'Cucumber rake task is not available. Be sure to install cucumber as a gem or plugin'
   end
 end
-
