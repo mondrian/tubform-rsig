@@ -22,7 +22,7 @@ Ext.onReady(Pedido.init);
         <td><%= h pedido.tipo == 'I' ? 'Interno' : 'Externo' %></td>
         <td><%= h pedido.data.to_s_br %></td>
         <td><%= h pedido.cliente.razao_social if pedido.cliente %></td>
-        <td align="right"><%= h pedido.valor.real.real_formatado %></td>
+        <td align="right"><%= h pedido.valor %></td>
         <td align="center"><%= h pedido.status %></td>
         <td><%= link_to 'Exibir', pedido %></td>
         <td><%= link_to 'Alterar', edit_pedido_path(pedido) %></td>
@@ -34,4 +34,3 @@ Ext.onReady(Pedido.init);
 <br/>
 
 <%= link_to 'Novo Pedido', new_pedido_path %>
-

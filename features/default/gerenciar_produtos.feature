@@ -1,4 +1,4 @@
-@incompleta
+@trabalhando
 Feature: Gerenciar produtos
   Como um estoquista
   Eu quero gerenciar os cadastros de produtos
@@ -42,6 +42,30 @@ Feature: Gerenciar produtos
     E defino o valor especial como "3"
     Quando peço para salvar
     Então preciso ver "Registro atualizado com Sucesso"
+
+  Cenário: Adicionar um produto válido kit
+    E que estou em cadastro de produto
+    E defino descrição como "Produto de Teste"
+    E seleciono o(a) cor "Cor de Teste"
+    E defino valor especial como "5"
+    E defino valor normal como "10"
+    E seleciono o(a) classe "Classe de Teste"
+    E seleciono o(a) grupo "Grupo de Teste"
+    E seleciono o(a) grupo "Grupo de Teste"
+    E defino ativo como "sim"
+    E defino situação tributária como "1"
+    E defino preço mínimo nota fiscal como "5"
+    E defino ipi como "0.35"
+    E defino classificação fiscal como "0200"
+    E defino peso liquido como "3000"
+    E defino código da emissão na nota fiscal como "12345"
+    E defino descrição na nota fiscal como "Descrição de Teste"
+    E seleciono o(a) funcionário "Funcionário de Teste"
+    E defino emissão em relatório como "sim"
+    E defino custo como "3"
+    E defino data de cadastro do custo como "2009-06-24"
+    Quando peço para salvar
+    Então preciso ver "Registro cadastrado com Sucesso"
 
   Cenário: Montando um produto kit
     Dado que existe(m) registro(s) de produto com os seguintes dados:

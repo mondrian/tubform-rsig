@@ -9,6 +9,8 @@
   <tr>
     <td><%=h produto.id %></td>
     <td><%=h produto.descricao %></td>
+    <td><%=h produto.valor_normal %></td>
+    <td><%=h produto.valor_especial %></td>
     <td><%= link_to 'Exibir', produto %></td>
     <td><%= link_to 'Editar', edit_produto_path(produto) %></td>
     <td><%= link_to 'Deletar', produto, :confirm => 'Você tem certeza?', :method => :delete %></td>

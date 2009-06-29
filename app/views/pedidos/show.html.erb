@@ -140,76 +140,95 @@
 	</p>
 <% end %>
 
-<%#= link_to 'Alterar', edit_pedido_path(@pedido) %> |
-<%#= link_to 'Voltar', pedidos_path %> |
-<%#= link_to 'Aprovar', :action => :aprovar, :id => @pedido.id %> |
-<%#= link_to 'Comissão Acordada', :action => :comissao_acordada, :id => @pedido.id %> |
-<%#= link_to 'Desconto', :action => :permitir_desconto_no_pedido, :id => @pedido.id %><br/><br/>
-<table with="100%" border="1">
+<%= link_to 'Alterar', edit_pedido_path(@pedido) %> |
+<%= link_to 'Voltar', pedidos_path %> |
+<%= link_to 'Aprovar', :action => :aprovar, :id => @pedido.id %> |
+<%= link_to 'Comissão Acordada', :action => :comissao_acordada, :id => @pedido.id %> |
+<%= link_to 'Desconto', :action => :permitir_desconto_no_pedido, :id => @pedido.id %><br/><br/>
+<table border="1" class="itable">
   <tr>
-       <th colspan="9">Itens do Pedido</th>
+    <th colspan="9">Itens do Pedido</th>
   </tr>
   <tr>
-       <th>Codigo</th>
-       <th>Descrição</th>
-       <th align="center">Qtde</th>
-       <th>Valor Tabela</th>
-       <th>% Desconto</th>
-       <th>Valor Venda</th>
-       <th>Subtotal</th>
-       <th colspan="2">Opções</th>
+    <th>Codigo</th>
+    <th>Descrição</th>
+    <th align="center">Qtde</th>
+    <th>Valor Tabela</th>
+    <th>% Desconto</th>
+    <th>Valor Venda</th>
+    <th>Sub Total</th>
+    <th colspan="2">Opções</th>
   </tr>
 
-<% total = 0 %>
+  <% total = 0 %>
+<% subtotal = 0 %>
 <% for i in @pedido.item_pedidos %>
-  <%  subtotal = i.quantidade * (i.valor_tabela  - (i.valor_tabela * i.desconto)/100) if (i.quantidade && i.valor_tabela && i.desconto) %>
+  <%  subtotal = i.quantidade * (i.valor_tabela  - ((i.valor_tabela * i.desconto)/100)) if (i.quantidade && i.valor_tabela && i.desconto) %>
   <% total += subtotal if subtotal %>
     <tr>
       <td align="center"><%= i.produto_id  %></td>
-      <td><%= i.produto.descricao  %></td>
+      <td align="center"><%= i.produto.descricao  %></td>
       <td align="center"><%= i.quantidade.to_i if i.quantidade  %></td>
-      <td align="right"><%= i.valor_tabela.real.real_formatado if i.valor_tabela %></td>
-      <td align="right"><%= i.desconto.to_s + ' %'  if i.desconto %></td>
-      <td align="right"><%= i.valor_venda.real.real_formatado if i.valor_venda  %></td>
-      <td align="right"><%= subtotal.real.real_formatado if subtotal.real.real_formatado %></td>
+      <td align="right"><%= i.valor_tabela %></td>
+      <td align="right"><%= i.desconto %></td>
+      <td align="right"><%= i.valor_venda %></td>
+      <td align="right"><%= subtotal.real.real_formatado if subtotal %></td>
       <td><%= link_to 'Editar', :controller => :item_pedidos, :action => :edit, :id => i.id %></td>
       <td><%= link_to 'Excluir', i, :confirm => "Excluir Item #{i.id}, Confirma?", :method => :delete %></td>
     </tr>
 <% end %>
-
     <tr bgcolor="#EAAA0C">
-      <td colspan="5" align="right"><b>Valor Total do Pedido:</b></td>
+      <td colspan="5" align="right"><b>Soma Geral do Pedido:</b></td>
       <td colspan="2" align="right"><b><span id="total_pedido"><%= total.real.real_formatado if total.real.real_formatado %></span></b></td>
-      <td colspan="2" align="center"><%= link_to '<b>Adiciona Item</b>', :controller => 'item_pedidos', :action => 'new', :id => @pedido.id %>
+      <td colspan="4" rowspan="9" align="center"><%= link_to '<b>Adiciona Item</b>', :controller => 'item_pedidos', :action => 'new', :id => @pedido.id %>
     </tr>
+  <tr>
+    <td colspan="5" align="right">Desconto do Pedido (%):</td>
+    <td colspan="2" align="right"><%= sprintf("%.2f", @pedido.desconto) %></td>
+  </tr>
+  <tr>
+    <td colspan="5" align="right">Desconto do Pedido (Valor):</td>
+    <td colspan="2" align="right"><%= sprintf("%.2f", (total * (@pedido.desconto/100))).real.real_formatado %></td>
+  </tr>
+  <tr>
+    <td colspan="5" align="right">Desconto Ponderado por Item:</td>
+    <td colspan="2" align="right"><%= sprintf("%.2f", @pedido.media_desconto_ponderada_itens_perc).to_s + ' %' %></td>
+  </tr>
+  <tr>
+    <td colspan="5" align="right">Desconto Acumulado Geral:</td>
+    <td colspan="2" align="right"><%= sprintf("%.2f", @pedido.desconto_acumulado_geral).to_s + ' %' %></td>
+  </tr>
+  <tr>
+    <td colspan="5" align="right">Valor Final do Pedido:</td>
+    <td colspan="2" align="right"><%= sprintf("%.2f", (@pedido.somar_pedido - (total * (@pedido.desconto/100)))).real.real_formatado if @pedido.somar_pedido %></td>
+  </tr>
+  <tr>
+    <td colspan="5" align="right">Soma dos Itens:</td>
+    <td colspan="2" align="right"><%= sprintf("%.2f", @pedido.somar_itens).real.real_formatado if @pedido.somar_itens %></td>
+  </tr>
+  <tr>
+    <td colspan="5" align="right">Comissão do Vendedor (%):</td>
+    <td colspan="2" align="right"><%= sprintf("%.2f", @pedido.comissao_vendedor).to_s + ' %'  %></td>
+  </tr>
+  <tr>
+    <td colspan="5" align="right">Comissão do Vendedor:</td>
+    <td colspan="2" align="right"><%= sprintf("%.2f", (total * @pedido.comissao_vendedor)/100).real.real_formatado %></td>
+  </tr>
 </table>
 <br/><br/>
-
-<p>
-  <b>Total do Pedido: <%= @pedido.valor.real.real_formatado if @pedido.valor %></b>
-</p>
-
-<p>
-  <b>Valor do desconto ponderado: <%= @pedido.desconto_acumulado_geral if @pedido.desconto_acumulado_geral %>%</b>
-</p>
-
-
-<p>
-  <b>Comissão do vendedor: <%= @pedido.comissao_vendedor if @pedido.comissao_vendedor %>%</b>
-</p>
-
-
-
-<% if @pedido.data_aprovacao_pedido %>
- <%= button_to 'Desaprovar Pedido', :action => :desaprovar, :id => @pedido.id %>
-<% else %>
- <%= button_to 'Aprovar Pedido', :action => :aprovar, :id => @pedido.id %>
-<% end %>
-<%= button_to 'Alterar comissão', :action => :comissao_acordada, :id => @pedido.id %>
-<%= button_to 'Desconto', :action => :permitir_desconto_no_pedido, :id => @pedido.id %>
-
-
-<%= button_to 'Alterar Data Entrega', :action => :alterar_data_entrega_pedido, :id => @pedido.id %>
+<table>
+  <tr>
+    <td>
+      <% if @pedido.data_aprovacao_pedido %>
+      <%= button_to 'Desaprovar Pedido', :action => :desaprovar, :id => @pedido.id %>
+      <% else %>
+      <%= button_to 'Aprovar Pedido', :action => :aprovar, :id => @pedido.id %>
+      <% end %>
+    </td>
+    <td><%= button_to 'Alterar comissão', :action => :comissao_acordada, :id => @pedido.id %></td>
+    <td><%= button_to 'Desconto', :action => :permitir_desconto_no_pedido, :id => @pedido.id %></td>
+    <td><%= button_to 'Alterar Data Entrega', :action => :alterar_data_entrega_pedido, :id => @pedido.id %></td>
+  </tr>
+</table>
 
 <%= link_to 'Voltar', pedidos_path %>
-
