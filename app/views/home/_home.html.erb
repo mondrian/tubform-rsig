@@ -9,8 +9,8 @@
 		<div id="pedidos_nav" class="text-content">
 			<ul>
 				<li id="di1">Pedido</li>
-				<li id="di2">Minuta</li>
-				<li id="di3">Teste</li>
+				<li id="di2">Nota Fiscal</li>
+				<li id="di3">Duplicata</li>
 			</ul>
 		</div>
 		<div id="cadastros_nav" class="text-content">
@@ -90,7 +90,57 @@ Ext.get('di1').on('click', function(e){
 	//tabs.getActiveTab().doLayout(true);
 	//panel.setHeight(600);
 });
-
+Ext.get('di2').on('click', function(e){
+    var tabs = viewport.getComponent("centro");
+    var destroyed = tabs.getComponent("notas_fiscais");
+    if(destroyed == undefined) {
+            console.log(destroyed);
+            var panel = new Ext.Panel({
+                  id:'notas_fiscais',
+                  title:'Notas Fiscais',
+                  closable:true,
+                  listeners: {
+                          activate: function(tab){
+                                  tab.getUpdater().refresh();
+                  }
+            },
+                  autoLoad:{
+                          scripts: true,
+                          url:'/notas_fiscais'
+                  }
+            });
+            tabs.add(panel).show();
+    } else {
+            console.log(destroyed);
+            destroyed.getUpdater().refresh();
+    }
+    tabs.add(panel).show();
+});
+Ext.get('di3').on('click', function(e){
+    var tabs = viewport.getComponent("centro");
+    var destroyed = tabs.getComponent("duplicatas");
+    if(destroyed == undefined) {
+            console.log(destroyed);
+            var panel = new Ext.Panel({
+                  id:'duplicatas',
+                  title:'Duplicatas',
+                  closable:true,
+                  listeners: {
+                          activate: function(tab){
+                                  tab.getUpdater().refresh();
+                  }
+            },
+                  autoLoad:{
+                          scripts: true,
+                          url:'/duplicatas'
+                  }
+            });
+            tabs.add(panel).show();
+    } else {
+            console.log(destroyed);
+            destroyed.getUpdater().refresh();
+    }
+    tabs.add(panel).show();
+});
 
 </script>
-
