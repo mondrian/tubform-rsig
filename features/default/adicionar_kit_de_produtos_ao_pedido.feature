@@ -1,5 +1,5 @@
 # http://www.pivotaltracker.com/story/show/791126
-@incompleta
+@trabalhando
 Feature: Adicionar kit de produtos ao pedido
   Como um vendedor
   Eu quero adicionar kit de produtos
@@ -21,7 +21,7 @@ Feature: Adicionar kit de produtos ao pedido
     E defino percentual de desconto como "10"
     E defino quantidade como "1"
     Quando peço para salvar
-    Entao eu preciso ver os seguintes registros
+    Então eu preciso ver os seguintes registros
       | produto id | descricao      |  desconto  |  quantidade  |
       | 1          | Kit de Teste   |  10        |  1           |
 
@@ -34,6 +34,5 @@ Feature: Adicionar kit de produtos ao pedido
     E seleciono o(a) produto "Produto de Teste"
     E defino percentual de desconto como "10"
     E defino quantidade como "1"
-    E peço para salvar
-    Então preciso adicionar na tabela de item_pedido_kit os produtos que compoe o kit.
-
+    Quando peço para salvar
+    Então eu preciso adicionar na tabela de item_pedido_kit os produtos que compoe o kit.
