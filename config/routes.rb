@@ -41,6 +41,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
      map.resources :pedidos, :collection => { :comissao_acordada => :get, :permitir_desconto_no_pedido => :get }
+     map.resources :impressao_nota, :collection => { :dados_nota => :get }
      map.resources :clientes
 
   # Sample resource route with options:
