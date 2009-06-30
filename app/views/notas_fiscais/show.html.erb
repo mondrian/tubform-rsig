@@ -68,7 +68,7 @@
 
 <p>
   <b>Base calculo icms:</b>
-  <%=h @nota_fiscal.base_calculo_icms %>
+  <%=h @nota_fiscal.base_calculo_icms.real.real_formatado %>
 </p>
 
 <p>
@@ -108,44 +108,50 @@
 
 <p>
   <b>Base calculo icms substituicao tributaria:</b>
-  <%=h @nota_fiscal.base_calculo_icms_substituicao_tributaria %>
+  <%=h @nota_fiscal.base_calculo_icms_substituicao_tributaria.real.real_formatado %>
 </p>
 
 <p>
   <b>Percentual icms substituicao tributaria:</b>
-  <%=h @nota_fiscal.percentual_icms_substituicao_tributaria %>
+  <%=h @nota_fiscal.percentual_icms_substituicao_tributaria.to_s + ' %' %>
 </p>
 
 <p>
   <b>Valor icms substituicao tributaria:</b>
-  <%=h @nota_fiscal.valor_icms_substituicao_tributaria %>
+  <%=h @nota_fiscal.valor_icms_substituicao_tributaria.real.real_formatado %>
 </p>
 
 <table with="100%" border="1">
   <tr>
     <th>Código</th>
     <th>Descrição Produto</th>
+    <th>Unidade</th>
     <th>Quantidade</th>
-    <th>Valor</th>
+    <th>Valor Unitario</th>
+    <th>ICMS %</th>
+    <th>IPI %</th>
+    <th>Valor Total</th>
     <th colspan="2">Opções</th>
   </tr>
 
 
-  <% total = 0 %>
   <% for i in @nota_fiscal.itens %>
-    <% total += i.valor_item if i.valor_item%>
     <tr>
       <td><%= i.produto_id  %></td>
       <td><%= i.produto.descricao if i.produto.descricao%></td>
+      <td><%= i.unidade if i.unidade %></td>
       <td><%= i.quantidade  %></td>
-      <td><%= i.valor_item  %></td>
+      <td><%= i.valor_item.real.real_formatado  %></td>
+      <td><%= i.perc_icms %></td>
+      <td><%= i.perc_ipi %></td>
+      <td><%= i.valor_total.real.real_formatado %></td>
       <td><%= link_to 'Editar', :controller => :itens_nota_fiscal, :action => :edit, :id => i.id %></td>
       <td><%= link_to 'Excluir', i, :confirm => 'Você tem certeza?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
 
-<h2> Valor total da Nota: <span id="total_pedido"><%= total %></span></h2>
+<h2> Valor total da Nota: <span id="total_pedido"><%= @nota_fiscal.total_nota.real.real_formatado %></span></h2>
 
 <%= link_to 'Alterar', edit_nota_fiscal_path(@nota_fiscal) if @nota_fiscal.status != 'S' %> |
 <%= link_to 'Retornar', notas_fiscais_path %>

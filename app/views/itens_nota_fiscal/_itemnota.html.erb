@@ -9,8 +9,25 @@
   <%= f.select :produto_id, Produto.find(:all).collect { |p| [ p.descricao, p.id ] }, :prompt => "" %>
 </p>
 <p>
+  <%= f.label :unidade, 'Unidade' %><br />
+  <%= f.text_field :unidade %>
+</p>
+<p>
   <%= f.label :quantidade, 'Quantidade' %><br />
   <%= f.text_field :quantidade %>
+</p>
+<p>
+  <%= f.label :valor_item, 'Valor Item' %><br />
+  <%= f.text_field :valor_item %>
+</p>
+
+<p>
+  <%= f.label :perc_ipi, 'Perc. IPI' %><br />
+  <%= f.text_field :perc_ipi %>
+</p>
+<p>
+  <%= f.label :perc_icms, 'Perc. ICMS' %><br />
+  <%= f.text_field :perc_icms %>
 </p>
 
 <div id="detalhe_produto">
