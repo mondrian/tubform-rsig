@@ -14,7 +14,7 @@ class ImpressaoNotaController < ApplicationController
         render_to_string(:template => 'impressao_nota/dados_nota', :layout => false),
         'dados_nota_result/invoice_dados_nota/notas_fiscais/nota_fiscal', 
         'nota_fiscal',
-        "Nota Fiscal Nro.: #{params[:id]}", 
+        "Nota Fiscal Nro.: #{@nota_fiscal[0].nf_numero_nota}", 
         'pdf')
   end
 end
