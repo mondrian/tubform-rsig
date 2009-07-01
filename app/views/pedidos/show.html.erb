@@ -184,11 +184,11 @@
     </tr>
   <tr>
     <td colspan="5" align="right">Desconto do Pedido (%):</td>
-    <td colspan="2" align="right"><%= sprintf("%.2f", @pedido.desconto) %></td>
+    <td colspan="2" align="right"><%= sprintf("%.2f", @pedido.desconto ) if @pedido.desconto %></td>
   </tr>
   <tr>
     <td colspan="5" align="right">Desconto do Pedido (Valor):</td>
-    <td colspan="2" align="right"><%= sprintf("%.2f", (total * (@pedido.desconto/100))).real.real_formatado %></td>
+    <td colspan="2" align="right"><%= sprintf("%.2f", (total * (@pedido.desconto/100))).real.real_formatado if @pedido.desconto %></td>
   </tr>
   <tr>
     <td colspan="5" align="right">Desconto Ponderado por Item:</td>

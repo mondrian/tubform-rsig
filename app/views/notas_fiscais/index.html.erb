@@ -36,5 +36,12 @@ Ext.onReady(Nota_Fiscal.init);
 </table>
 
 <br />
+  <% form_tag '/notas_fiscais/nota_fiscal_populada_via_pedido' do -%>
+    <%= label_tag 'Numero do Pedido' %><br />
+    <%= text_field_tag :id %><br />
+    <%= submit_tag 'Enviar' %><br />
+  <% end -%>
+
+<br />
 
 <%= link_to 'Nova Nota Fiscal', new_nota_fiscal_path %>
