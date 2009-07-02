@@ -16,5 +16,7 @@ class ImpressaoNotaController < ApplicationController
         'nota_fiscal',
         "Nota Fiscal Nro.: #{@nota_fiscal[0].nf_numero_nota}", 
         'pdf')
+		@nota_fiscal.status = 'I'
+ 		@nota_fiscal.save
   end
 end

@@ -232,3 +232,6 @@
 </table>
 
 <%= link_to 'Voltar', pedidos_path %>
+
+<br />
+<%= link_to 'Impressão do Pedido', :controller => 'pedidos', :action => 'impressao', :id => @pedido.id %>

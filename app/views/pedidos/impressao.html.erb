@@ -22,3 +22,5 @@ Cod.  Descricao                             Cor da Peca         Quantidade  Prec
                                                                                                  Acrescimos ..........: <%= @pedido.acrescimo.real.real_formatado.to_s.rjust(12,' ') %>
                                                                                                  Valor Liquido .......: <%= @pedido.valor.real.real_formatado.rjust(12,' ') %>
 </pre>
+<br />
+<%= link_to 'Retornar', :back %>
