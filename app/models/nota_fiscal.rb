@@ -51,4 +51,48 @@ class NotaFiscal < ActiveRecord::Base
     self.valor_icms = icms
     self.save
   end
+
+	def importa_pedidos!(id)
+		
+		pedido = Pedido.find(id.to_i)
+		#para testar o operador
+		funcionario = Funcionario.find(:first)
+		self.numero_nota = 0
+		self.percentual_icms = 0
+		self.total_mercadoria = 0
+		self.valor_frete = 0
+		self.valor_ipi = 0
+		self.total_nota = 0
+		self.valor_desconto = 0
+		self.base_calculo_icms = 0
+		self.valor_icms = 0
+		self.qtde_volumes = 0
+		self.transportadora_id = 0
+		self.percentual_desconto = 0
+		self.base_calculo_icms_substituicao_tributaria = 0 
+		self.percentual_icms_substituicao_tributaria = 0
+		self.valor_icms_substituicao_tributaria = 0
+    #para testar o operador
+		self.operador_id = funcionario.id
+		self.emissao = Date.today
+    self.selo = self.serie = self.cfop = self.natureza_operacao = self.status = "0"
+    self.pedido_id = pedido.id
+    self.cliente_id = pedido.cliente_id
+		self.save		
+	
+		for i in pedido.item_pedidos do
+			it = ItemNotaFiscal.new
+      it.produto_id = i.produto_id
+      it.nota_fiscal_id = self.id
+  		it.unidade = 'un'
+			it.quantidade = i.quantidade
+			it.valor_item = i.valor_venda
+			it.valor_original = i.valor_tabela
+			it.perc_icms = it.perc_ipi = it.peso_liquido = 0
+			it.codigo_emissao = '0'
+			it.nota_fiscal_id = self.id
+      it.save
+      self.itens << it
+		end
+  end
 end

@@ -85,4 +85,10 @@ class NotasFiscaisController < ApplicationController
     end
   end
 
+	def nota_fiscal_populada_via_pedido
+		@nota_fiscal = NotaFiscal.new
+    @nota_fiscal.importa_pedidos!(params[:id])
+		redirect_to(:action => "index")
+	end
+
 end
