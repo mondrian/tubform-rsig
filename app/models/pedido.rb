@@ -218,6 +218,23 @@ class Pedido < ActiveRecord::Base
     vencimentos
   end
 
+  def prazo_formatado
+    quantidade_de_parcelas = self.plano_de_pagamento.size / 3
+    prazo = ''
+    i = 0
+
+
+    # Verifica se a data de entrega foi preenchida e regera as duplicatas com base nessa data
+    # Se não estiver preenchida, gera com base na data do pedido
+    self.entrega.nil? ? data_inicial = self.data : data_inicial = self.entrega
+    while i <= self.plano_de_pagamento.size
+      prazo << self.plano_de_pagamento[i, 3]
+      i += 3
+      prazo << '/' if i <= self.plano_de_pagamento.size
+    end
+    prazo
+  end
+
   # Método para Atualizar o Valor do Pedido a cada Item Acrescentado, Excluido ou Alterado
   def somar_itens
     soma = 0

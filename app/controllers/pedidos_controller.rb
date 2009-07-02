@@ -156,5 +156,14 @@ class PedidosController < ApplicationController
   def permitir_desconto_no_pedido
     @pedido = Pedido.find(params[:id])
   end
+
+  def impressao
+    @pedido = Pedido.find(params[:id])
+
+    respond_to do |format|
+      format.html # impressao.html.erb
+      format.xml  { render :xml => @pedido }
+    end
+  end
 end
 

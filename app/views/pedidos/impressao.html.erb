@@ -1,0 +1,24 @@
+<pre>
+INDUSTRIAS REUNIDAS DE MOVEIS DO NORDESTE LTDA - TUB&FORM                               Data Registro...: <%= Date.today.to_s_br %> Data: <%= @pedido.data.to_s_br %>
+IGUATU - CE                              <%= data_por_extenso(Date.today) %>                             Numero ..:<%= @pedido.id.to_s.rjust(10,'0') %> Nosso Numero: <%= @pedido.nosso_numero.rjust(8,'0') %>
+
+CLIENTE .:  <%= @pedido.cliente_id.to_s.rjust(5,'0') %> <%= @pedido.cliente.razao_social.ljust(45,' ') if @pedido.cliente.razao_social %> FONE COMERCIAL .: <%= @pedido.cliente.fone_comercial if @pedido.cliente.fone_comercial %>
+COMPRADOR.......: <%= @pedido.nome_comprador.ljust(45,' ') if @pedido.nome_comprador %> FONE RESIDENCIAL: <%= @pedido.cliente.fone_pessoal if @pedido.cliente.fone_pessoal %>
+REGISTRO .......: <%= '???????'.ljust(45,' ') %> REGIAO .........: <%= @pedido.cliente.regiao_entrega.descricao if @pedido.cliente.regiao_entrega %>
+C.G.F. .........: <%= @pedido.cliente.ie_rg.ljust(45,' ') if @pedido.cliente.ie_rg %> CIDADE .........: <%= @pedido.cliente.cidade.descricao if @pedido.cliente.cidade %>
+C.G.C. .........: <%= @pedido.cliente.cnpj_cpf.ljust(45,' ') if @pedido.cliente.cnpj_cpf %> ESTADO .........: <%= @pedido.cliente.uf if @pedido.cliente.uf %>  C.E.P.: <%= @pedido.cliente.cep if @pedido.cliente.cep %>
+ENDERECO .......: <%= @pedido.cliente.endereco.ljust(45,' ') if @pedido.cliente.endereco %> CONDICOES PAGTO : <%= @pedido.prazo_formatado if @pedido.prazo_formatado %>
+                  <%= @pedido.cliente.bairro.ljust(45,' ') if @pedido.cliente.bairro %> VENDEDOR .......: <%= @pedido.vendedor.nome if @pedido.vendedor.nome %>
+                                                                TELEMARKETING ..: <%= @pedido.telemarketing.nome if @pedido.telemarketing %>
+ASSINATURA DO CLIENTE: .....................................    DIGITADOR ......: <%= @pedido.operador.nome if @pedido.operador %>
+====================================================================================================================================
+Cod.  Descricao                             Cor da Peca         Quantidade  Preco Normal   Desconto    Preco Liquido   Total Liquido
+====================================================================================================================================
+<% @pedido.item_pedidos.each do |item| %> 
+<%= item.produto_id.to_s.rjust(5,'0') %> <%= item.produto.descricao.ljust(35,' ') if item.produto.descricao %>   <%= item.produto.cor.descricao.ljust(11,' ') if item.produto.cor %>   <%= item.quantidade.to_f.to_s.rjust(16,' ') if item.quantidade %>  <%= item.valor_tabela.to_f.to_s.rjust(11,' ') %>    <%= item.desconto.to_f.to_s.rjust(7,' ')+'%' if item.desconto %>    <%= item.valor_venda.to_f.to_s.rjust(13,' ') %>   <%= (item.valor_venda * item.quantidade).to_f.to_s.rjust(13,' ') %><% end %>
+====================================================================================================================================
+                                                                                                 Valor Bruto..........: <%= @pedido.valor_normal.real.real_formatado.rjust(12,' ') %>
+                                                                                                 Desconto Total:<%= @pedido.desconto.to_f.to_s.rjust(6,' ')+'%' %> <%= (@pedido.valor_normal - @pedido.valor).real.real_formatado.to_s.rjust(12,' ') %>
+                                                                                                 Acrescimos ..........: <%= @pedido.acrescimo.real.real_formatado.to_s.rjust(12,' ') %>
+                                                                                                 Valor Liquido .......: <%= @pedido.valor.real.real_formatado.rjust(12,' ') %>
+</pre>
