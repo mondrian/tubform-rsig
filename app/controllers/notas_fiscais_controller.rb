@@ -86,8 +86,13 @@ class NotasFiscaisController < ApplicationController
   end
 
 	def nota_fiscal_populada_via_pedido
+		idsdopedido = params[:id]
 		@nota_fiscal = NotaFiscal.new
-    @nota_fiscal.importa_pedidos!(params[:id])
+    if idsdopedido.split(',').size > 1
+      @nota_fiscal.importa_pedidos!(idsdopedido)
+    else
+    	@nota_fiscal.importa_pedido!(idsdopedido)
+    end
 		redirect_to(:action => "index")
 	end
 
