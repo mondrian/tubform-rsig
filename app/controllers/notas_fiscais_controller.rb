@@ -2,7 +2,7 @@ class NotasFiscaisController < ApplicationController
   # GET /notas_fiscais
   # GET /notas_fiscais.xml
 
-
+  layout 'temp'
   def index
     @notas_fiscais = NotaFiscal.all
 

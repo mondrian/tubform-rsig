@@ -37,6 +37,11 @@ function data(v){
   return v
 }
 
+function numPedidos(v){
+  v=v.replace(/\D/g,"")
+  return v
+}
+
 function valor(v){
   v=v.replace(/\D/g,"") //Remove tudo o que não é dígito
   v=v.replace(/^([0-9]{3}\.?){3}-[0-9]{2}$/,"$1,$2");

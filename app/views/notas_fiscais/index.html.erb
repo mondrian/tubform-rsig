@@ -37,11 +37,10 @@ Ext.onReady(Nota_Fiscal.init);
 
 <br />
   <% form_tag '/notas_fiscais/nota_fiscal_populada_via_pedido' do -%>
-    <%= label_tag 'Numero do Pedido' %><br />
-    <%= text_field_tag :id %><br />
-    <%= submit_tag 'Enviar' %><br />
+    <%= label_tag 'Importar pedidos para uma nova nota fiscal' %><br />
+    <%= text_field_tag :id, nil,:onkeypress => 'mascara(this, numPedidos)' %><br />
+    <%= submit_tag 'importar' %><br />
   <% end -%>
-
 <br />
 
 <%= link_to 'Nova Nota Fiscal', new_nota_fiscal_path %>
