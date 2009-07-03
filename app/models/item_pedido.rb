@@ -108,4 +108,9 @@ class ItemPedido < ActiveRecord::Base
 	  x = Pedido.find_by_sql("select replica_dbf(#{(s)}) as resultado")
       x = x[0].resultado
   end
+ 
+  public 
+  def sub_total
+    self.quantidade * self.valor_venda
+  end
 end

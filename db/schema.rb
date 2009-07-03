@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090630164709) do
+ActiveRecord::Schema.define(:version => 20090703133332) do
 
   create_table "acoes", :force => true do |t|
     t.string   "controller_name"
@@ -214,7 +214,7 @@ ActiveRecord::Schema.define(:version => 20090630164709) do
     t.decimal  "quantidade"
     t.decimal  "valor_tabela"
     t.decimal  "valor_venda"
-    t.decimal  "desconto"
+    t.decimal  "desconto",          :default => 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "produto_id"
@@ -340,9 +340,9 @@ ActiveRecord::Schema.define(:version => 20090630164709) do
     t.date     "entrega"
     t.date     "programacao"
     t.integer  "cliente_id"
-    t.decimal  "valor",                                :precision => 8,  :scale => 2
-    t.decimal  "acrescimo",                            :precision => 3,  :scale => 2
-    t.decimal  "desconto",                             :precision => 3,  :scale => 2
+    t.decimal  "valor",                                :precision => 6,  :scale => 2, :default => 0.0
+    t.decimal  "acrescimo",                            :precision => 3,  :scale => 2, :default => 0.0
+    t.decimal  "desconto",                                                            :default => 0.0
     t.integer  "transportadora_id"
     t.string   "nome_comprador"
     t.text     "observacao"
@@ -355,7 +355,7 @@ ActiveRecord::Schema.define(:version => 20090630164709) do
     t.string   "status"
     t.integer  "funcionario_estorno_id"
     t.boolean  "venda_externa"
-    t.decimal  "desconto_complementar",                :precision => 3,  :scale => 2
+    t.decimal  "desconto_complementar",                :precision => 6,  :scale => 2, :default => 0.0
     t.integer  "autorizador_desconto_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -366,11 +366,11 @@ ActiveRecord::Schema.define(:version => 20090630164709) do
     t.integer  "autorizador_id"
     t.string   "plano_de_pagamento"
     t.string   "tipo",                    :limit => 1
-    t.decimal  "percentual_comissao",                  :precision => 6,  :scale => 2
+    t.decimal  "percentual_comissao",                  :precision => 6,  :scale => 2, :default => 0.0
     t.date     "data_aprovacao_pedido"
-    t.decimal  "comissao_vendedor",                    :precision => 6,  :scale => 2
-    t.decimal  "comissao_telemarketing",               :precision => 6,  :scale => 2
-    t.decimal  "valor_normal",                         :precision => 12, :scale => 2
+    t.decimal  "comissao_vendedor",                    :precision => 6,  :scale => 2, :default => 0.0
+    t.decimal  "comissao_telemarketing",               :precision => 6,  :scale => 2, :default => 0.0
+    t.decimal  "valor_normal",                         :precision => 12, :scale => 2, :default => 0.0
     t.boolean  "gera_minuta",                                                         :default => true
     t.date     "data_estorno"
     t.string   "identificador_venda",     :limit => 1

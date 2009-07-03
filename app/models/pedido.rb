@@ -249,15 +249,17 @@ class Pedido < ActiveRecord::Base
   end
 
   def somar_pedido
-    soma = 0
-    p = self.item_pedidos
-    if p.size > 0
-      p.each do | i |
-        soma += (i.quantidade * i.valor_tabela )
+    soma_valor_tabela = 0
+		soma_valor_venda = 0
+		pedidos = 0
+    pedidos = self.item_pedidos
+    if pedidos.size > 0
+      pedidos.each do |i|
+        soma_valor_tabela += (i.quantidade * i.valor_tabela)
+				soma_valor_venda += (i.quantidade * i.valor_venda)
       end
-      soma = ( soma - desconto_acumulado_geral )
+			[soma_valor_tabela,soma_valor_venda]
     end
-    soma
   end
 
   # rotina chamada no before save
@@ -267,7 +269,7 @@ class Pedido < ActiveRecord::Base
   end
 
   def gerenciar_acoes
-    self.valor = self.somar_pedido
+    self.valor_normal, self.valor = self.somar_pedido
     self.percentual_comissao = self.comissao_desconto_item ? self.comissao_desconto_item : 5
   end
 =begin
