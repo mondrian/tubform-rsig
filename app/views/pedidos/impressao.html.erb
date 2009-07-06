@@ -4,7 +4,7 @@ IGUATU - CE                              <%= data_por_extenso(Date.today) %>    
 
 CLIENTE .:  <%= @pedido.cliente_id.to_s.rjust(5,'0') %> <%= @pedido.cliente.razao_social.ljust(45,' ') if @pedido.cliente.razao_social %> FONE COMERCIAL .: <%= @pedido.cliente.fone_comercial if @pedido.cliente.fone_comercial %>
 COMPRADOR.......: <%= @pedido.nome_comprador.ljust(45,' ') if @pedido.nome_comprador %> FONE RESIDENCIAL: <%= @pedido.cliente.fone_pessoal if @pedido.cliente.fone_pessoal %>
-REGISTRO .......: <%= '???????'.ljust(45,' ') %> REGIAO .........: <%= @pedido.cliente.regiao_entrega.descricao if @pedido.cliente.regiao_entrega %>
+REGISTRO .......: <%= @pedido.created_at.to_s_br.ljust(45,' ') %> REGIAO .........: <%= @pedido.cliente.regiao_entrega.descricao if @pedido.cliente.regiao_entrega %>
 C.G.F. .........: <%= @pedido.cliente.ie_rg.ljust(45,' ') if @pedido.cliente.ie_rg %> CIDADE .........: <%= @pedido.cliente.cidade.descricao if @pedido.cliente.cidade %>
 C.G.C. .........: <%= @pedido.cliente.cnpj_cpf.ljust(45,' ') if @pedido.cliente.cnpj_cpf %> ESTADO .........: <%= @pedido.cliente.uf if @pedido.cliente.uf %>  C.E.P.: <%= @pedido.cliente.cep if @pedido.cliente.cep %>
 ENDERECO .......: <%= @pedido.cliente.endereco.ljust(45,' ') if @pedido.cliente.endereco %> CONDICOES PAGTO : <%= @pedido.prazo_formatado if @pedido.prazo_formatado %>

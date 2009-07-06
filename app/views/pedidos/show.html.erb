@@ -186,7 +186,7 @@
   </tr>
   <tr>
     <td colspan="5" align="right">Desconto do Pedido (Valor):</td>
-    <td colspan="2" align="right"><%= sprintf("%.2f", (total * (@pedido.desconto/100))).real.real_formatado if @pedido.desconto %></td>
+    <td colspan="2" align="right"><%= (@pedido.somar_itens * @pedido.desconto / 100).real.real_formatado if @pedido.desconto %></td>
   </tr>
   <tr>
     <td colspan="5" align="right">Desconto Ponderado por Item:</td>
@@ -202,15 +202,15 @@
   </tr>
   <tr>
     <td colspan="5" align="right">Soma dos Itens:</td>
-    <td colspan="2" align="right"><%= @pedido.valor.real.real_formatado %></td>
+    <td colspan="2" align="right"><%= @pedido.somar_itens.real.real_formatado %></td>
   </tr>
   <tr>
     <td colspan="5" align="right">Comissão do Vendedor (%):</td>
-    <td colspan="2" align="right"><%= sprintf("%.2f", @pedido.comissao_vendedor).to_s + ' %'  %></td>
+    <td colspan="2" align="right"><%= @pedido.percentual_comissao.to_s + ' %'  %></td>
   </tr>
   <tr>
     <td colspan="5" align="right">Comissão do Vendedor:</td>
-    <td colspan="2" align="right"><%= sprintf("%.2f", (total * @pedido.comissao_vendedor)/100).real.real_formatado %></td>
+    <td colspan="2" align="right"><%= sprintf("%.2f", (@pedido.valor * @pedido.percentual_comissao)/100).real.real_formatado %></td>
   </tr>
 </table>
 <br/><br/>

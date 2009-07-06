@@ -57,8 +57,8 @@ class Pedido < ActiveRecord::Base
   # Calculo de comissao por desconto do item.
   def comissao_desconto_item
     percentual_reducao = 0.150 #percentual de redução da comissão para cada 1% de desconto no item. (parametro).
-    comissao_padrao = 5.00 #Percentual de comissão do vendedor por industria.
-    desconto_padrao = 23.00 #Percentual de desconto maximo por item permitido.
+    comissao_padrao = 6.00 #Percentual de comissão do vendedor por industria.
+    desconto_padrao = 22.90 #Percentual de desconto maximo por item permitido.
     comissao = 0.00 #variavel local.
     vlr_comissao = 0.00 #variavel local.
 
@@ -67,8 +67,8 @@ class Pedido < ActiveRecord::Base
     self.item_pedidos.each do |item_pedido|
       item_pedido.desconto = 0 unless item_pedido.desconto
       if item_pedido.desconto > 0
-        if item_pedido.desconto <= desconto_padrao
-          comissao = (comissao_padrao - ((item_pedido.desconto - comissao_padrao) * percentual_reducao ))
+        if item_pedido.desconto > desconto_padrao
+          comissao = (comissao_padrao - ((item_pedido.desconto - desconto_padrao) * percentual_reducao ))
         else
           comissao = comissao_padrao
         end
@@ -88,7 +88,7 @@ class Pedido < ActiveRecord::Base
     end
     vlr_comissao = 0 if vlr_comissao.nil?
     if self.valor > 0
-      percentual_comissao = ((vlr_comissao / self.valor) * 100).to_f
+      percentual_comissao = ((vlr_comissao.to_f / self.valor.to_f) * 100.to_f).to_f
     else
       percentual_comissao = 0
     end
@@ -104,19 +104,20 @@ class Pedido < ActiveRecord::Base
     unidade = 15.000 # Deverá vir da Tabela de Parâmetros ( param.unidade )
     fator = 0.500 # Deverá vir da Tabela de Parâmetros ( param.fator )
     prazo_pedido = self.prazo_medio
-    valor_comissao = 5.5 # parametros
-
+    
     # Verifica se o Vendedor "estourou" o prazo do Cliente e Aplica a Regra
     if (prazo_pedido > prazo_param)
-      for i in self.item_pedidos do
-        valor_total = i.valor_venda * i.quantidade
-        desconto = ((prazo_pedido - prazo_param ) / unidade) * fator
-# valor_base = valor_total - ( desconto * valor_total )
-        valor_comissao = valor_comissao - desconto
-      end
+      desconto = ((prazo_pedido - prazo_param ) / unidade) * fator
+    else
+      desconto = 0   
     end
     # Atualiza o valor da Comissão na Tabela de Pedidos
-    self.comissao_vendedor = valor_comissao
+    self.percentual_comissao = self.comissao_desconto_item - desconto
+  end
+
+  # retorna o valor do desconto no pedido
+  def valor_desconto
+    self.valor_normal - self.valor 
   end
 
   #metodo que retorna a media ponderada dos descontos dos itens do pedido em valor
@@ -139,7 +140,7 @@ class Pedido < ActiveRecord::Base
 
       valor += ((i.valor_tabela * i.quantidade) * i.desconto) / 100
     end
-    ret = (valor / self.valor) * 100
+    ret = (valor / self.valor_normal) * 100
   end
 
   # metodo que acumula o desconto ponderado nos itens + o desconto informado no proprio pedido para chegar ao desconto final do pedido
@@ -241,9 +242,9 @@ class Pedido < ActiveRecord::Base
     p = self.item_pedidos
     if p.size > 0
       p.each do | i |
-        soma += (i.quantidade * i.valor_tabela )
+        soma += (i.quantidade * i.valor_venda )
       end
-      soma = ( soma - media_desconto_ponderada_itens_valor )
+      soma = ( soma )
     end
     soma
   end
@@ -268,9 +269,15 @@ class Pedido < ActiveRecord::Base
     self.gerar_duplicatas if self.changed.include? "plano_de_pagamento" or self.changed.include? "valor"
   end
 
+  def calcula_desconto
+    self.desconto = 0 if self.desconto.nil?
+    self.valor = self.valor - (self.valor * self.desconto / 100)
+  end
   def gerenciar_acoes
     self.valor_normal, self.valor = self.somar_pedido
-    self.percentual_comissao = self.comissao_desconto_item ? self.comissao_desconto_item : 5
+    self.calcula_desconto
+    self.comissao_desconto_item ? self.percentual_comissao = self.comissao_desconto_item : self.percentual_comissao = 5 
+    self.desconto_comissao_prazo!
   end
 =begin
  
