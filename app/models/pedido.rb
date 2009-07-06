@@ -62,7 +62,7 @@ class Pedido < ActiveRecord::Base
     comissao = 0.00 #variavel local.
     vlr_comissao = 0.00 #variavel local.
 
-    # Exemplo do calculo abaixo: 5.5-((25-23)*0.150)
+    # Exemplo do calculo abaixo: 5.0-((25-23)*0.150)
 
     self.item_pedidos.each do |item_pedido|
       item_pedido.desconto = 0 unless item_pedido.desconto
@@ -254,28 +254,28 @@ class Pedido < ActiveRecord::Base
     self.percentual_comissao = self.comissao_desconto_item ? self.comissao_desconto_item : 5
   end
 =begin
- 
+
   # deleta os pedidos que não contem items de pedido
   def deleta_pedido_sem_item
    #sql = "DELETE FROM pedidos WHERE id not in ( SELECT distinct(pedido_id) FROM item_pedidos )"
   #Pedido.find_by_sql(sql)
     Pedido.delete_all(:conditions => 'id not in ( SELECT distinct(pedido_id) FROM item_pedidos )')
   end
- 
+
   # metodos para replicacao nos dbfs
   def dbf_delete
     sql = "select excluir_pedido_dbf(#{self.numero_pedido})"
     x = Pedido.replicando_no_banco(sql)
   end
- 
+
   def self.retorna_sql(s)
     sanitize_sql(s)
   end
- 
+
   # montar nesse ponto as variaveis para a funcao a funcao de insert no dbf recebe como parametros todos os campos da tabela
   # na mesma ordem do dbf o mais importante e tratar os dados para o formato que o dbf va suportar podemos ver essa parte
   # juntos, coloquem os valores corretos e a gente testa ai.
- 
+
   def dbf_insert
      self.tipo == 'I' ? vtipo = 1 : vtipo = 2
      self.gera_minuta? ? vgera = 1 : vgera = 2
@@ -292,9 +292,9 @@ class Pedido < ActiveRecord::Base
            self.area_id.to_s, self.minuta_id.to_s, vgera.to_s,
            self.operador_id.to_s, self.telemarketing_id.to_s, vreg,
            self.nosso_numero, self.identificador_venda])
-     
+
      x = Pedido.replicando_no_banco(sql.to_s)
- 
+
   end
     def dbf_update
       self.especial? ? vespecial = 1 : vespecial = 2
@@ -315,7 +315,7 @@ class Pedido < ActiveRecord::Base
           self.funcionario_estorno_id.to_s, self.comissao_vendedor, self.comissao_telemarketing,
           self.identificador_venda, self.total_desconto_item, self.autorizador_desconto_id,
           self.status])
- 
+
       self.vencimentos.
       x = Pedido.replicando_no_banco(sql)
   end
@@ -326,3 +326,4 @@ class Pedido < ActiveRecord::Base
 	end
 =end
 end
+
