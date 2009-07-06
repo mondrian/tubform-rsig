@@ -7,7 +7,7 @@ class ItemPedido < ActiveRecord::Base
   validates_presence_of :valor_venda, :message => "Informe o Valor de Venda"
   validate :valida_item
 
-  after_save :trg_soma_itens
+   after_save :trg_soma_itens
   
   after_destroy :trg_soma_itens
 
@@ -34,6 +34,10 @@ class ItemPedido < ActiveRecord::Base
     vlr_tabela = self.valor_tabela
     vlr_venda = (self.valor_tabela - (self.valor_tabela * self.desconto ) /100 )
     self.valor_venda = vlr_venda
+  end
+
+  def calcula_desconto
+    self.desconto = (self.valor_tabela - self.valor_venda) / self.valor_tabela * 100
   end
 
   # rotina para Somar os Itens e Atualizar no Pedido
@@ -109,6 +113,7 @@ class ItemPedido < ActiveRecord::Base
       x = x[0].resultado
   end
  
+
   public 
   def sub_total
     self.quantidade * self.valor_venda

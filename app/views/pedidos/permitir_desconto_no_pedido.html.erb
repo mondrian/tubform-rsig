@@ -1,0 +1,11 @@
+<% form_for(@pedido) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :desconto %><br />
+    <%= f.text_field :desconto, :size => 5 %>
+  </p>
+  <p>
+    <%= f.submit 'Salvar' %>
+  </p>
+<% end %>
+
