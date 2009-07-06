@@ -56,4 +56,21 @@ public
   	end
 
  end
+  
+ def cnpj_cpf
+    if self.tipo_cliente = 'F'
+      self.cpf
+    else
+      self.cnpj
+    end
+ end
+
+ def ie_rg
+   if self.tipo_cliente = 'F'
+     self.documento
+   else
+     self.inscricao_estadual
+  end
+ end
+
 end

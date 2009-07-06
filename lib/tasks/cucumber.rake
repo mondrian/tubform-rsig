@@ -14,10 +14,10 @@ begin
     sh "rake RAILS_ENV=test db:migrate:reset"
     sh "cucumber -p trabalhando"
   end
-  task  :luciano do
+  task  :incompleta do
     sh "rake db:test:prepare"
     sh "rake RAILS_ENV=test db:migrate:reset"
-    sh "cucumber -p luciano"
+    sh "cucumber -p incompleta"
   end
 
   task :trabalhando_selenium do

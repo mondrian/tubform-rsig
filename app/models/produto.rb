@@ -1,6 +1,6 @@
 class Produto < ActiveRecord::Base
   belongs_to :ItemNotaFiscal
-  has_one  :cor
+  belongs_to :cor
   has_one  :classe
   has_one  :grupo
   has_one  :funcionario

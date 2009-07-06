@@ -11,8 +11,8 @@ Feature: Gerenciar produtos
     E possuo permissão para "Novo(a) Produto"
     E possuo permissão para "Criar Produto"
 
-  Cenário: Adicionar um produto válido não kit
-    E que estou em cadastro de produto
+  Cenário: Adicionar um produto valido
+    Dado que estou em produtos
     E defino descrição como "Produto de Teste"
     E seleciono o(a) cor "Cor de Teste"
     E defino valor especial como "5"
@@ -35,7 +35,7 @@ Feature: Gerenciar produtos
     Quando peço para salvar
     Então preciso ver "Registro cadastrado com Sucesso"
 
-  Cenário: Alterar um produto válido não kit
+  Cenário: Alterar um produto
     Dado que estou em listagem de produtos
     E peço a alteração do produto que o(a) descricao é "Produto de Teste 1"
     E defino o valor normal como "12"
@@ -62,20 +62,25 @@ Feature: Gerenciar produtos
     E defino descrição na nota fiscal como "Descrição de Teste"
     E seleciono o(a) funcionário "Funcionário de Teste"
     E defino emissão em relatório como "sim"
-
     E defino custo como "3"
     E defino data de cadastro do custo como "2009-06-24"
     Quando peço para salvar
     Então preciso ver "Registro cadastrado com Sucesso"
 
-  Cenário: Alterar um produto válido kit
-    Dado que estou em listagem de produtos
-    E peço a alteração do produto que o(a) descricao é "Produto de Teste 1"
-    E defino o valor normal como "12"
-    E defino o valor especial como "3"
+  Cenário: Montando um produto kit
+    Dado que existe(m) registro(s) de produto com os seguintes dados:
+      | id | descricao          | kit |
+      | 1  | Kit de Teste       | sim |
+      | 2  | Produto de Teste 1 | não |
+    Quando peço para montar kit
+    E defino item kit como "2"
+    E defino produto id como "1"
+    E defino fato conversao como "4"
+    E defino preco normal  como "10"
+    E defino preco especial como "8"
     Quando peço para salvar
-    Então preciso ver "Registro atualizado com Sucesso"
-
+    Então preciso ver "Registro cadastrado com Sucesso"
+    
   Cenário: Listar produtos
     Quando eu estiver em listagem de produtos
     Então preciso ver "Encontrado(s) 3 registro(s)."

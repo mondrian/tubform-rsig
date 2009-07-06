@@ -2,7 +2,7 @@ class NotasFiscaisController < ApplicationController
   # GET /notas_fiscais
   # GET /notas_fiscais.xml
 
-
+  layout 'temp'
   def index
     @notas_fiscais = NotaFiscal.all
 
@@ -84,4 +84,16 @@ class NotasFiscaisController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+	def nota_fiscal_populada_via_pedido
+		idsdopedido = params[:id]
+		@nota_fiscal = NotaFiscal.new
+    if idsdopedido.split(',').size > 1
+      @nota_fiscal.importa_pedidos!(idsdopedido)
+    else
+    	@nota_fiscal.importa_pedido!(idsdopedido)
+    end
+		redirect_to(:action => "index")
+	end
+
 end

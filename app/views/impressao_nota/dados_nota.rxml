@@ -1,0 +1,7 @@
+xml.instruct!
+xml.dados_nota_result do
+	xml.invoice_dados_nota do
+    xml << @nota_fiscal.to_xml(:dasherize=>false,:skip_instruct=>true, :skip_types=>true)
+	end
+end
+

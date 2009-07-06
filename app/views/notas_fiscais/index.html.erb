@@ -1,3 +1,8 @@
+<div id="notas_fiscais_grid"></div>
+<script type="text/javascript">
+Ext.onReady(Nota_Fiscal.init);
+</script>
+
 <h4>Notas Emitidas</h4>
 
 <table border="1">
@@ -30,6 +35,12 @@
 <% end %>
 </table>
 
+<br />
+  <% form_tag '/notas_fiscais/nota_fiscal_populada_via_pedido' do -%>
+    <%= label_tag 'Importar pedidos para uma nova nota fiscal' %><br />
+    <%= text_field_tag :id, nil,:onkeypress => 'mascara(this, numPedidos)' %><br />
+    <%= submit_tag 'importar' %><br />
+  <% end -%>
 <br />
 
 <%= link_to 'Nova Nota Fiscal', new_nota_fiscal_path %>

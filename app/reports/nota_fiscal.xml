@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dados_nota_result>
+  <invoice_dados_nota>
+<notas_fiscais>
+  <nota_fiscal>
+    <cliente_bairro>ITAPERI</cliente_bairro>
+    <cliente_cep>60742000</cliente_cep>
+    <cliente_cidade>Fortaleza</cliente_cidade>
+    <cliente_cnpj_cpf>85821543304</cliente_cnpj_cpf>
+    <cliente_endereco>RUA ACAPULCOP</cliente_endereco>
+    <cliente_fone_fax>1</cliente_fone_fax>
+    <cliente_inscricao_estadual nil="true"></cliente_inscricao_estadual>
+    <cliente_razao_social>LUIZ MAGNO DIOGO BATISTA</cliente_razao_social>
+    <cliente_uf>CE</cliente_uf>
+    <item_codigo_produto>1</item_codigo_produto>
+    <item_descricao_produto>PRODUTO TESTE</item_descricao_produto>
+    <item_icms>17.00</item_icms>
+    <item_ipi>10.00</item_ipi>
+    <item_quantidade>2</item_quantidade>
+    <item_sit_trib>T</item_sit_trib>
+    <item_unidade>UN</item_unidade>
+    <item_valor_do_ipi>200.00</item_valor_do_ipi>
+    <item_valor_total>2000.00</item_valor_total>
+    <item_valor_unitario>1000.00</item_valor_unitario>
+    <nf_base_de_calculo_do_icms>2000.00</nf_base_de_calculo_do_icms>
+    <nf_base_de_calculo_icms_subs_trib>0.00</nf_base_de_calculo_icms_subs_trib>
+    <nf_cfop>5102</nf_cfop>
+    <nf_data_de_emissao>2009-06-30</nf_data_de_emissao>
+    <nf_data_entrada nil="true"></nf_data_entrada>
+    <nf_data_saida>2009-06-30</nf_data_saida>
+    <nf_natureza_da_operacao>VENDA</nf_natureza_da_operacao>
+    <nf_numero_do_pedido nil="true"></nf_numero_do_pedido>
+    <nf_numero_do_selo>1114555477887</nf_numero_do_selo>
+    <nf_numero_nota>25478</nf_numero_nota>
+    <nf_percentual_desconto>0.00</nf_percentual_desconto>
+    <nf_percentual_icms>17.00</nf_percentual_icms>
+    <nf_quantidade_volumes>1</nf_quantidade_volumes>
+    <nf_serie>AA</nf_serie>
+    <nf_valor_do_frete>200.00</nf_valor_do_frete>
+    <nf_valor_do_icms>340.00</nf_valor_do_icms>
+    <nf_valor_icms_subs_trib>0.00</nf_valor_icms_subs_trib>
+    <nf_valor_total_desconto>0.00</nf_valor_total_desconto>
+    <nf_valor_total_do_ipi>200.00</nf_valor_total_do_ipi>
+    <nf_valor_total_dos_produtos>2000.00</nf_valor_total_dos_produtos>
+    <nf_valor_total_nota>2400.00</nf_valor_total_nota>
+    <trans_cidade nil="true"></trans_cidade>
+    <trans_cnpj nil="true"></trans_cnpj>
+    <trans_inscricao_estadual nil="true"></trans_inscricao_estadual>
+    <trans_razao_social nil="true"></trans_razao_social>
+    <trans_uf nil="true"></trans_uf>
+  </nota_fiscal>
+</notas_fiscais>
+  </invoice_dados_nota>
+</dados_nota_result>

@@ -218,6 +218,23 @@ class Pedido < ActiveRecord::Base
     vencimentos
   end
 
+  def prazo_formatado
+    quantidade_de_parcelas = self.plano_de_pagamento.size / 3
+    prazo = ''
+    i = 0
+
+
+    # Verifica se a data de entrega foi preenchida e regera as duplicatas com base nessa data
+    # Se não estiver preenchida, gera com base na data do pedido
+    self.entrega.nil? ? data_inicial = self.data : data_inicial = self.entrega
+    while i <= self.plano_de_pagamento.size
+      prazo << self.plano_de_pagamento[i, 3]
+      i += 3
+      prazo << '/' if i <= self.plano_de_pagamento.size
+    end
+    prazo
+  end
+
   # Método para Atualizar o Valor do Pedido a cada Item Acrescentado, Excluido ou Alterado
   def somar_itens
     soma = 0
@@ -232,15 +249,17 @@ class Pedido < ActiveRecord::Base
   end
 
   def somar_pedido
-    soma = 0
-    p = self.item_pedidos
-    if p.size > 0
-      p.each do | i |
-        soma += (i.quantidade * i.valor_tabela )
+    soma_valor_tabela = 0
+		soma_valor_venda = 0
+		pedidos = 0
+    pedidos = self.item_pedidos
+    if pedidos.size > 0
+      pedidos.each do |i|
+        soma_valor_tabela += (i.quantidade * i.valor_tabela)
+				soma_valor_venda += (i.quantidade * i.valor_venda)
       end
-      soma = ( soma - desconto_acumulado_geral )
+			[soma_valor_tabela,soma_valor_venda]
     end
-    soma
   end
 
   # rotina chamada no before save
@@ -250,7 +269,7 @@ class Pedido < ActiveRecord::Base
   end
 
   def gerenciar_acoes
-    self.valor = self.somar_pedido
+    self.valor_normal, self.valor = self.somar_pedido
     self.percentual_comissao = self.comissao_desconto_item ? self.comissao_desconto_item : 5
   end
 =begin
@@ -300,6 +319,7 @@ class Pedido < ActiveRecord::Base
       self.especial? ? vespecial = 1 : vespecial = 2
       self.status_estorno? ? vestorno = 'T' : vestorno = 'F'
       self.gera_minuta? ? vgera = 1 : vgera = 2
+      self.minuta_id.to_s.blank? ? vminuta = nil : vminuta = self.minuta_id.to_s
       sql = Pedido.retorna_sql(["select alterar_pedido_dbf(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
                                  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) as resultado",
           self.id.to_s, self.data, self.previsao_entrega,
