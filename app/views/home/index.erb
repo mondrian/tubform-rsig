@@ -1,4 +1,4 @@
-<%= render :partial => 'header' %>
+<%= render :partial => 'cabecalho' %>
 <h1>Welcome</h1>
 
 <% if logged_in? %>
@@ -19,9 +19,9 @@
 
 		</div>
 	</div>
-	<%= render :partial => 'home' %>
+	<%= render :partial => 'corpo' %>
 <% else %>
 	<%= link_to 'Login', login_path %>
 <% end %>
-<%= render :partial => 'footer' %>
+<%= render :partial => 'rodape' %>
 

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090703133332) do
+ActiveRecord::Schema.define(:version => 20090706131504) do
 
   create_table "acoes", :force => true do |t|
     t.string   "controller_name"
@@ -341,8 +341,8 @@ ActiveRecord::Schema.define(:version => 20090703133332) do
     t.date     "programacao"
     t.integer  "cliente_id"
     t.decimal  "valor",                                :precision => 8,  :scale => 2, :default => 0.0
-    t.decimal  "acrescimo",                            :precision => 3,  :scale => 2, :default => 0.0
-    t.decimal  "desconto",                             :precision => 3,  :scale => 2, :default => 0.0
+    t.decimal  "acrescimo",                                                           :default => 0.0
+    t.decimal  "desconto",                                                            :default => 0.0
     t.integer  "transportadora_id"
     t.string   "nome_comprador"
     t.text     "observacao"

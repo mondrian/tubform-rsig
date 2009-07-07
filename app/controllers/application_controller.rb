@@ -1,9 +1,15 @@
 class ApplicationController < ActionController::Base
-  require 'brazilian-rails'
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   include AuthenticatedSystem
   before_filter :valida_permissao
+
+  def load_page
+    @page = params[:page] || '1'
+    @per_page = (params[:limit] || '30').to_i
+    @per_page = 30 if @per_page > 30
+    true
+  end
 
   private
   def valida_permissao
