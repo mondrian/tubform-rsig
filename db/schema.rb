@@ -429,13 +429,6 @@ ActiveRecord::Schema.define(:version => 20090706131504) do
     t.datetime "updated_at"
   end
 
-  create_table "replicacoes_pendentes", :force => true do |t|
-    t.text     "sql"
-    t.integer  "status",       :limit => 2
-    t.datetime "temporizador"
-    t.integer  "contador"
-  end
-
   create_table "roteiros", :force => true do |t|
     t.string   "descricao"
     t.integer  "funcionario_id"

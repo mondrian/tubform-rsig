@@ -1,0 +1,42 @@
+.link-menu {
+  padding: 2px;
+  font-size: 8pt;
+  font-family: verdana, tahoma, arial, sans-serif;
+  cursor:pointer;
+}
+
+.link-menu:hover {
+  background-color: #eeeeee;
+}
+
+.cadastros {
+  background: url(../images/layout.png) no-repeat !important;
+  }
+
+.icon-grid {
+  background: url(../images/grid.png) no-repeat !important;
+  }
+
+.icon-novo {
+  background: url(../images/add.gif) no-repeat !important;
+  padding-left: 15px;
+  }
+
+.icon-excluir {
+  background: url(../images/delete.gif) no-repeat !important;
+  padding-left: 15px;
+  }
+
+.x-window-body {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.ext-mb-text {
+  padding-right:15px;
+}
+
+.icon-zoom {
+  background-image:url(../images/zoom.png) ! important;
+}
+
