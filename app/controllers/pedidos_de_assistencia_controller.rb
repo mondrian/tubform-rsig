@@ -13,43 +13,43 @@ class PedidosDeAssistenciaController < ApplicationController
   # GET /pedidos_de_assistencia/1
   # GET /pedidos_de_assistencia/1.xml
   def show
-    @pedido_de_assistencia = PedidoDeAssistencia.find(params[:id])
+    @pedido = PedidoDeAssistencia.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @pedido_de_assistencia }
+      format.xml  { render :xml => @pedido }
     end
   end
 
   # GET /pedidos_de_assistencia/new
   # GET /pedidos_de_assistencia/new.xml
   def new
-    @pedido_de_assistencia = PedidoDeAssistencia.new
+    @pedido = PedidoDeAssistencia.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @pedido_de_assistencia }
+      format.xml  { render :xml => @pedido }
     end
   end
 
   # GET /pedidos_de_assistencia/1/edit
   def edit
-    @pedido_de_assistencia = PedidoDeAssistencia.find(params[:id])
+    @pedido = PedidoDeAssistencia.find(params[:id])
   end
 
   # POST /pedidos_de_assistencia
   # POST /pedidos_de_assistencia.xml
   def create
-    @pedido_de_assistencia = PedidoDeAssistencia.new(params[:pedido_de_assistencia])
+    @pedido = PedidoDeAssistencia.new(params[:pedido_de_assistencia])
 
     respond_to do |format|
-      if @pedido_de_assistencia.save
-        flash[:notice] = 'PedidoDeAssistencia was successfully created.'
-        format.html { redirect_to(@pedido_de_assistencia) }
-        format.xml  { render :xml => @pedido_de_assistencia, :status => :created, :location => @pedido_de_assistencia }
+      if @pedido.save
+        flash[:notice] = 'Pedido Cadastrado com Sucesso'
+        format.html { redirect_to(@pedido) }
+        format.xml  { render :xml => @pedido, :status => :created, :location => @pedido }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @pedido_de_assistencia.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @pedido.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -57,16 +57,16 @@ class PedidosDeAssistenciaController < ApplicationController
   # PUT /pedidos_de_assistencia/1
   # PUT /pedidos_de_assistencia/1.xml
   def update
-    @pedido_de_assistencia = PedidoDeAssistencia.find(params[:id])
+    @pedido = PedidoDeAssistencia.find(params[:id])
 
     respond_to do |format|
-      if @pedido_de_assistencia.update_attributes(params[:pedido_de_assistencia])
-        flash[:notice] = 'PedidoDeAssistencia was successfully updated.'
-        format.html { redirect_to(@pedido_de_assistencia) }
+      if @pedido.update_attributes(params[:pedido_de_assistencia])
+        flash[:notice] = 'Pedido de Assistencia Atualizado com Sucesso'
+        format.html { redirect_to(@pedido) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @pedido_de_assistencia.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @pedido.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -74,8 +74,8 @@ class PedidosDeAssistenciaController < ApplicationController
   # DELETE /pedidos_de_assistencia/1
   # DELETE /pedidos_de_assistencia/1.xml
   def destroy
-    @pedido_de_assistencia = PedidoDeAssistencia.find(params[:id])
-    @pedido_de_assistencia.destroy
+    @pedido = PedidoDeAssistencia.find(params[:id])
+    @pedido.destroy
 
     respond_to do |format|
       format.html { redirect_to(pedidos_de_assistencia_url) }
