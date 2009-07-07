@@ -1,4 +1,24 @@
 class NotasFiscaisController < ApplicationController
+  controller_crud_methods_for NotaFiscal, :metadata_for => [
+           'numero_nota',
+           'selo',
+           'serie',
+           'cliente_id',
+           'percentual_icms',
+           'valor_icms',
+           'status'
+          ]
+
+=begin
+  <td align="center"><%=h n.numero_nota %></td>
+  <td align="center"><%=h n.selo %></td>
+  <td align="center"><%=h n.serie %></td>
+  <td align="left"><%=h n.cliente.razao_social %></td>
+  <td align="right"><%=h n.total_nota.real.real_formatado %></td>
+  <td align="right"><%=h n.percentual_icms.to_s + ' %' %></td>
+  <td align="right"><%=h n.valor_icms.real.real_formatado %></td>
+  <td align="center"><%=h n.status == 'S' ? 'Sim' : 'Não' %></td>
+
   # GET /notas_fiscais
   # GET /notas_fiscais.xml
 
@@ -95,5 +115,5 @@ class NotasFiscaisController < ApplicationController
     end
 		redirect_to(:action => "index")
 	end
-
+=end
 end

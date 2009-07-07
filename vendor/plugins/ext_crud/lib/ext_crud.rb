@@ -1,19 +1,14 @@
 module ExtCrud
   module ClassMethods
     def controller_crud_methods_for( *args )
-
       options = args.extract_options!.symbolize_keys
-
       klass = args.first
-
       name = klass.name
       plural = klass.name.pluralize.underscore
       singular = klass.name.underscore
-
       metadata_total = 'total'
       metadata_root  = 'results'
       metadata_id    = 'id'
-
       columns = ''
       options[:metadata_for].each do |column|
         columns << "{:name => \'#{column}\'},"
@@ -90,15 +85,12 @@ module ExtCrud
   module JavascriptBuilder
     def ext_grid_for( *args )
       options = args.extract_options!.symbolize_keys
-
       entity = options[:entity];
       entities = entity.pluralize;
-
       columns = []
       options[:columns].each do |key, value|
         columns << "{header: \'#{key}\', width:120, sortable:true, dataIndex: \'#{value}\'}"
       end
-
       columns = columns.join(',')
 
       js = %Q!

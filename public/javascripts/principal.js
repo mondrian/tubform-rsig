@@ -1,26 +1,22 @@
 Ext.onReady(function(){
-
   Ext.QuickTips.init();
-
   Ext.Ajax.method = 'GET';
-
   var viewport = new Ext.Viewport({
     layout:'border',
     items:[
       {
-      region:'west',id:'painel-oeste',title:'Menu',split:true,
-      width:170,minSize: 170,
-      maxSize: 400,collapsible:true,margins:'0 0 0 5',
-      layout:'accordion',layoutConfig:{animate:true},
-      items: [{
-        contentEl:'menu-cadastros',collapsed:true,
-        title:'Vendas',
-        border:false, iconCls:'cadastros'
-        }]
+      region:'west', id:'painel-oeste', title:'Menu', split:true, width:170,minSize: 170, maxSize: 400,
+      collapsible:true, margins:'0 0 0 0', layout:'accordion', layoutConfig:{animate:true},
+      items:
+       [
+        {contentEl:'menu-cadastros',collapsed:true, title:'Cadastros', border:false, iconCls:'cadastros'},
+        {contentEl:'menu-vendas',collapsed:true, title:'Vendas', border:false, iconCls:'cadastros'},
+        {contentEl:'menu-estoque',collapsed:true, title:'Estoque', border:false, iconCls:'cadastros'},
+        {contentEl:'menu-financeiro',collapsed:true, title:'Financeiro', border:false, iconCls:'cadastros'}
+       ]
       },
       new Ext.TabPanel({
-        id:'centro',
-        region:'center',deferredRender:false,activeTab:0,
+        id:'centro', region:'center', deferredRender:false, activeTab:0,
         items:[{id:'dashboard',contentEl:'centro1',title: 'Principal',closable:false,autoScroll:true}]
       })
     ]
@@ -109,4 +105,3 @@ Ext.onReady(function(){
 
 
 });
-
