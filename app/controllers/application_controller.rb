@@ -8,6 +8,23 @@ class ApplicationController < ActionController::Base
     @page = params[:page] || '1'
     @per_page = (params[:limit] || '30').to_i
     @per_page = 30 if @per_page > 30
+
+    fields = eval(params[:fields]) if params[:fields]
+    query = params[:query] if params[:query]
+
+    if fields
+      @conditions = []
+      fields.each do |field|
+        if field.include? '.'
+          foo = field.split('.')
+          field = foo[0].underscore.pluralize + '.' + foo[1]
+        else
+          field = self.class.to_s.chomp('Controller') + '.' + field
+        end
+        @conditions << "#{field} like '#{query}%'"
+      end
+      @conditions = @conditions.join(' OR ')
+    end
     true
   end
 =begin
