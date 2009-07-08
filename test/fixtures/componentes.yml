@@ -1,0 +1,49 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  descricao: MyString
+  altura: 9.99
+  largura: 9.99
+  espessura: 9.99
+  percentual_de_perda: 9.99
+  tamanho_chapa: 9.99
+  cor_id: 1
+  manufatura: false
+  quantidade_lote: 9.99
+  coladeira: false
+  furadeira: false
+  pintura: false
+  embalagem: false
+  produto_elaborado: false
+  valor_metro_quadrado: 9.99
+  valor_componente: 9.99
+  ativo: false
+  componente_terceiro: false
+  usinagem: false
+  serraria: false
+  materia_prima_id: 1
+  grupo_componente_id: 1
+
+two:
+  descricao: MyString
+  altura: 9.99
+  largura: 9.99
+  espessura: 9.99
+  percentual_de_perda: 9.99
+  tamanho_chapa: 9.99
+  cor_id: 1
+  manufatura: false
+  quantidade_lote: 9.99
+  coladeira: false
+  furadeira: false
+  pintura: false
+  embalagem: false
+  produto_elaborado: false
+  valor_metro_quadrado: 9.99
+  valor_componente: 9.99
+  ativo: false
+  componente_terceiro: false
+  usinagem: false
+  serraria: false
+  materia_prima_id: 1
+  grupo_componente_id: 1

@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  produto: 1
+  quantidade: 1
+  valor: 9.99
+  sequencia_monvimento: 1
+  emite_relatorio: false
+  codigo_produto_kit: 1
+  justificativa: MyString
+  componente: false
+  motivo_id: 1
+
+two:
+  produto: 1
+  quantidade: 1
+  valor: 9.99
+  sequencia_monvimento: 1
+  emite_relatorio: false
+  codigo_produto_kit: 1
+  justificativa: MyString
+  componente: false
+  motivo_id: 1

@@ -1,0 +1,16 @@
+<h1>Editing motivo_assistencia</h1>
+
+<% form_for(@motivo_assistencia) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :descricao %><br />
+    <%= f.text_field :descricao %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @motivo_assistencia %> |
+<%= link_to 'Back', motivos_assistencia_path %>

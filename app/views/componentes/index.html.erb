@@ -1,0 +1,62 @@
+<h1>Listing componentes</h1>
+
+<table>
+  <tr>
+    <th>Descricao</th>
+    <th>Altura</th>
+    <th>Largura</th>
+    <th>Espessura</th>
+    <th>Percentual de perda</th>
+    <th>Tamanho chapa</th>
+    <th>Cor</th>
+    <th>Manufatura</th>
+    <th>Quantidade lote</th>
+    <th>Coladeira</th>
+    <th>Furadeira</th>
+    <th>Pintura</th>
+    <th>Embalagem</th>
+    <th>Produto elaborado</th>
+    <th>Valor metro quadrado</th>
+    <th>Valor componente</th>
+    <th>Ativo</th>
+    <th>Componente terceiro</th>
+    <th>Usinagem</th>
+    <th>Serraria</th>
+    <th>Materia prima</th>
+    <th>Grupo componente</th>
+  </tr>
+
+<% @componentes.each do |componente| %>
+  <tr>
+    <td><%=h componente.descricao %></td>
+    <td><%=h componente.altura %></td>
+    <td><%=h componente.largura %></td>
+    <td><%=h componente.espessura %></td>
+    <td><%=h componente.percentual_de_perda %></td>
+    <td><%=h componente.tamanho_chapa %></td>
+    <td><%=h componente.cor_id %></td>
+    <td><%=h componente.manufatura %></td>
+    <td><%=h componente.quantidade_lote %></td>
+    <td><%=h componente.coladeira %></td>
+    <td><%=h componente.furadeira %></td>
+    <td><%=h componente.pintura %></td>
+    <td><%=h componente.embalagem %></td>
+    <td><%=h componente.produto_elaborado %></td>
+    <td><%=h componente.valor_metro_quadrado %></td>
+    <td><%=h componente.valor_componente %></td>
+    <td><%=h componente.ativo %></td>
+    <td><%=h componente.componente_terceiro %></td>
+    <td><%=h componente.usinagem %></td>
+    <td><%=h componente.serraria %></td>
+    <td><%=h componente.materia_prima_id %></td>
+    <td><%=h componente.grupo_componente_id %></td>
+    <td><%= link_to 'Show', componente %></td>
+    <td><%= link_to 'Edit', edit_componente_path(componente) %></td>
+    <td><%= link_to 'Destroy', componente, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New componente', new_componente_path %>

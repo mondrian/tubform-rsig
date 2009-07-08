@@ -1,0 +1,48 @@
+<h1>Editing item_pedido_de_assistencia</h1>
+
+<% form_for(@item_pedido_de_assistencia) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :produto %><br />
+    <%= f.text_field :produto %>
+  </p>
+  <p>
+    <%= f.label :quantidade %><br />
+    <%= f.text_field :quantidade %>
+  </p>
+  <p>
+    <%= f.label :valor %><br />
+    <%= f.text_field :valor %>
+  </p>
+  <p>
+    <%= f.label :sequencia_monvimento %><br />
+    <%= f.text_field :sequencia_monvimento %>
+  </p>
+  <p>
+    <%= f.label :emite_relatorio %><br />
+    <%= f.check_box :emite_relatorio %>
+  </p>
+  <p>
+    <%= f.label :codigo_produto_kit %><br />
+    <%= f.text_field :codigo_produto_kit %>
+  </p>
+  <p>
+    <%= f.label :justificativa %><br />
+    <%= f.text_field :justificativa %>
+  </p>
+  <p>
+    <%= f.label :componente %><br />
+    <%= f.check_box :componente %>
+  </p>
+  <p>
+    <%= f.label :motivo_id %><br />
+    <%= f.text_field :motivo_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @item_pedido_de_assistencia %> |
+<%= link_to 'Back', itens_pedido_de_assistencia_path %>
