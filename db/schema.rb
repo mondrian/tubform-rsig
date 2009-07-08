@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090706131504) do
+ActiveRecord::Schema.define(:version => 20090707151656) do
 
   create_table "acoes", :force => true do |t|
     t.string   "controller_name"
@@ -85,6 +85,47 @@ ActiveRecord::Schema.define(:version => 20090706131504) do
     t.integer  "cidade_entrega_id"
     t.integer  "area_id"
     t.string   "inscricao_estadual"
+  end
+
+  create_table "componentes", :force => true do |t|
+    t.string   "descricao"
+    t.decimal  "altura"
+    t.decimal  "largura"
+    t.decimal  "espessura"
+    t.decimal  "percentual_de_perda"
+    t.decimal  "tamanho_chapa"
+    t.integer  "cor_id"
+    t.boolean  "manufatura"
+    t.decimal  "quantidade_lote"
+    t.boolean  "coladeira"
+    t.boolean  "furadeira"
+    t.boolean  "pintura"
+    t.boolean  "embalagem"
+    t.boolean  "produto_elaborado"
+    t.decimal  "valor_metro_quadrado"
+    t.decimal  "valor_componente"
+    t.boolean  "ativo"
+    t.boolean  "componente_terceiro"
+    t.boolean  "usinagem"
+    t.boolean  "serraria"
+    t.integer  "materia_prima_id"
+    t.integer  "grupo_componente_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "componentes_pedido_de_assistencia", :force => true do |t|
+    t.integer  "produto"
+    t.integer  "quantidade"
+    t.decimal  "valor"
+    t.integer  "sequencia_monvimento"
+    t.boolean  "emite_relatorio"
+    t.integer  "codigo_produto_kit"
+    t.string   "justificativa"
+    t.boolean  "componente"
+    t.integer  "motivo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "contra_partidas", :force => true do |t|
@@ -248,6 +289,20 @@ ActiveRecord::Schema.define(:version => 20090706131504) do
     t.integer  "nota_fiscal_id"
   end
 
+  create_table "itens_pedido_de_assistencia", :force => true do |t|
+    t.integer  "produto"
+    t.integer  "quantidade"
+    t.decimal  "valor"
+    t.integer  "sequencia_monvimento"
+    t.boolean  "emite_relatorio"
+    t.integer  "codigo_produto_kit"
+    t.string   "justificativa"
+    t.integer  "motivo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "usa_componente"
+  end
+
   create_table "lancamentos", :force => true do |t|
     t.string   "tipo_operacao",       :limit => 1
     t.integer  "plano_de_conta_id"
@@ -288,6 +343,12 @@ ActiveRecord::Schema.define(:version => 20090706131504) do
     t.date     "fechamento_financeiro"
     t.integer  "funcionario_fechamento_financeiro_id"
     t.integer  "roteiro_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "motivos_assistencia", :force => true do |t|
+    t.string   "descricao"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -377,6 +438,46 @@ ActiveRecord::Schema.define(:version => 20090706131504) do
     t.decimal  "total_desconto_item",                  :precision => 12, :scale => 2, :default => 0.0
     t.string   "nosso_numero",            :limit => 7
     t.boolean  "status_estorno",                                                      :default => false, :null => false
+  end
+
+  create_table "pedidos_de_assistencia", :force => true do |t|
+    t.date     "data"
+    t.date     "previsao_entrega"
+    t.date     "entrega"
+    t.date     "programacao"
+    t.integer  "cliente_id"
+    t.decimal  "valor",                                :precision => 8,  :scale => 2, :default => 0.0
+    t.decimal  "acrescimo",                            :precision => 8,  :scale => 2, :default => 0.0
+    t.decimal  "desconto",                             :precision => 8,  :scale => 2, :default => 0.0
+    t.integer  "transportadora_id"
+    t.string   "nome_comprador"
+    t.text     "observacao"
+    t.integer  "vendedor_id"
+    t.integer  "operador_id"
+    t.integer  "telemarketing_id"
+    t.string   "endereco_entrega"
+    t.integer  "minuta_id"
+    t.integer  "area_id"
+    t.string   "status"
+    t.integer  "funcionario_estorno_id"
+    t.boolean  "venda_externa"
+    t.decimal  "desconto_complementar",                :precision => 6,  :scale => 2, :default => 0.0
+    t.integer  "autorizador_desconto_id"
+    t.date     "registro"
+    t.integer  "empresa_id"
+    t.integer  "operador_estorno_id"
+    t.integer  "autorizador_id"
+    t.string   "plano_de_pagamento"
+    t.string   "tipo",                    :limit => 1
+    t.decimal  "valor_normal",                         :precision => 12, :scale => 2, :default => 0.0
+    t.boolean  "gera_minuta",                                                         :default => true
+    t.date     "data_estorno"
+    t.string   "identificador_venda",     :limit => 1
+    t.decimal  "total_desconto_item",                  :precision => 12, :scale => 2, :default => 0.0
+    t.string   "nosso_numero",            :limit => 7
+    t.boolean  "status_estorno"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "planosdepagamento", :force => true do |t|
