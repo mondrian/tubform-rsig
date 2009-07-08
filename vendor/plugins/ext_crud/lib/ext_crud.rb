@@ -61,6 +61,28 @@ module ExtCrud
     end
   end
 
+  def render_from_hash(result)
+    columns = []
+
+ 	  result[0].each { |key,value| columns << key }
+    respond_to do |format|
+      format.html #
+   		format.json { render :json => { :metaData => { :totalProperty => 'total',
+                                                     :root => 'results',
+                                                     :id => 'id',
+                                                     :fields => [
+                                                     #{columns}
+                                                     {:name => 'id'}]
+                                                   },
+                                      :results => result,
+                                      :total => result.size } }
+
+
+  	end
+	end
+
+
+
   protected
 
   def load_#{singular}
