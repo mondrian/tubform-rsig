@@ -22,6 +22,9 @@ Ext.onReady(function(){
     ]
   });
 
+
+
+    
   Ext.get('opcao-pedidos_venda').on('click', function(e){
     var tabs = viewport.getComponent("centro");
     var destroyed = tabs.getComponent("pedidos_venda");

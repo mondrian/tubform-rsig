@@ -46,4 +46,3 @@ Rails::Initializer.run do |config|
 
   config.gem "brazilian-rails", :lib => false, :version => ">=2.1.8"
 end
-

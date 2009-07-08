@@ -1,6 +1,7 @@
 class PedidosController < ApplicationController
   controller_crud_methods_for Pedido, :metadata_for => ['tipo',
-                                                        'data',
+                                                        'cliente.razao_social',
                                                         'valor',
-                                                        "cliente.nome" => "Cliente"]
+                                                        'data'],
+                                      :includes => [ :cliente ]
 end
