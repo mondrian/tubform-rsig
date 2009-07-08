@@ -1,1 +1,10 @@
-<%= ext_grid_for :entity => 'pedido', :columns => {"Valor"=>"valor", "Vendedor" => "vendedor","Cliente"=>"cliente_nome"} %>
+<%= ext_grid_for :entity => 'pedido',
+                 :columns => [
+                   {:header => 'Tipo',
+                    :dataIndex => 'tipo',
+                    :width => 8},
+                   {:header => 'Cliente', :dataIndex => 'cliente.razao_social', :width => 60 },
+                   {:header => 'Valor', :dataIndex => 'valor', :width => 15 },
+                   {:header => 'Data', :dataIndex => 'data', :width => 15, :renderer => 'Ext.util.Format.dateRenderer(\'d/m/Y\')' }
+                  ]
+%>

@@ -1,32 +1,33 @@
 module ExtCrud
   module ClassMethods
     def controller_crud_methods_for( *args )
-
       options = args.extract_options!.symbolize_keys
-
       klass = args.first
-
       name = klass.name
       plural = klass.name.pluralize.underscore
       singular = klass.name.underscore
-
       metadata_total = 'total'
       metadata_root  = 'results'
       metadata_id    = 'id'
-
       columns = ''
       options[:metadata_for].each do |column|
-        columns << "{:name => \'#{column}\'},"
+        columns << "{:name => \'#{column}\', :mapping => \'#{column}\'},"
       end
 
+      if options[:includes]
+        includes = ':' + options[:includes].join(', :')
+      end
       methods = %Q!
 
   before_filter :load_page, :only => :index
   before_filter :load_#{singular}, :only => [ :edit, :new, :create, :update, :destroy ]
 
   def index
-    @#{plural} = #{name}.find(:all, :conditions => @conditions).paginate( :page => @page,
-                                                                     :per_page => @per_page )
+    @#{plural} = #{name}.find(:all,
+                              :conditions => @conditions,
+                              :include => [ #{includes} ]
+                             ).paginate( :page => @page,
+                                         :per_page => @per_page )
 
     respond_to do |format|
       format.html #index.html.erb
@@ -34,11 +35,13 @@ module ExtCrud
                                                      :root => 'results',
                                                      :id => 'id',
                                                      :fields => [
-                                                     #{columns}
-                                                     {:name => 'id'}]
+                                                       #{columns}
+                                                       {:name => 'id', :mapping => 'id'}
+                                                     ]
                                                    },
                                       :results => @#{plural},
-                                      :total => @#{plural}.total_entries } }
+                                      :total => @#{plural}.total_entries }.to_json(:include => [ #{includes} ])
+                  }
     end
   end
 
@@ -112,17 +115,20 @@ module ExtCrud
   module JavascriptBuilder
     def ext_grid_for( *args )
       options = args.extract_options!.symbolize_keys
-
       entity = options[:entity];
       entities = entity.pluralize;
-
       columns = []
-      options[:columns].each do |key, value|
-        columns << "{header: \'#{key}\', width:120, sortable:true, dataIndex: \'#{value}\'}"
+      options[:columns].each do |definition|
+        definitions = []
+        definition[:sortable] ||= true
+        definition[:width] ||= 150
+        definition.each do |key, value|
+          value = "'#{value}'" if value.is_a?(String) && !value.include?('Ext')
+          definitions << " #{key}: #{value}"
+        end
+        columns << "{#{definitions.join(',')}}"
       end
-
-      columns = columns.join(',')
-
+      columns = columns.join(', ')
       js = %Q!
 <script type="text/javascript">
 var grid;
@@ -136,7 +142,7 @@ Ext.onReady(function(e){
 
   grid = new JJWorks.JGrid({
     columns: [
-      {id:'id', header:'Id', width:10, sortable:true, dataIndex:'id'},
+      {id:'id', header:'Pedido Nº:', width:10, sortable:true, dataIndex:'id'},
       #{columns}
     ],
     title:'Listagem de #{entities.capitalize}',
@@ -156,8 +162,8 @@ Ext.onReady(function(e){
 <div id="grid-#{entities}">
 </div>
 !
+      puts js
       js
     end
   end
 end
-

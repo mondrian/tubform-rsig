@@ -1,0 +1,36 @@
+<h1>Listing itens_pedido_de_assistencia</h1>
+
+<table>
+  <tr>
+    <th>Produto</th>
+    <th>Quantidade</th>
+    <th>Valor</th>
+    <th>Sequencia monvimento</th>
+    <th>Emite relatorio</th>
+    <th>Codigo produto kit</th>
+    <th>Justificativa</th>
+    <th>Componente</th>
+    <th>Motivo</th>
+  </tr>
+
+<% @itens_pedido_de_assistencia.each do |item_pedido_de_assistencia| %>
+  <tr>
+    <td><%=h item_pedido_de_assistencia.produto %></td>
+    <td><%=h item_pedido_de_assistencia.quantidade %></td>
+    <td><%=h item_pedido_de_assistencia.valor %></td>
+    <td><%=h item_pedido_de_assistencia.sequencia_monvimento %></td>
+    <td><%=h item_pedido_de_assistencia.emite_relatorio %></td>
+    <td><%=h item_pedido_de_assistencia.codigo_produto_kit %></td>
+    <td><%=h item_pedido_de_assistencia.justificativa %></td>
+    <td><%=h item_pedido_de_assistencia.componente %></td>
+    <td><%=h item_pedido_de_assistencia.motivo_id %></td>
+    <td><%= link_to 'Show', item_pedido_de_assistencia %></td>
+    <td><%= link_to 'Edit', edit_item_pedido_de_assistencia_path(item_pedido_de_assistencia) %></td>
+    <td><%= link_to 'Destroy', item_pedido_de_assistencia, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New item_pedido_de_assistencia', new_item_pedido_de_assistencia_path %>
