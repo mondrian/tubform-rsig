@@ -8,8 +8,9 @@ JJWorks.JWindow = Ext.extend(Ext.Window, {
     Ext.apply(this, {
       height:580,
       width:800,
-      left: -30,
+      left: 0,
       top: 0,
+      font-size: 1,
       autoScroll:true,
       modal:true
     });

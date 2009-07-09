@@ -156,8 +156,9 @@ pt-BR:
         entrega: "Data Entrega"
         valor_normal: "Valor Bruto"
         valor: "Valor Líquido"
-        desconto: "Desconto Total"
-        total_desconto_item: "Desconto Item"
+        desconto: "Desc. Pedido"
+        total_desconto_item: "Desc. Item"
+        desconto_acumulado_geral: "Desc. Total"
 
 
   txt:

@@ -63,20 +63,17 @@
 
   <%= f.text_field :operador_id, :style => 'top:345px;left:25px; width:70px', :disabled => true  %>
   <% if @pedido.operador_id %>
-   <%= text_field_tag 'nome', @pedido.operador.nome, :style => 'top:345px;left:110px; width:160px', :disabled => true %>
+   <%= text_field_tag 'nome', @pedido.operador.nome, :style => 'top:345px;left:110px; width:200px', :disabled => true %>
    <% else %>
    <%='<div style=\'position:absolute; top:345px;left:110px;\'>SELECIONE O OPERADOR</div>'  %>
   <% end %>
+  <%= f.text_field :valor_normal, :style => 'top:345px;left:320px; width:130px; text-align:right;', :disabled => true, :value => @pedido.valor_normal.real.real_formatado  %>
 
-
-
-  <%= '<div style=\"position:absolute; left:0; top:380; border:2px; background-color:red;\">' %>
-  <%= f.text_field :valor_normal, :style => 'top:385px;left:25px; width:130px; text-align:right;', :disabled => true, :value => @pedido.valor_normal.real.real_formatado  %>
-  <%= f.text_field :acrescimo, :style => 'top:385px;left:175px; width:70px; text-align:right;', :disabled => true, :value => @pedido.acrescimo.to_s + ' %'  %>
-  <%= f.text_field :total_desconto_item, :style => 'top:385px;left:275px; width:70px; text-align:right;', :disabled => true, :value => @pedido.total_desconto_item.to_s + ' %'  %>
-  <%= f.text_field :desconto, :style => 'top:385px;left:380px; width:70px; text-align:right;', :disabled => true, :value => @pedido.desconto.to_s + ' %'  %>
-  <%= f.text_field :valor, :style => 'top:425px;left:302px; width:150px; text-align:right;', :disabled => true, :value => @pedido.valor.real.real_formatado  %>
-  <%= '</div>' %>
+  <%= f.text_field :acrescimo, :style => 'top:385px;left:25px; width:70px; text-align:right;', :disabled => true, :value => @pedido.acrescimo.to_s + ' %'  %>
+  <%= f.text_field :desconto, :style => 'top:385px;left:105px; width:50px; text-align:right;', :value => @pedido.desconto %>
+  <%= f.text_field :total_desconto_item, :style => 'top:385px;left:180px; width:50px; text-align:right;', :disabled => true, :value => @pedido.total_desconto_item.to_s + ' %'  %>
+  <%= f.text_field :desconto_acumulado_geral, :style => 'top:385px;left:245px; width:50px; text-align:right;', :disabled => true, :value => @pedido.desconto_acumulado_geral.to_s + ' %'  %>
+  <%= f.text_field :valor, :style => 'top:385px;left:320px; width:130px; text-align:right;', :disabled => true, :value => @pedido.valor.real.real_formatado  %>
 
 
   <%='<div style=\'position:absolute; top:430px;left:25px;\'>ENDEREÇO DE ENTREGA</div>'  %>
