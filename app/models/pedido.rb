@@ -3,7 +3,7 @@ class Pedido < ActiveRecord::Base
   belongs_to :vendedor, :class_name => 'Funcionario', :foreign_key => 'vendedor_id'
   belongs_to :operador, :class_name => 'Funcionario', :foreign_key => 'operador_id'
   belongs_to :funcionario, :class_name => 'Funcionario', :foreign_key => 'funcionario_id'
-  has_one :telemarketing, :class_name => 'Funcionario', :foreign_key => 'id'
+  belongs_to :telemarketing, :class_name => 'Funcionario', :foreign_key => 'telemarketing_id'
   has_one :autorizador, :class_name => 'Funcionario', :foreign_key => 'id'
   has_one :autorizador_desconto, :class_name => 'Funcionario', :foreign_key => 'id'
   has_one :funcionario_estorno, :class_name => 'Funcionario', :foreign_key => 'id'
