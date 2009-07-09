@@ -1,10 +1,33 @@
 <% form_for @pedido, :builder => JJWorksFormBuilder do |f| %>
   <%= f.error_messages %>
-  <%= f.select :tipo,[['Interno','I'],['Externo','E']],
+  <%= f.text_field :id,           :style => 'top:25px;left:20px; width:100px;', :disabled => true %>
+  <%= f.text_field :nosso_numero, :style => 'top:25px;left:130px; width:100px' %>
+  <%= f.text_field :gera_minuta,  :style => 'top:25px;left:240px; width:100px' %>
+  <%= f.text_field :tipo,         :style => 'top:25px;left:350px; width:100px' %>
+
+  <%= f.text_field :cliente_id,   :style => 'top:65px;left:25px; width:70px' %>
+  <%= text_field_tag 'nome_cliente', @pedido.cliente.razao_social, :style => 'top:65px;left:100px; width:350px', :disabled => true %>
+
+  <%= f.text_field :data,             :style => 'top:105px;left:25px;', :class => 'date' %>
+  <%= f.text_field :previsao_entrega, :style => 'top:105px;left:135px;', :class => 'date' %>
+  <%= f.text_field :registro,         :style => 'top:105px;left:245px;', :class => 'date', :disabled => true %>
+  <%= f.text_field :entrega,          :style => 'top:105px;left:355px;', :class => 'date'%>
+
+  <%= f.text_field :plano_de_pagamento, :style => 'top:145px;left:25px;' %>
+  <%= f.text_field :programacao, :style => 'top:145px;left:355px;', :class => 'date' %>
+
+  <%= f.text_field :nome_comprador, :style => 'top:185px;left:25px;' %>
+
+  <%= f.text_field :transportadora_id,   :style => 'top:225px;left:25px; width:70px' %>
+  <%= f.text_field :vendedor_id,         :style => 'top:265px;left:25px; width:70px' %>
+  <%= text_field_tag 'nome', @pedido.vendedor.nome, :style => 'top:265px;left:100px; width:300px', :disabled => true %>
+  <%= f.text_field :telemarketing_id,   :style => 'top:305px;left:25px; width:70px' %>
+  <% if @pedido.telemarketing_id %>
+   <%= text_field_tag 'nome', @pedido.telemarketing.nome, :style => 'top:305px;left:100px; width:300px', :disabled => true %>
+  <% end %>
+
+  <%#= f.select :tipo,[['Interno','I'],['Externo','E']],
                    :style => 'top:25px;left:20px;' %>
 
-  <%= f.text_field :data,
-                   :class => 'date',
-                   :style => 'top:25px;left:295px;' %>
 <% end %>
 
