@@ -7,7 +7,7 @@ class Pedido < ActiveRecord::Base
   has_one :autorizador_desconto, :class_name => 'Funcionario', :foreign_key => 'id'
   has_one :funcionario_estorno, :class_name => 'Funcionario', :foreign_key => 'id'
 
-  belongs_to :loja
+  has_one :loja
 
   belongs_to :transportadora
   belongs_to :minuta
@@ -276,7 +276,7 @@ class Pedido < ActiveRecord::Base
   end
 
   def gerenciar_acoes
-    self.valor_normal , self.valor = self.somar_pedido
+    self.valor_normal, self.valor = self.somar_pedido
     self.calcula_desconto if self.desconto > 0
     self.comissao_desconto_item ? self.percentual_comissao = self.comissao_desconto_item : self.percentual_comissao = 5
     self.desconto_comissao_prazo!
