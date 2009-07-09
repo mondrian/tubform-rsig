@@ -6,7 +6,7 @@ Ext.onReady(function(){
     items:[
       {
       region:'west', id:'painel-oeste', title:'Menu', split:true, width:170,minSize: 170, maxSize: 400,
-      collapsible:true, margins:'0 0 0 0', layout:'accordion', layoutConfig:{animate:true},
+      collapsible:true, margins:'0 0 0 0', layout:'accordion', layoutConfig:{animate: true}, iconCls:'house',
       items:
        [
         {contentEl:'menu-cadastros',collapsed:true, title:'Cadastros', border:false, iconCls:'cadastros'},
@@ -18,7 +18,7 @@ Ext.onReady(function(){
       },
       new Ext.TabPanel({
         id:'centro', region:'center', deferredRender:false, activeTab:0,
-        items:[{id:'dashboard',contentEl:'centro1',title: 'Principal',closable:false,autoScroll:true}]
+        items:[{id:'dashboard',contentEl:'centro1',title: 'Principal',closable:false,autoScroll:true, iconCls:'house'}]
       })
     ]
   });
