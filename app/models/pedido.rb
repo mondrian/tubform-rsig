@@ -2,7 +2,6 @@ class Pedido < ActiveRecord::Base
   belongs_to :cliente
   belongs_to :vendedor, :class_name => 'Funcionario', :foreign_key => 'vendedor_id'
   belongs_to :operador, :class_name => 'Funcionario', :foreign_key => 'operador_id'
-  belongs_to :funcionario, :class_name => 'Funcionario', :foreign_key => 'funcionario_id'
   belongs_to :telemarketing, :class_name => 'Funcionario', :foreign_key => 'telemarketing_id'
   has_one :autorizador, :class_name => 'Funcionario', :foreign_key => 'id'
   has_one :autorizador_desconto, :class_name => 'Funcionario', :foreign_key => 'id'
@@ -104,12 +103,12 @@ class Pedido < ActiveRecord::Base
     unidade = 15.000 # Deverá vir da Tabela de Parâmetros ( param.unidade )
     fator = 0.500 # Deverá vir da Tabela de Parâmetros ( param.fator )
     prazo_pedido = self.prazo_medio
-    
+
     # Verifica se o Vendedor "estourou" o prazo do Cliente e Aplica a Regra
     if (prazo_pedido > prazo_param)
       desconto = ((prazo_pedido - prazo_param ) / unidade) * fator
     else
-      desconto = 0   
+      desconto = 0
     end
     # Atualiza o valor da Comissão na Tabela de Pedidos
     self.percentual_comissao = self.comissao_desconto_item - desconto
@@ -117,7 +116,7 @@ class Pedido < ActiveRecord::Base
 
   # retorna o valor do desconto no pedido
   def valor_desconto
-    self.valor_normal - self.valor 
+    self.valor_normal - self.valor
   end
 
   #metodo que retorna a media ponderada dos descontos dos itens do pedido em valor
@@ -273,11 +272,11 @@ class Pedido < ActiveRecord::Base
     self.desconto = 0 if self.desconto.nil?
     self.valor = self.valor - (self.valor * self.desconto / 100)
   end
-  
+
   def gerenciar_acoes
     self.valor_normal = self.valor = self.somar_pedido
     self.calcula_desconto if self.desconto > 0
-    self.comissao_desconto_item ? self.percentual_comissao = self.comissao_desconto_item : self.percentual_comissao = 5 
+    self.comissao_desconto_item ? self.percentual_comissao = self.comissao_desconto_item : self.percentual_comissao = 5
     self.desconto_comissao_prazo!
   end
 =begin

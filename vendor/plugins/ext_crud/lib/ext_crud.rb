@@ -29,13 +29,11 @@ module ExtCrud
   before_filter :load_#{singular}, :only => [ :edit, :new, :create, :update, :destroy ]
 
   def index
-    @#{plural} = #{name}.find(:all,
-                              :conditions => @conditions,
-                              :include => [ #{includes} ]
-                             ).paginate( :page => @page,
-                                         :per_page => @per_page )
-
-    respond_to do |format|
+  @#{plural} = #{name}.paginate( :page => @page,
+                                   :per_page => @per_page,
+                                   :conditions => @conditions,
+                                   :include => [ #{includes} ] )
+      respond_to do |format|
       format.html #index.html.erb
       format.json { render :json => { :metaData => { :totalProperty => 'total',
                                                      :root => 'results',

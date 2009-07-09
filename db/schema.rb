@@ -9,7 +9,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD:db/schema.rb
 ActiveRecord::Schema.define(:version => 20090709144502) do
+=======
+ActiveRecord::Schema.define(:version => 20090708133124) do
+>>>>>>> 64215543ea74e95d754c879a23480bebbdd03046:db/schema.rb
 
   create_table "acoes", :force => true do |t|
     t.string   "controller_name"
