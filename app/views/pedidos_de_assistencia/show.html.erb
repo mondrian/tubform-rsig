@@ -1,124 +1,113 @@
 <p>
   <b>Pedido:</b>
-  <%=h @pedido.id %>
+  <%=h @pedido_de_assistencia.id %>
 </p>
 
 <p>
   <b>Nosso Número:</b>
-  <%=h @pedido.nosso_numero %>
+  <%=h @pedido_de_assistencia.nosso_numero %>
 </p>
 
 <p>
   <b>Tipo:</b>
-  <%=h @pedido.tipo == 'I' ? 'Interno' : 'Externo' %>
+  <%=h @pedido_de_assistencia.tipo == 'I' ? 'Interno' : 'Externo' %>
 </p>
 
 <p>
   <b>Data:</b>
-  <%=h @pedido.data.to_s_br %>
+  <%=h @pedido_de_assistencia.data.to_s %>
 </p>
 
 <p>
   <b>Previsao entrega:</b>
-  <%=h @pedido.previsao_entrega.to_s_br %>
+  <%=h @pedido_de_assistencia.previsao_entrega.to_s %>
 </p>
 
 <p>
   <b>Entrega:</b>
-  <%=h @pedido.entrega.to_s_br %>
+  <%=h @pedido_de_assistencia.entrega.to_s %>
 </p>
 
 <p>
   <b>Programacao:</b>
-  <%=h @pedido.programacao.to_s_br %>
+  <%=h @pedido_de_assistencia.programacao.to_s %>
 </p>
 
 <p>
   <b>Cliente:</b>
-  <%=h @pedido.cliente.razao_social if @pedido.cliente %>
+  <%=h @pedido_de_assistencia.cliente.razao_social if @pedido_de_assistencia.cliente %>
 </p>
 
 <p>
   <b>Transportadora:</b>
-  <%=h @pedido.transportadora.razao_social if @pedido.transportadora %>
+  <%=h @pedido_de_assistencia.transportadora.razao_social if @pedido_de_assistencia.transportadora %>
 </p>
 
 <p>
   <b>Comprador:</b>
-  <%=h @pedido.nome_comprador %>
+  <%=h @pedido_de_assistencia.nome_comprador %>
 </p>
 
 <p>
   <b>Observacao:</b>
-  <%=h @pedido.observacao %>
+  <%=h @pedido_de_assistencia.observacao %>
 </p>
 
 <p>
   <b>Endereco entrega:</b>
-  <%=h @pedido.endereco_entrega %>
+  <%=h @pedido_de_assistencia.endereco_entrega %>
 </p>
 
 <p>
   <b>Minuta:</b>
-  <%=h @pedido.minuta_id %>
+  <%=h @pedido_de_assistencia.minuta_id %>
 </p>
 
 <p>
   <b>Area:</b>
-  <%=h @pedido.area.descricao if @pedido.area %>
+  <%=h @pedido_de_assistencia.area.descricao if @pedido_de_assistencia.area %>
 </p>
 
 <p>
   <b>Operador:</b>
-  <%=h @pedido.operador.nome if @pedido.operador%>
+  <%=h @pedido_de_assistencia.operador.nome if @pedido_de_assistencia.operador%>
 </p>
 
 <p>
   <b>Telemarketing:</b>
-  <%=h @pedido.telemarketing_id %>
+  <%=h @pedido_de_assistencia.telemarketing_id %>
 </p>
 
 <p>
   <b>Empresa:</b>
-  <%=h @pedido.empresa_id == 1 ? 'TUBFORM' : 'MADEFORM' %>
+  <%=h @pedido_de_assistencia.empresa_id == 1 ? 'TUBFORM' : 'MADEFORM' %>
 </p>
 
 <p>
   <b>Status:</b>
-  <%=h  @pedido.status %>
+  <%=h  @pedido_de_assistencia.status %>
   </p>
 
 <p>
   <b>Estorno:</b>
-  <%=h @pedido.status_estorno %>
+  <%=h @pedido_de_assistencia.status_estorno %>
 </p>
 
 <p>
   <b>Operador estorno:</b>
-  <%=h @pedido.operador_estorno_id %>
+  <%=h @pedido_de_assistencia.operador_estorno_id %>
 </p>
 
 
 <p>
   <b>Venda externa:</b>
-  <%=h @pedido.venda_externa == 'true' ? 'Sim' : 'Não' %>
+  <%=h @pedido_de_assistencia.venda_externa == 'true' ? 'Sim' : 'Não' %>
 </p>
 
-<% if @pedido.data_aprovacao_pedido %>
-	<p>
-		<b>Autorizador:</b>
-		<%=h @pedido.autorizador.nome if @pedido.autorizador %>
-	</p>
 
-	<p>
-		<b>Data de Aprovação do Pedido:</b>
-		<%=h @pedido.data_aprovacao_pedido %>
-	</p>
-<% end %>
-
-<%= link_to 'Alterar', edit_pedido_path(@pedido) %> |
+<%= link_to 'Alterar', edit_pedido_path(@pedido_de_assistencia) %> |
 <%= link_to 'Voltar', pedidos_path %> |
-<%= link_to 'Aprovar', :action => :aprovar, :id => @pedido.id %> |
+<%= link_to 'Aprovar', :action => :aprovar, :id => @pedido_de_assistencia.id %> |
 <table border="1" class="itable">
   <tr>
     <th colspan="9">Itens do Pedido</th>
@@ -135,7 +124,7 @@
 
   <% total = 0 %>
 <% subtotal = 0 %>
-<% for i in @pedido.item_pedidos %>
+<% for i in @pedido_de_assistencia.itens %>
     <tr>
       <td align="center"><%= i.produto_id  %></td>
       <td align="center"><%= i.produto.descricao  %></td>
@@ -143,58 +132,41 @@
       <td align="right"><%= i.valor_tabela %></td>
       <td align="right"><%= i.valor_venda %></td>
       <td align="right"><%= i.sub_total.real.real_formatado %></td>
-      <td><%= link_to 'Editar', :controller => :item_pedidos, :action => :edit, :id => i.id %></td>
+      <td><%= link_to 'Editar', :controller => :itens_pedido_de_assistencia, :action => :edit, :id => i.id %></td>
       <td><%= link_to 'Excluir', i, :confirm => "Excluir Item #{i.id}, Confirma?", :method => :delete %></td>
     </tr>
 <% end %>
     <tr bgcolor="#EAAA0C">
       <td colspan="5" align="right"><b>Soma Geral do Pedido:</b></td>
-      <td colspan="2" align="right"><b><span id="total_pedido"><%= @pedido.valor.real.real_formatado %></span></b></td>
-      <td colspan="4" rowspan="9" align="center"><%= link_to '<b>Adiciona Item</b>', :controller => 'item_pedidos', :action => 'new', :id => @pedido.id %>
+      <td colspan="2" align="right"><b><span id="total_pedido"><%= @pedido_de_assistencia.valor.real.real_formatado %></span></b></td>
+      <td colspan="4" rowspan="9" align="center"><%= link_to '<b>Adiciona Item</b>', :controller => 'itens_pedido_de_assistencia', :action => 'new', :id => @pedido_de_assistencia.id %>
     </tr>
   <tr>
     <td colspan="5" align="right">Desconto do Pedido (%):</td>
-    <td colspan="2" align="right"><%= sprintf("%.2f", @pedido.desconto ) if @pedido.desconto %></td>
+    <td colspan="2" align="right"><%= sprintf("%.2f", @pedido_de_assistencia.desconto ) if @pedido_de_assistencia.desconto %></td>
   </tr>
   <tr>
     <td colspan="5" align="right">Desconto do Pedido (Valor):</td>
-    <td colspan="2" align="right"><%= (@pedido.somar_itens * @pedido.desconto / 100).real.real_formatado if @pedido.desconto %></td>
-  </tr>
-  <tr>
-    <td colspan="5" align="right">Desconto Ponderado por Item:</td>
-    <td colspan="2" align="right"><%= sprintf("%.2f", @pedido.media_desconto_ponderada_itens_perc).to_s + ' %'  %></td>
-  </tr>
-  <tr>
-    <td colspan="5" align="right">Desconto Acumulado Geral:</td>
-    <td colspan="2" align="right"><%= sprintf("%.2f", @pedido.desconto_acumulado_geral).to_s + ' %' %></td>
+    <td colspan="2" align="right"><%= (@pedido_de_assistencia.somar_itens * @pedido_de_assistencia.desconto / 100).real.real_formatado if @pedido_de_assistencia.desconto %></td>
   </tr>
   <tr>
     <td colspan="5" align="right">Valor Final do Pedido:</td>
-    <td colspan="2" align="right"><%= @pedido.valor.real.real_formatado %></td>
+    <td colspan="2" align="right"><%= @pedido_de_assistencia.valor.real.real_formatado %></td>
   </tr>
   <tr>
     <td colspan="5" align="right">Soma dos Itens:</td>
-    <td colspan="2" align="right"><%= @pedido.somar_itens.real.real_formatado %></td>
+    <td colspan="2" align="right"><%= @pedido_de_assistencia.somar_itens.real.real_formatado %></td>
   </tr>
 </table>
 <br/><br/>
 <table>
   <tr>
-    <td>
-      <% if @pedido.data_aprovacao_pedido %>
-      <%= button_to 'Desaprovar Pedido', :action => :desaprovar, :id => @pedido.id %>
-      <% else %>
-      <%= button_to 'Aprovar Pedido', :action => :aprovar, :id => @pedido.id %>
-      <% end %>
-    </td>
-    <td><%= button_to 'Alterar comissão', :action => :comissao_acordada, :id => @pedido.id %></td>
-    <td><%= button_to 'Desconto', :action => :permitir_desconto_no_pedido, :id => @pedido.id %></td>
-    <td><%= button_to 'Alterar Data Entrega', :action => :alterar_data_entrega_pedido, :id => @pedido.id %></td>
+    <td><%= button_to 'Alterar Data Entrega', :action => :alterar_data_entrega_pedido, :id => @pedido_de_assistencia.id %></td>
   </tr>
 </table>
 
 <%= link_to 'Voltar', pedidos_path %>
 
 <br />
-<%= link_to 'Impressão do Pedido', :controller => 'pedidos', :action => 'impressao', :id => @pedido.id %>
+<%= link_to 'Impressão do Pedido', :controller => 'pedidos', :action => 'impressao', :id => @pedido_de_assistencia.id %>
 

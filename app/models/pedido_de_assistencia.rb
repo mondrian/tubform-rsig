@@ -11,18 +11,19 @@ class PedidoDeAssistencia < ActiveRecord::Base
   belongs_to :transportadora
   belongs_to :minuta
   belongs_to :area
-  #has_many :item_pedidos, :dependent => :destroy
+  has_many :itens, :class_name => 'ItemPedidoDeAssistencia', :dependent  => :destroy
+  has_many :items_pedidos, :dependent => :destroy
   #has_many :produtos, :through => :item_pedidos
   has_many :duplicatas, :dependent => :destroy
 
   validates_presence_of :tipo, :message => "Informe o Tipo de Pedido"
   validates_presence_of :data, :message => "Informe a Data do Pedido..."
   validates_presence_of :cliente_id, :message => "Informe o Código do Cliente"
-  validates_presence_of :operador_id, :message => "Operador não Informado, verifique ...."
+#  validates_presence_of :operador_id, :message => "Operador não Informado, verifique ...."
   validates_presence_of :nosso_numero, :message => "Informe 'Nosso Numero' ...."
 
-  before_save :trg_save, :desconto_comissao_prazo!
-  after_update :trg_save
+  #before_save :trg_save
+  #after_update :trg_save
   #after_create :dbf_insert
 
 
@@ -58,29 +59,6 @@ class PedidoDeAssistencia < ActiveRecord::Base
   # retorna o valor do desconto total concedido no pedido
   def valor_desconto
     self.valor_normal - self.valor 
-  end
-
-  #metodo que retorna a media ponderada dos descontos dos itens do pedido em valor
-  def media_desconto_ponderada_itens_valor
-    valor = 0
-    for i in self.item_pedidos do
-      valor += (i.valor_tabela * i.quantidade) * desconto / 100
-    end
-    valor
-  end
-
-  #metodo que retorna a media ponderada dos descontos dos itens do pedido em percentual
-  def media_desconto_ponderada_itens_perc
-    valor = 0
-
-    for i in self.item_pedidos do
-      i.valor_tabela = 0 unless i.valor_tabela
-      i.quantidade = 0 unless i.quantidade
-      i.desconto = 0 unless i.desconto
-
-      valor += ((i.valor_tabela * i.quantidade) * i.desconto) / 100
-    end
-    ret = (valor / self.valor_normal) * 100
   end
 
   # metodo que acumula o desconto ponderado nos itens + o desconto informado no proprio pedido para chegar ao desconto final do pedido
@@ -179,7 +157,7 @@ class PedidoDeAssistencia < ActiveRecord::Base
   # Método para Atualizar o Valor do Pedido a cada Item Acrescentado, Excluido ou Alterado
   def somar_itens
     soma = 0
-    p = self.item_pedidos
+    p = self.itens
     if p.size > 0
       p.each do | i |
         soma += (i.quantidade * i.valor_venda )
@@ -193,7 +171,7 @@ class PedidoDeAssistencia < ActiveRecord::Base
     soma_valor_tabela = 0
 		soma_valor_venda = 0
 		pedidos = 0
-    pedidos = self.item_pedidos
+    pedidos = self.itens
     if pedidos.size > 0
       pedidos.each do |i|
         soma_valor_tabela += (i.quantidade * i.valor_tabela)

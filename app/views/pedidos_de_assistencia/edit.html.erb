@@ -1,12 +1,12 @@
 <h1>Alterando pedido de Assistencia</h1>
 
-<% form_for(@pedido) do |f| %>
+<% form_for(@pedido_de_assistencia) do |f| %>
   <%= f.error_messages %>
 
 <%= render :partial => "form", :locals => { :f => f} %>
 <% end %>
 
-<%= button_to 'Aprovar', :action => :aprovar, :id => @pedido.id %>
-<%= link_to 'Exibir', @pedido %> |
-<%= link_to 'Retornar', pedidos_path %>
+<%= button_to 'Aprovar', :action => :aprovar, :id => @pedido_de_assistencia.id %>
+<%= link_to 'Exibir', @pedido_de_assistencia %> |
+<%= link_to 'Retornar', pedidos_de_assistencia_path %>
 

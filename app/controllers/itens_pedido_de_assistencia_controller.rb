@@ -1,4 +1,6 @@
 class ItensPedidoDeAssistenciaController < ApplicationController
+  before_filter :load_produtos, :only => [:new, :edit, :create, :update]
+
   # GET /itens_pedido_de_assistencia
   # GET /itens_pedido_de_assistencia.xml
   def index
@@ -82,4 +84,9 @@ class ItensPedidoDeAssistenciaController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  protected
+  def load_produtos
+    @produtos = Produto.all.collect { |p| [p.descricao , p.id] }
+  end
+
 end
