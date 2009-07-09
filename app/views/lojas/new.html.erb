@@ -1,0 +1,15 @@
+<h1>New loja</h1>
+
+<% form_for(@loja) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nome_loja %><br />
+    <%= f.text_field :nome_loja %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', lojas_path %>

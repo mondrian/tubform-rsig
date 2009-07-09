@@ -154,6 +154,11 @@ pt-BR:
         registro: "Data de Registro"
         previsao_entrega: "Entrega (Previsão)"
         entrega: "Data Entrega"
+        valor_normal: "Valor Bruto"
+        valor: "Valor Líquido"
+        desconto: "Desconto Total"
+        total_desconto_item: "Desconto Item"
+
 
   txt:
     shared:

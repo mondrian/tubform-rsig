@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :lojas
+
   map.resources :componentes_pedido_de_assistencia
 
   map.resources :componentes_pedido_de_assistencia

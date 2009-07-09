@@ -1,0 +1,16 @@
+<h1>Editing loja</h1>
+
+<% form_for(@loja) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nome_loja %><br />
+    <%= f.text_field :nome_loja %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @loja %> |
+<%= link_to 'Back', lojas_path %>

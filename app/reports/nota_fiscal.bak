@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="nota_fiscal"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="722"
+		 pageHeight="779"
+		 columnWidth="722"
+		 columnSpacing="0"
+		 leftMargin="0"
+		 rightMargin="0"
+		 topMargin="0"
+		 bottomMargin="0"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<queryString language="xpath2"><![CDATA[dados_nota_result/invoice_dados_nota/notas_fiscais/nota_fiscal]]></queryString>
+
+	<field name="cliente_bairro" class="java.lang.String">
+		<fieldDescription><![CDATA[cliente_bairro]]></fieldDescription>
+	</field>
+	<field name="cliente_cep" class="java.lang.String">
+		<fieldDescription><![CDATA[cliente_cep]]></fieldDescription>
+	</field>
+	<field name="cliente_cidade" class="java.lang.String">
+		<fieldDescription><![CDATA[cliente_cidade]]></fieldDescription>
+	</field>
+	<field name="cliente_cnpj_cpf" class="java.lang.String">
+		<fieldDescription><![CDATA[cliente_cnpj_cpf]]></fieldDescription>
+	</field>
+	<field name="cliente_endereco" class="java.lang.String">
+		<fieldDescription><![CDATA[cliente_endereco]]></fieldDescription>
+	</field>
+	<field name="cliente_fone_fax" class="java.lang.String">
+		<fieldDescription><![CDATA[cliente_fone_fax]]></fieldDescription>
+	</field>
+	<field name="cliente_inscricao_estadual" class="java.lang.String">
+		<fieldDescription><![CDATA[cliente_inscricao_estadual]]></fieldDescription>
+	</field>
+	<field name="cliente_razao_social" class="java.lang.String">
+		<fieldDescription><![CDATA[cliente_razao_social]]></fieldDescription>
+	</field>
+	<field name="cliente_uf" class="java.lang.String">
+		<fieldDescription><![CDATA[cliente_uf]]></fieldDescription>
+	</field>
+	<field name="item_codigo_produto" class="java.lang.String">
+		<fieldDescription><![CDATA[item_codigo_produto]]></fieldDescription>
+	</field>
+	<field name="item_descricao_produto" class="java.lang.String">
+		<fieldDescription><![CDATA[item_descricao_produto]]></fieldDescription>
+	</field>
+	<field name="item_icms" class="java.lang.String">
+		<fieldDescription><![CDATA[item_icms]]></fieldDescription>
+	</field>
+	<field name="item_ipi" class="java.lang.String">
+		<fieldDescription><![CDATA[item_ipi]]></fieldDescription>
+	</field>
+	<field name="item_quantidade" class="java.lang.String">
+		<fieldDescription><![CDATA[item_quantidade]]></fieldDescription>
+	</field>
+	<field name="item_sit_trib" class="java.lang.String">
+		<fieldDescription><![CDATA[item_sit_trib]]></fieldDescription>
+	</field>
+	<field name="item_unidade" class="java.lang.String">
+		<fieldDescription><![CDATA[item_unidade]]></fieldDescription>
+	</field>
+	<field name="item_valor_do_ipi" class="java.lang.String">
+		<fieldDescription><![CDATA[item_valor_do_ipi]]></fieldDescription>
+	</field>
+	<field name="item_valor_total" class="java.lang.String">
+		<fieldDescription><![CDATA[item_valor_total]]></fieldDescription>
+	</field>
+	<field name="item_valor_unitario" class="java.lang.String">
+		<fieldDescription><![CDATA[item_valor_unitario]]></fieldDescription>
+	</field>
+	<field name="nf_base_de_calculo_do_icms" class="java.lang.String">
+		<fieldDescription><![CDATA[nf_base_de_calculo_do_icms]]></fieldDescription>
+	</field>
+	<field name="nf_base_de_calculo_icms_subs_trib" class="java.lang.String">
+		<fieldDescription><![CDATA[nf_base_de_calculo_icms_subs_trib]]></fieldDescription>
+	</field>
+	<field name="nf_cfop" class="java.lang.String">
+		<fieldDescription><![CDATA[nf_cfop]]></fieldDescription>
+	</field>
+	<field name="nf_data_de_emissao" class="java.lang.String">
+		<fieldDescription><![CDATA[nf_data_de_emissao]]></fieldDescription>
+	</field>
+	<field name="nf_data_entrada" class="java.lang.String">
+		<fieldDescription><![CDATA[nf_data_entrada]]></fieldDescription>
+	</field>
+	<field name="nf_data_saida" class="java.lang.String">
+		<fieldDescription><![CDATA[nf_data_saida]]></fieldDescription>
+	</field>
+	<field name="nf_natureza_da_operacao" class="java.lang.String">
+		<fieldDescription><![CDATA[nf_natureza_da_operacao]]></fieldDescription>
+	</field>
+	<field name="nf_numero_do_pedido" class="java.lang.String">
+		<fieldDescription><![CDATA[nf_numero_do_pedido]]></fieldDescription>
+	</field>
+	<field name="nf_numero_do_selo" class="java.lang.String">
+		<fieldDescription><![CDATA[nf_numero_do_selo]]></fieldDescription>
+	</field>
+	<field name="nf_numero_nota" class="java.lang.String">
+		<fieldDescription><![CDATA[nf_numero_nota]]></fieldDescription>
+	</field>
+	<field name="nf_percentual_desconto" class="java.lang.String">
+		<fieldDescription><![CDATA[nf_percentual_desconto]]></fieldDescription>
+	</field>
+	<field name="nf_percentual_icms" class="java.lang.String">
+		<fieldDescription><![CDATA[nf_percentual_icms]]></fieldDescription>
+	</field>
+	<field name="nf_quantidade_volumes" class="java.lang.String">
+		<fieldDescription><![CDATA[nf_quantidade_volumes]]></fieldDescription>
+	</field>
+	<field name="nf_serie" class="java.lang.String">
+		<fieldDescription><![CDATA[nf_serie]]></fieldDescription>
+	</field>
+	<field name="nf_valor_do_frete" class="java.lang.String">
+		<fieldDescription><![CDATA[nf_valor_do_frete]]></fieldDescription>
+	</field>
+	<field name="nf_valor_do_icms" class="java.lang.String">
+		<fieldDescription><![CDATA[nf_valor_do_icms]]></fieldDescription>
+	</field>
+	<field name="nf_valor_icms_subs_trib" class="java.lang.String">
+		<fieldDescription><![CDATA[nf_valor_icms_subs_trib]]></fieldDescription>
+	</field>
+	<field name="nf_valor_total_desconto" class="java.lang.String">
+		<fieldDescription><![CDATA[nf_valor_total_desconto]]></fieldDescription>
+	</field>
+	<field name="nf_valor_total_do_ipi" class="java.lang.String">
+		<fieldDescription><![CDATA[nf_valor_total_do_ipi]]></fieldDescription>
+	</field>
+	<field name="nf_valor_total_dos_produtos" class="java.lang.String">
+		<fieldDescription><![CDATA[nf_valor_total_dos_produtos]]></fieldDescription>
+	</field>
+	<field name="trans_cidade" class="java.lang.String">
+		<fieldDescription><![CDATA[trans_cidade]]></fieldDescription>
+	</field>
+	<field name="trans_cnpj" class="java.lang.String">
+		<fieldDescription><![CDATA[trans_cnpj]]></fieldDescription>
+	</field>
+	<field name="trans_inscricao_estadual" class="java.lang.String">
+		<fieldDescription><![CDATA[trans_inscricao_estadual]]></fieldDescription>
+	</field>
+	<field name="trans_razao_social" class="java.lang.String">
+		<fieldDescription><![CDATA[trans_razao_social]]></fieldDescription>
+	</field>
+	<field name="trans_uf" class="java.lang.String">
+		<fieldDescription><![CDATA[trans_uf]]></fieldDescription>
+	</field>
+
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="50"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="410"
+						y="10"
+						width="13"
+						height="18"
+						key="staticText-1"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<text><![CDATA[X]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="489"
+						y="3"
+						width="93"
+						height="18"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nf_numero_nota}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="5"
+						y="29"
+						width="137"
+						height="18"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nf_natureza_da_operacao}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="147"
+						y="29"
+						width="52"
+						height="18"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nf_cfop}]]></textFieldExpression>
+				</textField>
+			</band>
+		</title>
+		<pageHeader>
+			<band height="60"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="5"
+						y="4"
+						width="379"
+						height="18"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cliente_razao_social}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="383"
+						y="4"
+						width="100"
+						height="18"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cliente_cnpj_cpf}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="490"
+						y="5"
+						width="100"
+						height="18"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nf_data_de_emissao}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="5"
+						y="21"
+						width="328"
+						height="18"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cliente_endereco}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="333"
+						y="21"
+						width="100"
+						height="18"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cliente_bairro}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="433"
+						y="21"
+						width="51"
+						height="18"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cliente_cep}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="5"
+						y="38"
+						width="257"
+						height="18"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cliente_cidade}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="262"
+						y="38"
+						width="89"
+						height="18"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cliente_fone_fax}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="351"
+						y="38"
+						width="33"
+						height="18"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cliente_uf}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="383"
+						y="38"
+						width="100"
+						height="18"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cliente_inscricao_estadual}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="490"
+						y="23"
+						width="100"
+						height="18"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nf_data_saida}]]></textFieldExpression>
+				</textField>
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="1"  isSplitAllowed="true" >
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="16"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="4"
+						y="0"
+						width="43"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{item_codigo_produto}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="46"
+						y="0"
+						width="148"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{item_descricao_produto}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="194"
+						y="0"
+						width="45"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{item_sit_trib}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="238"
+						y="0"
+						width="29"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{item_unidade}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="266"
+						y="0"
+						width="68"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{item_quantidade}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="332"
+						y="0"
+						width="80"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{item_valor_unitario}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="461"
+						y="1"
+						width="55"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{item_valor_total}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="517"
+						y="0"
+						width="20"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{item_ipi}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="536"
+						y="0"
+						width="21"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{item_icms}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="556"
+						y="0"
+						width="33"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{item_valor_do_ipi}]]></textFieldExpression>
+				</textField>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="1"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="500"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="11"
+						y="7"
+						width="97"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nf_base_de_calculo_icms_subs_trib}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="12"
+						y="20"
+						width="95"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nf_valor_do_frete}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="128"
+						y="7"
+						width="80"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nf_valor_do_icms}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="221"
+						y="8"
+						width="80"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nf_base_de_calculo_icms_subs_trib}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="396"
+						y="21"
+						width="80"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nf_valor_total_do_ipi}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="514"
+						y="7"
+						width="80"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nf_valor_total_dos_produtos}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="309"
+						y="7"
+						width="80"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nf_valor_icms_subs_trib}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="4"
+						y="99"
+						width="309"
+						height="17"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{trans_razao_social}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="507"
+						y="99"
+						width="80"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{trans_cnpj}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="507"
+						y="116"
+						width="80"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{trans_inscricao_estadual}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="447"
+						y="101"
+						width="35"
+						height="12"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{trans_uf}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="446"
+						y="115"
+						width="36"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{trans_uf}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="12"
+						y="129"
+						width="80"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nf_quantidade_volumes}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="332"
+						y="115"
+						width="90"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{trans_cidade}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="488"
+						y="407"
+						width="93"
+						height="18"
+						key="textField-1"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nf_numero_nota}]]></textFieldExpression>
+				</textField>
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>
