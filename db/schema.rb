@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090707151656) do
+ActiveRecord::Schema.define(:version => 20090709144502) do
 
   create_table "acoes", :force => true do |t|
     t.string   "controller_name"
@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(:version => 20090707151656) do
     t.integer  "motivo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "pedido_id"
   end
 
   create_table "contra_partidas", :force => true do |t|
@@ -290,7 +291,6 @@ ActiveRecord::Schema.define(:version => 20090707151656) do
   end
 
   create_table "itens_pedido_de_assistencia", :force => true do |t|
-    t.integer  "produto"
     t.integer  "quantidade"
     t.decimal  "valor"
     t.integer  "sequencia_monvimento"
@@ -301,6 +301,8 @@ ActiveRecord::Schema.define(:version => 20090707151656) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "usa_componente"
+    t.integer  "pedido_de_assistencia_id"
+    t.integer  "produto_id"
   end
 
   create_table "lancamentos", :force => true do |t|
@@ -528,6 +530,13 @@ ActiveRecord::Schema.define(:version => 20090707151656) do
     t.string   "descricao"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "replicacoes_pendentes", :force => true do |t|
+    t.text     "sql"
+    t.integer  "status",       :limit => 2
+    t.datetime "temporizador"
+    t.integer  "contador"
   end
 
   create_table "roteiros", :force => true do |t|
