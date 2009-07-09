@@ -31,8 +31,18 @@
   <% end %>
 
   <%= f.text_field :vendedor_id,      :style => 'top:265px;left:25px; width:70px' %>
-  <%= text_field_tag 'nome', @pedido.vendedor.nome, :style => 'top:265px;left:110px; width:160px', :disabled => true %>
+  <% if @pedido.vendedor_id %>
+   <%= text_field_tag 'nome', @pedido.vendedor.nome, :style => 'top:265px;left:110px; width:160px', :disabled => true %>
+   <% else %>
+   <%='<div style=\'position:absolute; top:268px;left:110px;\'>SELECIONE O VENDEDOR</div>'  %>
+  <% end %>
+
   <%= f.text_field :telemarketing_id, :style => 'top:305px;left:25px; width:70px' %>
+  <% if @pedido.telemarketing_id %>
+   <%= text_field_tag 'nome', @pedido.telemarketing.nome, :style => 'top:305px;left:110px; width:160px', :disabled => true %>
+   <% else %>
+   <%='<div style=\'position:absolute; top:310px;left:100px;\'>PEDIDO SEM TELEMARKETING</div>'  %>
+  <% end %>
 
   <%= f.text_field :loja_origem_id,   :style => 'top:265px;left:285px; width:35px' %>
 
@@ -40,12 +50,6 @@
    <%= text_field_tag 'nome_loja', @pedido.loja_origem.nome, :style => 'top:265px;left:300px; width:170px', :disabled => true %>
    <% else %>
    <%='<div style=\'position:absolute; top:272px;left:330px;\'>NÃO INFORMADA</div>'  %>
-  <% end %>
-
-  <% if @pedido.telemarketing_id %>
-   <%= text_field_tag 'nome', @pedido.telemarketing.nome, :style => 'top:305px;left:110px; width:160px', :disabled => true %>
-   <% else %>
-   <%='<div style=\'position:absolute; top:310px;left:100px;\'>PEDIDO SEM TELEMARKETING</div>'  %>
   <% end %>
 
   <%= f.text_field :loja_destino_id,   :style => 'top:305px;left:285px; width:35px' %>
@@ -60,11 +64,16 @@
   <%= f.text_field :operador_id, :style => 'top:345px;left:25px; width:70px' %>
   <%= text_field_tag 'nome', @pedido.operador.nome, :style => 'top:345px;left:110px; width:340px', :disabled => true %>
 
+  <%= '<div style=\"position:absolute; left:0; top:380; border:2px; background-color:red;\">' %>
   <%= f.text_field :valor_normal, :style => 'top:385px;left:25px; width:130px; text-align:right;', :disabled => true, :value => @pedido.valor_normal.real.real_formatado  %>
   <%= f.text_field :acrescimo, :style => 'top:385px;left:175px; width:70px; text-align:right;', :disabled => true, :value => @pedido.acrescimo.to_s + ' %'  %>
   <%= f.text_field :total_desconto_item, :style => 'top:385px;left:275px; width:70px; text-align:right;', :disabled => true, :value => @pedido.total_desconto_item.to_s + ' %'  %>
   <%= f.text_field :desconto, :style => 'top:385px;left:380px; width:70px; text-align:right;', :disabled => true, :value => @pedido.desconto.to_s + ' %'  %>
   <%= f.text_field :valor, :style => 'top:425px;left:302px; width:150px; text-align:right;', :disabled => true, :value => @pedido.valor.real.real_formatado  %>
+  <%= '</div>' %>
+
+
+  <%='<div style=\'position:absolute; top:430px;left:25px;\'>ENDEREÇO DE ENTREGA</div>'  %>
 
   <%#= f.select :tipo,[['Interno','I'],['Externo','E']],
                    :style => 'top:25px;left:20px;' %>
