@@ -9,7 +9,7 @@ JJWorks.JWindow = Ext.extend(Ext.Window, {
       height:400,
       width:500,
       autoScroll:true,
-      modal:true,
+      modal:true
     });
 
     JJWorks.JWindow.superclass.constructor.call(this);

@@ -1,13 +1,19 @@
 class NotasFiscaisController < ApplicationController
-  controller_crud_methods_for NotaFiscal, :metadata_for => [
-           'numero_nota',
-           'selo',
-           'serie',
-           'cliente_id',
-           'percentual_icms',
-           'valor_icms',
-           'status'
-          ]
+	# bem no metadata_for vai os campos que são symbol do @coisas dentro da interação do for, para serem renderizados e retornados ao cliente, por exemplo id, valor, vendedor e cliente_nome.
+  controller_crud_methods_for NotaFiscal, :metadata_for => ['numero_nota', 'selo', 'serie', 'nome_cliente', 'percentual_icms', 'valor_icms', 'status']
+
+def index
+    @notas_fiscais = NotaFiscal.find(:all, :conditions => @conditions, :joins => :cliente).paginate( :page => @page,
+                                                                  :per_page => @per_page )
+    @coisas = []
+		#pedidos retorna um array de hash, então, faz-se um laço em pedido pegando apenas os campos que quer retorna para o lado client-side, para não ficar pesado demais.
+    for p in @notas_fiscais
+			@coisas << {:id => p.id, :numero_nota => p.numero_nota, :selo => p.selo, :serie => p.serie, :nome_cliente => p.cliente.razao_social, :percentual_icms => p.percentual_icms, :valor_icms => p.valor_icms, :status => p.status }
+    end
+
+    render_from_hash(@coisas)
+
+  end
 
 =begin
   <td align="center"><%=h n.numero_nota %></td>

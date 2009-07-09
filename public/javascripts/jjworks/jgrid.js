@@ -1,7 +1,9 @@
 JJWorks.JGrid = Ext.extend(Ext.grid.GridPanel, {
+
   constructor: function (config) {
     // Aplica qualquer coisa especificada no objeto de configuração a esse objeto
     Ext.apply(this, config);
+
     Ext.apply(this, {
       viewConfig: {
         forceFit: true

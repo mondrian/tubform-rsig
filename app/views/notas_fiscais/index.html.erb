@@ -1,10 +1,11 @@
-<%= ext_grid_for :entity => 'nota_fiscal', :columns => {
-        "Número" => "numero_nota",
-        "Selo" => "selo",
-        "Série" => "serie",
-        "Cliente" => "cliente_id",
-        "% ICMS" => "percentual_icms",
-        "Valor ICMS" => "valor_icms",
-        "Status" => "status"
-     }
+<%= ext_grid_for :entity => 'nota_fiscal',
+                 :columns => [
+                   {:header => 'Número', :dataIndex => 'numero_nota', :width => 13},
+                   {:header => 'Selo', :dataIndex => 'selo', :width => 10 },
+                   {:header => 'Série', :dataIndex => 'serie', :width => 10 },
+                   {:header => 'Cliente', :dataIndex => 'nome_cliente', :width => 25 },
+									 {:header => '% ICMS', :dataIndex => 'valor_icms', :width => 14 },
+									 {:header => 'Valor ICMS', :dataIndex => 'valor_icms', :width => 14 },
+									 {:header => 'Status', :dataIndex => 'status', :width => 14 }
+                  ]
 %>

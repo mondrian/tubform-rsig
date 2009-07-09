@@ -28,6 +28,7 @@ class ApplicationController < ActionController::Base
     end
     true
   end
+
 =begin
   private
   def valida_permissao

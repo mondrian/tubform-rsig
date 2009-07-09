@@ -1,14 +1,19 @@
 module ExtCrud
   module ClassMethods
     def controller_crud_methods_for( *args )
+
       options = args.extract_options!.symbolize_keys
+
       klass = args.first
+
       name = klass.name
       plural = klass.name.pluralize.underscore
       singular = klass.name.underscore
+
       metadata_total = 'total'
       metadata_root  = 'results'
       metadata_id    = 'id'
+
       columns = ''
       options[:metadata_for].each do |column|
         columns << "{:name => \'#{column}\', :mapping => \'#{column}\'},"
@@ -17,6 +22,7 @@ module ExtCrud
       if options[:includes]
         includes = ':' + options[:includes].join(', :')
       end
+
       methods = %Q!
 
   before_filter :load_page, :only => :index
@@ -79,9 +85,17 @@ module ExtCrud
       end
     else
       respond_to do |format|
-        format.json  { render :text => @#{singular}.errors.full_messages,
+        @errors = Hash.new
+        @#{singular}.errors.each do |attr, msg|
+          @errors[attr] = msg
+        end
+
+        format.json  { render :json => { :success => 'false',
+                                         :errors => @errors
+                                       },
                               :location => @#{singular},
-                              :status => :unprocessable_entity }
+                              :status => :unprocessable_entity
+                     }
       end
     end
   end
@@ -93,8 +107,10 @@ module ExtCrud
   module JavascriptBuilder
     def ext_grid_for( *args )
       options = args.extract_options!.symbolize_keys
+
       entity = options[:entity];
       entities = entity.pluralize;
+
       columns = []
       options[:columns].each do |definition|
         definitions = []
@@ -107,6 +123,7 @@ module ExtCrud
         columns << "{#{definitions.join(',')}}"
       end
       columns = columns.join(', ')
+
       js = %Q!
 <script type="text/javascript">
 var grid;
@@ -120,7 +137,7 @@ Ext.onReady(function(e){
 
   grid = new JJWorks.JGrid({
     columns: [
-      {id:'id', header:'Pedido Nº:', width:10, sortable:true, dataIndex:'id'},
+      {id:'id', header:'Cód.', width:15, sortable:true, dataIndex:'id'},
       #{columns}
     ],
     title:'Listagem de #{entities.capitalize}',
@@ -140,8 +157,8 @@ Ext.onReady(function(e){
 <div id="grid-#{entities}">
 </div>
 !
-      puts js
       js
     end
   end
 end
+
