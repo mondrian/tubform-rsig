@@ -1,5 +1,5 @@
 class NotaFiscal < ActiveRecord::Base
-  has_many :itens, :class_name => 'ItemNotaFiscal'
+  has_many :itens, :class_name => 'ItemNotaFiscal', :dependent  => :destroy
   belongs_to :cliente
   belongs_to :funcionario
   has_many   :produtos, :through => :item_pedidos

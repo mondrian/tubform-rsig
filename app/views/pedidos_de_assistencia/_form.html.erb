@@ -1,4 +1,4 @@
-<% form_for(@pedido, :html => {:name=>'form_pedidos', :id=>'form_pedidos'}) do |f| %>
+<% form_for(@pedido_de_assistencia, :html => {:name=>'form_pedidos', :id=>'form_pedidos'}) do |f| %>
   <%= f.error_messages %>
   <p>
     <%= f.label :tipo %>
@@ -12,7 +12,7 @@
        <b> Nenhum cliente cadastrado.</b>
     <% end %>
     <%#= f.select :cliente_id, :size => 5 %>
-    <%#= text_field_tag 'nome_cliente', @pedido.cliente.razao_social, :disabled => true %>
+    <%#= text_field_tag 'nome_cliente', @pedido_de_assistencia.cliente.razao_social, :disabled => true %>
   </p>
     <p>
       <%= f.label :nosso_numero %><br />
@@ -48,7 +48,7 @@
     <% end %>
 
     <%#= f.text_field :vendedor_id, :size => 5 %>
-    <%#= text_field_tag 'nome', @pedido.funcionario.nome, :disabled => true %>
+    <%#= text_field_tag 'nome', @pedido_de_assistencia.funcionario.nome, :disabled => true %>
   </p>
   <p>
     <%= f.label :valor %><br />
@@ -81,12 +81,12 @@
   <p>
     <%= f.label :area_id %><br />
     <%= f.text_field :area_id, :size => 5 %>
-    <%#= text_field_tag 'descricao', @pedido.area.descricao, :disabled => true %>
+    <%#= text_field_tag 'descricao', @pedido_de_assistencia.area.descricao, :disabled => true %>
   </p>
   <p>
     <%= f.label :telemarketing_id %><br />
     <%= f.text_field :telemarketing_id, :size => 5 %>
-    <%#= text_field_tag 'nome', @pedido.funcionario.nome, :disabled => true %>
+    <%#= text_field_tag 'nome', @pedido_de_assistencia.funcionario.nome, :disabled => true %>
   </p>
   <p>
     <%= f.label :registro %><br />
@@ -108,7 +108,7 @@
     <%= f.label :operador_estorno_id %><br />
     <%= f.text_field :operador_estorno_id, :size => 5 %>
 
-   <%#= text_field_tag 'nome', @pedido.funcionario.nome , :disabled => true %>
+   <%#= text_field_tag 'nome', @pedido_de_assistencia.funcionario.nome , :disabled => true %>
   </p>
   <p>
     <%= f.label :venda_externa %><br />
@@ -121,7 +121,7 @@
        <b> Nenhum funcionário cadastrado.</b>
     <% end %>
   <p>
-	<input type="button" value="Enviar" onclick="Pedido.salvar();">
+	  <%= f.submit 'Salvar' %>
   </p>
 <% end %>
 

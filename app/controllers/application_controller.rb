@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   include AuthenticatedSystem
+  require 'brazilian-rails'
   #before_filter :valida_permissao
 
   def load_page
