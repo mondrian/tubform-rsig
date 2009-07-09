@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090708133124) do
+ActiveRecord::Schema.define(:version => 20090709193456) do
 
   create_table "acoes", :force => true do |t|
     t.string   "controller_name"
@@ -141,6 +141,12 @@ ActiveRecord::Schema.define(:version => 20090708133124) do
 
   create_table "cores", :force => true do |t|
     t.string   "descricao"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "create_lojas", :force => true do |t|
+    t.string   "nome_loja"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -324,6 +330,12 @@ ActiveRecord::Schema.define(:version => 20090708133124) do
     t.datetime "updated_at"
   end
 
+  create_table "lojas", :force => true do |t|
+    t.string   "nome_loja"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "meta_produtos", :force => true do |t|
     t.integer  "mes"
     t.integer  "ano"
@@ -439,6 +451,8 @@ ActiveRecord::Schema.define(:version => 20090708133124) do
     t.decimal  "total_desconto_item",                  :precision => 12, :scale => 2, :default => 0.0
     t.string   "nosso_numero",            :limit => 7
     t.boolean  "status_estorno",                                                      :default => false, :null => false
+    t.integer  "loja_origem_id"
+    t.integer  "loja_destino_id"
   end
 
   create_table "pedidos_de_assistencia", :force => true do |t|
