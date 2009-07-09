@@ -10,8 +10,26 @@
 }
 
 .cadastros {
-  background: url(../images/layout.png) no-repeat !important;
+  background: url(../images/cadastros.png) no-repeat !important;
   }
+
+.vendas {
+  background: url(../images/vendas.png) no-repeat !important;
+  }
+
+.estoque {
+  background: url(../images/estoque.png) no-repeat !important;
+  }
+
+.financeiro {
+  background: url(../images/financeiro.png) no-repeat !important;
+  }
+
+.manutencao {
+  background: url(../images/manutencao.png) no-repeat !important;
+  }
+
+
 
 .icon-grid {
   background: url(../images/grid.png) no-repeat !important;
@@ -38,5 +56,13 @@
 
 .icon-zoom {
   background-image:url(../images/zoom.png) ! important;
+}
+
+input.date {
+  width: 100px;
+}
+
+.x-window-body input, .x-window-body label {
+  position: absolute;
 }
 

@@ -1,0 +1,10 @@
+<% form_for @pedido, :builder => JJWorksFormBuilder do |f| %>
+  <%= f.error_messages %>
+  <%= f.select :tipo,[['Interno','I'],['Externo','E']],
+                   :style => 'top:25px;left:20px;' %>
+
+  <%= f.text_field :data,
+                   :class => 'date',
+                   :style => 'top:25px;left:295px;' %>
+<% end %>
+

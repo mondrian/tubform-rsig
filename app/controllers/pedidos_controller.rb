@@ -1,8 +1,10 @@
 class PedidosController < ApplicationController
 	
-	# bem no metadata_for vai os campos que são symbol do @coisas dentro da interação do for, para serem renderizados e retornados ao cliente, por exemplo id, valor, vendedor e cliente_nome.
-  controller_crud_methods_for Pedido, :metadata_for => ['tipo','cliente_nome','valor','data',]
-
+	# bem no metadata_for vai os campos que são symbol do @coisas dentro da interação do for, 
+	# para serem renderizados e retornados ao cliente, por exemplo id, valor, vendedor e cliente_nome.
+  controller_crud_methods_for Pedido, :metadata_for => ['tipo','cliente.razao_social','valor','data',], :includes => [ :cliente ]
+=begin
+  #Não precisa disso aqui!!!
 def index
     @pedidos = Pedido.find(:all, :conditions => @conditions, :joins => :vendedor).paginate( :page => @page,
                                                                   :per_page => @per_page )
@@ -15,4 +17,5 @@ def index
     render_from_hash(@coisas)
 
   end
+=end  
 end

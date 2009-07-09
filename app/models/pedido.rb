@@ -273,9 +273,10 @@ class Pedido < ActiveRecord::Base
     self.desconto = 0 if self.desconto.nil?
     self.valor = self.valor - (self.valor * self.desconto / 100)
   end
+  
   def gerenciar_acoes
-    self.valor_normal, self.valor = self.somar_pedido
-    self.calcula_desconto
+    self.valor_normal = self.valor = self.somar_pedido
+    self.calcula_desconto if self.desconto > 0
     self.comissao_desconto_item ? self.percentual_comissao = self.comissao_desconto_item : self.percentual_comissao = 5 
     self.desconto_comissao_prazo!
   end

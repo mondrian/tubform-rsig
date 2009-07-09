@@ -9,12 +9,20 @@ JJWorks.JActionSave = function(entity, entities) {
         grid.store.reload();
         janela.close();
       } else {
+        var errorData = Ext.util.JSON.decode(response.responseText);
+
+        var errors = '';
+
+        for ( key in errorData.errors)
+          errors = errors + key + ' - ' + errorData.errors[key] + '<br />';
+
         Ext.Msg.show({
+          minWidth: 300,
           icon: Ext.MessageBox.WARNING,
           buttons: Ext.Msg.OK,
           title:'Atenção',
-          msg: response.responseText
-        });
+          msg: errors
+          });
       };
     }
   });
