@@ -1,88 +1,22 @@
-<h1>Listing pedidos_de_assistencia</h1>
+<%= ext_grid_for :entity => 'pedido_de_assistencia',
+                 :columns => [
+                   { :header => 'Tipo',
+                     :dataIndex => 'tipo',
+                     :width => 8
+                   },
+                   { :header => 'Cliente',
+                     :dataIndex => 'cliente.razao_social',
+                     :width => 60
+                   },
+                   { :header => 'Valor',
+                     :dataIndex => 'valor',
+                     :width => 15,
+                   },
+                   { :header => 'Data',
+                     :dataIndex => 'data',
+                     :width => 15,
+                     :renderer => 'Ext.util.Format.dateRenderer(\'d/m/Y\')'
+                   }
+                  ]
+%>
 
-<table>
-  <tr>
-    <th>Data</th>
-    <th>Previsao entrega</th>
-    <th>Entrega</th>
-    <th>Programacao</th>
-    <th>Cliente</th>
-    <th>Valor</th>
-    <th>Acrescimo</th>
-    <th>Desconto</th>
-    <th>Transportadora</th>
-    <th>Nome comprador</th>
-    <th>Observacao</th>
-    <th>Vendedor</th>
-    <th>Operador</th>
-    <th>Telemarketing</th>
-    <th>Endereco entrega</th>
-    <th>Minuta</th>
-    <th>Area</th>
-    <th>Status</th>
-    <th>Funcionario estorno</th>
-    <th>Venda externa</th>
-    <th>Desconto complementar</th>
-    <th>Autorizador desconto</th>
-    <th>Registro</th>
-    <th>Empresa</th>
-    <th>Operador estorno</th>
-    <th>Autorizador</th>
-    <th>Plano de pagamento</th>
-    <th>Tipo</th>
-    <th>Valor normal</th>
-    <th>Gera minuta</th>
-    <th>Data estorno</th>
-    <th>Identificador venda</th>
-    <th>Total desconto item</th>
-    <th>Nosso numero</th>
-    <th>Status estorno</th>
-  </tr>
-
-<% @pedidos_de_assistencia.each do |pedido_de_assistencia| %>
-  <tr>
-    <td><%=h pedido_de_assistencia.data %></td>
-    <td><%=h pedido_de_assistencia.previsao_entrega %></td>
-    <td><%=h pedido_de_assistencia.entrega %></td>
-    <td><%=h pedido_de_assistencia.programacao %></td>
-    <td><%=h pedido_de_assistencia.cliente_id %></td>
-    <td><%=h pedido_de_assistencia.valor %></td>
-    <td><%=h pedido_de_assistencia.acrescimo %></td>
-    <td><%=h pedido_de_assistencia.desconto %></td>
-    <td><%=h pedido_de_assistencia.transportadora_id %></td>
-    <td><%=h pedido_de_assistencia.nome_comprador %></td>
-    <td><%=h pedido_de_assistencia.observacao %></td>
-    <td><%=h pedido_de_assistencia.vendedor_id %></td>
-    <td><%=h pedido_de_assistencia.operador_id %></td>
-    <td><%=h pedido_de_assistencia.telemarketing_id %></td>
-    <td><%=h pedido_de_assistencia.endereco_entrega %></td>
-    <td><%=h pedido_de_assistencia.minuta_id %></td>
-    <td><%=h pedido_de_assistencia.area_id %></td>
-    <td><%=h pedido_de_assistencia.status %></td>
-    <td><%=h pedido_de_assistencia.funcionario_estorno_id %></td>
-    <td><%=h pedido_de_assistencia.venda_externa %></td>
-    <td><%=h pedido_de_assistencia.desconto_complementar %></td>
-    <td><%=h pedido_de_assistencia.autorizador_desconto_id %></td>
-    <td><%=h pedido_de_assistencia.registro %></td>
-    <td><%=h pedido_de_assistencia.empresa_id %></td>
-    <td><%=h pedido_de_assistencia.operador_estorno_id %></td>
-    <td><%=h pedido_de_assistencia.autorizador_id %></td>
-    <td><%=h pedido_de_assistencia.plano_de_pagamento %></td>
-    <td><%=h pedido_de_assistencia.tipo %></td>
-    <td><%=h pedido_de_assistencia.valor_normal %></td>
-    <td><%=h pedido_de_assistencia.gera_minuta %></td>
-    <td><%=h pedido_de_assistencia.data_estorno %></td>
-    <td><%=h pedido_de_assistencia.identificador_venda %></td>
-    <td><%=h pedido_de_assistencia.total_desconto_item %></td>
-    <td><%=h pedido_de_assistencia.nosso_numero %></td>
-    <td><%=h pedido_de_assistencia.status_estorno %></td>
-    <td><%= link_to 'Show', pedido_de_assistencia %></td>
-    <td><%= link_to 'Edit', edit_pedido_de_assistencia_path(pedido_de_assistencia) %></td>
-    <td><%= link_to 'Destroy', pedido_de_assistencia, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New pedido_de_assistencia', new_pedido_de_assistencia_path %>

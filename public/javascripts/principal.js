@@ -39,14 +39,14 @@ Ext.onReady(function(){
     tabs.add(panel).show();
   });
 
-  Ext.get('opcao-pedido_assist').on('click', function(e){
+  Ext.get('opcao-pedidos_de_assistencia').on('click', function(e){
     var tabs = viewport.getComponent("centro");
-    var destroyed = tabs.getComponent("pedido_assist");
+    var destroyed = tabs.getComponent("pedidos_de_assistencia");
     if(destroyed == undefined) {
       console.log(destroyed);
-      var panel = new Ext.Panel({ id:'pedidos_assist', title:'Pedidos de Assistência', closable:true,
+      var panel = new Ext.Panel({ id:'pedidos_de_assistencia', title:'Pedidos de Assistência', closable:true,
         listeners: { activate: function(tab){ tab.getUpdater().refresh(); } },
-        autoLoad:{ scripts: true, url:'/assistencia'  } });
+        autoLoad:{ scripts: true, url:'/pedidos_de_assistencia'  } });
       tabs.add(panel).show();
     } else {
       console.log(destroyed);
