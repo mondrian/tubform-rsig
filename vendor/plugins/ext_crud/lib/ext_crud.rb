@@ -26,7 +26,7 @@ module ExtCrud
       methods = %Q!
 
   before_filter :load_page, :only => :index
-  before_filter :load_#{singular}, :only => [ :edit, :new, :create, :update, :destroy ]
+  before_filter :load_#{singular}, :only => [ :edit, :new, :create, :update, :destroy, :show ]
 
   def index
   @#{plural} = #{name}.paginate( :page => @page,
@@ -51,7 +51,10 @@ module ExtCrud
 
   def new; end
   def edit; end
+  def show; end 
 
+  
+ 
   def create
     create_or_update
   end
@@ -130,6 +133,7 @@ var edit    = JJWorks.JActionEdit('#{entity}', '#{entities}');
 var save    = JJWorks.JActionSave('#{entity}', '#{entities}');
 var update  = JJWorks.JActionUpdate('#{entity}', '#{entities}');
 var destroy = JJWorks.JActionDestroy('#{entities}');
+var show    = JJWorks.JActionShow('#{entity}', '#{entities}');
 
 Ext.onReady(function(e){
 
