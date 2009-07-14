@@ -5,7 +5,6 @@ class ItemPedidoDeAssistencia < ActiveRecord::Base
 
   validates_presence_of :quantidade, :message => "Informe a Quantidade"
   validates_numericality_of :quantidade, :message => "Informe Apenas Números"
-  validates_presence_of :valor_venda, :message => "Informe o Valor de Venda"
   validate :valida_item
 
    after_save :trg_soma_itens
@@ -14,7 +13,7 @@ class ItemPedidoDeAssistencia < ActiveRecord::Base
 
   private
   def valida_item
-    p = ItemPedido.find_all_by_produto_id_and_pedido_id(self.produto_id, self.pedido_id)
+    p = ItemPedidoDeAssistencia.find_all_by_produto_id_and_pedido_de_assistencia_id(self.produto_id, self.pedido_de_assistencia_id)
     existe = false
     if p.size > 0
       for i in p do

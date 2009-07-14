@@ -1,4 +1,4 @@
-<% form_for(@pedido_de_assistencia, :html => {:name=>'form_pedidos_de_assistencia', :id=>'form_pedidos_de_assistencia'}) do |f| %>
+<% form_for(@pedido, :html => {:name=>'form_pedidos', :id=>'form_pedidos'}) do |f| %>
   <%= f.error_messages %>
   <p>
     <%= f.label :tipo %>
@@ -12,7 +12,7 @@
        <b> Nenhum cliente cadastrado.</b>
     <% end %>
     <%#= f.select :cliente_id, :size => 5 %>
-    <%#= text_field_tag 'nome_cliente', @pedido_de_assistencia.cliente.razao_social, :disabled => true %>
+    <%#= text_field_tag 'nome_cliente', @pedido.cliente.razao_social, :disabled => true %>
   </p>
     <p>
       <%= f.label :nosso_numero %><br />
@@ -48,11 +48,15 @@
     <% end %>
 
     <%#= f.text_field :vendedor_id, :size => 5 %>
-    <%#= text_field_tag 'nome', @pedido_de_assistencia.funcionario.nome, :disabled => true %>
+    <%#= text_field_tag 'nome', @pedido.funcionario.nome, :disabled => true %>
   </p>
   <p>
     <%= f.label :valor %><br />
     <%= f.text_field :valor, :size => 10 %>
+  </p>
+  <p>
+    <%= f.label :acrescimo %><br />
+    <%= f.text_field :acrescimo, :size => 5 %>
   </p>
   <p>
     <%= f.label :transportadora %><br />
@@ -81,12 +85,12 @@
   <p>
     <%= f.label :area_id %><br />
     <%= f.text_field :area_id, :size => 5 %>
-    <%#= text_field_tag 'descricao', @pedido_de_assistencia.area.descricao, :disabled => true %>
+    <%#= text_field_tag 'descricao', @pedido.area.descricao, :disabled => true %>
   </p>
   <p>
     <%= f.label :telemarketing_id %><br />
     <%= f.text_field :telemarketing_id, :size => 5 %>
-    <%#= text_field_tag 'nome', @pedido_de_assistencia.funcionario.nome, :disabled => true %>
+    <%#= text_field_tag 'nome', @pedido.funcionario.nome, :disabled => true %>
   </p>
   <p>
     <%= f.label :registro %><br />
@@ -108,11 +112,15 @@
     <%= f.label :operador_estorno_id %><br />
     <%= f.text_field :operador_estorno_id, :size => 5 %>
 
-   <%#= text_field_tag 'nome', @pedido_de_assistencia.funcionario.nome , :disabled => true %>
+   <%#= text_field_tag 'nome', @pedido.funcionario.nome , :disabled => true %>
   </p>
   <p>
     <%= f.label :venda_externa %><br />
     <%= f.select :venda_externa,[['Sim','S'],['Não','N']] %>
+  </p>
+  <p>
+    <%= f.label :desconto_complementar %><br />
+    <%= f.text_field :desconto_complementar %>
   </p>
     <%= f.label :autorizador %><br />
     <% if Funcionario.count > 0 %>
@@ -121,7 +129,6 @@
        <b> Nenhum funcionário cadastrado.</b>
     <% end %>
   <p>
-	  <%= f.submit 'Salvar' %>
-  </p>
+	<%= f.submit 'Salvar' %></p>
 <% end %>
 

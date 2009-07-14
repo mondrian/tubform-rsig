@@ -8,13 +8,13 @@
 <% @lojas.each do |loja| %>
   <tr>
     <td><%=h loja.nome_loja %></td>
-    <td><%= link_to 'Show', loja %></td>
-    <td><%= link_to 'Edit', edit_loja_path(loja) %></td>
-    <td><%= link_to 'Destroy', loja, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Listar', loja %></td>
+    <td><%= link_to 'Editar', edit_loja_path(loja) %></td>
+    <td><%= link_to 'Excluir', loja, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New loja', new_loja_path %>
+<%= link_to 'Nova loja', new_loja_path %>

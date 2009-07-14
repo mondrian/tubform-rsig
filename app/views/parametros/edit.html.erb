@@ -1,4 +1,4 @@
-<h1>Editing parametro</h1>
+<h1>Editando parametro</h1>
 
 <% form_for(@parametro) do |f| %>
   <%= f.error_messages %>
@@ -20,9 +20,9 @@
     <%= f.text_field :empresa_id %>
   </p>
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.submit 'Atualizar' %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @parametro %> |
-<%= link_to 'Back', parametros_path %>
+<%= link_to 'Listar', @parametro %> |
+<%= link_to 'Voltar', parametros_path %>
