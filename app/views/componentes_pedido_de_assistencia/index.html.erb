@@ -1,4 +1,4 @@
-<h1>Listing componentes_pedido_de_assistencia</h1>
+<h1>Listando componentes_pedido_de_assistencia</h1>
 
 <table>
   <tr>
@@ -26,13 +26,13 @@
     <td><%=h componente_pedido_de_assistencia.justificativa %></td>
     <td><%=h componente_pedido_de_assistencia.motivo_id %></td>
     <td><%=h componente_pedido_de_assistencia.componente %></td>
-    <td><%= link_to 'Show', componente_pedido_de_assistencia %></td>
-    <td><%= link_to 'Edit', edit_componente_pedido_de_assistencia_path(componente_pedido_de_assistencia) %></td>
-    <td><%= link_to 'Destroy', componente_pedido_de_assistencia, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Mostrar', componente_pedido_de_assistencia %></td>
+    <td><%= link_to 'Editar', edit_componente_pedido_de_assistencia_path(componente_pedido_de_assistencia) %></td>
+    <td><%= link_to 'Excluir', componente_pedido_de_assistencia, :confirm => 'Você tem certeza?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New componente_pedido_de_assistencia', new_componente_pedido_de_assistencia_path %>
+<%= link_to 'Novo componente_pedido_de_assistencia', new_componente_pedido_de_assistencia_path %>

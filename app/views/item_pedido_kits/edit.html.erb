@@ -1,4 +1,4 @@
-<h1>Editing item_pedido_kit</h1>
+<h1>Editando item_pedido_kit</h1>
 
 <% form_for(@item_pedido_kit) do |f| %>
   <%= f.error_messages %>
@@ -32,9 +32,9 @@
     <%= f.text_field :produto_kit %>
   </p>
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.submit 'Salvar' %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @item_pedido_kit %> |
-<%= link_to 'Back', item_pedido_kits_path %>
+<%= link_to 'Mostrar', @item_pedido_kit %> |
+<%= link_to 'Voltar', item_pedido_kits_path %>

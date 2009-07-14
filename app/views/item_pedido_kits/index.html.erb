@@ -1,4 +1,4 @@
-<h1>Listing item_pedido_kits</h1>
+<h1>Listando item_pedido_kits</h1>
 
 <table>
   <tr>
@@ -20,13 +20,13 @@
     <td><%=h item_pedido_kit.desconto %></td>
     <td><%=h item_pedido_kit.produto_id %></td>
     <td><%=h item_pedido_kit.produto_kit %></td>
-    <td><%= link_to 'Show', item_pedido_kit %></td>
-    <td><%= link_to 'Edit', edit_item_pedido_kit_path(item_pedido_kit) %></td>
-    <td><%= link_to 'Destroy', item_pedido_kit, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Mostrar', item_pedido_kit %></td>
+    <td><%= link_to 'Editar', edit_item_pedido_kit_path(item_pedido_kit) %></td>
+    <td><%= link_to 'Destroy', item_pedido_kit, :confirm => 'Você tem certeza?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New item_pedido_kit', new_item_pedido_kit_path %>
+<%= link_to 'Novo item_pedido_kit', new_item_pedido_kit_path %>
