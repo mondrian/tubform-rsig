@@ -1,0 +1,134 @@
+<% form_for(@pedido, :html => {:name=>'form_pedidos', :id=>'form_pedidos'}) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :tipo %>
+    <%= f.select :tipo,[['Interno','I'],['Externo','E']] %>
+  </p>
+  <p>
+    <%= f.label :cliente %><br />
+    <% if Cliente.count > 0 %>
+      <%= f.select :cliente_id, Cliente.all.collect { |c| [c.nome_fantasia,c.id] }, :prompt => "" %>
+    <% else %>
+       <b> Nenhum cliente cadastrado.</b>
+    <% end %>
+    <%#= f.select :cliente_id, :size => 5 %>
+    <%#= text_field_tag 'nome_cliente', @pedido.cliente.razao_social, :disabled => true %>
+  </p>
+    <p>
+      <%= f.label :nosso_numero %><br />
+      <%= f.text_field :nosso_numero, :size => 10 %>
+    </p>
+  <p>
+    <%= f.label :data, 'Data do pedido' %><br />
+    <%= f.text_field :data, :size => 10 %>
+  </p>
+  <p>
+    <%= f.label :previsao_entrega, 'Previsão de entrega' %><br />
+    <%= f.text_field :previsao_entrega, :size => 10  %>
+  </p>
+  <p>
+    <%= f.label :entrega %><br />
+    <%= f.text_field :entrega, :size => 10  %>
+  </p>
+  <p>
+    <%= f.label :programacao %><br />
+    <%= f.text_field :programacao, :size => 10  %>
+  </p>
+  <p>
+    <%= f.label :plano_de_pagamento %><br />
+    <%= f.text_field :plano_de_pagamento %>
+  </p>
+  <p>
+    <%= f.label :vendedor %><br />
+    <%= f.text_field :vendedor_id %>
+    <% if Funcionario.count > 0 %>
+      <%= f.select :vendedor_id, Funcionario.all.collect { |c| [c.nome,c.id] }, :prompt => "" %>
+    <% else %>
+       <b> Nenhum vendedor cadastrado.</b>
+    <% end %>
+
+    <%#= f.text_field :vendedor_id, :size => 5 %>
+    <%#= text_field_tag 'nome', @pedido.funcionario.nome, :disabled => true %>
+  </p>
+  <p>
+    <%= f.label :valor %><br />
+    <%= f.text_field :valor, :size => 10 %>
+  </p>
+  <p>
+    <%= f.label :acrescimo %><br />
+    <%= f.text_field :acrescimo, :size => 5 %>
+  </p>
+  <p>
+    <%= f.label :transportadora %><br />
+    <% if Transportadora.count > 0 %>
+      <%= f.select :transportadora_id, Transportadora.all.collect { |c| [c.razao_social,c.id] }, :prompt => "" %>
+    <% else %>
+       <b> Nenhuma transportadora cadastrada.</b>
+    <% end %>
+  </p>
+  <p>
+    <%= f.label :comprador %><br />
+    <%= f.text_field :nome_comprador %>
+  </p>
+  <p>
+    <%= f.label :observacao %><br />
+    <%= f.text_area :observacao %>
+  </p>
+  <p>
+    <%= f.label :endereco_entrega %><br />
+    <%= f.text_field :endereco_entrega %>
+  </p>
+  <p>
+    <%= f.label :minuta_id %><br />
+    <%= f.text_field :minuta_id %>
+  </p>
+  <p>
+    <%= f.label :area_id %><br />
+    <%= f.text_field :area_id, :size => 5 %>
+    <%#= text_field_tag 'descricao', @pedido.area.descricao, :disabled => true %>
+  </p>
+  <p>
+    <%= f.label :telemarketing_id %><br />
+    <%= f.text_field :telemarketing_id, :size => 5 %>
+    <%#= text_field_tag 'nome', @pedido.funcionario.nome, :disabled => true %>
+  </p>
+  <p>
+    <%= f.label :registro %><br />
+    <%= f.text_field :registro, :size => 10 %>
+  </p>
+  <p>
+    <%= f.label :empresa_id %><br />
+    <%= f.text_field :empresa_id %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </p>
+  <p>
+    <%= f.label :status_estorno %><br />
+    <%= f.text_field :status_estorno %>
+  </p>
+  <p>
+    <%= f.label :operador_estorno_id %><br />
+    <%= f.text_field :operador_estorno_id, :size => 5 %>
+
+   <%#= text_field_tag 'nome', @pedido.funcionario.nome , :disabled => true %>
+  </p>
+  <p>
+    <%= f.label :venda_externa %><br />
+    <%= f.select :venda_externa,[['Sim','S'],['Não','N']] %>
+  </p>
+  <p>
+    <%= f.label :desconto_complementar %><br />
+    <%= f.text_field :desconto_complementar %>
+  </p>
+    <%= f.label :autorizador %><br />
+    <% if Funcionario.count > 0 %>
+      <%= f.select :autorizador_id, Funcionario.all.collect { |c| [c.nome,c.id] }, :prompt => "" %>
+    <% else %>
+       <b> Nenhum funcionário cadastrado.</b>
+    <% end %>
+  <p>
+	<%= f.submit 'Salvar' %></p>
+<% end %>
+
