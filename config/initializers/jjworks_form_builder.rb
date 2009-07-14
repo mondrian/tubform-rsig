@@ -32,7 +32,7 @@ class JJWorksFormBuilder < ActionView::Helpers::FormBuilder
   def field_label( field, options )
     top = /top:(\d*)/.match(options[:style])[1]
     left = /left:(\d*)/.match(options[:style])[1]
-    options[:label_style] ||= "top:#{top.to_i-15}px;left:#{left.to_i+2}px;"
+    options[:label_style] ||= "top:#{top.to_i-14}px;left:#{left.to_i+2}px;"
     self.label( field, options.delete( :label ) || self.object_class.human_attribute_name( field.to_s ),
       :class => options[:label_class],
       :style => options[:label_style])

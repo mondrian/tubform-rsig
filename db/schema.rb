@@ -1,4 +1,4 @@
-# This file is auto-generated from the current state of the database. Instead of editing this file, 
+#   This file is auto-generated from the current state of the database. Instead of editing this file, 
 # please use the migrations feature of Active Record to incrementally modify your database, and
 # then regenerate this schema definition.
 #
@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090709144502) do
+ActiveRecord::Schema.define(:version => 20090709193456) do
 
   create_table "acoes", :force => true do |t|
     t.string   "controller_name"
@@ -142,12 +142,6 @@ ActiveRecord::Schema.define(:version => 20090709144502) do
 
   create_table "cores", :force => true do |t|
     t.string   "descricao"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "create_lojas", :force => true do |t|
-    t.string   "nome_loja"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -454,6 +448,13 @@ ActiveRecord::Schema.define(:version => 20090709144502) do
     t.boolean  "status_estorno",                                                      :default => false, :null => false
     t.integer  "loja_origem_id"
     t.integer  "loja_destino_id"
+    t.string   "bairro_entrega"
+    t.string   "cep_entrega"
+    t.string   "uf_entrega"
+    t.integer  "cidade_entrega_id"
+    t.integer  "area_entrega_id"
+    t.integer  "regiao_entrega_id"
+    t.integer  "roteiro_entrega_id"
   end
 
   create_table "pedidos_de_assistencia", :force => true do |t|
@@ -544,13 +545,6 @@ ActiveRecord::Schema.define(:version => 20090709144502) do
     t.string   "descricao"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "replicacoes_pendentes", :force => true do |t|
-    t.text     "sql"
-    t.integer  "status",       :limit => 2
-    t.datetime "temporizador"
-    t.integer  "contador"
   end
 
   create_table "roteiros", :force => true do |t|

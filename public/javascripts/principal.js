@@ -70,7 +70,7 @@ Ext.onReady(function(){
     }
     tabs.add(panel).show();
   });
-  
+
   Ext.get('opcao-manutencao').on('click', function(e){
     var tabs = viewport.getComponent("centro");
     var destroyed = tabs.getComponent("manutencao");
@@ -86,8 +86,7 @@ Ext.onReady(function(){
     }
     tabs.add(panel).show();
   });
-});  
-  
+
 $(function() {
   $.datepicker.setDefaults($.extend({showMonthAfterYear: false}, $.datepicker.regional['pt-BR']));
 
@@ -99,3 +98,5 @@ $(function() {
     $(this).datepicker({showOn:'focus'}).focus();
   });
 });
+});
+
