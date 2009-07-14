@@ -12,7 +12,6 @@ class PedidoDeAssistencia < ActiveRecord::Base
   belongs_to :minuta
   belongs_to :area
   has_many :itens, :class_name => 'ItemPedidoDeAssistencia', :dependent  => :destroy
-  has_many :items_pedidos, :dependent => :destroy
   #has_many :produtos, :through => :item_pedidos
   has_many :duplicatas, :dependent => :destroy
 
