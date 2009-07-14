@@ -1,4 +1,4 @@
-<h1>Editing componente</h1>
+<h1>Editar componente</h1>
 
 <% form_for(@componente) do |f| %>
   <%= f.error_messages %>
@@ -92,9 +92,9 @@
     <%= f.text_field :grupo_componente_id %>
   </p>
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.submit 'Atualizar' %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @componente %> |
-<%= link_to 'Back', componentes_path %>
+<%= link_to 'Mostrar', @componente %> |
+<%= link_to 'Voltar', componentes_path %>

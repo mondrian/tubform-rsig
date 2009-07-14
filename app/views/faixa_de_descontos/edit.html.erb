@@ -1,4 +1,8 @@
-<h1>Editing faixa_de_desconto</h1>
+<<<<<<< HEAD:app/views/faixa_de_descontos/edit.html.erb
+<h1>Editar faixa_de_desconto</h1>
+=======
+<h1>Editando faixa_de_desconto</h1>
+>>>>>>> 5c32755e0bffa32999e751ecb19a1c050bd52402:app/views/faixa_de_descontos/edit.html.erb
 
 <% form_for(@faixa_de_desconto) do |f| %>
   <%= f.error_messages %>
@@ -16,9 +20,13 @@
     <%= f.text_field :desconto_permitido %>
   </p>
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.submit 'Salvar' %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @faixa_de_desconto %> |
-<%= link_to 'Back', faixas_de_desconto_path %>
+<<<<<<< HEAD:app/views/faixa_de_descontos/edit.html.erb
+<%= link_to 'Mostrar', @faixa_de_desconto %> |
+=======
+<%= link_to 'Listar', @faixa_de_desconto %> |
+>>>>>>> 5c32755e0bffa32999e751ecb19a1c050bd52402:app/views/faixa_de_descontos/edit.html.erb
+<%= link_to 'Voltar', faixas_de_desconto_path %>

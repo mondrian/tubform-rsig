@@ -1,4 +1,4 @@
-<h1>Editing produto_kit</h1>
+<h1>Editando produto_kit</h1>
 
 <% form_for(@produto_kit) do |f| %>
   <%= f.error_messages %>
@@ -28,9 +28,9 @@
     <%= f.text_field :preco_especial %>
   </p>
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.submit 'Salvar' %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @produto_kit %> |
-<%= link_to 'Back', produto_kits_path %>
+<%= link_to 'Listar', @produto_kit %> |
+<%= link_to 'Voltar', produto_kits_path %>
