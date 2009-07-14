@@ -1,4 +1,4 @@
-<h1>Editing duplicata</h1>
+<h1>Editar duplicata</h1>
 
 <% form_for(@duplicata) do |f| %>
   <%= f.error_messages %>
@@ -40,10 +40,10 @@
     <%= f.text_field :devedor_id %>
   </p>
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.submit 'Atualizar' %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @duplicata %> |
-<%= link_to 'Back', duplicatas_path %>
+<%= link_to 'Mostrar', @duplicata %> |
+<%= link_to 'Voltar', duplicatas_path %>
 
