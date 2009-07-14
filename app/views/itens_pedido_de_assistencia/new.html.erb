@@ -16,6 +16,8 @@
     <%= f.check_box :usa_componente %>
   </p>
 
+  <div id="usar_o_componente"></div>
+
   <p>
     <%= f.label :motivo_id %><br />
     <%= f.text_field :motivo_id %>
@@ -31,3 +33,9 @@
 <% end %>
 
 <%= link_to 'Back', itens_pedido_de_assistencia_path %>
+
+<%= observe_field :usa_componente,
+  :update => 'usar_o_componente',
+  :url => {:action => 'usando_o_componente'},
+  :with => :usa_componente
+%>
