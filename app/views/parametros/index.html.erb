@@ -1,4 +1,4 @@
-<h1>Listing parametros</h1>
+<h1>Listando parametros</h1>
 
 <table>
   <tr>
@@ -14,13 +14,13 @@
     <td><%=h parametro.valor %></td>
     <td><%=h parametro.descricao %></td>
     <td><%=h parametro.empresa_id %></td>
-    <td><%= link_to 'Show', parametro %></td>
-    <td><%= link_to 'Edit', edit_parametro_path(parametro) %></td>
-    <td><%= link_to 'Destroy', parametro, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Listar', parametro %></td>
+    <td><%= link_to 'Editar', edit_parametro_path(parametro) %></td>
+    <td><%= link_to 'Excluir', parametro, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New parametro', new_parametro_path %>
+<%= link_to 'Novo parametro', new_parametro_path %>

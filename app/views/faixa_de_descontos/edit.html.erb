@@ -1,4 +1,4 @@
-<h1>Editing faixa_de_desconto</h1>
+<h1>Editando faixa_de_desconto</h1>
 
 <% form_for(@faixa_de_desconto) do |f| %>
   <%= f.error_messages %>
@@ -16,9 +16,9 @@
     <%= f.text_field :desconto_permitido %>
   </p>
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.submit 'Salvar' %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @faixa_de_desconto %> |
-<%= link_to 'Back', faixas_de_desconto_path %>
+<%= link_to 'Listar', @faixa_de_desconto %> |
+<%= link_to 'Voltar', faixas_de_desconto_path %>
