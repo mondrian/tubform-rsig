@@ -29,21 +29,11 @@ class ItemPedidoDeAssistencia < ActiveRecord::Base
   end
 
   #Trigguer para Aplicar o Desconto no Valor de Tabela
-  def aplica_desconto
-    desconto = self.desconto
-    vlr_tabela = self.valor_tabela
-    vlr_venda = (self.valor_tabela - (self.valor_tabela * self.desconto ) /100 )
-    self.valor_venda = vlr_venda
-  end
-
-  def calcula_desconto
-    self.desconto = (self.valor_tabela - self.valor_venda) / self.valor_tabela * 100
-  end
 
   # rotina para Somar os Itens e Atualizar no Pedido
   def trg_soma_itens
-    self.pedido.gerenciar_acoes
-    self.pedido.save
+    self.pedido_de_assistencia.gerenciar_acoes
+    self.pedido_de_assistencia.save
   end
 
   public 

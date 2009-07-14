@@ -159,7 +159,7 @@ class PedidoDeAssistencia < ActiveRecord::Base
     p = self.itens
     if p.size > 0
       p.each do | i |
-        soma += (i.quantidade * i.valor_venda )
+        soma += (i.quantidade * i.valor )
       end
       soma = ( soma )
     end
