@@ -1,85 +1,100 @@
 <% form_for @pedido, :builder => JJWorksFormBuilder do |f| %>
   <%= f.error_messages %>
-  <%= f.text_field :id,           :style => 'top:25px;left:20px; width:100px;', :disabled => true %>
-  <%= f.text_field :nosso_numero, :style => 'top:25px;left:130px; width:100px' %>
-  <%= f.text_field :gera_minuta,  :style => 'top:25px;left:240px; width:100px' %>
-  <%= f.text_field :tipo,         :style => 'top:25px;left:350px; width:100px' %>
+  <%= f.text_field :id,           :style => 'top:20px;left:20px; width:100px;height:15px;font-size:12px', :disabled => true %>
+  <%= f.text_field :nosso_numero, :style => 'top:20px;left:130px; width:100px;height:15px;font-size:12px' %>
+  <%= f.text_field :gera_minuta,  :style => 'top:20px;left:240px; width:100px;height:15px;font-size:12px' %>
+  <%= f.text_field :tipo,         :style => 'top:20px;left:350px; width:100px;height:15px;font-size:12px' %>
 
-  <%= f.text_field :cliente_id,   :style => 'top:65px;left:25px; width:70px' %>
+  <%= f.text_field :cliente_id,   :style => 'top:55px;left:20px; width:70px;height:15px;font-size:12px' %>
   <% if @pedido.cliente_id %>
-  <%= text_field_tag 'nome_cliente', @pedido.cliente.razao_social, :style => 'top:65px;left:110px; width:340px', :disabled => true %>
+  <%= text_field_tag 'nome_cliente', @pedido.cliente.razao_social, :style => 'top:55px;left:100px; width:350px; height:15px;font-size:12px', :disabled => true %>
    <% else %>
-   <%='<div style=\'position:absolute; top:70px;left:105px;\'>SELECIONE O CLIENTE</div>'  %>
+   <%='<div style=\'position:absolute; top:60px;left:105px;height:15px;font-size:12px\'>SELECIONE O CLIENTE</div>'  %>
   <% end %>
 
-  <%= f.text_field :data,             :style => 'top:105px;left:25px;', :class => 'date' %>
-  <%= f.text_field :previsao_entrega, :style => 'top:105px;left:135px;', :class => 'date' %>
-  <%= f.text_field :registro,         :style => 'top:105px;left:245px;', :class => 'date', :disabled => true %>
-  <%= f.text_field :entrega,          :style => 'top:105px;left:355px;', :class => 'date'%>
+  <%= f.text_field :data,             :style => 'top:90px;left:20px;height:15px;font-size:12px', :class => 'date' %>
+  <%= f.text_field :previsao_entrega, :style => 'top:90px;left:135px;height:15px;font-size:12px', :class => 'date' %>
+  <%= f.text_field :registro,         :style => 'top:90px;left:245px;height:15px;font-size:12px', :class => 'date', :disabled => true %>
+  <%= f.text_field :entrega,          :style => 'top:90px;left:360px;height:15px;font-size:12px', :class => 'date'%>
 
-  <%= f.text_field :plano_de_pagamento, :style => 'top:145px;left:25px;' %>
-  <%= f.text_field :programacao, :style => 'top:145px;left:355px;', :class => 'date' %>
+  <%= f.text_field :plano_de_pagamento, :style => 'top:125px;left:20px; width: 330px; height:15px;font-size:12px' %>
+  <%= f.text_field :programacao, :style => 'top:125px;left:360px;height:15px;font-size:12px', :class => 'date' %>
 
-  <%= f.text_field :nome_comprador, :style => 'top:185px;left:25px;width:420px' %>
+  <%= f.text_field :nome_comprador, :style => 'top:160px;left:20px;width:430px;height:15px;font-size:12px' %>
 
-  <%= f.text_field :transportadora_id,   :style => 'top:225px;left:25px; width:70px' %>
+  <%= f.text_field :transportadora_id,   :style => 'top:195px;left:20px; width:35px;height:15px;font-size:12px' %>
 
   <% if @pedido.transportadora_id %>
-   <%= text_field_tag 'nome', @pedido.transportadora.razao_social, :style => 'top:225px;left:100px; width:300px', :disabled => true %>
+   <%= text_field_tag 'nome', @pedido.transportadora.razao_social, :style => 'top:195px;left:70px; width:300px;height:15px;font-size:12px', :disabled => true %>
    <% else %>
-   <%='<div style=\'position:absolute; top:230px;left:105px;\'>TRANSPORTADORA NÃO INFORMADA</div>'  %>
+   <%='<div style=\'position:absolute; top:198px;left:65px;height:15px;font-size:12px\'>TRANSPORTADORA NÃO INFORMADA</div>'  %>
   <% end %>
 
-  <%= f.text_field :vendedor_id,      :style => 'top:265px;left:25px; width:70px' %>
+  <%= f.text_field :vendedor_id,      :style => 'top:230px;left:20px; width:35px;height:15px;font-size:12px' %>
   <% if @pedido.vendedor_id %>
-   <%= text_field_tag 'nome', @pedido.vendedor.nome, :style => 'top:265px;left:110px; width:160px', :disabled => true %>
+   <%= text_field_tag 'nome', @pedido.vendedor.nome, :style => 'top:230px;left:70px; width:200px;height:15px;font-size:12px', :disabled => true %>
    <% else %>
-   <%='<div style=\'position:absolute; top:268px;left:110px;\'>SELECIONE O VENDEDOR</div>'  %>
+   <%='<div style=\'position:absolute; top:238px;left:110px;height:15px;font-size:12px\'>SELECIONE O VENDEDOR</div>'  %>
   <% end %>
 
-  <%= f.text_field :telemarketing_id, :style => 'top:305px;left:25px; width:70px' %>
+  <%= f.text_field :telemarketing_id, :style => 'top:270px;left:20px; width:35px;height:15px;font-size:12px' %>
   <% if @pedido.telemarketing_id %>
-   <%= text_field_tag 'nome', @pedido.telemarketing.nome, :style => 'top:305px;left:110px; width:160px', :disabled => true %>
+   <%= text_field_tag 'nome', @pedido.telemarketing.nome, :style => 'top:270px;left:70px; width:200px;height:15px;font-size:12px', :disabled => true %>
    <% else %>
-   <%='<div style=\'position:absolute; top:310px;left:100px;\'>PEDIDO SEM TELEMARKETING</div>'  %>
+   <%='<div style=\'position:absolute; top:270px;left:100px;height:15px;font-size:12px\'>PEDIDO SEM TELEMARKETING</div>'  %>
   <% end %>
 
-  <%= f.text_field :loja_origem_id,   :style => 'top:265px;left:285px; width:35px' %>
+  <%= f.text_field :loja_origem_id,   :style => 'top:195px;left:285px; width:20px;height:15px;font-size:12px' %>
 
   <% if @pedido.loja_origem_id %>
-   <%= text_field_tag 'nome_loja', @pedido.loja_origem.nome, :style => 'top:265px;left:300px; width:170px', :disabled => true %>
+   <%= text_field_tag 'nome_loja', @pedido.loja_origem.nome_loja, :style => 'top:195px;left:310px; width:140px;height:15px;font-size:12px', :disabled => true %>
    <% else %>
-   <%='<div style=\'position:absolute; top:272px;left:330px;\'>NÃO INFORMADA</div>'  %>
+   <%='<div style=\'position:absolute; top:205px;left:310px;height:15px;font-size:12px\'>NÃO INFORMADA</div>'  %>
   <% end %>
 
-  <%= f.text_field :loja_destino_id,   :style => 'top:305px;left:285px; width:35px' %>
+  <%= f.text_field :loja_destino_id,   :style => 'top:230px;left:285px; width:20px;height:15px;font-size:12px' %>
 
   <% if @pedido.loja_destino_id %>
-   <%= text_field_tag 'nome_loja', @pedido.loja_destino.nome, :style => 'top:280px;left:300px; width:170px', :disabled => true %>
+   <%= text_field_tag 'nome_loja', @pedido.loja_destino.nome_loja, :style => 'top:230px;left:310px; width:140px;height:15px;font-size:12px', :disabled => true %>
    <% else %>
-   <%='<div style=\'position:absolute; top:310px;left:330px;\'>NÃO INFORMADA</div>'  %>
+   <%='<div style=\'position:absolute; top:235px;left:310px;height:15px;font-size:12px\'>NÃO INFORMADA</div>'  %>
   <% end %>
 
 
-  <%= f.text_field :operador_id, :style => 'top:345px;left:25px; width:70px', :disabled => true  %>
+  <%= f.text_field :operador_id, :style => 'top:305px;left:20px; width:35px;height:15px;font-size:12px', :disabled => true  %>
   <% if @pedido.operador_id %>
-   <%= text_field_tag 'nome', @pedido.operador.nome, :style => 'top:345px;left:110px; width:200px', :disabled => true %>
+   <%= text_field_tag 'nome', @pedido.operador.nome, :style => 'top:305px;left:70px; width:240px;height:15px;font-size:12px', :disabled => true %>
    <% else %>
-   <%='<div style=\'position:absolute; top:345px;left:110px;\'>SELECIONE O OPERADOR</div>'  %>
+   <%='<div style=\'position:absolute; top:305px;left:70px;height:15px;font-size:12px\'>SELECIONE O OPERADOR</div>'  %>
   <% end %>
-  <%= f.text_field :valor_normal, :style => 'top:345px;left:320px; width:130px; text-align:right;', :disabled => true, :value => @pedido.valor_normal.real.real_formatado  %>
+  <%= f.text_field :valor_normal, :style => 'top:305px;left:320px; width:130px; text-align:right;height:15px;font-size:12px', :disabled => true, :value => @pedido.valor_normal.real.real_formatado  %>
 
-  <%= f.text_field :acrescimo, :style => 'top:385px;left:25px; width:70px; text-align:right;', :disabled => true, :value => @pedido.acrescimo.to_s + ' %'  %>
-  <%= f.text_field :desconto, :style => 'top:385px;left:105px; width:50px; text-align:right;', :value => @pedido.desconto %>
-  <%= f.text_field :total_desconto_item, :style => 'top:385px;left:180px; width:50px; text-align:right;', :disabled => true, :value => @pedido.total_desconto_item.to_s + ' %'  %>
-  <%= f.text_field :desconto_acumulado_geral, :style => 'top:385px;left:245px; width:50px; text-align:right;', :disabled => true, :value => @pedido.desconto_acumulado_geral.to_s + ' %'  %>
-  <%= f.text_field :valor, :style => 'top:385px;left:320px; width:130px; text-align:right;', :disabled => true, :value => @pedido.valor.real.real_formatado  %>
+  <%= f.text_field :acrescimo, :style => 'top:345px;left:20px; width:70px; text-align:right;height:15px;font-size:12px', :disabled => true, :value => @pedido.acrescimo.to_s + ' %'  %>
+  <%= f.text_field :desconto, :style => 'top:345px;left:105px; width:50px; text-align:right;height:15px;font-size:12px', :value => @pedido.desconto %>
+  <%= f.text_field :total_desconto_item, :style => 'top:345px;left:180px; width:50px; text-align:right;height:15px;font-size:12px', :disabled => true, :value => @pedido.total_desconto_item.to_s + ' %'  %>
+  <%= f.text_field :desconto_acumulado_geral, :style => 'top:345px;left:245px; width:50px; text-align:right;height:15px;font-size:12px', :disabled => true, :value => @pedido.desconto_acumulado_geral.to_s + ' %'  %>
+  <%= f.text_field :valor, :style => 'top:345px;left:320px; width:130px; text-align:right;height:15px;font-size:12px', :disabled => true, :value => @pedido.valor.real.real_formatado  %>
 
+  <%= f.text_field :endereco_entrega, :style => 'top:385px;left:20px; width:185px; height:15px;font-size:12px' %>
+  <%= f.text_field :uf_entrega, :style => 'top:385px;left:220px; width:30px; height:15px;font-size:12px' %>
+  <%= f.text_field :bairro_entrega, :style => 'top:385px;left:260px; width:100px; height:15px;font-size:12px' %>
+  <%= f.text_field :cep_entrega, :style => 'top:385px;left:370px; width:80px; height:15px;font-size:12px' %>
 
-  <%='<div style=\'position:absolute; top:430px;left:25px;\'>ENDEREÇO DE ENTREGA</div>'  %>
+  <%= f.text_field :cidade_entrega_id, :style => 'top:425px;left:20px; width:40px; height:15px;font-size:12px' %>
+  <%= text_field_tag 'descricao', @pedido.cidade_entrega.descricao, :style => 'top:425px;left:65px; width:100px; height:15px;font-size:12px', :disabled => true %>
+
+  <%= f.text_field :area_entrega_id, :style => 'top:425px;left:174px; width:30px; height:15px;font-size:12px' %>
+  <%= text_field_tag 'descricao', @pedido.area_entrega.descricao, :style => 'top:425px;left:210px; width:96px; height:15px;font-size:12px', :disabled => true %>
+
+  <%= f.text_field :regiao_entrega_id, :style => 'top:425px;left:314px; width:30px; height:15px;font-size:12px' %>
+  <%= text_field_tag 'descricao', @pedido.regiao_entrega.descricao, :style => 'top:425px;left:354px; width:95px; height:15px;font-size:12px', :disabled => true %>
+
+  <%= f.text_field :roteiro_entrega_id, :style => 'top:465px;left:314px; width:30px; height:15px;font-size:12px' %>
+  <%= text_field_tag 'descricao', @pedido.roteiro_entrega.descricao, :style => 'top:465px;left:354px; width:95px; height:15px;font-size:12px', :disabled => true %>
+
+  <%= f.text_field :observacao, :style => 'top:465px;left:20px; width:280px; height:50px;font-size:12px' %>
 
   <%#= f.select :tipo,[['Interno','I'],['Externo','E']],
                    :style => 'top:25px;left:20px;' %>
 
 <% end %>
-
