@@ -42,7 +42,7 @@ class ItensPedidoDeAssistenciaController < ApplicationController
   # POST /itens_pedido_de_assistencia.xml
   def create
     @item_pedido_de_assistencia = ItemPedidoDeAssistencia.new(params[:item_pedido_de_assistencia])
-
+		
     respond_to do |format|
       if @item_pedido_de_assistencia.save
         flash[:notice] = 'ItemPedidoDeAssistencia was successfully created.'
@@ -87,5 +87,9 @@ class ItensPedidoDeAssistenciaController < ApplicationController
   def load_produtos
     @produtos = Produto.all.collect { |p| [p.descricao , p.id] }
   end
+
+	def usando_o_componente
+		render :layout => false
+	end
 
 end

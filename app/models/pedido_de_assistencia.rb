@@ -15,11 +15,11 @@ class PedidoDeAssistencia < ActiveRecord::Base
   #has_many :produtos, :through => :item_pedidos
   has_many :duplicatas, :dependent => :destroy
 
-  validates_presence_of :tipo, :message => "Informe o Tipo de Pedido"
-  validates_presence_of :data, :message => "Informe a Data do Pedido..."
-  validates_presence_of :cliente_id, :message => "Informe o Código do Cliente"
+#  validates_presence_of :tipo, :message => "Informe o Tipo de Pedido"
+#  validates_presence_of :data, :message => "Informe a Data do Pedido..."
+#  validates_presence_of :cliente_id, :message => "Informe o Código do Cliente"
 #  validates_presence_of :operador_id, :message => "Operador não Informado, verifique ...."
-  validates_presence_of :nosso_numero, :message => "Informe 'Nosso Numero' ...."
+#  validates_presence_of :nosso_numero, :message => "Informe 'Nosso Numero' ...."
 
   #before_save :trg_save
   #after_update :trg_save
