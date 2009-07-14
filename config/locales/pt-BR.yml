@@ -159,6 +159,12 @@ pt-BR:
         desconto: "Desc. Pedido"
         total_desconto_item: "Desc. Item"
         desconto_acumulado_geral: "Desc. Total"
+        uf_entrega: "Uf"
+        bairro_entrega: "Bairro"
+        cep_entrega: "Cep"
+        endereco_entrega: "Endereço de Entrega"
+        cidade_entrega_id: "Cidade de Entrega"
+        area_entrega_id: "Area de Entrega"
 
 
   txt:

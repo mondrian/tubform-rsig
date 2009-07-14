@@ -1,13 +1,18 @@
 class Pedido < ActiveRecord::Base
-  belongs_to :cliente 
+  belongs_to :cliente
   belongs_to :vendedor, :class_name => 'Funcionario', :foreign_key => 'vendedor_id'
   belongs_to :operador, :class_name => 'Funcionario', :foreign_key => 'operador_id'
   belongs_to :telemarketing, :class_name => 'Funcionario', :foreign_key => 'telemarketing_id'
+  belongs_to :loja_origem, :class_name => 'Loja', :foreign_key => 'loja_origem_id'
+  belongs_to :loja_destino, :class_name => 'Loja', :foreign_key => 'loja_destino_id'
+  belongs_to :cidade_entrega, :class_name => 'Cidade', :foreign_key => 'cidade_entrega_id'
+  belongs_to :area_entrega, :class_name => 'Area', :foreign_key => 'area_entrega_id'
+  belongs_to :regiao_entrega, :class_name => 'Regiao', :foreign_key => 'regiao_entrega_id'
+  belongs_to :roteiro_entrega, :class_name => 'Roteiro', :foreign_key => 'roteiro_entrega_id'
+
   has_one :autorizador, :class_name => 'Funcionario', :foreign_key => 'id'
   has_one :autorizador_desconto, :class_name => 'Funcionario', :foreign_key => 'id'
   has_one :funcionario_estorno, :class_name => 'Funcionario', :foreign_key => 'id'
-
-  has_one :loja
 
   belongs_to :transportadora
   belongs_to :minuta

@@ -448,6 +448,13 @@ ActiveRecord::Schema.define(:version => 20090709193456) do
     t.boolean  "status_estorno",                                                      :default => false, :null => false
     t.integer  "loja_origem_id"
     t.integer  "loja_destino_id"
+    t.string   "bairro_entrega"
+    t.string   "cep_entrega"
+    t.string   "uf_entrega"
+    t.integer  "cidade_entrega_id"
+    t.integer  "area_entrega_id"
+    t.integer  "regiao_entrega_id"
+    t.integer  "roteiro_entrega_id"
   end
 
   create_table "pedidos_de_assistencia", :force => true do |t|
