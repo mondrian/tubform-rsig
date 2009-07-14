@@ -8,6 +8,9 @@ JJWorks.JCrudPagingToolbar = Ext.extend(Ext.PagingToolbar, {
       pageSize:5,
       displayInfo: true,
       items: ['-', {
+        text: 'Exibir',
+        handler: show
+      },{
         text: 'Novo',
         handler: create
       },{

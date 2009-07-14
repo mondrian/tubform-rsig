@@ -1,16 +1,12 @@
-JJWorks.JActionEdit = function(entity, entities) {
+JJWorks.JActionShow = function(entity, entities) {
   return function() {
     try {
       id = grid.getSelectionModel().getSelected().get('id');
         janela = new JJWorks.JWindow({
-        title:'Alterar '+entity,
+        title:'Exibir '+entity,
         autoLoad:{
-          url: '/' + entities + '/edit/' + id
-        },
-        buttons:[{
-          text: 'Salvar',
-          handler: update
-        }]
+          url: '/' + entities + '/show/' + id
+        }
       });
       janela.show();
     } catch(e) {
@@ -18,7 +14,7 @@ JJWorks.JActionEdit = function(entity, entities) {
       icon: Ext.MessageBox.WARNING,
       buttons: Ext.Msg.OK,
       title:'Atenção',
-      msg:'Selecione um registro para alteração!'
+      msg:'Selecione um registro para exibição!'
     });
   };
  }
