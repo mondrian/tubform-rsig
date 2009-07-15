@@ -9,13 +9,13 @@
     <cliente_cnpj_cpf>85821543304</cliente_cnpj_cpf>
     <cliente_endereco>RUA ACAPULCOP</cliente_endereco>
     <cliente_fone_fax>1</cliente_fone_fax>
-    <cliente_inscricao_estadual nil="true"></cliente_inscricao_estadual>
+    <cliente_inscricao_estadual>00.000.000-00</cliente_inscricao_estadual>
     <cliente_razao_social>LUIZ MAGNO DIOGO BATISTA</cliente_razao_social>
     <cliente_uf>CE</cliente_uf>
     <item_codigo_produto>1</item_codigo_produto>
     <item_descricao_produto>PRODUTO TESTE</item_descricao_produto>
-    <item_icms>17.00</item_icms>
-    <item_ipi>10.00</item_ipi>
+    <item_icms>17</item_icms>
+    <item_ipi>10</item_ipi>
     <item_quantidade>2</item_quantidade>
     <item_sit_trib>T</item_sit_trib>
     <item_unidade>UN</item_unidade>
@@ -39,6 +39,7 @@
     <nf_valor_do_frete>200.00</nf_valor_do_frete>
     <nf_valor_do_icms>340.00</nf_valor_do_icms>
     <nf_valor_icms_subs_trib>0.00</nf_valor_icms_subs_trib>
+    <nf_valor_por_extenso>DOIS MIL E QUATROCENTOS REAIS</nf_valor_por_extenso>
     <nf_valor_total_desconto>0.00</nf_valor_total_desconto>
     <nf_valor_total_do_ipi>200.00</nf_valor_total_do_ipi>
     <nf_valor_total_dos_produtos>2000.00</nf_valor_total_dos_produtos>
