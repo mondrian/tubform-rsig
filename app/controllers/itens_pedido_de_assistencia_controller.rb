@@ -83,13 +83,14 @@ class ItensPedidoDeAssistenciaController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+	def usando_o_componente
+		render :text => 'deu certo'
+	end
+
   protected
   def load_produtos
     @produtos = Produto.all.collect { |p| [p.descricao , p.id] }
   end
-
-	def usando_o_componente
-		render :layout => false
-	end
 
 end

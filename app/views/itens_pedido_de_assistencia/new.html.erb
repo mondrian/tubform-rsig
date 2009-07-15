@@ -1,5 +1,4 @@
 <h1>New item_pedido_de_assistencia</h1>
-
 <% form_for(@item_pedido_de_assistencia) do |f| %>
   <%= f.error_messages %>
 
@@ -15,8 +14,8 @@
     <%= f.label :usa_componente %><br />
     <%= f.check_box :usa_componente %>
   </p>
-
-  <div id="usar_o_componente"></div>
+  
+  <div id="div_componente"> </div> 
 
   <p>
     <%= f.label :motivo_id %><br />
@@ -30,12 +29,13 @@
   <p>
     <%= f.submit 'Create' %>
   </p>
+  <p>
+  <%= observe_field :item_pedido_de_assistencia_usa_componente,
+      :update => 'div_componente',
+      :url => {:action => 'usando_o_componente'},
+      :with => :produto_id %>
 <% end %>
 
 <%= link_to 'Back', itens_pedido_de_assistencia_path %>
 
-<%= observe_field :usa_componente,
-  :update => 'usar_o_componente',
-  :url => {:action => 'usando_o_componente'},
-  :with => :usa_componente
-%>
+
