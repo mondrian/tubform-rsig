@@ -1,4 +1,4 @@
-<h1>Editing classe</h1>
+<h1>Editar classe</h1>
 
 <% form_for(@classe) do |f| %>
   <%= f.error_messages %>
@@ -8,9 +8,9 @@
     <%= f.text_field :descricao %>
   </p>
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.submit 'atualizar' %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @classe %> |
-<%= link_to 'Back', classes_path %>
+<%= link_to 'Mostrar', @classe %> |
+<%= link_to 'Voltar', classes_path %>
