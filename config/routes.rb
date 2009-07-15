@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :notas_fiscais
+
   map.resources :lojas
 
   map.resources :componentes_pedido_de_assistencia

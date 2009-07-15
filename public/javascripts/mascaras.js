@@ -31,9 +31,9 @@ function telefone(v){
 }
 
 function data(v){
-  v=v.replace(/\D/g,"") 
-  v=v.replace(/(\d{2})(\d)/,"$1/$2") 
-  v=v.replace(/(\d{2})(\d)/,"$1/$2") 
+  v=v.replace(/\D/g,"")
+  v=v.replace(/(\d{2})(\d)/,"$1/$2")
+  v=v.replace(/(\d{2})(\d)/,"$1/$2")
   return v
 }
 
@@ -55,7 +55,7 @@ function cpf_cnpj(v) {
   if (v.length > 14) {
     return cnpj(v);
   } else {
-    return cpf(v);   
+    return cpf(v);
   }
 }
 
@@ -122,3 +122,4 @@ function site(v){
  v="http://"+dominio+caminho
  return v
 }
+
