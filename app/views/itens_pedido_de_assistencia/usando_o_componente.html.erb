@@ -1,8 +1,4 @@
-<<<<<<< HEAD:app/views/itens_pedido_de_assistencia/usando_o_componente.html.erb
-  	<% for componente in @componentes %>
-   	 	<%= select_tag('itens_pedido_de_assistencia[produto_id]', options_for_select(Produto.find(:all).collect { |c| [c.descricao, c.id]},params[:produto_id])) %><br/>
-	<%= text_field('itens_pedido_de_assistencia[quantidade]') %><br/>
-  	<% end %>
-=======
-deu certo
->>>>>>> working:app/views/itens_pedido_de_assistencia/usando_o_componente.html.erb
+<% @acaralhos.each do |acaraio| %>
+	<%= label(:produto, 'Produto: ') %>
+	<%= text_field(:produto,:id) %><br/>
+<% end %>

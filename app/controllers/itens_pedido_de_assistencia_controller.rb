@@ -83,21 +83,9 @@ class ItensPedidoDeAssistenciaController < ApplicationController
       format.xml  { head :ok }
     end
   end
-<<<<<<< HEAD:app/controllers/itens_pedido_de_assistencia_controller.rb
 
 	def usando_o_componente
-     @componentes = Produto.find_by_id(params[:produto_id])
-     render :layout => false
-	end
-
-  protected
-  def load_produtos
-    @produtos = Produto.all.collect { |p| [p.descricao , p.id] }
-  end
-=======
-
-	def usando_o_componente
-		render :text => 'deu certo'
+		@acaralhos = Produto.all(params[:produto_id])
 	end
 
   protected
@@ -105,5 +93,4 @@ class ItensPedidoDeAssistenciaController < ApplicationController
     @produtos = Produto.all.collect { |p| [p.descricao , p.id] }
   end
 
->>>>>>> working:app/controllers/itens_pedido_de_assistencia_controller.rb
 end
