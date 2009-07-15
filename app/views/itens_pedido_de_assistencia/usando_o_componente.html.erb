@@ -1,2 +1,4 @@
-<%= select_tag('itens_pedido_de_assistencia[produto_id]', options_for_select(Produto.find(:all).collect { |c| [c.descricao, c.id]},params[:produto_id])) %>
-<%= text_field('itens_pedido_de_assistencia[quantidade]') %>
+  	<% for componente in @componentes %>
+   	 	<%= select_tag('itens_pedido_de_assistencia[produto_id]', options_for_select(Produto.find(:all).collect { |c| [c.descricao, c.id]},params[:produto_id])) %><br/>
+	<%= text_field('itens_pedido_de_assistencia[quantidade]') %><br/>
+  	<% end %>
