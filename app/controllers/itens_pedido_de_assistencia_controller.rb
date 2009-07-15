@@ -85,7 +85,7 @@ class ItensPedidoDeAssistenciaController < ApplicationController
   end
 
 	def usando_o_componente
-		@acaralhos = Produto.all(params[:produto_id])
+		@exibeformcomponentes = Produto.all(params[:produto_id])
 	end
 
   protected

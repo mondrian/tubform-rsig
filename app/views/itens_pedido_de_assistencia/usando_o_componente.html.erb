@@ -1,4 +1,6 @@
-<% @acaralhos.each do |acaraio| %>
-	<%= label(:produto, 'Produto: ') %>
-	<%= text_field(:produto,:id) %><br/>
-<% end %>
+	<% @exibeformcomponentes.each do |exibeformcomponente| %>
+		<%= exibeformcomponente.id %><br/>
+		<%= exibeformcomponente.descricao %><br/>
+		<%= label(:produto, 'Quantidade: ') %><br/>
+		<%= text_field(:produto,:quantidade) %><br/>
+	<% end %>
