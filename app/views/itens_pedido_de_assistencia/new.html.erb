@@ -35,7 +35,7 @@
 <%= link_to 'Back', itens_pedido_de_assistencia_path %>
 
 <%= observe_field :usa_componente,
-  :update => 'usar_o_componente',
-  :url => {:action => 'usando_o_componente'},
-  :with => :usa_componente
+  :url => {:action => "usando_o_componente"},
+  :update => "usar_o_componente",
+  :with => "'produto_id='+ escape($('produto_id').value)"
 %>
