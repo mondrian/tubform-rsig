@@ -88,6 +88,13 @@ class ItensPedidoDeAssistenciaController < ApplicationController
 		@exibeformcomponentes = Produto.all(params[:produto_id])
 	end
 
+	# vai pegar os componentes e as quantidade de cada produto/componente
+	def iterando_nos_componente_enviados
+		for 1 in params[:produto_quantidade] do
+			@componentesenviados << Produto.all(params[:exibeformcomponente_id])
+		end
+	end
+
   protected
   def load_produtos
     @produtos = Produto.all.collect { |p| [p.descricao , p.id] }

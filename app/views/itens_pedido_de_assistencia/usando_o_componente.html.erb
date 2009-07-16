@@ -1,6 +1,15 @@
 	<% @exibeformcomponentes.each do |exibeformcomponente| %>
+		<label>Numero do Produto: </label>
 		<%= exibeformcomponente.id %><br/>
+		<label>Descrição do Produto: </label>
 		<%= exibeformcomponente.descricao %><br/>
 		<%= label(:produto, 'Quantidade: ') %><br/>
-		<%= text_field(:produto,:quantidade) %><br/>
+		<%= text_field(:produto,:quantidade) %><br/><br/>
 	<% end %>
+
+  <%= observe_field :produto_quantidade,
+      :url => {:action => 'iterando_nos_componente_enviados'},
+      :with => :exibeformcomponente_id
+      :with => :produto_descricao
+      :with => :produto_quantidade
+	%>
