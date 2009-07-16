@@ -90,7 +90,9 @@ class ItensPedidoDeAssistenciaController < ApplicationController
 
 	# vai pegar os componentes e as quantidade de cada produto/componente
 	def iterando_nos_componente_enviados
-		for 1 in params[:produto_quantidade] do
+		quantidade = params[:produto_quantidade]
+		i = 1
+		for i in quantidade.to_i do
 			@componentesenviados << Produto.all(params[:exibeformcomponente_id])
 		end
 	end
