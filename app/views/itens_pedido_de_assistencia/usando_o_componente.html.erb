@@ -1,12 +1,18 @@
   <% form_remote_tag :url => { :action => "iterando_nos_componente_enviados"} do %>
-		<% @exibeformcomponentes.each do |exibeformcomponente| %>
-			<label>Numero do Produto: </label>
-			<%= exibeformcomponente.id %><br/>
-			<label>Descrição do Produto: </label>
-			<%= exibeformcomponente.descricao %><br/>
-			<%= label(:produto, 'Quantidade: ') %><br/>
-			<%= text_field(:produto,:quantidade) %><br/><br/>
-		<% end %>
+			<table border=1>
+        <tr>
+          <th>Código Componente:</th>
+          <th>Descricao:</th>
+          <th>Quantidade:</th>
+        </tr>
+       <% @exibeformcomponentes.each do |exibeformcomponente| %>
+		    <tr>
+           <td><%= exibeformcomponente.cod_compon %></td>
+			     <td><%= exibeformcomponente.des_compon %></td>
+           <td><%= exibeformcomponente.qtd_compon %></td>
+        </tr>
+     	<% end %>
+       </table>
 
     <%= submit_tag "Enviar", :disable_with => "por favor espere..." %>
   <% end %>
