@@ -31,9 +31,11 @@
   </p>
   <p>
   <%= observe_field :item_pedido_de_assistencia_usa_componente,
+			:frequency => 0.25,
       :update => 'div_componente',
       :url => {:action => 'usando_o_componente'},
-      :with => :usa_componente %>
+			:with => "'usa_componente='+escape($('item_pedido_de_assistencia_usa_componente').checked) + '&produto_id=' + escape($('item_pedido_de_assistencia_produto_id').value)"
+  %>
   <% end %>
 
 <%= link_to 'Back', itens_pedido_de_assistencia_path %>
