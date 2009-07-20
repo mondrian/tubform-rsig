@@ -1,4 +1,4 @@
-<h1>Novo fornecedor</h1>
+<h1>New fornecedor</h1>
 
 <% form_for(@fornecedor) do |f| %>
   <%= f.error_messages %>
@@ -13,11 +13,11 @@
   </p>
   <p>
     <%= f.label :cnpj %><br />
-    <%= f.text_field :cnpj, :onkeypress => 'mascara(this,cnpj)', :maxlength => 18 %> %>
+    <%= f.text_field :cnpj %>
   </p>
   <p>
-    <%= f.submit 'Salvar' %>
+    <%= f.submit 'Create' %>
   </p>
 <% end %>
 
-<%= link_to 'Voltar', fornecedores_path %>
+<%= link_to 'Back', fornecedores_path %>

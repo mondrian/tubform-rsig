@@ -1,4 +1,4 @@
-<h1>Novo lancamento</h1>
+<h1>New lancamento</h1>
 
 <% form_for(@lancamento) do |f| %>
   <%= f.error_messages %>
@@ -64,8 +64,8 @@
     <%= f.text_field :sequencia_movimento %>
   </p>
   <p>
-    <%= f.submit 'Salvar' %>
+    <%= f.submit 'Create' %>
   </p>
 <% end %>
 
-<%= link_to 'Voltar', lancamentos_path %>
+<%= link_to 'Back', lancamentos_path %>

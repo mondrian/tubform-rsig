@@ -44,7 +44,7 @@ class AcoesController < ApplicationController
 
     respond_to do |format|
       if @acao.save
-        flash[:notice] = 'Acao criada com sucesso.'
+        flash[:notice] = 'Acao was successfully created.'
         format.html { redirect_to(@acao) }
         format.xml  { render :xml => @acao, :status => :created, :location => @acao }
       else
@@ -61,7 +61,7 @@ class AcoesController < ApplicationController
 
     respond_to do |format|
       if @acao.update_attributes(params[:acao])
-        flash[:notice] = 'Acao atualizada com sucesso.'
+        flash[:notice] = 'Acao was successfully updated.'
         format.html { redirect_to(@acao) }
         format.xml  { head :ok }
       else

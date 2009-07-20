@@ -2,17 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Grupo TubForm - Automação Comercial</title>
+  <title>Título do sistema</title>
   <%= stylesheet_link_tag '../javascripts/ext/resources/css/ext-all' %>
   <%= stylesheet_link_tag '../javascripts/ext/resources/css/xtheme-gray' %>
-  <%= stylesheet_link_tag '../javascripts/ext/plugins/gridsearch/css/gridsearch.css' %>
-
   <%= stylesheet_link_tag 'principal' %>
-
   <%= javascript_include_tag 'ext/adapter/ext/ext-base' %>
   <%= javascript_include_tag 'ext/ext-all-debug' %>
   <%= javascript_include_tag 'ext/build/locale/ext-lang-pt_BR-min' %>
-  <%= javascript_include_tag 'ext/plugins/gridsearch/js/Ext.ux.grid.Search' %>
   <%= javascript_include_tag 'principal' %>
   <%= javascript_include_tag 'jjworks/jwindow' %>
   <%= javascript_include_tag 'jjworks/jstore' %>
@@ -23,9 +19,17 @@
   <%= javascript_include_tag 'jjworks/jactionupdate' %>
   <%= javascript_include_tag 'jjworks/jactiondestroy' %>
   <%= javascript_include_tag 'jjworks/jactionedit' %>
-  <%= javascript_include_tag 'jjworks/jactionshow' %>
   <%= javascript_include_tag 'jjworks/jactioninspect' %>
 </head>
 <body>
-  <div id="cabecalho">
-  </div>
+
+
+ <% if flash[:notice] %>
+  <p style="color: green"><%= flash[:notice] %></p>
+ <% end %>
+ <% if flash[:error] %>
+  <p style="color: red"><%= flash[:error] %></p>
+ <% end %>
+ <%= yield %>
+</body>
+</html>

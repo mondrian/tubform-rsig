@@ -12,14 +12,15 @@ class PedidoDeAssistencia < ActiveRecord::Base
   belongs_to :minuta
   belongs_to :area
   has_many :itens, :class_name => 'ItemPedidoDeAssistencia', :dependent  => :destroy
+  has_many :items_pedidos, :dependent => :destroy
   #has_many :produtos, :through => :item_pedidos
   has_many :duplicatas, :dependent => :destroy
 
-#  validates_presence_of :tipo, :message => "Informe o Tipo de Pedido"
-#  validates_presence_of :data, :message => "Informe a Data do Pedido..."
-#  validates_presence_of :cliente_id, :message => "Informe o Código do Cliente"
+  validates_presence_of :tipo, :message => "Informe o Tipo de Pedido"
+  validates_presence_of :data, :message => "Informe a Data do Pedido..."
+  validates_presence_of :cliente_id, :message => "Informe o Código do Cliente"
 #  validates_presence_of :operador_id, :message => "Operador não Informado, verifique ...."
-#  validates_presence_of :nosso_numero, :message => "Informe 'Nosso Numero' ...."
+  validates_presence_of :nosso_numero, :message => "Informe 'Nosso Numero' ...."
 
   #before_save :trg_save
   #after_update :trg_save
@@ -159,7 +160,7 @@ class PedidoDeAssistencia < ActiveRecord::Base
     p = self.itens
     if p.size > 0
       p.each do | i |
-        soma += (i.quantidade * i.valor )
+        soma += (i.quantidade * i.valor_venda )
       end
       soma = ( soma )
     end

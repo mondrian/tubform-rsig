@@ -1,20 +1,16 @@
 /*
  * Ext JS Library 2.1
- * Copyright(c) 2006-2009, Ext JS, LLC.
+ * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
- *
+ * 
  * http://extjs.com/license
  */
 
-/**
+/*
  * Portuguese/Brazil Translation by Weber Souza
  * 08 April 2007
  * Updated by Allan Brazute Alves (EthraZa)
  * 06 September 2007
- * Updated by Leonardo Lima
- * 05 March 2008
- * Updated by Juliano Tarini (jtarini)
- * 22 April 2008
  */
 
 Ext.UpdateManager.defaults.indicatorText = '<div class="loading-indicator">Carregando...</div>';
@@ -23,8 +19,8 @@ if(Ext.View){
    Ext.View.prototype.emptyText = "";
 }
 
-if(Ext.grid.GridPanel){
-   Ext.grid.GridPanel.prototype.ddText = "{0} linha(s) selecionada(s)";
+if(Ext.grid.Grid){
+   Ext.grid.Grid.prototype.ddText = "{0} linha(s) selecionada(s)";
 }
 
 if(Ext.TabPanelItem){
@@ -32,7 +28,7 @@ if(Ext.TabPanelItem){
 }
 
 if(Ext.form.Field){
-   Ext.form.Field.prototype.invalidText = "O valor para este campo &eacute; inv&aacute;lido";
+   Ext.form.Field.prototype.invalidText = "O valor para este campo é inválido";
 }
 
 if(Ext.LoadMask){
@@ -42,7 +38,7 @@ if(Ext.LoadMask){
 Date.monthNames = [
    "Janeiro",
    "Fevereiro",
-   "Mar&ccedil;o",
+   "Março",
    "Abril",
    "Maio",
    "Junho",
@@ -80,11 +76,11 @@ Date.getMonthNumber = function(name) {
 Date.dayNames = [
    "Domingo",
    "Segunda",
-   "Ter&ccedil;a",
+   "Terça",
    "Quarta",
    "Quinta",
    "Sexta",
-   "S&aacute;bado"
+   "Sábado"
 ];
 
 if(Ext.MessageBox){
@@ -92,48 +88,31 @@ if(Ext.MessageBox){
       ok     : "OK",
       cancel : "Cancelar",
       yes    : "Sim",
-      no     : "N&atilde;o"
+      no     : "Não"
    };
 }
 
-if (Ext.util.Format) {
-  Ext.util.Format.date = function(v, format){
-    if (!v) return "";
-    if (!(v instanceof Date)) v = new Date(Date.parse(v));
-    return v.dateFormat(format || "d/m/Y");
-  };
-  Ext.util.Format.brMoney = function(v){
-    v = (Math.round((v - 0) * 100)) / 100;
-    v = (v == Math.floor(v)) ? v + ".00" : ((v * 10 == Math.floor(v * 10)) ? v + "0" : v);
-    v = String(v);
-    var ps = v.split('.');
-    var whole = ps[0];
-    var sub = ps[1] ? '.' + ps[1] : '.00';
-    var r = /(\d+)(\d{3})/;
-    while (r.test(whole)) {
-      whole = whole.replace(r, '$1' + '.' + '$2');
-    }
-    v = whole + sub;
-    if (v.charAt(0) == '-') {
-      return '- R$ ' + v.substr(1);
-    }
-    return "R$ " + v;
-  }
+if(Ext.util.Format){
+   Ext.util.Format.date = function(v, format){
+      if(!v) return "";
+      if(!(v instanceof Date)) v = new Date(Date.parse(v));
+      return v.dateFormat(format || "d/m/Y");
+   };
 }
 
 if(Ext.DatePicker){
    Ext.apply(Ext.DatePicker.prototype, {
       todayText         : "Hoje",
-      minText           : "Esta data &eacute; anterior a menor data",
-      maxText           : "Esta data &eacute; posterior a maior data",
+      minText           : "Esta data é anterior a menor data",
+      maxText           : "Esta data é posterior a maior data",
       disabledDaysText  : "",
       disabledDatesText : "",
       monthNames        : Date.monthNames,
       dayNames          : Date.dayNames,
-      nextText          : 'Pr&oacute;ximo M&ecirc;s (Control+Direita)',
-      prevText          : 'M&ecirc;s Anterior (Control+Esquerda)',
-      monthYearText     : 'Escolha um M&ecirc;s (Control+Cima/Baixo para mover entre os anos)',
-      todayTip          : "{0} (Espa&ccedil;o)",
+      nextText          : 'Próximo Mês (Control+Direita)',
+      prevText          : 'Mês Anterior (Control+Esquerda)',
+      monthYearText     : 'Escolha um Mês (Control+Cima/Baixo para mover entre os anos)',
+      todayTip          : "{0} (Espaço)",
       format            : "d/m/Y",
       okText            : "&#160;OK&#160;",
       cancelText        : "Cancelar",
@@ -143,23 +122,23 @@ if(Ext.DatePicker){
 
 if(Ext.PagingToolbar){
    Ext.apply(Ext.PagingToolbar.prototype, {
-      beforePageText : "P&aacute;gina",
+      beforePageText : "Página",
       afterPageText  : "de {0}",
-      firstText      : "Primeira P&aacute;gina",
-      prevText       : "P&aacute;gina Anterior",
-      nextText       : "Pr&oacute;xima P&aacute;gina",
-      lastText       : "&Uacute;ltima P&aacute;gina",
+      firstText      : "Primeira Página",
+      prevText       : "Página Anterior",
+      nextText       : "Próxima Página",
+      lastText       : "Última Página",
       refreshText    : "Atualizar",
-      displayMsg     : "<b>{0} &agrave; {1} de {2} registro(s)</b>",
+      displayMsg     : "<b>{0} à {1} de {2} registro(s)</b>",
       emptyMsg       : 'Sem registros para exibir'
    });
 }
 
 if(Ext.form.TextField){
    Ext.apply(Ext.form.TextField.prototype, {
-      minLengthText : "O tamanho m&iacute;nimo para este campo &eacute; {0}",
-      maxLengthText : "O tamanho m&aacute;ximo para este campo &eacute; {0}",
-      blankText     : "Este campo &eacute; obrigat&oacute;rio.",
+      minLengthText : "O tamanho mínimo para este campo é {0}",
+      maxLengthText : "O tamanho máximo para este campo é {0}",
+      blankText     : "Este campo é obrigatório.",
       regexText     : "",
       emptyText     : null
    });
@@ -167,9 +146,9 @@ if(Ext.form.TextField){
 
 if(Ext.form.NumberField){
    Ext.apply(Ext.form.NumberField.prototype, {
-      minText : "O valor m&iacute;nimo para este campo &eacute; {0}",
-      maxText : "O valor m&aacute;ximo para este campo &eacute; {0}",
-      nanText : "{0} n&atilde;o &eacute; um n&uacute;mero v&aacute;lido"
+      minText : "O valor mínimo para este campo é {0}",
+      maxText : "O valor máximo para este campo é {0}",
+      nanText : "{0} não é um número válido"
    });
 }
 
@@ -179,7 +158,7 @@ if(Ext.form.DateField){
       disabledDatesText : "Desabilitado",
       minText           : "A data deste campo deve ser posterior a {0}",
       maxText           : "A data deste campo deve ser anterior a {0}",
-      invalidText       : "{0} n&atilde;o &eacute; uma data v&aacute;lida - deve ser informado no formato {1}",
+      invalidText       : "{0} não é uma data válida - deve ser informado no formato {1}",
       format            : "d/m/Y"
    });
 }
@@ -193,17 +172,17 @@ if(Ext.form.ComboBox){
 
 if(Ext.form.VTypes){
    Ext.apply(Ext.form.VTypes, {
-      emailText    : 'Este campo deve ser um endere&ccedil;o de e-mail v&aacute;lido, no formado "usuario@dominio.com.br"',
+      emailText    : 'Este campo deve ser um endereço de e-mail válido, no formado "usuario@dominio.com.br"',
       urlText      : 'Este campo deve ser uma URL no formato "http:/'+'/www.dominio.com.br"',
       alphaText    : 'Este campo deve conter apenas letras e _',
-      alphanumText : 'Este campo deve conter apenas letras, n&uacute;meros e _'
+      alphanumText : 'Este campo deve conter apenas letras, números e _'
    });
 }
 
 if(Ext.form.HtmlEditor){
    Ext.apply(Ext.form.HtmlEditor.prototype, {
-        createLinkText : 'Porfavor, entre com a URL do link:',
-        buttonTips : {
+	 createLinkText : 'Porfavor, entre com a URL do link:',
+	 buttonTips : {
             bold : {
                title: 'Negrito (Ctrl+B)',
                text: 'Deixa o texto selecionado em negrito.',
@@ -240,8 +219,8 @@ if(Ext.form.HtmlEditor){
                cls: 'x-html-editor-tip'
            },
            justifyleft : {
-               title: 'Alinhar &agrave; Esquerda',
-               text: 'Alinha o texto &agrave; esquerda.',
+               title: 'Alinhar à Esquerda',
+               text: 'Alinha o texto à esquerda.',
                cls: 'x-html-editor-tip'
            },
            justifycenter : {
@@ -250,8 +229,8 @@ if(Ext.form.HtmlEditor){
                cls: 'x-html-editor-tip'
            },
            justifyright : {
-               title: 'Alinhar &agrave; Direita',
-               text: 'Alinha o texto &agrave; direita.',
+               title: 'Alinhar à Direita',
+               text: 'Alinha o texto à direita.',
                cls: 'x-html-editor-tip'
            },
            insertunorderedlist : {
@@ -265,13 +244,13 @@ if(Ext.form.HtmlEditor){
                cls: 'x-html-editor-tip'
            },
            createlink : {
-               title: 'Hyperliga&ccedil;&atilde;o',
+               title: 'Hyperligação',
                text: 'Transforma o texto selecionado em um hyperlink.',
                cls: 'x-html-editor-tip'
            },
            sourceedit : {
                title: 'Editar Fonte',
-               text: 'Troca para o modo de edi&ccedil;&atilde;o de c&oacute;digo fonte.',
+               text: 'Troca para o modo de edição de código fonte.',
                cls: 'x-html-editor-tip'
            }
         }
@@ -296,10 +275,9 @@ if(Ext.grid.PropertyColumnModel){
    });
 }
 
-if(Ext.layout.BorderLayout && Ext.layout.BorderLayout.SplitRegion){
+if(Ext.layout.BorderLayout.SplitRegion){
    Ext.apply(Ext.layout.BorderLayout.SplitRegion.prototype, {
-      splitTip            : "Arraste para redimensionar.",
-      collapsibleSplitTip : "Arraste para redimensionar. Duplo clique para esconder."
+      splitTip            : "Arraste para redimencionar.",
+      collapsibleSplitTip : "Arraste para redimencionar. Duplo clique para esconder."
    });
 }
-

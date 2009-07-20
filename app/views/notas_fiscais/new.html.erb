@@ -3,7 +3,7 @@
 <% form_for(@nota_fiscal) do |f| %>
   <%= f.error_messages %>
 
-  <%= render :partial => "nota_fiscal",  :locals => { :f => f} %>
+  <%= render :partial => "form",  :locals => { :f => f} %>
 
   <p>
     <%= f.submit 'Salvar' %>
@@ -11,4 +11,3 @@
 <% end %>
 
 <%= link_to 'Retornar', notas_fiscais_path %>
-

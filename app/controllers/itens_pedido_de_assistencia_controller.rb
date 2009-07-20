@@ -27,6 +27,7 @@ class ItensPedidoDeAssistenciaController < ApplicationController
   # GET /itens_pedido_de_assistencia/new.xml
   def new
     @item_pedido_de_assistencia = ItemPedidoDeAssistencia.new
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @item_pedido_de_assistencia }
@@ -42,7 +43,7 @@ class ItensPedidoDeAssistenciaController < ApplicationController
   # POST /itens_pedido_de_assistencia.xml
   def create
     @item_pedido_de_assistencia = ItemPedidoDeAssistencia.new(params[:item_pedido_de_assistencia])
-		
+
     respond_to do |format|
       if @item_pedido_de_assistencia.save
         flash[:notice] = 'ItemPedidoDeAssistencia was successfully created.'
@@ -83,25 +84,6 @@ class ItensPedidoDeAssistenciaController < ApplicationController
       format.xml  { head :ok }
     end
   end
-
-	def usando_o_componente
-		if params[:usa_componente].to_s == 'true' and params[:produto_id]
-		  sql = "select * from fnc_consultar_componentes_do_produto(#{'31'})"
-			@exibeformcomponentes = Produto.find_by_sql(sql)
-		else
-       render :nothing => true
-		end
-	end
-
-	# vai pegar os componentes e as quantidade de cada produto/componente
-	def iterando_nos_componente_enviados
-		quantidade = params[:produto_quantidade]
-		i = 1
-		for i in quantidade.to_i do
-			@componentesenviados << Produto.all(params[:exibeformcomponente_id])
-		end
-	end
-
   protected
   def load_produtos
     @produtos = Produto.all.collect { |p| [p.descricao , p.id] }

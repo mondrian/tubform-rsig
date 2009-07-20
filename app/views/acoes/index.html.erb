@@ -10,13 +10,13 @@
   <tr>
     <td><%=h acao.controller_name %></td>
     <td><%=h acao.action_name %></td>
-    <td><%= link_to 'Mostrar', acao %></td>
-    <td><%= link_to 'Editar', edit_acao_path(acao) %></td>
-    <td><%= link_to 'Apagar', acao, :confirm => 'Tem certeza?', :method => :delete %></td>
+    <td><%= link_to 'Show', acao %></td>
+    <td><%= link_to 'Edit', edit_acao_path(acao) %></td>
+    <td><%= link_to 'Destroy', acao, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'Nova acao', new_acao_path %>
+<%= link_to 'New acao', new_acao_path %>
