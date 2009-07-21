@@ -5,6 +5,7 @@ class ItemPedidoDeAssistencia < ActiveRecord::Base
 
   validates_presence_of :quantidade, :message => "Informe a Quantidade"
   validates_numericality_of :quantidade, :message => "Informe Apenas Números"
+  validates_presence_of :valor_venda, :message => "Informe o Valor de Venda"
   validate :valida_item
 
    after_save :trg_soma_itens
@@ -13,7 +14,7 @@ class ItemPedidoDeAssistencia < ActiveRecord::Base
 
   private
   def valida_item
-    p = ItemPedidoDeAssistencia.find_all_by_produto_id_and_pedido_de_assistencia_id(self.produto_id, self.pedido_de_assistencia_id)
+    p = ItemPedido.find_all_by_produto_id_and_pedido_id(self.produto_id, self.pedido_id)
     existe = false
     if p.size > 0
       for i in p do
@@ -29,11 +30,21 @@ class ItemPedidoDeAssistencia < ActiveRecord::Base
   end
 
   #Trigguer para Aplicar o Desconto no Valor de Tabela
+  def aplica_desconto
+    desconto = self.desconto
+    vlr_tabela = self.valor_tabela
+    vlr_venda = (self.valor_tabela - (self.valor_tabela * self.desconto ) /100 )
+    self.valor_venda = vlr_venda
+  end
+
+  def calcula_desconto
+    self.desconto = (self.valor_tabela - self.valor_venda) / self.valor_tabela * 100
+  end
 
   # rotina para Somar os Itens e Atualizar no Pedido
   def trg_soma_itens
-    self.pedido_de_assistencia.gerenciar_acoes
-    self.pedido_de_assistencia.save
+    self.pedido.gerenciar_acoes
+    self.pedido.save
   end
 
   public 

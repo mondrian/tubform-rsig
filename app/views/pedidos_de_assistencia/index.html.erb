@@ -1,36 +1,22 @@
-<div id="pedidos_grid"></div>
-<script type="text/javascript">
-Ext.onReady(Pedido.init);
-</script>
+<%= ext_grid_for :entity => 'pedido_de_assistencia',
+                 :columns => [
+                   { :header => 'Tipo',
+                     :dataIndex => 'tipo',
+                     :width => 8
+                   },
+                   { :header => 'Cliente',
+                     :dataIndex => 'cliente.razao_social',
+                     :width => 60
+                   },
+                   { :header => 'Valor',
+                     :dataIndex => 'valor',
+                     :width => 15,
+                   },
+                   { :header => 'Data',
+                     :dataIndex => 'data',
+                     :width => 15,
+                     :renderer => 'Ext.util.Format.dateRenderer(\'d/m/Y\')'
+                   }
+                  ]
+%>
 
-
-<p>Encontrado(s) <%= @qtd_pedidos %> registro(s) de pedido.</p>
-<h1>Últimos Pedidos</h1>
-
-<table border="1">
-  <tr>
-    <th>Tipo</th>
-    <th>Data</th>
-    <th>Cliente</th>
-    <th>Valor</th>
-    <th>Status</th>
-    <th colspan="3">Ação</th>
-  </tr>
-
-  <% @pedidos_de_assistencia.each do |pedido| %>
-      <tr id="linha_pedido_<%= h pedido.id %>">
-        <td><%= h pedido.tipo == 'I' ? 'Interno' : 'Externo' %></td>
-        <td><%= h pedido.data.to_s_br %></td>
-        <td><%= h pedido.cliente.razao_social if pedido.cliente %></td>
-        <td align="right"><%= h pedido.valor %></td>
-        <td align="center"><%= h pedido.status %></td>
-        <td><%= link_to 'Exibir', pedido %></td>
-        <td><%= link_to 'Alterar', edit_pedido_path(pedido) %></td>
-        <td><%= link_to 'Excluir', pedido, :confirm => "Excluindo o Pedido Número: #{pedido.id}, Confirma?", :method => :delete %></td>
-      </tr>
-  <% end %>
-</table>
-
-<br/>
-
-<%= link_to 'Novo Pedido', new_pedido_de_assistencia_path %>

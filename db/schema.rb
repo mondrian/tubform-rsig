@@ -409,7 +409,7 @@ ActiveRecord::Schema.define(:version => 20090713192408) do
     t.date     "entrega"
     t.date     "programacao"
     t.integer  "cliente_id"
-    t.decimal  "valor",                                :precision => 6,  :scale => 2, :default => 0.0
+    t.decimal  "valor",                                :precision => 8,  :scale => 2, :default => 0.0
     t.decimal  "acrescimo",                                                           :default => 0.0
     t.decimal  "desconto",                                                            :default => 0.0
     t.integer  "transportadora_id"
@@ -424,7 +424,7 @@ ActiveRecord::Schema.define(:version => 20090713192408) do
     t.string   "status"
     t.integer  "funcionario_estorno_id"
     t.boolean  "venda_externa"
-    t.decimal  "desconto_complementar",                :precision => 6,  :scale => 2, :default => 0.0
+    t.decimal  "desconto_complementar",                :precision => 3,  :scale => 2, :default => 0.0
     t.integer  "autorizador_desconto_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -545,13 +545,6 @@ ActiveRecord::Schema.define(:version => 20090713192408) do
     t.string   "descricao"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "replicacoes_pendentes", :force => true do |t|
-    t.text     "sql"
-    t.integer  "status",       :limit => 2
-    t.datetime "temporizador"
-    t.integer  "contador"
   end
 
   create_table "roteiros", :force => true do |t|

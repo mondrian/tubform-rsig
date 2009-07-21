@@ -1,4 +1,4 @@
-<h1>Nova contra_partida</h1>
+<h1>New contra_partida</h1>
 
 <% form_for(@contra_partida) do |f| %>
   <%= f.error_messages %>
@@ -28,8 +28,8 @@
     <%= f.text_area :historico %>
   </p>
   <p>
-    <%= f.submit 'Criar' %>
+    <%= f.submit 'Create' %>
   </p>
 <% end %>
 
-<%= link_to 'voltar', contra_partidas_path %>
+<%= link_to 'Back', contra_partidas_path %>

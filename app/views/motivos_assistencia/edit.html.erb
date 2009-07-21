@@ -1,4 +1,4 @@
-<h1>Editando motivo_assistencia</h1>
+<h1>Editing motivo_assistencia</h1>
 
 <% form_for(@motivo_assistencia) do |f| %>
   <%= f.error_messages %>
@@ -8,9 +8,9 @@
     <%= f.text_field :descricao %>
   </p>
   <p>
-    <%= f.submit 'Salvar' %>
+    <%= f.submit 'Update' %>
   </p>
 <% end %>
 
-<%= link_to 'Listar', @motivo_assistencia %> |
-<%= link_to 'Voltar', motivos_assistencia_path %>
+<%= link_to 'Show', @motivo_assistencia %> |
+<%= link_to 'Back', motivos_assistencia_path %>

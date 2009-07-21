@@ -2,7 +2,7 @@
 
 <% form_for(@nota_fiscal) do |f| %>
   <%= f.error_messages %>
-  <%= render :partial => "nota_fiscal",  :locals => { :f => f} %>
+  <%= render :partial => "form",  :locals => { :f => f} %>
 
 
   <p>
@@ -12,4 +12,3 @@
 
 <%= link_to 'Exibir', @nota_fiscal %> |
 <%= link_to 'Retornar', notas_fiscais_path %>
-

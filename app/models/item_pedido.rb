@@ -9,7 +9,7 @@ class ItemPedido < ActiveRecord::Base
 
    after_save :trg_soma_itens
   
-   after_destroy :trg_soma_itens
+  after_destroy :trg_soma_itens
 
   private
   def valida_item

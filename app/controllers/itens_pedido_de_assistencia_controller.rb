@@ -27,6 +27,7 @@ class ItensPedidoDeAssistenciaController < ApplicationController
   # GET /itens_pedido_de_assistencia/new.xml
   def new
     @item_pedido_de_assistencia = ItemPedidoDeAssistencia.new
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @item_pedido_de_assistencia }
@@ -42,7 +43,7 @@ class ItensPedidoDeAssistenciaController < ApplicationController
   # POST /itens_pedido_de_assistencia.xml
   def create
     @item_pedido_de_assistencia = ItemPedidoDeAssistencia.new(params[:item_pedido_de_assistencia])
-		
+
     respond_to do |format|
       if @item_pedido_de_assistencia.save
         flash[:notice] = 'ItemPedidoDeAssistencia was successfully created.'
