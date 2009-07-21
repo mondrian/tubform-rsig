@@ -85,7 +85,7 @@ class ItensPedidoDeAssistenciaController < ApplicationController
   end
 
 	def usando_o_componente
-		if params[:usa_componente] == true and !params[:produto_id].nil?
+		if params[:usa_componente] == 'true' and !params[:produto_id].nil?
 		  sql = "select * from fnc_consultar_componentes_do_produto(#{'31'})"
 			@exibeformcomponentes = Produto.find_by_sql(sql)
 		else
