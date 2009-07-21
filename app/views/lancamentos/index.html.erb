@@ -1,4 +1,4 @@
-<h1>Listando lancamentos</h1>
+<h1>Listing lancamentos</h1>
 
 <table>
   <tr>
@@ -36,13 +36,19 @@
     <td><%=h lancamento.imprimiu_op %></td>
     <td><%=h lancamento.vendedor_id %></td>
     <td><%=h lancamento.sequencia_movimento %></td>
+<<<<<<< HEAD:app/views/lancamentos/index.html.erb
     <td><%= link_to 'Listar', lancamento %></td>
     <td><%= link_to 'Editar', edit_lancamento_path(lancamento) %></td>
     <td><%= link_to 'Excluir', lancamento, :confirm => 'Você tem certeza?', :method => :delete %></td>
+=======
+    <td><%= link_to 'Show', lancamento %></td>
+    <td><%= link_to 'Edit', edit_lancamento_path(lancamento) %></td>
+    <td><%= link_to 'Destroy', lancamento, :confirm => 'Are you sure?', :method => :delete %></td>
+>>>>>>> b26cf7bc7d5bc404f04fd842574cacc7c663a537:app/views/lancamentos/index.html.erb
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'Novo lancamento', new_lancamento_path %>
+<%= link_to 'New lancamento', new_lancamento_path %>

@@ -27,6 +27,7 @@ class ItensPedidoDeAssistenciaController < ApplicationController
   # GET /itens_pedido_de_assistencia/new.xml
   def new
     @item_pedido_de_assistencia = ItemPedidoDeAssistencia.new
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @item_pedido_de_assistencia }

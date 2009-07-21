@@ -1,4 +1,4 @@
-<h1>Nova classe</h1>
+<h1>New classe</h1>
 
 <% form_for(@classe) do |f| %>
   <%= f.error_messages %>
@@ -8,8 +8,12 @@
     <%= f.text_field :descricao %>
   </p>
   <p>
+<<<<<<< HEAD:app/views/classes/new.html.erb
     <%= f.submit 'Salvar' %>
+=======
+    <%= f.submit 'Create' %>
+>>>>>>> b26cf7bc7d5bc404f04fd842574cacc7c663a537:app/views/classes/new.html.erb
   </p>
 <% end %>
 
-<%= link_to 'Voltar', classes_path %>
+<%= link_to 'Back', classes_path %>

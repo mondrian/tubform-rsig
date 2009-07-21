@@ -1,4 +1,4 @@
-<h1>Listando motivos_assistencia</h1>
+<h1>Listing motivos_assistencia</h1>
 
 <table>
   <tr>
@@ -8,13 +8,13 @@
 <% @motivos_assistencia.each do |motivo_assistencia| %>
   <tr>
     <td><%=h motivo_assistencia.descricao %></td>
-    <td><%= link_to 'Listar', motivo_assistencia %></td>
-    <td><%= link_to 'Editar', edit_motivo_assistencia_path(motivo_assistencia) %></td>
-    <td><%= link_to 'Excluir', motivo_assistencia, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', motivo_assistencia %></td>
+    <td><%= link_to 'Edit', edit_motivo_assistencia_path(motivo_assistencia) %></td>
+    <td><%= link_to 'Destroy', motivo_assistencia, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'Novo motivo_assistencia', new_motivo_assistencia_path %>
+<%= link_to 'New motivo_assistencia', new_motivo_assistencia_path %>

@@ -10,6 +10,10 @@ class ClientesController < ApplicationController
     end
   end
 
+  def method_name
+
+  end
+
   # GET /clientes/1
   # GET /clientes/1.xml
   def show
@@ -87,3 +91,4 @@ class ClientesController < ApplicationController
   end
 
 end
+

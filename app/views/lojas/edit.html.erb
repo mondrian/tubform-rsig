@@ -1,4 +1,4 @@
-<h1>Editando loja</h1>
+<h1>Editing loja</h1>
 
 <% form_for(@loja) do |f| %>
   <%= f.error_messages %>
@@ -8,9 +8,9 @@
     <%= f.text_field :nome_loja %>
   </p>
   <p>
-    <%= f.submit 'Salvar' %>
+    <%= f.submit 'Update' %>
   </p>
 <% end %>
 
-<%= link_to 'Listar', @loja %> |
-<%= link_to 'Voltar', lojas_path %>
+<%= link_to 'Show', @loja %> |
+<%= link_to 'Back', lojas_path %>
