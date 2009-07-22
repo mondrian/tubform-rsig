@@ -2,22 +2,9 @@ class ComponentesController < ApplicationController
   # GET /componentes
   # GET /componentes.xml
   def index
-    @componentes = Componente.all
-
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @componentes }
-    end
-  end
-
-  # GET /componentes/1
-  # GET /componentes/1.xml
-  def show
-    @componente = Componente.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @componente }
+      format.js {rwt_render}
+      format.json { render :json => find_componentes(params[:filter]).to_ext_json(:class=>:componente, :count => count(params[:fields])) }
     end
   end
 
@@ -25,31 +12,30 @@ class ComponentesController < ApplicationController
   # GET /componentes/new.xml
   def new
     @componente = Componente.new
-
     respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @componente }
+      format.js {rwt_render}
     end
   end
 
   # GET /componentes/1/edit
   def edit
     @componente = Componente.find(params[:id])
+    respond_to do |format|
+      format.js {rwt_render}
+    end
   end
 
   # POST /componentes
   # POST /componentes.xml
   def create
     @componente = Componente.new(params[:componente])
-
     respond_to do |format|
-      if @componente.save
-        flash[:notice] = 'Componente was successfully created.'
-        format.html { redirect_to(@componente) }
-        format.xml  { render :xml => @componente, :status => :created, :location => @componente }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @componente.errors, :status => :unprocessable_entity }
+      format.js do
+        if @componente.save
+          rwt_ok
+        else
+          rwt_err_messages(@componente)
+        end
       end
     end
   end
@@ -58,15 +44,13 @@ class ComponentesController < ApplicationController
   # PUT /componentes/1.xml
   def update
     @componente = Componente.find(params[:id])
-
     respond_to do |format|
-      if @componente.update_attributes(params[:componente])
-        flash[:notice] = 'Componente was successfully updated.'
-        format.html { redirect_to(@componente) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @componente.errors, :status => :unprocessable_entity }
+      format.js do
+        if @componente.update_attributes(params[:componente])
+          rwt_ok
+        else
+          rwt_err_messages(@componente)
+        end
       end
     end
   end
@@ -75,11 +59,25 @@ class ComponentesController < ApplicationController
   # DELETE /componentes/1.xml
   def destroy
     @componente = Componente.find(params[:id])
-    @componente.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(componentes_url) }
-      format.xml  { head :ok }
+    if @componente.destroy
+      rwt_ok
+    else
+      rwt_err_messages(@componente)
     end
+  end
+
+  protected
+
+  def find_classes(filter)
+  	pagination_state = update_pagination_state_with_params!(:componente)
+  	Componente.find(:all, options_from_pagination_state(pagination_state).merge(:conditions=>["first like ?","%#{filter}%"]))
+  end
+
+  def count(filter)
+	  if filter == nil or filter.empty? then
+  		Componente.count
+  	else
+  		Componente.count(:conditions=>"first like '%#{filter}%'")
+  	end
   end
 end
