@@ -1,85 +1,80 @@
 class AcoesController < ApplicationController
-  # GET /acoes
-  # GET /acoes.xml
+
   def index
-    @acoes = Acao.all
-
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @acoes }
+      format.js {rwt_render}
+      format.json { render :json => find_contacts(params[:filter]).to_ext_json(:class=>:acao, :count => count(params[:fields])) }
     end
   end
 
-  # GET /acoes/1
-  # GET /acoes/1.xml
-  def show
-    @acao = Acao.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @acao }
-    end
-  end
-
-  # GET /acoes/new
-  # GET /acoes/new.xml
   def new
     @acao = Acao.new
-
     respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @acao }
+      format.js {rwt_render}
     end
   end
 
-  # GET /acoes/1/edit
-  def edit
-    @acao = Acao.find(params[:id])
-  end
-
-  # POST /acoes
-  # POST /acoes.xml
   def create
     @acao = Acao.new(params[:acao])
-
     respond_to do |format|
-      if @acao.save
-        flash[:notice] = 'Acao was successfully created.'
-        format.html { redirect_to(@acao) }
-        format.xml  { render :xml => @acao, :status => :created, :location => @acao }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @acao.errors, :status => :unprocessable_entity }
+      format.js do
+        if @acao.save
+          rwt_ok
+        else
+          rwt_err_messages(@acao)
+        end
       end
     end
   end
 
-  # PUT /acoes/1
-  # PUT /acoes/1.xml
   def update
     @acao = Acao.find(params[:id])
-
     respond_to do |format|
-      if @acao.update_attributes(params[:acao])
-        flash[:notice] = 'Acao was successfully updated.'
-        format.html { redirect_to(@acao) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @acao.errors, :status => :unprocessable_entity }
+      format.js do
+        if @acao.update_attributes(params[:acao])
+          rwt_ok
+        else
+          rwt_err_messages(@acao)
+        end
       end
     end
   end
 
-  # DELETE /acoes/1
-  # DELETE /acoes/1.xml
   def destroy
     @acao = Acao.find(params[:id])
-    @acao.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(acoes_url) }
-      format.xml  { head :ok }
+    if @acao.destroy
+      rwt_ok
+    else
+      rwt_err_messages(@acao)
     end
   end
+
+  protected
+
+    def find_acoes(filter)
+      pagination_state = update_pagination_state_with_params!(:acao)
+      Acao.find(:all, options_from_pagination_state(pagination_state).merge(:conditions=>["first like ?","%#{filter}%"]))
+    end
+
+    def count(filter)
+      if filter == nil or filter.empty? then
+         Acao.count
+      else
+         Acao.count(:conditions=>"first like '%#{filter}%'")
+      end
+    end
 end
+  def edit
+    @acao = Acao.find(params[:id])
+    respond_to do |format|
+      format.js {rwt_render}
+    end
+  end
+
+  def edit
+    @acao = Acao.find(params[:id])
+    respond_to do |format|
+      format.js {rwt_render}
+    end
+  end

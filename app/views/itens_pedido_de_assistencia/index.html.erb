@@ -1,4 +1,4 @@
-<h1>Listing itens_pedido_de_assistencia</h1>
+<h1>Listando itens_pedido_de_assistencia</h1>
 
 <table>
   <tr>
@@ -24,13 +24,13 @@
     <td><%=h item_pedido_de_assistencia.justificativa %></td>
     <td><%=h item_pedido_de_assistencia.usa_componente %></td>
     <td><%=h item_pedido_de_assistencia.motivo_id %></td>
-    <td><%= link_to 'Show', item_pedido_de_assistencia %></td>
-    <td><%= link_to 'Edit', edit_item_pedido_de_assistencia_path(item_pedido_de_assistencia) %></td>
-    <td><%= link_to 'Destroy', item_pedido_de_assistencia, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Mostrar', item_pedido_de_assistencia %></td>
+    <td><%= link_to 'Editar', edit_item_pedido_de_assistencia_path(item_pedido_de_assistencia) %></td>
+    <td><%= link_to 'Excluir', item_pedido_de_assistencia, :confirm => 'Você tem certeza?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New item_pedido_de_assistencia', new_item_pedido_de_assistencia_path %>
+<%= link_to 'Novo item_pedido_de_assistencia', new_item_pedido_de_assistencia_path %>

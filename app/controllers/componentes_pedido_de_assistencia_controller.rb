@@ -1,85 +1,74 @@
 class ComponentesPedidoDeAssistenciaController < ApplicationController
-  # GET /componentes_pedido_de_assistencia
-  # GET /componentes_pedido_de_assistencia.xml
-  def index
-    @componentes_pedido_de_assistencia = ComponentePedidoDeAssistencia.all
-
+   def index
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @componentes_pedido_de_assistencia }
+      format.js {rwt_render}
+      format.json { render :json => find_omponentes_pedido_de_assistencia(params[:filter]).to_ext_json(:class=>:componentes_pedido_de_assistencia, :count => count(params[:fields])) }
     end
   end
 
-  # GET /componentes_pedido_de_assistencia/1
-  # GET /componentes_pedido_de_assistencia/1.xml
-  def show
-    @componente_pedido_de_assistencia = ComponentePedidoDeAssistencia.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @componente_pedido_de_assistencia }
-    end
-  end
-
-  # GET /componentes_pedido_de_assistencia/new
-  # GET /componentes_pedido_de_assistencia/new.xml
   def new
-    @componente_pedido_de_assistencia = ComponentePedidoDeAssistencia.new
-
+    @componentes_pedido_de_assistencia = Componentes_pedido_de_assistencia.new
     respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @componente_pedido_de_assistencia }
+      format.js {rwt_render}
     end
   end
 
-  # GET /componentes_pedido_de_assistencia/1/edit
+
   def edit
-    @componente_pedido_de_assistencia = ComponentePedidoDeAssistencia.find(params[:id])
+    @componentes_pedido_de_assistencia = Componentes_pedido_de_assistencia.find(params[:id])
+    respond_to do |format|
+      format.js {rwt_render}
+    end
   end
 
-  # POST /componentes_pedido_de_assistencia
-  # POST /componentes_pedido_de_assistencia.xml
   def create
-    @componente_pedido_de_assistencia = ComponentePedidoDeAssistencia.new(params[:componente_pedido_de_assistencia])
-
+    @componentes_pedido_de_assistencia = Componentes_pedido_de_assistencia.new(params[:contact])
     respond_to do |format|
-      if @componente_pedido_de_assistencia.save
-        flash[:notice] = 'ComponentePedidoDeAssistencia was successfully created.'
-        format.html { redirect_to(@componente_pedido_de_assistencia) }
-        format.xml  { render :xml => @componente_pedido_de_assistencia, :status => :created, :location => @componente_pedido_de_assistencia }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @componente_pedido_de_assistencia.errors, :status => :unprocessable_entity }
+      format.js do
+        if @componentes_pedido_de_assistencia.save
+          rwt_ok
+        else
+          rwt_err_messages(@componentes_pedido_de_assistencia)
+        end
       end
     end
   end
-
-  # PUT /componentes_pedido_de_assistencia/1
-  # PUT /componentes_pedido_de_assistencia/1.xml
+ 
   def update
-    @componente_pedido_de_assistencia = ComponentePedidoDeAssistencia.find(params[:id])
-
+    @componente_pedido_de_assistencia = Componente_pedido_de_assistencia.find(params[:id])
     respond_to do |format|
-      if @componente_pedido_de_assistencia.update_attributes(params[:componente_pedido_de_assistencia])
-        flash[:notice] = 'ComponentePedidoDeAssistencia was successfully updated.'
-        format.html { redirect_to(@componente_pedido_de_assistencia) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @componente_pedido_de_assistencia.errors, :status => :unprocessable_entity }
+      format.js do
+        if @componente_pedido_de_assistencia.update_attributes(params[:componente_pedido_de_assistencia])
+          rwt_ok
+        else
+          rwt_err_messages(@componente_pedido_de_assistencia)
+        end
       end
     end
   end
 
-  # DELETE /componentes_pedido_de_assistencia/1
-  # DELETE /componentes_pedido_de_assistencia/1.xml
-  def destroy
-    @componente_pedido_de_assistencia = ComponentePedidoDeAssistencia.find(params[:id])
-    @componente_pedido_de_assistencia.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(componentes_pedido_de_assistencia_url) }
-      format.xml  { head :ok }
+ def destroy
+    @componente_pedido_de_assistencia = Componente_pedido_de_assistencia.find(params[:id])
+    if @componente_pedido_de_assistencia.destroy
+      rwt_ok
+    else
+      rwt_err_messages(@componente_pedido_de_assistencia)
     end
   end
+
+
+  protected
+
+    def find_componente_pedido_de_assistencia(filter)
+      pagination_state = update_pagination_state_with_params!(:componente_pedido_de_assistencia)
+      Componente_pedido_de_assistencia.find(:all, options_from_pagination_state(pagination_state).merge(:conditions=>["first like ?","%#{filter}%"]))
+    end
+
+    def count(filter)
+      if filter == nil or filter.empty? then
+         Componente_pedido_de_assistencia.count
+      else
+         Componente_pedido_de_assistencia.count(:conditions=>"first like '%#{filter}%'")
+      end
+    end
 end
