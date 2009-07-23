@@ -12,7 +12,7 @@ var dbplano_de_conta_id = new Ext.data.Store({
 var combo_plano_de_conta = new Ext.form.ComboBox({
     fieldLabel: 'Duplicata',
     store: dbduplicatas,
-    displayField:'plano_de_conta_id',
+    displayField:'Plano de Conta',
     typeAhead: true,
     mode: 'local',
     triggerAction: 'all',
@@ -35,7 +35,7 @@ var dbcliente = new Ext.data.Store({
 var combo_cliente = new Ext.form.ComboBox({
     fieldLabel: 'Duplicata',
     store: dbcliente,
-    displayField:'cliente_id',
+    displayField:'Cliente',
     typeAhead: true,
     mode: 'local',
     triggerAction: 'all',
@@ -45,29 +45,6 @@ var combo_cliente = new Ext.form.ComboBox({
     autoShow: true
 });
 
-
-var dbpedido = new Ext.data.Store({
-    reader: new Ext.data.JsonReader({
-        fields: ['id', 'id'],
-        root: 'pedidos'
-    }),
-    proxy: new Ext.data.HttpProxy({
-        url: 'pedidos/index.json'
-    })
-});
-
-var combo_pedido = new Ext.form.ComboBox({
-    fieldLabel: 'Pedido',
-    store: dbpedido,
-    displayField:'pedido_id',
-    typeAhead: true,
-    mode: 'local',
-    triggerAction: 'all',
-    emptyText:'Selecione um Pedido',
-    selectOnFocus:true,
-    autoCreate: true,
-    autoShow: true
-});
 
 var dbdevedor = new Ext.data.Store({
     reader: new Ext.data.JsonReader({
@@ -82,7 +59,7 @@ var dbdevedor = new Ext.data.Store({
 var combo_devedor = new Ext.form.ComboBox({
     fieldLabel: 'Devedor',
     store: dbdevedor,
-    displayField:'devedor_id',
+    displayField:'Devedor',
     typeAhead: true,
     mode: 'local',
     triggerAction: 'all',
@@ -102,7 +79,11 @@ var simple = new Ext.FormPanel({
     width:'auto',
     baseParams:{authenticity_token:"<%=form_authenticity_token%>"},
     items: [combo_plano_de_conta,
-          {
+      {
+            fieldLabel: 'Pedido',
+            name: 'pedido_id'
+        }         
+       {
             fieldLabel: 'Tipo de Cobrança',
             name: 'tipo_cobranca'
         },{
@@ -114,13 +95,12 @@ var simple = new Ext.FormPanel({
         }, {
             fieldLabel: 'Valor',
             name: 'valor'
-        },
-        new Ext.form.DateField({
-                fieldLabel: 'Time',
-                name: 'time'}),
+        }, 
+             new Ext.form.DateField({
+             fieldLabel: 'Time',
+             name: 'time'}),
 
             combo_cliente,  
-            combo_pedido,       
             combo_devedor],
 
     buttons: [{
