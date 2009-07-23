@@ -1,7 +1,7 @@
 
-var dbduplicatas = new Ext.data.Store({
+var dbplano_de_conta_id = new Ext.data.Store({
     reader: new Ext.data.JsonReader({
-        fields: ['id', 'plano_de_conta_id','tipo_cobranca','data_emissao', 'data_vencimento', 'valor', 'cliente_id', 'pedido_id', 'nome_devedor', 'devedor_id' ],
+        fields: ['id', 'plano_de_conta_id'],
         root: 'duplicatas'
     }),
     proxy: new Ext.data.HttpProxy({
@@ -9,9 +9,7 @@ var dbduplicatas = new Ext.data.Store({
     })
 });
 
-dbduplicatas.load();
-
-var combo = new Ext.form.ComboBox({
+var combo_plano_de_conta = new Ext.form.ComboBox({
     fieldLabel: 'Duplicata',
     store: dbduplicatas,
     displayField:'plano_de_conta_id',
@@ -24,9 +22,19 @@ var combo = new Ext.form.ComboBox({
     autoShow: true
 });
 
-var combo = new Ext.form.ComboBox({
+var dbcliente = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'razao_social'],
+        root: 'clientes'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'clientes/index.json'
+    })
+});
+
+var combo_cliente = new Ext.form.ComboBox({
     fieldLabel: 'Duplicata',
-    store: dbduplicatas,
+    store: dbcliente,
     displayField:'cliente_id',
     typeAhead: true,
     mode: 'local',
@@ -37,22 +45,43 @@ var combo = new Ext.form.ComboBox({
     autoShow: true
 });
 
-var combo = new Ext.form.ComboBox({
-    fieldLabel: 'Duplicata',
-    store: dbduplicatas,
+
+var dbpedido = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'id'],
+        root: 'pedidos'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'pedidos/index.json'
+    })
+});
+
+var combo_pedido = new Ext.form.ComboBox({
+    fieldLabel: 'Pedido',
+    store: dbpedido,
     displayField:'pedido_id',
     typeAhead: true,
     mode: 'local',
     triggerAction: 'all',
-    emptyText:'Selecione um Cliente',
+    emptyText:'Selecione um Pedido',
     selectOnFocus:true,
     autoCreate: true,
     autoShow: true
 });
 
-var combo = new Ext.form.ComboBox({
-    fieldLabel: 'Duplicata',
-    store: dbduplicatas,
+var dbdevedor = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'nome'],
+        root: 'devedors'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'devedors/index.json'
+    })
+});
+
+var combo_devedor = new Ext.form.ComboBox({
+    fieldLabel: 'Devedor',
+    store: dbdevedor,
     displayField:'devedor_id',
     typeAhead: true,
     mode: 'local',
@@ -72,10 +101,8 @@ var simple = new Ext.FormPanel({
     defaultType: 'textfield',
     width:'auto',
     baseParams:{authenticity_token:"<%=form_authenticity_token%>"},
-    items: [{
-            fieldLabel: 'Plano de Contas',
-            name: 'plano_de_conta_id',
-        },{
+    items: [combo_plano_de_conta,
+          {
             fieldLabel: 'Tipo de Cobrança',
             name: 'tipo_cobranca'
         },{
@@ -87,20 +114,14 @@ var simple = new Ext.FormPanel({
         }, {
             fieldLabel: 'Valor',
             name: 'valor'
-        }, {
-            fieldLabel: 'Cliente',
-            name: 'ciente_id'
-        }, {
-            fieldLabel: 'Pedido',
-            name: 'pedido_id'
-        }, {
-            fieldLabel: 'Nome do Devedor',
-            name: 'nome_devedor'
-        }, {
-            fieldLabel: 'Devedor',
-            name: 'devedor_id'
-        }
-        combo ],
+        },
+        new Ext.form.DateField({
+                fieldLabel: 'Time',
+                name: 'time'}),
+
+            combo_cliente,  
+            combo_pedido,       
+            combo_devedor],
 
     buttons: [{
         text: 'Save',
@@ -112,7 +133,6 @@ var simple = new Ext.FormPanel({
         handler: function(){win.close()}
     }]
 });
-
 
 
 var win=new Ext.Window({
