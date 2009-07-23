@@ -2,11 +2,9 @@ class ProdutoKitsController < ApplicationController
   # GET /produto_kits
   # GET /produto_kits.xml
   def index
-    @produto_kits = ProdutoKit.all
-
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @produto_kits }
+      format.js {rwt_render}
+      format.json { render :json => find_produto_kits(params[:filter]).to_ext_json(:class=>:produto, :count => count(params[:fields])) }
     end
   end
 
@@ -25,31 +23,31 @@ class ProdutoKitsController < ApplicationController
   # GET /produto_kits/new.xml
   def new
     @produto_kit = ProdutoKit.new
-
     respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @produto_kit }
+      format.js {rwt_render}
     end
   end
 
   # GET /produto_kits/1/edit
   def edit
     @produto_kit = ProdutoKit.find(params[:id])
+    respond_to do |format|
+      format.js {rwt_render}
+    end
   end
+
 
   # POST /produto_kits
   # POST /produto_kits.xml
   def create
     @produto_kit = ProdutoKit.new(params[:produto_kit])
-
     respond_to do |format|
-      if @produto_kit.save
-        flash[:notice] = 'ProdutoKit was successfully created.'
-        format.html { redirect_to(@produto_kit) }
-        format.xml  { render :xml => @produto_kit, :status => :created, :location => @produto_kit }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @produto_kit.errors, :status => :unprocessable_entity }
+      format.js do
+        if @produto_kit.save
+          rwt_ok
+        else
+          rwt_err_messages(@produto_kit)
+        end
       end
     end
   end
@@ -58,18 +56,17 @@ class ProdutoKitsController < ApplicationController
   # PUT /produto_kits/1.xml
   def update
     @produto_kit = ProdutoKit.find(params[:id])
-
     respond_to do |format|
-      if @produto_kit.update_attributes(params[:produto_kit])
-        flash[:notice] = 'ProdutoKit was successfully updated.'
-        format.html { redirect_to(@produto_kit) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @produto_kit.errors, :status => :unprocessable_entity }
+      format.js do
+        if @produto_kit.update_attributes(params[:produt_kit])
+          rwt_ok
+        else
+          rwt_err_messages(@produto_kit)
+        end
       end
     end
   end
+
 
   # DELETE /produto_kits/1
   # DELETE /produto_kits/1.xml
@@ -82,4 +79,26 @@ class ProdutoKitsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def destroy
+    @produto_kit = ProdutoKit.find(params[:id])
+    if @produto_kit.destroy
+      rwt_ok
+    else
+      rwt_err_messages(@produto_kit)
+    end
+  end
+
+  def find_produto_kits(filter)
+      pagination_state = update_pagination_state_with_params!(:produto_kit)
+      ProdutoKit.find(:all, options_from_pagination_state(pagination_state).merge(:conditions=>["descricao like ?","%#{filter}%"]))
+    end
+
+    def count(filter)
+      if filter == nil or filter.empty? then
+         ProdutoKit.count
+      else
+         ProdutoKit.count(:conditions=>"descricao like '%#{filter}%'")
+      end
+    end
 end
