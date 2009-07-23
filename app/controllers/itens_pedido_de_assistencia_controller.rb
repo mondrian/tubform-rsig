@@ -84,6 +84,25 @@ class ItensPedidoDeAssistenciaController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+	def usando_o_componente
+		if params[:usa_componente] == 'true' and !params[:produto_id].nil?
+		  sql = "select * from fnc_consultar_componentes_do_produto(#{'31'})"
+			@exibeformcomponentes = Produto.find_by_sql(sql)
+		else
+			render :nothing => true
+		end
+	end
+
+	# vai pegar os componentes e as quantidade de cada produto/componente
+	def iterando_nos_componente_enviados
+		quantidade = params[:produto_quantidade]
+		i = 1
+		for i in quantidade.to_i do
+			@componentesenviados << Produto.all(params[:exibeformcomponente_id])
+		end
+	end
+
   protected
   def load_produtos
     @produtos = Produto.all.collect { |p| [p.descricao , p.id] }
