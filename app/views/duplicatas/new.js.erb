@@ -1,18 +1,119 @@
 <script type="text/javascript">
-  var grupos_form = new Ext.FormPanel({
+
+var dbcliente = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'razao_social'],
+        root: 'clientes'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'clientes/edit.json'
+    })
+});
+
+var combo_cliente = new Ext.form.ComboBox({
+    fieldLabel: 'Duplicata',
+    store: dbcliente,
+    displayField:'Cliente',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Selecione um Cliente',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+});
+var dbplano_de_conta_id = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'plano_de_conta_id'],
+        root: 'duplicatas'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'duplicata/edit.json'
+    })
+});
+
+var combo_plano_de_conta = new Ext.form.ComboBox({
+    fieldLabel: 'Duplicata',
+    store: dbduplicatas,
+    displayField:'Plano de Conta',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Selecione um Plano de Conta',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+});
+
+var dbdevedor = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'nome'],
+        root: 'devedors'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'devedors/edit.json'
+    })
+});
+
+var combo_devedor = new Ext.form.ComboBox({
+    fieldLabel: 'Devedor',
+    store: dbdevedor,
+    displayField:'Devedor',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Selecione um Devedor',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+});
+
+  var duplicatas_form = new Ext.FormPanel({
       id: 'duplicatas_new',
       url: '/duplicatas',
       renderTo: 'form-duplicatas',
       width: 465,
       frame: true,
-      items: [
+      items: [combo_plano_de_conta,
         {
           xtype: 'textfield',
-          fieldLabel: 'Nome',
-          name: 'duplicata[nome]',
-          id: 'duplicata_nome',
+          fieldLabel: 'Pedido',
+          name: 'duplicata[pedido_id]',
+          id: 'duplicata_pedido_id',
           allowBlank: false
-        }
+        },
+       {
+          xtype: 'textfield',
+          fieldLabel: 'Tipo de Cobrança',
+          name: 'duplicata[tipo_cobranca]',
+          id: 'duplicata_tipo_cobranca',
+          allowBlank: false
+        },{
+          xtype: 'datafield',
+          fieldLabel: 'Data de Emissão',
+          name: 'duplicata[data_emissao]',
+          id: 'duplicata_data_emissa',
+          allowBlank: false
+        },{
+          xtype: 'datafield',
+          fieldLabel: 'Data de Vencimento',
+          name: 'duplicata[data_vencimento]',
+          id: 'duplicata_data_vencimento',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Valor',
+          name: 'duplicata[valor]',
+          id: 'duplicata_valor',
+          allowBlank: false
+        }, 
+             new Ext.form.DateField({
+             fieldLabel: 'Time',
+             name: 'time'}),
+
+            combo_cliente,  
+            combo_devedor],
+                               ]
       ],
       buttons: [
         {
