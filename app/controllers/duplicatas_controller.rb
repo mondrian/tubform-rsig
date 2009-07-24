@@ -5,7 +5,7 @@ class DuplicatasController < ApplicationController
   before_filter :load_duplicata, :only => [ :edit, :new, :create, :update, :destroy ]
 
   def index
-    @duplicatas = Grupo.paginate( :page => @page,
+    @duplicatas = Duplicata.paginate( :page => @page,
                               :per_page => @per_page)
 
     respond_to do |format|

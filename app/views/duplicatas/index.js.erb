@@ -1,0 +1,22 @@
+
+<script type="text/javascript">
+  var grid = new JJWorks.Grid({
+    title: 'Listagem de Duplicatas',
+    renderTo: 'grid-duplicatas',
+    columns: [
+      {id: 'id', header: 'Cód.', width:10, sortable:true, dataIndex:'id'},
+      {id: 'plano_de_conta', header: 'Plano de Conta', width:10, sortable:true, dataIndex:'plano_de_conta'},
+      {id: 'tipo_cobranca', header: 'Tipo de Cobrança.', width:10, sortable:true, dataIndex:'tipo_cobranca'},
+      {id: 'data_emissao', header: 'Data de Emissão', width:10, sortable:true, dataIndex:'data_emissao'},
+      {id: 'data_vencimento', header: 'Data de Venciento', width:10, sortable:true, dataIndex:'data_vencimento'},
+      {id: 'valor', header: 'Valor', width:10, sortable:true, dataIndex:'valor'},
+      {id: 'cliente_id', header: 'Cliente', width:10, sortable:true, dataIndex:'cliente_id'},
+      {id: 'pedido_id', header: 'Pedido', width:10, sortable:true, dataIndex:'pedido_id'},
+      {id: 'nome_devedor', header: 'Devedor', width:10, sortable:true, dataIndex:'nome_devedor'},
+    ],
+    entitySingular: 'duplicata',
+    entityPlural: 'duplicatas'
+  });
+</script>
+<div id='grid-duplicatas'></div>
+
