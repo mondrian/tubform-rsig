@@ -21,7 +21,10 @@ var combo_cliente = new Ext.form.ComboBox({
     selectOnFocus:true,
     autoCreate: true,
     autoShow: true
+    name: 'duplicata[cliente]',
+    id: 'duplicata_ciente_id',
 });
+
 var dbplano_de_conta_id = new Ext.data.Store({
     reader: new Ext.data.JsonReader({
         fields: ['id', 'plano_de_conta_id'],
@@ -43,6 +46,8 @@ var combo_plano_de_conta = new Ext.form.ComboBox({
     selectOnFocus:true,
     autoCreate: true,
     autoShow: true
+    name: 'duplicata[plano_de_conta]',
+    id: 'duplicata_plano_de_conta_id',
 });
 
 var dbdevedor = new Ext.data.Store({
@@ -66,6 +71,8 @@ var combo_devedor = new Ext.form.ComboBox({
     selectOnFocus:true,
     autoCreate: true,
     autoShow: true
+    name: 'duplicata[devedor]',
+    id: 'duplicata_devedor_id',
 });
 
   var duplicatas_form = new Ext.FormPanel({
@@ -92,7 +99,7 @@ var combo_devedor = new Ext.form.ComboBox({
           xtype: 'datafield',
           fieldLabel: 'Data de Emissão',
           name: 'duplicata[data_emissao]',
-          id: 'duplicata_data_emissa',
+          id: 'duplicata_data_emissao',
           allowBlank: false
         },{
           xtype: 'datafield',
