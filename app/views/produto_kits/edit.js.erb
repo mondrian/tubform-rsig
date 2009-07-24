@@ -10,6 +10,7 @@ var cmb_status = new Ext.form.ComboBox({
     name: 'produto_kit[status]',
     id: 'produto_kit_status',
     typeAhead: true,
+    value: '<%= @produto_kit.status %>',
     mode: 'local',
     triggerAction: 'all',
     emptyText:'Selecione um Status',
@@ -22,7 +23,7 @@ var cmb_status = new Ext.form.ComboBox({
 
 <script type="text/javascript">
   var produto_kits_form = new Ext.FormPanel({
-      id: 'produto_kits_new',
+      id: 'produto_kits_edit',
       url: '/produto_kits',
       renderTo: 'form-produto_kits',
       width: 465,
@@ -30,6 +31,11 @@ var cmb_status = new Ext.form.ComboBox({
       frame: true,
       items: [
         {
+          xtype: 'hidden',
+          name: 'produto_kit[id]',
+          id: 'produto_kit_id',
+          value: '<%= @produto_kit.id %>'
+        },{
           xtype: 'numberfield',
           fieldLabel: 'Fator de Conversão',
           name: 'produto_kit[fator_conversao]',
@@ -37,7 +43,8 @@ var cmb_status = new Ext.form.ComboBox({
           allowNegative: false,
           decimalPrecision: 3,
           decimalSeparator: ',',
-          allowBlank: false
+          allowBlank: false,
+          value: '<%= @produto_kit.fator_conversao %>'
         }, cmb_status, {
           xtype: 'numberfield',
           fieldLabel: 'Preço Normal',
@@ -46,7 +53,8 @@ var cmb_status = new Ext.form.ComboBox({
           allowNegative: false,
           decimalPrecision: 2,
           decimalSeparator: ',',
-          allowBlank: false
+          allowBlank: false,
+          value: '<%= @produto_kit.preco_normal %>'
         },{
           xtype: 'numberfield',
           fieldLabel: 'Preço Especial',
@@ -54,7 +62,8 @@ var cmb_status = new Ext.form.ComboBox({
           id: 'produto_kit_preco_especial',
           allowNegative: false,
           decimalPrecision: 2,
-          decimalSeparator: ','
+          decimalSeparator: ',',
+          value: '<%= @produto_kit.preco_especial %>'
         }],
       buttons: [
         {
@@ -90,4 +99,3 @@ var cmb_status = new Ext.form.ComboBox({
     });
 </script>
 <div id='form-produtos_kit'></div>
-
