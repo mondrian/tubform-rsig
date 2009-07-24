@@ -17,7 +17,9 @@ class ProdutosController < ApplicationController
                                :id => 'id',
                                :fields => [
                                  { :name => 'id', :mapping => 'id' },
-                                 { :name => 'nome', :mapping => 'nome' }
+                                 { :name => 'descricao', :mapping => 'descricao' },
+                                 { :name => 'valor_normal', :mapping => 'valor_normal' },
+                                 { :name => 'valor_especial', :mapping => 'valor_especial' } 
                                ]
                              },
                              :results => @produtos,
