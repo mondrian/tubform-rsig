@@ -1,34 +1,19 @@
-/*
- * Ext JS Library 2.1
- * Copyright(c) 2006-2008, Ext JS, LLC.
- * licensing@extjs.com
- * 
- * http://extjs.com/license
- */
-
 /**
  * List compiled by mystix on the extjs.com forums.
  * Thank you Mystix!
  *
  * English Translations
+ * updated to 2.2 by Condor (8 Aug 2008)
  */
 
 Ext.UpdateManager.defaults.indicatorText = '<div class="loading-indicator">Loading...</div>';
 
-if(Ext.View){
-  Ext.View.prototype.emptyText = "";
+if(Ext.DataView){
+  Ext.DataView.prototype.emptyText = "";
 }
 
-if(Ext.grid.Grid){
-  Ext.grid.Grid.prototype.ddText = "{0} selected row(s)";
-}
-
-if(Ext.TabPanelItem){
-  Ext.TabPanelItem.prototype.closeText = "Close this tab";
-}
-
-if(Ext.form.Field){
-  Ext.form.Field.prototype.invalidText = "The value in this field is invalid";
+if(Ext.grid.GridPanel){
+  Ext.grid.GridPanel.prototype.ddText = "{0} selected row{1}";
 }
 
 if(Ext.LoadMask){
@@ -87,6 +72,8 @@ Date.getShortDayName = function(day) {
   return Date.dayNames[day].substring(0, 3);
 };
 
+Date.parseCodes.S.s = "(?:st|nd|rd|th)";
+
 if(Ext.MessageBox){
   Ext.MessageBox.buttonText = {
     ok     : "OK",
@@ -138,6 +125,10 @@ if(Ext.PagingToolbar){
   });
 }
 
+if(Ext.form.Field){
+  Ext.form.Field.prototype.invalidText = "The value in this field is invalid";
+}
+
 if(Ext.form.TextField){
   Ext.apply(Ext.form.TextField.prototype, {
     minLengthText : "The minimum length for this field is {0}",
@@ -150,6 +141,8 @@ if(Ext.form.TextField){
 
 if(Ext.form.NumberField){
   Ext.apply(Ext.form.NumberField.prototype, {
+    decimalSeparator : ".",
+    decimalPrecision : 2,
     minText : "The minimum value for this field is {0}",
     maxText : "The maximum value for this field is {0}",
     nanText : "{0} is not a valid number"
@@ -266,8 +259,6 @@ if(Ext.grid.GridView){
   Ext.apply(Ext.grid.GridView.prototype, {
     sortAscText  : "Sort Ascending",
     sortDescText : "Sort Descending",
-    lockText     : "Lock Column",
-    unlockText   : "Unlock Column",
     columnsText  : "Columns"
   });
 }
@@ -288,9 +279,31 @@ if(Ext.grid.PropertyColumnModel){
   });
 }
 
-if(Ext.layout.BorderLayout.SplitRegion){
+if(Ext.layout.BorderLayout && Ext.layout.BorderLayout.SplitRegion){
   Ext.apply(Ext.layout.BorderLayout.SplitRegion.prototype, {
     splitTip            : "Drag to resize.",
     collapsibleSplitTip : "Drag to resize. Double click to hide."
+  });
+}
+
+if(Ext.form.TimeField){
+  Ext.apply(Ext.form.TimeField.prototype, {
+    minText : "The time in this field must be equal to or after {0}",
+    maxText : "The time in this field must be equal to or before {0}",
+    invalidText : "{0} is not a valid time",
+    format : "g:i A",
+    altFormats : "g:ia|g:iA|g:i a|g:i A|h:i|g:i|H:i|ga|ha|gA|h a|g a|g A|gi|hi|gia|hia|g|H"
+  });
+}
+
+if(Ext.form.CheckboxGroup){
+  Ext.apply(Ext.form.CheckboxGroup.prototype, {
+    blankText : "You must select at least one item in this group"
+  });
+}
+
+if(Ext.form.RadioGroup){
+  Ext.apply(Ext.form.RadioGroup.prototype, {
+    blankText : "You must select one item in this group"
   });
 }

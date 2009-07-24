@@ -1,5 +1,4 @@
 <script type="text/javascript">
-
 var dbcliente = new Ext.data.Store({
     reader: new Ext.data.JsonReader({
         fields: ['id', 'razao_social'],
@@ -76,11 +75,6 @@ var combo_devedor = new Ext.form.ComboBox({
 });
 
   var duplicatas_form = new Ext.FormPanel({
-      id: 'duplicatas_new',
-      url: '/duplicatas',
-      renderTo: 'form-duplicatas',
-      width: 465,
-      frame: true,
       items: [combo_plano_de_conta,
         {
           xtype: 'textfield',
@@ -121,7 +115,6 @@ var combo_devedor = new Ext.form.ComboBox({
             combo_cliente,  
             combo_devedor],
                                ]
-      ],
       buttons: [
         {
           text: 'Salvar',

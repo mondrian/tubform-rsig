@@ -1,0 +1,60 @@
+<script type="text/javascript">
+  var produtos_form = new Ext.FormPanel({
+      id: 'produtos_new',
+      url: '/produtos',
+      renderTo: 'form-produtos',
+      width: 465,
+      defaultType: 'textfield',
+      frame: true,
+      items: [
+        {
+          fieldLabel: 'Descricao',
+          name: 'produto[descricao]',
+          id: 'produto_descricao',
+          allowBlank: false
+        },{
+          fieldLabel: 'Valor Normal',
+          name: 'produto[valor_normal]',
+          id: 'produto_valor_normal',
+          allowBlank: false
+        },{
+          fieldLabel: 'Valor Especial',
+          name: 'produto[valor_especial]',
+          id: 'produto_valor_especial'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Salvar',
+          handler: function(){
+            grupos_form.getForm().submit({
+              success: function(f,a){
+                grid.store.reload();
+                janela.close();
+              },
+              failure: function(f,a){
+                if (a.failureType === Ext.form.Action.CONNECT_FAILURE){
+                  Ext.Msg.alert('Falhou', 'Servidor informou:' +
+                  a.response.status+' '+a.response.statusText);
+                }
+                if (a.failureType === Ext.form.Action.SERVER_INVALID){
+                  Ext.Msg.alert('Atenção', a.result.errormsg);
+                }
+                else
+                {
+                  Ext.Msg.alert('Falhou', 'Erro Desconhecido');
+                }
+              }
+            });
+          }
+        },
+        {
+          text: 'Limpar',
+          handler: function(){
+          produtos_form.getForm().reset();
+        }
+      }]
+    });
+</script>
+<div id='form-produtos'></div>
+
