@@ -1,0 +1,15 @@
+<script type="text/javascript">
+  var grid = new JJWorks.Grid({
+    title: 'Listagem de Produtos',
+    renderTo: 'grid-produtos',
+    columns: [
+      {id: 'id', header: 'Cód.', width:15, sortable:true, dataIndex:'id'},
+      {id: 'descricao', header: 'Descrição', width:100, sortable:true, dataIndex: 'descricao'}
+      {id: 'valor_normal', header: 'Valor Normal', width:60, sortable:true, dataIndex:'valor_normal'}
+      {id: 'valor_especial', header: 'Valor Especial', width:60, sortable:true, dataIndex:'valor_especial'}
+    ],
+    entitySingular: 'produto',
+    entityPlural: 'produtos'
+  });
+</script>
+<div id='grid-produtos'></div>
