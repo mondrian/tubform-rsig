@@ -1,0 +1,51 @@
+<script type="text/javascript">
+  var grupos_form = new Ext.FormPanel({
+      id: 'duplicatas_new',
+      url: '/duplicatas',
+      renderTo: 'form-duplicatas',
+      width: 465,
+      frame: true,
+      items: [
+        {
+          xtype: 'textfield',
+          fieldLabel: 'Nome',
+          name: 'duplicata[nome]',
+          id: 'duplicata_nome',
+          allowBlank: false
+        }
+      ],
+      buttons: [
+        {
+          text: 'Salvar',
+          handler: function(){
+            duplicatas_form.getForm().submit({
+              success: function(f,a){
+                grid.store.reload();
+                janela.close();
+              },
+              failure: function(f,a){
+                if (a.failureType === Ext.form.Action.CONNECT_FAILURE){
+                  Ext.Msg.alert('Falhou', 'Servidor informou:' +
+                  a.response.status+' '+a.response.statusText);
+                }
+                if (a.failureType === Ext.form.Action.SERVER_INVALID){
+                  Ext.Msg.alert('Atenção', a.result.errormsg);
+                }
+                else
+                {
+                  Ext.Msg.alert('Falhou', 'Erro Desconhecido');
+                }
+              }
+            });
+          }
+        },
+        {
+          text: 'Limpar',
+          handler: function(){
+          duplicatas_form.getForm().reset();
+        }
+      }]
+    });
+</script>
+<div id='form-duplicatas'></div>
+
