@@ -1,0 +1,16 @@
+<script type="text/javascript">
+  var grid = new JJWorks.Grid({
+    title: 'Listagem de Pedidos de Assistencia',
+    renderTo: 'grid-pedidos_de_assistencia',
+    columns: [
+      {id: 'id', header: 'Pedido', width:15, sortable:true, dataIndex:'id'},
+      {id: 'cliente', header: 'Cliente', width:100, sortable:true, dataIndex:'cliente.razao_social'},
+      {id: 'valor', header: 'Valor', width:60, sortable:true, dataIndex:'valor'},
+      {id: 'data', header: 'Data', width:60, sortable:true, dataIndex:'data'}
+    ],
+    entitySingular: 'pedido_de_assistencia',
+    entityPlural: 'pedidos_de_assistencia'
+  });
+</script>
+<div id='grid-pedidos_de_assistencia'></div>
+

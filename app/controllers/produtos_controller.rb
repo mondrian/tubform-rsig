@@ -1,4 +1,4 @@
-class GruposController < ApplicationController
+class ProdutosController < ApplicationController
 
   before_filter :load_page, :only => :index
   before_filter :load_produto, :only => [ :edit, :new, :create, :update, :detroy ]

@@ -1,0 +1,18 @@
+<script type="text/javascript">
+  var grid = new JJWorks.Grid({
+    title: 'Listagem de Produtos - Kits',
+    renderTo: 'grid-produtos_kits',
+    columns: [
+      {id: 'id', header: 'Cód.', width:15, sortable:true, dataIndex:'id'},
+      {id: 'produto', header: 'Produto', width:100, sortable:true, dataIndex:'produto.descricao'},
+      {id: 'fator_conversao', header: 'Fator de Conversao', width:50, sortable:true, dataIndex:'fator_conversao'},
+      {id: 'status', header:'Status', width:50, sortable:true, dataIndex:'status'},
+      {id: 'preco_normal', header:'Preço Normal', width:60, sortable:true, dataIndex:'preco_normal'},
+      {id: 'preco_especial', header:'Preço Especial', width:60, sortable:true, dataIndex:'preco_especial'}
+    ],
+    entitySingular: 'produto_kit',
+    entityPlural: 'produtos_kit'
+  });
+</script>
+<div id='grid-produtos_kit'></div>
+
