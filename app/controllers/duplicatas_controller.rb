@@ -75,7 +75,7 @@ class DuplicatasController < ApplicationController
   end
 
   def create_or_update
-    if @duplicata.update_attributes(params[:grupo])
+    if @duplicata.update_attributes(params[:duplicata])
       respond_to do |format|
         format.json { render :json => { :success => 'true',
                                         :results => @duplicata

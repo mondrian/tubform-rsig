@@ -1,80 +1,95 @@
 class AcoesController < ApplicationController
+  # GET /duplicatas
+  # GET /duplicatas.xml
+  before_filter :load_page, :only => :index
+  before_filter :load_duplicata, :only => [ :edit, :new, :create, :update, :destroy ]
 
   def index
+    @acoes = Acao.paginate( :page => @page,
+                              :per_page => @per_page)
+
     respond_to do |format|
-      format.js {rwt_render}
-      format.json { render :json => find_contacts(params[:filter]).to_ext_json(:class=>:acao, :count => count(params[:fields])) }
+      format.html #index.html.erb
+      format.js   #index.js.erb
+      format.json { render :json => {
+                             :metaData => {
+                               :totalProperty => 'total',
+                               :root => 'results',
+                               :id => 'id',
+                               :fields => [
+                                 { :name => 'id', :mapping => 'id' },
+                                 { :name => 'controller_name', :mapping => 'controller_name' },      
+                                 { :name => 'action_name', :mapping => 'action_name' }   
+                               ]
+                             },
+                             :results => @acoes,
+                             :total => @acoes.total_entries
+                           }.to_json(:include => [ ])
+                  }
+    end
+  end
+ 
+
+
+ def new
+    respond_to do |format|
+      format.html #index.html.erb
+      format.js   #index.js.erb
     end
   end
 
+
+  def edit
+    @acao = Acao.find(params[:id])
+    respond_to do |format|
+      format.js {rwt_render}
+    end
+  end
+
+
+   def create
+    create_or_update
+  end
 
   def new
-    @acao = Acao.new
     respond_to do |format|
-      format.js {rwt_render}
+      format.html #index.html.erb
+      format.js   #index.js.erb
     end
   end
 
-  def create
-    @acao = Acao.new(params[:acao])
-    respond_to do |format|
-      format.js do
-        if @acao.save
-          rwt_ok
-        else
-          rwt_err_messages(@acao)
-        end
-      end
-    end
-  end
-
-  def update
-    @acao = Acao.find(params[:id])
-    respond_to do |format|
-      format.js do
-        if @acao.update_attributes(params[:acao])
-          rwt_ok
-        else
-          rwt_err_messages(@acao)
-        end
-      end
-    end
-  end
-
-  def destroy
-    @acao = Acao.find(params[:id])
-    if @acao.destroy
-      rwt_ok
-    else
-      rwt_err_messages(@acao)
-    end
-  end
-
+  def edit;end
   protected
 
-    def find_acoes(filter)
-      pagination_state = update_pagination_state_with_params!(:acao)
-      Acao.find(:all, options_from_pagination_state(pagination_state).merge(:conditions=>["first like ?","%#{filter}%"]))
-    end
+  def load_grupo
+    @acao = params[:id].blank? ? Acao.new : Acao.find(params[:id])
+  end
 
-    def count(filter)
-      if filter == nil or filter.empty? then
-         Acao.count
-      else
-         Acao.count(:conditions=>"first like '%#{filter}%'")
+  def create_or_update
+    if @acao.update_attributes(params[:acao])
+      respond_to do |format|
+        format.json { render :json => { :success => 'true',
+                                        :results => @acao
+                                      },
+                             :status => :created,
+                             :location => @acao
+                    }
+      end
+    else
+      respond_to do |format|
+        @errors = Hash.new
+        @acao.errors.each do |attr, msg|
+          @errors[attr] = msg
+        end
+
+        format.json { render :json => { :success => 'false',
+                                        :errors => @errors
+                                      },
+                             :location => @acao,
+                             :status => :unprocessable_entity
+
+                    }
       end
     end
+  end
 end
-  def edit
-    @acao = Acao.find(params[:id])
-    respond_to do |format|
-      format.js {rwt_render}
-    end
-  end
-
-  def edit
-    @acao = Acao.find(params[:id])
-    respond_to do |format|
-      format.js {rwt_render}
-    end
-  end
