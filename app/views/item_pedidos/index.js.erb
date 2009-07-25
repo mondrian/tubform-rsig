@@ -1,0 +1,14 @@
+<script type="text/javascript">
+  var grid = new JJWorks.Grid({
+    title: 'Listagem de Itens Pedidos',
+    renderTo: 'grid-itens-pedidos',
+    columns: [
+      {id: 'id', header: 'Cód.', width:10, sortable:true, dataIndex:'id'},
+      {id: 'quantidade', header: 'Quantidade', width:10, sortable:true, dataIndex:'quantidade'},
+    ],
+    entitySingular: 'item-pedido',
+    entityPlural: 'itens-pedidos'
+  });
+</script>
+<div id='grid-itens-pedidos'></div>
+

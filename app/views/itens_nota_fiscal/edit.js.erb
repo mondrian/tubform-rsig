@@ -1,0 +1,83 @@
+var dbproduto_produto_id = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'descricao'],
+        root: 'produtos'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'produtos/edit.json'
+    })
+});
+
+var combo_produto = new Ext.form.ComboBox({
+    fieldLabel: 'Produto',
+    store: dbduplicatas,
+    displayField:'Produto',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Selecione um Produto',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+    name: 'item_pedido[produto_id]',
+    id: 'produto_id',
+});
+
+
+var simple = new Ext.FormPanel({
+    labelWidth: 75, /* label settings here cascade unless overridden */
+    url:'/itens_nota_fiscal/edit',
+    frame:true,
+    bodyStyle:'padding:5px 5px 0',
+    defaults: {width: 230},
+    defaultType: 'textfield',
+    width:'auto',
+    baseParams:{authenticity_token:"<%=form_authenticity_token%>"},
+    items: [combo_produto,
+      {
+            fieldLabel: 'Unidade',
+            name: 'unidade'
+        }         
+       {
+            fieldLabel: 'Quantidade',
+            name: 'quuantidade'
+        },{
+            fieldLabel: 'Valor Item',
+            name: 'valor_item'
+        }, {
+            fieldLabel: '% ICMS',
+            name: 'perc_icms'
+        }, {
+            fieldLabel: '% IPI',
+            name: 'perc_ipi'
+        }],
+
+    buttons: [{
+        text: 'Save',
+        tooltip: 'Save data',
+        handler: function(){simple.form.submit()}
+    },{
+        text: 'Cancel',
+        tooltip: 'Cancel',
+        handler: function(){win.close()}
+    }]
+});
+
+
+var win=new Ext.Window({
+                x:80,
+                title:'Simple Form - plain ExtJs javascript code',
+                width:400,
+                y:80,
+                height:210,
+                items:[simple]
+    });
+
+
+
+win.show();
+
+<h1>Editando item_nota_fiscal</h1>
+<%= render :partial => "itemnota" %>
+
+<%= link_to 'Retornar', :controller => "notas_fiscais",  :action => "show" %>

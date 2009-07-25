@@ -10,10 +10,30 @@ class ItemPedidosController < ApplicationController
   end
 
   def index
-    @item_pedidos = ItemPedido.all
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml { render :xml => @item_pedidos }
+     @itens_nota_fiscal = ItemNotaFiscal.paginate( :page => @page,
+                              :per_page => @per_page)
+
+     respond_to do |format|
+      format.html #index.html.erb
+      format.js   #index.js.erb
+      format.json { render :json => {
+                             :metaData => {
+                               :totalProperty => 'total',
+                               :root => 'results',
+                               :id => 'id',
+                               :fields => [
+                                 { :name => 'id', :mapping => 'id' },
+                                 { :name => 'produto_id', :mapping => 'produto_id' }      
+                                 { :name => 'quantidade', :mapping => 'quantidade' }      
+                                 { :name => 'valor_item', :mapping => 'valor_item' }      
+                                 { :name => 'perc_icms', :mapping => 'perc_icms' }      
+                                 { :name => 'perc_ipi', :mapping => 'perc_ipi' }                                    
+                               ]
+                             },
+                             :results => @itens_nota_fiscal,
+                             :total => @itens_nota_fiscal.total_entries
+                           }.to_json(:include => [ ])
+                  }
     end
   end
 
@@ -39,33 +59,34 @@ class ItemPedidosController < ApplicationController
     @item_pedido = ItemPedido.find(params[:id])
   end
 
-  def create
-    @item_pedido = ItemPedido.new(params[:item_pedido])
-    @item_pedido.valor_tabela = @item_pedido.produto.valor_normal
-
-    respond_to do |format|
-      if @item_pedido.save
-        flash[:notice] = "Item adicionado com sucesso ao pedido."
-        format.html { redirect_to(:controller => "pedidos", :action => "show", :id => @item_pedido.pedido_id ) }
-        format.xml  { render :xml => @item_pedido, :status => :created, :location => @item_pedido }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @item_pedido.erros, :status => :unprocessable_entity }
-      end
-    end
+  def load_grupo
+    @item_pedido = params[:id].blank? ? ItemNotaFiscal.new : ItemNotaFiscal.find(params[:id])
   end
 
-  def update
-    @item_pedido = ItemPedido.find(params[:id])
-    respond_to do |format|
-      if @item_pedido.update_attributes(params[:item_pedido])
-        flash[:notice] = "Item atualizado com sucesso."
-        format.html { redirect_to(:controller => "pedidos", :action => "show", :id => @item_pedido.pedido_id) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @item_pedido.erros, :status => :unprocessable_entity }
+  def create_or_update
+    if @item_pedido.update_attributes(params[:item_pedido])
+      respond_to do |format|
+        format.json { render :json => { :success => 'true',
+                                        :results => @item_pedido
+                                      },
+                             :status => :created,
+                             :location => @item_pedido
+                    }
       end
+    else
+      respond_to do |format|
+        @errors = Hash.new
+        @item_pedido.errors.each do |attr, msg|
+          @errors[attr] = msg
+        end
+
+        format.json { render :json => { :success => 'false',
+                                        :errors => @errors
+                                      },
+                             :location => @item_pedido,
+                             :status => :unprocessable_entity
+                    }
+
     end
   end
 

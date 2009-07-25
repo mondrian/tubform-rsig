@@ -1,0 +1,78 @@
+var dbproduto_produto_id = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'descricao'],
+        root: 'produtos'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'produtos/edit.json'
+    })
+});
+
+var combo_produto = new Ext.form.ComboBox({
+    fieldLabel: 'Produto',
+    store: dbduplicatas,
+    displayField:'Produto',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Selecione um Produto',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+    name: 'item_pedido[produto_id]',
+    id: 'produto_id',
+});
+
+
+var simple = new Ext.FormPanel({
+    labelWidth: 75, /* label settings here cascade unless overridden */
+    url:'/item_pedidos/edit',
+    frame:true,
+    bodyStyle:'padding:5px 5px 0',
+    defaults: {width: 230},
+    defaultType: 'textfield',
+    width:'auto',
+    baseParams:{authenticity_token:"<%=form_authenticity_token%>"},
+    items: [combo_produto,
+      {
+            fieldLabel: 'Produto',
+            name: 'produto_id'
+        }         
+       {
+            fieldLabel: 'Valor Tabela',
+            name: 'valor_tabela'
+        },{
+            fieldLabel: 'Desconto',
+            name: 'desconto'
+        }, {
+            fieldLabel: 'Valor Venda',
+            name: 'valor_venda'
+        }, {
+            fieldLabel: 'Quantidade',
+            name: 'quantidade'
+        }],
+
+    buttons: [{
+        text: 'Save',
+        tooltip: 'Save data',
+        handler: function(){simple.form.submit()}
+    },{
+        text: 'Cancel',
+        tooltip: 'Cancel',
+        handler: function(){win.close()}
+    }]
+});
+
+
+var win=new Ext.Window({
+                x:80,
+                title:'Simple Form - plain ExtJs javascript code',
+                width:400,
+                y:80,
+                height:210,
+                items:[simple]
+    });
+
+
+
+win.show();

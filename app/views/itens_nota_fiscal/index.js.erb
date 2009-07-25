@@ -1,0 +1,23 @@
+<script type="text/javascript">
+  var grid = new JJWorks.Grid({
+    title: 'Listagem de Itens Nota Fiscal',
+    renderTo: 'grid-itens-nota-fiscal',
+    columns: [
+      {id: 'id', header: 'Cód.', width:10, sortable:true, dataIndex:'id'},
+      {id: 'nota_fiscal_id', header: 'Nota Fiscal', width:10, sortable:true, dataIndex:'nota_fiscal_id'},
+      {id: 'produto_id', header: 'Produto', width:10, sortable:true, dataIndex:'produto_id'},
+      {id: 'quantidade', header: 'Quantidade', width:10, sortable:true, dataIndex:'quantidade'},
+      {id: 'valor_item', header: 'Valor Item', width:10, sortable:true, dataIndex:'valor_item'},
+      {id: 'perc_icms', header: '% ICMS', width:10, sortable:true, dataIndex:'perc_icms'},
+      {id: 'perc_ipi', header: '% IPI', width:10, sortable:true, dataIndex:'perc_ipi'},
+
+    ],
+    entitySingular: 'item-nota-fiscal',
+    entityPlural: 'itens-notas-fiscais'
+  });
+</script>
+<div id='grid-itens-nota-fiscal'></div>
+
+
+
+

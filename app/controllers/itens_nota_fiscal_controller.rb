@@ -1,12 +1,32 @@
 class ItensNotaFiscalController < ApplicationController
   # GET /itens_nota_fiscal
   # GET /itens_nota_fiscal.xml
+  before_filter :load_page, :only => :index
+  before_filter :load_duplicata, :only => [ :edit, :new, :create, :update, :destroy ]
+
   def index
-    @itens_nota_fiscal = ItemNotaFiscal.all
+    @itens_nota_fiscal = ItemNotaFiscal.paginate( :page => @page,
+                              :per_page => @per_page)
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @itens_nota_fiscal }
+      format.html #index.html.erb
+      format.js   #index.js.erb
+      format.json { render :json => {
+                             :metaData => {
+                               :totalProperty => 'total',
+                               :root => 'results',
+                               :id => 'id',
+                               :fields => [
+                                 { :name => 'id', :mapping => 'id' },
+                                 { :name => 'quantidade', :mapping => 'quantidade' }      
+                               ]
+                             },
+                             :results => @itens_pedidos,
+                             :total => @itens_pedidos.total_entries
+                           }.to_json(:include => [ ])
+                  }
+
+   
     end
   end
 
@@ -38,49 +58,35 @@ class ItensNotaFiscalController < ApplicationController
     @item_nota_fiscal = ItemNotaFiscal.find(params[:id])
   end
 
-  # POST /itens_nota_fiscal
-  # POST /itens_nota_fiscal.xml
-  def create
-    @item_nota_fiscal = ItemNotaFiscal.new(params[:item_nota_fiscal])
-
-    respond_to do |format|
-      if @item_nota_fiscal.save
-        flash[:notice] = 'ItemNotaFiscal was successfully created.'
-        format.html { redirect_to(@item_nota_fiscal) }
-        format.xml  { render :xml => @item_nota_fiscal, :status => :created, :location => @item_nota_fiscal }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @item_nota_fiscal.errors, :status => :unprocessable_entity }
-      end
-    end
+  def load_grupo
+    @item_nota_fiscal = params[:id].blank? ? ItemNotaFiscal.new : ItemNotaFiscal.find(params[:id])
   end
 
-  # PUT /itens_nota_fiscal/1
-  # PUT /itens_nota_fiscal/1.xml
-  def update
-    @item_nota_fiscal = ItemNotaFiscal.find(params[:id])
 
-    respond_to do |format|
-      if @item_nota_fiscal.update_attributes(params[:item_nota_fiscal])
-        flash[:notice] = 'ItemNotaFiscal was successfully updated.'
-        format.html { redirect_to(@item_nota_fiscal) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @item_nota_fiscal.errors, :status => :unprocessable_entity }
+  def create_or_update
+    if @item_nota_fiscal.update_attributes(params[:item_nota_fiscal])
+      respond_to do |format|
+        format.json { render :json => { :success => 'true',
+                                        :results => @item_nota_fiscal
+                                      },
+                             :status => :created,
+                             :location => @item_nota_fiscal
+                    }
       end
-    end
-  end
+    else
+      respond_to do |format|
+        @errors = Hash.new
+        @item_nota_fiscal.errors.each do |attr, msg|
+          @errors[attr] = msg
+        end
 
-  # DELETE /itens_nota_fiscal/1
-  # DELETE /itens_nota_fiscal/1.xml
-  def destroy
-    @item_nota_fiscal = ItemNotaFiscal.find(params[:id])
-    @item_nota_fiscal.destroy
+        format.json { render :json => { :success => 'false',
+                                        :errors => @errors
+                                      },
+                             :location => @item_nota_fiscal,
+                             :status => :unprocessable_entity
+                    }
 
-    respond_to do |format|
-      format.html { redirect_to(itens_nota_fiscal_url) }
-      format.xml  { head :ok }
     end
   end
 end
