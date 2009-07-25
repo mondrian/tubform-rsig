@@ -1,0 +1,14 @@
+<script type="text/javascript">
+  var grid = new JJWorks.Grid({
+    title: 'Listagem de lojas',
+    renderTo: 'grid-lojas',
+    columns: [
+      {id: 'id', header: 'Código', width:35, sortable:true, dataIndex:'id'},
+      {id: 'nome_loja', header: 'Nome Loja', width:50, sortable:true, dataIndex:'nome_loja'}
+    ],
+    entitySingular: 'loja',
+    entityPlural: 'lojas'
+  });
+</script>
+<div id='grid-lojas'></div>
+

@@ -1,85 +1,71 @@
 class LojasController < ApplicationController
-  # GET /lojas
-  # GET /lojas.xml
+  before_filter :load_page, :only => :index
+  before_filter :load_lojas, :only => [ :edit, :new, :create, :update, :detroy ]
+
+
+  # Inicío da Index
   def index
-    @lojas = Loja.all
+    @lojas = Pedido.paginate( :page => @page, :per_page => @per_page)
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @lojas }
+      format.html #index.html.erb
+      format.js   #index.js.erb
+      format.json { render :json => { :metaData => { :totalProperty => 'total', :root => 'results', :id => 'id',
+            :fields =>
+              [ { :name => 'id', :mapping => 'id' },
+              { :name => 'nome_loja', :mapping => 'nome_loja' }
+             ]
+          }, :results => @lojas, :total => @lojas.total_entries }.to_json(:include => [ ])
+      }
     end
   end
 
-  # GET /lojas/1
-  # GET /lojas/1.xml
-  def show
-    @loja = Loja.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @loja }
-    end
-  end
-
-  # GET /lojas/new
-  # GET /lojas/new.xml
-  def new
-    @loja = Loja.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @loja }
-    end
-  end
-
-  # GET /lojas/1/edit
-  def edit
-    @loja = Loja.find(params[:id])
-  end
-
-  # POST /lojas
-  # POST /lojas.xml
   def create
-    @loja = Loja.new(params[:loja])
-
-    respond_to do |format|
-      if @loja.save
-        flash[:notice] = 'Loja was successfully created.'
-        format.html { redirect_to(@loja) }
-        format.xml  { render :xml => @loja, :status => :created, :location => @loja }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @loja.errors, :status => :unprocessable_entity }
-      end
-    end
+    create_or_update
   end
 
-  # PUT /lojas/1
-  # PUT /lojas/1.xml
-  def update
-    @loja = Loja.find(params[:id])
-
+  def new
     respond_to do |format|
-      if @loja.update_attributes(params[:loja])
-        flash[:notice] = 'Loja was successfully updated.'
-        format.html { redirect_to(@loja) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @loja.errors, :status => :unprocessable_entity }
-      end
+      format.html #index.html.erb
+      format.js   #index.js.erb
     end
+
   end
 
-  # DELETE /lojas/1
-  # DELETE /lojas/1.xml
-  def destroy
-    @loja = Loja.find(params[:id])
-    @loja.destroy
+  def edit;end
 
-    respond_to do |format|
-      format.html { redirect_to(lojas_url) }
-      format.xml  { head :ok }
+
+  protected
+
+  def load_loja
+    @loja = params[:id].blank? ? Loja.new : Loja.find(params[:id])
+  end
+
+  def create_or_update
+    if @loja.update_attributes(params[:pedido])
+      respond_to do |format|
+        format.json { render :json => { :success => 'true',
+            :results => @loja
+          },
+          :status => :created,
+          :location => @loja
+        }
+      end
+    else
+      respond_to do |format|
+        @errors = Hash.new
+        @loja.errors.each do |attr, msg|
+          @errors[attr] = msg
+        end
+
+        format.json { render :json => { :success => 'false',
+            :errors => @errors
+          },
+          :location => @loja,
+          :status => :unprocessable_entity
+
+        }
+      end
     end
   end
 end

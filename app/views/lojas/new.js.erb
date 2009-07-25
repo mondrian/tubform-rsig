@@ -1,22 +1,33 @@
+<h1>New loja</h1>
+
+<% form_for(@loja) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nome_loja %><br />
+    <%= f.text_field :nome_loja %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', lojas_path %>
+
 <script type="text/javascript">
   var lojas_form = new Ext.FormPanel({
-      id: 'lojas_edit',
+      id: 'lojas_new',
       url: '/lojas',
       renderTo: 'form-lojas',
-      width: 465,
-      defaultType: 'textfield',
+      height: 500,
+      width: 800,
       frame: true,
       items: [
         {
-          xtype: 'hidden',
-          name: 'loja[id]',
-          id: 'loja_id',
-          value: '<%= @loja.id %>'
-        },{
-          fieldLabel: 'Nome Loja',
+          xtype: 'textfield',
+          fieldLabel: 'nome_loja',
           name: 'loja[nome_loja]',
           id: 'loja_nome_loja',
-          value: '<%= @loja.nome_loja %>',
           allowBlank: false
         }
       ],
@@ -24,7 +35,7 @@
         {
           text: 'Salvar',
           handler: function(){
-            grupos_form.getForm().submit({
+            lojas_form.getForm().submit({
               success: function(f,a){
                 grid.store.reload();
                 janela.close();
