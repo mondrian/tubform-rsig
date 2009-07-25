@@ -1,0 +1,51 @@
+<script type="text/javascript">
+  var pedidos_form = new Ext.FormPanel({
+      id: 'pedidos_new',
+      url: '/pedidos',
+      renderTo: 'form-pedidos',
+      height: 500,
+      width: 800,
+      frame: true,
+      items: [
+        {
+          xtype: 'textfield',
+          fieldLabel: 'Tipo',
+          name: 'pedido[tipo]',
+          id: 'pedido_tipo',
+          allowBlank: false
+        }
+      ],
+      buttons: [
+        {
+          text: 'Salvar',
+          handler: function(){
+            pedidos_form.getForm().submit({
+              success: function(f,a){
+                grid.store.reload();
+                janela.close();
+              },
+              failure: function(f,a){
+                if (a.failureType === Ext.form.Action.CONNECT_FAILURE){
+                  Ext.Msg.alert('Falhou', 'Servidor informou:' +
+                  a.response.status+' '+a.response.statusText);
+                }
+                if (a.failureType === Ext.form.Action.SERVER_INVALID){
+                  Ext.Msg.alert('Atenção', a.result.errormsg);
+                }
+                else
+                {
+                  Ext.Msg.alert('Falhou', 'Erro Desconhecido');
+                }
+              }
+            });
+          }
+        },
+        {
+          text: 'Limpar',
+          handler: function(){
+          pedidos_form.getForm().reset();
+        }
+      }]
+    });
+</script>
+<div id='form-pedidos'></div>

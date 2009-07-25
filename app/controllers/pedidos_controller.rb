@@ -1,22 +1,75 @@
 class PedidosController < ApplicationController
+  before_filter :load_page, :only => :index
+  before_filter :load_pedido, :only => [ :edit, :new, :create, :update, :detroy ]
 
-	# bem no metadata_for vai os campos que são symbol do @coisas dentro da interação do for,
-	# para serem renderizados e retornados ao cliente, por exemplo id, valor, vendedor e cliente_nome.
-  controller_crud_methods_for Pedido, :metadata_for => ['id', 'tipo','cliente.razao_social','valor','data',], :includes => [ :cliente ]
-=begin
-  #Não precisa disso aqui!!!
-def index
-    @pedidos = Pedido.find(:all, :conditions => @conditions, :joins => :vendedor).paginate( :page => @page,
-                                                                  :per_page => @per_page )
-    @coisas = []
-		#pedidos retorna um array de hash, então, faz-se um laço em pedido pegando apenas os campos que quer retorna para o lado client-side, para não ficar pesado demais.
-    for p in @pedidos
-			@coisas << {:id => p.id, :tipo => p.tipo, :cliente_nome => p.cliente.razao_social, :valor => p.valor, :data => p.data }
+
+  # Inicío da Index
+  def index
+    @pedidos = Pedido.paginate( :page => @page, :per_page => @per_page)
+
+    respond_to do |format|
+      format.html #index.html.erb
+      format.js   #index.js.erb
+      format.json { render :json => { :metaData => { :totalProperty => 'total', :root => 'results', :id => 'id',
+            :fields =>
+              [ { :name => 'id', :mapping => 'id' },
+              { :name => 'tipo', :mapping => 'tipo' },
+              { :name => 'data', :mapping => 'data' },
+              { :name => 'valor', :mapping => 'valor' },
+              { :name => 'cliente_id', :mapping => 'cliente_id' }
+             ]
+          }, :results => @pedidos, :total => @pedidos.total_entries }.to_json(:include => [ ])
+      }
+    end
+  end
+
+  def create
+    create_or_update
+  end
+
+  def new
+    respond_to do |format|
+      format.html #index.html.erb
+      format.js   #index.js.erb
     end
 
-    render_from_hash(@coisas)
-
   end
-=end
-end
 
+  def edit;end
+
+
+  protected
+
+  def load_pedido
+    @pedido = params[:id].blank? ? Pedido.new : Pedido.find(params[:id])
+  end
+
+  def create_or_update
+    if @pedido.update_attributes(params[:pedido])
+      respond_to do |format|
+        format.json { render :json => { :success => 'true',
+            :results => @pedido
+          },
+          :status => :created,
+          :location => @pedido
+        }
+      end
+    else
+      respond_to do |format|
+        @errors = Hash.new
+        @pedido.errors.each do |attr, msg|
+          @errors[attr] = msg
+        end
+
+        format.json { render :json => { :success => 'false',
+            :errors => @errors
+          },
+          :location => @pedido,
+          :status => :unprocessable_entity
+
+        }
+      end
+    end
+  end
+
+end
