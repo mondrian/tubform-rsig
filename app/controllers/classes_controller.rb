@@ -1,23 +1,42 @@
 class ClassesController < ApplicationController
-  # GET /classes
-  # GET /classes.xml
+
+  before_filter :load_page, :only => :index
+  before_filter :load_duplicata, :only => [ :edit, :new, :create, :update, :destroy ]
+
   def index
+    @classes = Classe.paginate( :page => @page,
+                              :per_page => @per_page)
+
     respond_to do |format|
-      format.js {rwt_render}
-      format.json { render :json => find_classes(params[:filter]).to_ext_json(:class=>:classe, :count => count(params[:fields])) }
+      format.html #index.html.erb
+      format.js   #index.js.erb
+      format.json { render :json => {
+                             :metaData => {
+                               :totalProperty => 'total',
+                               :root => 'results',
+                               :id => 'id',
+                               :fields => [
+                                 { :name => 'id', :mapping => 'id' },
+                                 { :name => 'descricao', :mapping => 'descricao' }      
+                                          ]                    
+                             :results => @classes,
+                             :total => @classes.total_entries
+                           }.to_json(:include => [ ])
+                  }
+    end
+  end
+ 
+
+  # GET /duplicatas/new
+  # GET /duplicatas/new.xml
+ def new
+    respond_to do |format|
+      format.html #index.html.erb
+      format.js   #index.js.erb
     end
   end
 
-  # GET /classes/new
-  # GET /classes/new.xml
-  def new
-    @classe = Classe.new
-    respond_to do |format|
-      format.js {rwt_render}
-    end
-  end
-
-  # GET /classes/1/edit
+  # GET /duplicatas/1/edit
   def edit
     @classe = Classe.find(params[:id])
     respond_to do |format|
@@ -25,60 +44,51 @@ class ClassesController < ApplicationController
     end
   end
 
-  # POST /classes
-  # POST /classes.xml
-  def create
-    @classe = Classe.new(params[:classe])
+  # POST /duplicatas
+  # POST /duplicatas.xml
+   def create
+    create_or_update
+  end
+
+  def new
     respond_to do |format|
-      format.js do
-        if @classe.save
-          rwt_ok
-        else
-          rwt_err_messages(@classe)
-        end
-      end
+      format.html #index.html.erb
+      format.js   #index.js.erb
     end
   end
 
-  # PUT /classes/1
-  # PUT /classes/1.xml
-  def update
-    @classe = Classe.find(params[:id])
-    respond_to do |format|
-      format.js do
-        if @classe.update_attributes(params[:classe])
-          rwt_ok
-        else
-          rwt_err_messages(@classe)
-        end
-      end
-    end
-  end
-
-  # DELETE /classes/1
-  # DELETE /classes/1.xml
-  def destroy
-    @classe = Classe.find(params[:id])
-    if @classe.destroy
-      rwt_ok
-    else
-      rwt_err_messages(@classe)
-    end
-  end
-
-
+  def edit;end
   protected
 
-  def find_classes(filter)
-  	pagination_state = update_pagination_state_with_params!(:classe)
-  	Classe.find(:all, options_from_pagination_state(pagination_state).merge(:conditions=>["first like ?","%#{filter}%"]))
+  def load_grupo
+    @classe = params[:id].blank? ? Classe.new : Classe.find(params[:id])
   end
 
-  def count(filter)
-	  if filter == nil or filter.empty? then
-  		Classe.count
-  	else
-  		Classe.count(:conditions=>"first like '%#{filter}%'")
-  	end
+  def create_or_update
+    if @classe.update_attributes(params[:classe])
+      respond_to do |format|
+        format.json { render :json => { :success => 'true',
+                                        :results => @classe
+                                      },
+                             :status => :created,
+                             :location => @classe
+                    }
+      end
+    else
+      respond_to do |format|
+        @errors = Hash.new
+        @classe.errors.each do |attr, msg|
+          @errors[attr] = msg
+        end
+
+        format.json { render :json => { :success => 'false',
+                                        :errors => @errors
+                                      },
+                             :location => @classe,
+                             :status => :unprocessable_entity
+
+                    }
+      end
+    end
   end
 end

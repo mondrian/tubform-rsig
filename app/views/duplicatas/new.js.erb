@@ -1,0 +1,152 @@
+<script type="text/javascript">
+var dbcliente = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'razao_social'],
+        root: 'clientes'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'clientes/edit.json'
+    })
+});
+
+var combo_cliente = new Ext.form.ComboBox({
+    fieldLabel: 'Duplicata',
+    store: dbcliente,
+    displayField:'Cliente',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Selecione um Cliente',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+    name: 'duplicata[cliente]',
+    id: 'duplicata_ciente_id',
+});
+
+var dbplano_de_conta_id = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'plano_de_conta_id'],
+        root: 'duplicatas'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'duplicata/edit.json'
+    })
+});
+
+var combo_plano_de_conta = new Ext.form.ComboBox({
+    fieldLabel: 'Duplicata',
+    store: dbduplicatas,
+    displayField:'Plano de Conta',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Selecione um Plano de Conta',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+    name: 'duplicata[plano_de_conta]',
+    id: 'duplicata_plano_de_conta_id',
+});
+
+var dbdevedor = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'nome'],
+        root: 'devedors'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'devedors/edit.json'
+    })
+});
+
+var combo_devedor = new Ext.form.ComboBox({
+    fieldLabel: 'Devedor',
+    store: dbdevedor,
+    displayField:'Devedor',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Selecione um Devedor',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+    name: 'duplicata[devedor]',
+    id: 'duplicata_devedor_id',
+});
+
+  var duplicatas_form = new Ext.FormPanel({
+      items: [combo_plano_de_conta,
+        {
+          xtype: 'textfield',
+          fieldLabel: 'Pedido',
+          name: 'duplicata[pedido_id]',
+          id: 'duplicata_pedido_id',
+          allowBlank: false
+        },
+       {
+          xtype: 'textfield',
+          fieldLabel: 'Tipo de Cobrança',
+          name: 'duplicata[tipo_cobranca]',
+          id: 'duplicata_tipo_cobranca',
+          allowBlank: false
+        },{
+          xtype: 'datafield',
+          fieldLabel: 'Data de Emissão',
+          name: 'duplicata[data_emissao]',
+          id: 'duplicata_data_emissao',
+          allowBlank: false
+        },{
+          xtype: 'datafield',
+          fieldLabel: 'Data de Vencimento',
+          name: 'duplicata[data_vencimento]',
+          id: 'duplicata_data_vencimento',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Valor',
+          name: 'duplicata[valor]',
+          id: 'duplicata_valor',
+          allowBlank: false
+        }, 
+             new Ext.form.DateField({
+             fieldLabel: 'Time',
+             name: 'time'}),
+
+            combo_cliente,  
+            combo_devedor],
+                               ]
+      buttons: [
+        {
+          text: 'Salvar',
+          handler: function(){
+            duplicatas_form.getForm().submit({
+              success: function(f,a){
+                grid.store.reload();
+                janela.close();
+              },
+              failure: function(f,a){
+                if (a.failureType === Ext.form.Action.CONNECT_FAILURE){
+                  Ext.Msg.alert('Falhou', 'Servidor informou:' +
+                  a.response.status+' '+a.response.statusText);
+                }
+                if (a.failureType === Ext.form.Action.SERVER_INVALID){
+                  Ext.Msg.alert('Atenção', a.result.errormsg);
+                }
+                else
+                {
+                  Ext.Msg.alert('Falhou', 'Erro Desconhecido');
+                }
+              }
+            });
+          }
+        },
+        {
+          text: 'Limpar',
+          handler: function(){
+          duplicatas_form.getForm().reset();
+        }
+      }]
+    });
+</script>
+<div id='form-duplicatas'></div>
+

@@ -1,22 +1,8 @@
 <%= ext_grid_for :entity => 'pedido_de_assistencia',
                  :columns => [
-                   { :header => 'Tipo',
-                     :dataIndex => 'tipo',
-                     :width => 8
-                   },
-                   { :header => 'Cliente',
-                     :dataIndex => 'cliente.razao_social',
-                     :width => 60
-                   },
-                   { :header => 'Valor',
-                     :dataIndex => 'valor',
-                     :width => 15,
-                   },
-                   { :header => 'Data',
-                     :dataIndex => 'data',
-                     :width => 15,
-                     :renderer => 'Ext.util.Format.dateRenderer(\'d/m/Y\')'
-                   }
+                   { :header => 'Tipo', :dataIndex => 'tipo', :width => 8  },
+                   { :header => 'Cliente', :dataIndex => 'cliente.razao_social', :width => 60 },
+                   { :header => 'Valor', :dataIndex => 'valor', :width => 15, :renderer => 'Ext.util.Format.brMoney' },
+                   { :header => 'Data', :dataIndex => 'data', :width => 15, :renderer => 'Ext.util.Format.dateRenderer(\'d/m/Y\')' }
                   ]
 %>
-

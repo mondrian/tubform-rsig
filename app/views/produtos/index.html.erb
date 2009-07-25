@@ -1,23 +1,8 @@
-<h1>Lista de Produtos</h1>
-
-<table>
-  <tr>
-    <th>Código</th>
-    <th>Descrição</th>
-  </tr>
-<% @produtos.each do |produto| %>
-  <tr>
-    <td><%=h produto.id %></td>
-    <td><%=h produto.descricao %></td>
-    <td><%=h produto.valor_normal %></td>
-    <td><%=h produto.valor_especial %></td>
-    <td><%= link_to 'Exibir', produto %></td>
-    <td><%= link_to 'Editar', edit_produto_path(produto) %></td>
-    <td><%= link_to 'Deletar', produto, :confirm => 'Você tem certeza?', :method => :delete %></td>
-  </tr>
-<%  end %>
-</table>
-
-<br />
-
-<%= link_to 'Novo Produto', new_produto_path %>
+<%= ext_grid_for :entity => 'produto',
+                 :columns => [
+                   { :header => 'Código', :dataIndex => 'id', :width => 8  },
+                   { :header => 'Descrição', :dataIndex => 'descricao', :width => 60 },
+                   { :header => 'Valor Normal', :dataIndex => 'valor_normal', :width => 15, :renderer => 'Ext.util.Format.brMoney' },
+                   { :header => 'Valor Especial', :dataIndex => 'valor_especial', :width => 15, :renderer => 'Ext.util.Format.brMoney' },
+                             ]
+%>

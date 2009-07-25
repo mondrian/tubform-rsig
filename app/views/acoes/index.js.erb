@@ -1,0 +1,17 @@
+
+<script type="text/javascript">
+  var grid = new JJWorks.Grid({
+    title: 'Listagem de Ações',
+    renderTo: 'grid-acoes',
+    columns: [
+      {id: 'id', header: 'Cód.', width:10, sortable:true, dataIndex:'id'},
+      {id: 'controller_name', header: 'Nome', width:10, sortable:true, dataIndex:'controller_name'},
+      {id: 'action_name', header: 'Nome da Ação', width:10, sortable:true, dataIndex:'action_name'},
+
+    ],
+    entitySingular: 'acao',
+    entityPlural: 'acoes'
+  });
+</script>
+<div id='grid-acoes'></div>
+

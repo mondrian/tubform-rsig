@@ -1,19 +1,48 @@
 class DuplicatasController < ApplicationController
   # GET /duplicatas
   # GET /duplicatas.xml
+  before_filter :load_page, :only => :index
+  before_filter :load_duplicata, :only => [ :edit, :new, :create, :update, :destroy ]
+
   def index
+    @duplicatas = Duplicata.paginate( :page => @page,
+                              :per_page => @per_page)
+
     respond_to do |format|
-      format.js {rwt_render}
-      format.json { render :json => find_duplicatas(params[:filter]).to_ext_json(:class=>:duplicata, :count => count(params[:fields])) }
+      format.html #index.html.erb
+      format.js   #index.js.erb
+      format.json { render :json => {
+                             :metaData => {
+                               :totalProperty => 'total',
+                               :root => 'results',
+                               :id => 'id',
+                               :fields => [
+                                 { :name => 'id', :mapping => 'id' },
+                                 { :name => 'plano_de_conta_id', :mapping => 'plano_de_conta_id' }      
+                                 { :name => 'razao_social', :mapping => 'razao_social' }      
+                                 { :name => 'cliente_id', :mapping => 'cliente_id' }      
+                                 { :name => 'devedor_id', :mapping => 'devedor_id' }      
+                                 { :name => 'pedido_id', :mapping => 'pedido_id' }                                    
+                                 { :name => 'tipo_cobranca', :mapping => 'tipo_cobranca' }  
+                                 { :name => 'data_vencimento', :mapping => 'data_vencimento' } 
+                                 { :name => 'data_cobranca', :mapping => 'data_cobranca' }   
+                                 { :name => 'valor', :mapping => 'valor' }  
+                               ]
+                             },
+                             :results => @duplicatas,
+                             :total => @duplicatas.total_entries
+                           }.to_json(:include => [ ])
+                  }
     end
   end
+ 
 
   # GET /duplicatas/new
   # GET /duplicatas/new.xml
-  def new
-    @duplicata = Duplicata.new
+ def new
     respond_to do |format|
-      format.js {rwt_render}
+      format.html #index.html.erb
+      format.js   #index.js.erb
     end
   end
 
@@ -27,58 +56,49 @@ class DuplicatasController < ApplicationController
 
   # POST /duplicatas
   # POST /duplicatas.xml
-  def create
-    @duplicata = Duplicata.new(params[:duplicata])
+   def create
+    create_or_update
+  end
+
+  def new
     respond_to do |format|
-      format.js do
-        if @duplicata.save
-          rwt_ok
-        else
-          rwt_err_messages(@duplicata)
-        end
-      end
+      format.html #index.html.erb
+      format.js   #index.js.erb
     end
   end
 
-  # PUT /duplicatas/1
-  # PUT /duplicatas/1.xml
-  def update
-    @duplicata = Duplicata.find(params[:id])
-    respond_to do |format|
-      format.js do
-        if @duplicata.update_attributes(params[:duplicata])
-          rwt_ok
-        else
-          rwt_err_messages(@duplicata)
-        end
-      end
-    end
-  end
-
-  # DELETE /duplicatas/1
-  # DELETE /duplicatas/1.xml
-  def destroy
-    @duplicata = Duplicata.find(params[:id])
-    if @duplicata.destroy
-      rwt_ok
-    else
-      rwt_err_messages(@duplicata)
-    end
-  end
-
-
+  def edit;end
   protected
 
-  def find_duplicatas(filter)
-  	pagination_state = update_pagination_state_with_params!(:duplicata)
-  	Duplicata.find(:all, options_from_pagination_state(pagination_state).merge(:conditions=>["first like ?","%#{filter}%"]))
+  def load_grupo
+    @duplicata = params[:id].blank? ? Duplicata.new : Duplicata.find(params[:id])
   end
 
-  def count(filter)
-	  if filter == nil or filter.empty? then
-  		Duplicata.count
-  	else
-  		Duplicata.count(:conditions=>"first like '%#{filter}%'")
-  	end
+  def create_or_update
+    if @duplicata.update_attributes(params[:duplicata])
+      respond_to do |format|
+        format.json { render :json => { :success => 'true',
+                                        :results => @duplicata
+                                      },
+                             :status => :created,
+                             :location => @duplicata
+                    }
+      end
+    else
+      respond_to do |format|
+        @errors = Hash.new
+        @duplicata.errors.each do |attr, msg|
+          @errors[attr] = msg
+        end
+
+        format.json { render :json => { :success => 'false',
+                                        :errors => @errors
+                                      },
+                             :location => @duplicata,
+                             :status => :unprocessable_entity
+
+                    }
+      end
+    end
   end
 end

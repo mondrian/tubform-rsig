@@ -1,0 +1,105 @@
+Rwt::DbEditWindow.new(
+  :model=> Acao,
+  :title=>'Nova Ação',
+  :height=>200,
+  :width=>500,
+  :fields=>['controller_name','action_name'],
+  :controller=> RwtContactsController,
+  :authenticity_token=> form_authenticity_token,
+  :data => @acao
+)
+
+<script type="text/javascript">
+
+var dbcontroler_name = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'controller_name'],
+        root: 'conttoller_name'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'controller_name/new.json'
+    })
+});
+
+var combo_controller_name = new Ext.form.ComboBox({
+    fieldLabel: 'Acao',
+    store: dbcliente,
+    displayField:'Nome do Controle',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Selecione um Controller',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+    name: 'acao[controller_name]',
+    id: 'acao_cntroller_name_id',
+});
+
+var dbaction_cliente = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'nome'],
+        root: 'acoes'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'acoes/edit.json'
+    })
+});
+
+var combo_action_name = new Ext.form.ComboBox({
+    fieldLabel: 'Açao',
+    store: dbdevedor,
+    displayField:'Acao',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Selecione uma Ação',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+    name: 'acao[action_name]',
+    id: 'acao_action_name_id',
+});
+
+  var acoes_form = new Ext.FormPanel({
+      id: 'Acoes_new',
+      url: '/acoes',
+      renderTo: 'form-acoes',
+      width: 465,
+      frame: true,
+      items: [combo_action_name, combo_controller_name],
+      buttons: [
+        {
+          text: 'Salvar',
+          handler: function(){
+            duplicatas_form.getForm().submit({
+              success: function(f,a){
+                grid.store.reload();
+                janela.close();
+              },
+              failure: function(f,a){
+                if (a.failureType === Ext.form.Action.CONNECT_FAILURE){
+                  Ext.Msg.alert('Falhou', 'Servidor informou:' +
+                  a.response.status+' '+a.response.statusText);
+                }
+                if (a.failureType === Ext.form.Action.SERVER_INVALID){
+                  Ext.Msg.alert('Atenção', a.result.errormsg);
+                }
+                else
+                {
+                  Ext.Msg.alert('Falhou', 'Erro Desconhecido');
+                }
+              }
+            });
+          }
+        },
+        {
+          text: 'Limpar',
+          handler: function(){
+          duplicatas_form.getForm().reset();
+        }
+      }]
+    });
+</script>
+<div id='form-duplicatas'></div>
+

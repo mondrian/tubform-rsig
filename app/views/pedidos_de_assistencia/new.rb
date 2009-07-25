@@ -1,0 +1,219 @@
+# definicoes das stores
+var str_tipos = new Ext.data.SimpleStore({
+    fields: ['id', 'descricao'],
+    data : [['I','INTERNO'],['E','EXTERNO']]
+});
+
+var str_clientes = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'razao_social'],
+        root: 'results'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'clientes/index.json'
+    })
+});
+
+var str_funcionarios = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'nome'],
+        root: 'results'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'funcionarios/index.json'
+    })
+});
+
+var str_transportadoras = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'razao_social'],
+        root: 'results'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'transportadoras/index.json'
+    })
+});
+
+#definicoes das combobox
+var cmb_tipo = new Ext.form.ComboBox({
+    fieldLabel: 'Tipo',
+    store: str_tipos,
+    name: 'pedido_de_assistencia[tipo]',
+    id: 'pedido_de_assistencia_tipo',
+    displayField:'descricao',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Selecione um Tipo',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+});
+
+var cmb_cliente = new Ext.form.ComboBox({
+    fieldLabel: 'Cliente',
+    store: str_cliente,
+    name: 'pedido_de_assistencia[cliente_id]',
+    id: 'pedido_de_assistencia_cliente_id',
+    displayField:'razao_social',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Selecione um Cliente',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+});
+
+var cmb_vendedor = new Ext.form.ComboBox({
+    fieldLabel: 'Vendedor',
+    store: str_funcionarios,
+    name: 'pedido_de_assistencia[vendedor_id]',
+    id: 'pedido_de_assistencia_vendedor_id',
+    displayField:'nome',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Selecione um Vendedor',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+});
+
+var cmb_telemarketing = new Ext.form.ComboBox({
+    fieldLabel: 'Telemarketing',
+    store: str_funcionarios,
+    name: 'pedido_de_assistencia[telemarketing_id]',
+    id: 'pedido_de_assistencia_telemarketing_id',
+    displayField:'nome',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Selecione um Opr. Telemarketing',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+});
+
+
+var cmb_transportadora = new Ext.form.ComboBox({
+    fieldLabel: 'Transportadora',
+    store: str_funcionarios,
+    name: 'pedido_de_assistencia[transportadora_id]',
+    id: 'pedido_de_assistencia_transportadora_id',
+    displayField:'razao_social',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Selecione uma Transportadora',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+});
+
+#corpo do form 
+<script type="text/javascript">
+  var pedidos_de_assistencia_form = new Ext.FormPanel({
+      id: 'pedidos_de_assistencia_new',
+      url: '/pedidos_de_assistencia',
+      renderTo: 'form-pedidos_de_assistencia',
+      width: 465,
+      defaultType: 'textfield'
+      frame: true,
+      items: [
+           cmb_tipo,
+           cmb_cliente,
+        {
+          xtype: 'textfield',
+          fieldLabel: 'Nosso Número',
+          name: 'pedido_de_assistencia[nosso_numero]',
+          id: 'pedido_de_assistencia_nosso_numero',
+          maxLength: 7
+          allowBlank: false
+        },{
+          xtype: 'datefield',
+          fieldLabel: 'Data',
+          name: 'pedido_de_assistencia[data]',
+          id: 'pedido_de_assistencia_data',
+          allowBlank: false
+        },{
+          xtype: 'datefield',
+          fieldLabel: 'Previsão de Entrega',
+          name: 'pedido_de_assistencia[previsao_entrega]',
+          id: 'pedido_de_assistencia_previsao_entrega',
+        },{
+          xtype: 'datefield',
+          fieldLabel: 'Data de Entrega',
+          name: 'pedido_de_assistencia[entrega]',
+          id: 'pedido_de_assistencia_entrega',
+        },{
+          xtype: 'datefield',
+          fieldLabel: 'Programação',
+          name: 'pedido_de_assistencia[programacao]',
+          id: 'pedido_de_assistencia_programacao',
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Plano de Pagamento',
+          name: 'pedido_de_assistencia[plano_de_pagamento]',
+          id: 'pedido_de_assistencia_plano_de_pagamento',
+          allowBlank: false
+        }, cmb_vendedor,{
+           xtype: 'numberfield',
+           fieldLabel: 'Valor',
+           name: 'pedido_de_assistencia[valor]',
+           id: 'pedido_de_assistencia_valor',
+           disabled: true
+        }, cmb_transportadora,{
+          xtype: 'textfield',
+          fieldLabel: 'Nome do Comprador',
+          name: 'pedido_de_assistencia[nome_comprador]',
+          id: 'pedido_de_assistencia_nome_comprador',
+          allowBlank: false
+        },{
+          xtype: 'textarea',
+          fieldLabel: 'Observação',
+          name: 'pedido_de_assistencia[observacao]',
+          id: 'pedido_de_assistencia_observacao',
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Endereço de Entrega',
+          name: 'pedido_de_assistencia[endereco_entrega]',
+          id: 'pedido_de_assistencia_endereco_entrega',
+          allowBlank: false
+        },cmb_telemarketing 
+      ],
+      buttons: [
+        {
+          text: 'Salvar',
+          handler: function(){
+            pedidos_de_assistencia_form.getForm().submit({
+              success: function(f,a){
+                grid.store.reload();
+                janela.close();
+              },
+              failure: function(f,a){
+                if (a.failureType === Ext.form.Action.CONNECT_FAILURE){
+                  Ext.Msg.alert('Falhou', 'Servidor informou:' +
+                  a.response.status+' '+a.response.statusText);
+                }
+                if (a.failureType === Ext.form.Action.SERVER_INVALID){
+                  Ext.Msg.alert('Atenção', a.result.errormsg);
+                }
+                else
+                {
+                  Ext.Msg.alert('Falhou', 'Erro Desconhecido');
+                }
+              }
+            });
+          }
+        },
+        {
+          text: 'Limpar',
+          handler: function(){
+          pedidos_de_assistencia_form.getForm().reset();
+        }
+      }]
+    });
+</script>
+<div id='form-pedidos_de_assistencia'></div>
+

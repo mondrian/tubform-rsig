@@ -1,0 +1,14 @@
+<script type="text/javascript">
+  var grid = new JJWorks.Grid({
+    title: 'Listagem de Classes',
+    renderTo: 'grid-calsses',
+    columns: [
+      {id: 'id', header: 'Cód.', width:10, sortable:true, dataIndex:'id'},
+      {id: 'descricao', header: 'Descrição', width:10, sortable:true, dataIndex:'descricao'},
+    ],
+    entitySingular: 'classe',
+    entityPlural: 'classes'
+  });
+</script>
+<div id='grid-classes'></div>
+
