@@ -1,35 +1,21 @@
-<table border="1">
-  <tr>
-    <th>Tipo</th>
-    <th>Cpf</th>
-    <th>Cnpj</th>
-    <th>Razao social</th>
-    <th>Cidade</th>
-    <th>Limite Crédito</th>
-    <th>Status</th>
-    <th colspan="3">Ação</th>
-  </tr>
 
-<% for cliente in @clientes %>
-   <tr>
-    <td><%= cliente.tipo_cliente == "F" ? "Pessoa Física" : "Pessoa Jurídica" %></td>
-    <td><%=h cliente.cpf %></td>
-    <td><%=h cliente.cnpj %></td>
-    <td><%=h cliente.razao_social %></td>
-    <%if cliente.cidade.nil? then %>
-    <td>Cidade não Cadastrada</td>
-    <% else %>
-    <td><%=h cliente.cidade.descricao + '/' + cliente.uf %></td>
-    <% end %>
-    <td align="right"><%=h cliente.limite_credito.real.real_formatado %></td>
-    <td><%=h cliente.status == "A" ? "Ativo" : "Inativo" %></td>
-    <td><%= link_to 'Exibir', cliente %></td>
-    <td><%= link_to 'Alterar', edit_cliente_path(cliente) %></td>
-    <td><%= link_to 'Excluir', cliente, :confirm => "Excluir o Cliente: #{cliente.nome_fantasia} ?", :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
 
-<br />
+<script type="text/javascript">
+  var grid = new JJWorks.Grid({
+    title: 'Listagem de Clientes',
+    renderTo: 'grid-cientes',
+    columns: [
+      {id: 'id', header: 'Cód.', width:10, sortable:true, dataIndex:'id'},
+      {id: 'tipo_cliente', header: 'Tipo de Cliente', width:10, sortable:true, dataIndex:'tipo_cliente'},
+      {id: 'cpf', header: 'CPF', width:10, sortable:true, dataIndex:'cpf'},
+      {id: 'cnpj', header: 'CNPJ', width:10, sortable:true, dataIndex:'cnpj'},
+      {id: 'razao_social', header: 'Razão Socia', width:10, sortable:true, dataIndex:'razao_social'},
+      {id: 'cidade', header: 'Cidade', width:10, sortable:true, dataIndex:'cidade'},
+      {id: 'limite_credito', header: 'Limite de Crédito', width:10, sortable:true, dataIndex:'limite_credito'},
+      {id: 'status', header: 'Status', width:10, sortable:true, dataIndex:'status'},
+    ],
+    entitySingular: 'cliente',
+    entityPlural: 'clientes'
+  });
+</script>
 
-<%= link_to 'Cadastrar Novo Cliente', new_cliente_path %>

@@ -1,11 +1,76 @@
-Rwt::DbEditWindow.new(
-  :model=> Classe,
-  :title=>'Change in Classe',
-  :height=>200,
-  :width=>500,
-  :controller=> RwtClassesController,
-  :fields=>['descricao'],
-  :authenticity_token=> form_authenticity_token,
-  :data => @classe,
-  :id=>params[:id]
-)
+
+
+<script type="text/javascript">
+
+var dbclasse = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'descricao'],
+        root: 'classes'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'classes/index.json'
+    })
+});
+
+  var classes_form = new Ext.FormPanel({
+      id: 'classes_edit',
+      url: '/classes',
+      renderTo: 'form-classes',
+      width: 465,
+      frame: true,
+      items: [,
+        {
+          xtype: 'textfield',
+          fieldLabel: 'Descrição',
+          name: 'classe[descricao]',
+          id: 'classe_descricao',
+          allowBlank: false
+          value: '<%= @action.descricao %>'
+        },{
+          xtype: 'reader',
+          fieldLabel: 'ID',
+          name: 'classe[id]',
+          id: 'classe_id',
+          allowBlank: false
+        }, 
+             new Ext.form.DateField({
+             fieldLabel: 'Time',
+             name: 'time'}),
+
+                               ]
+      ],
+      buttons: [
+        {
+          text: 'Salvar',
+          handler: function(){
+            duplicatas_form.getForm().submit({
+              success: function(f,a){
+                grid.store.reload();
+                janela.close();
+              },
+              failure: function(f,a){
+                if (a.failureType === Ext.form.Action.CONNECT_FAILURE){
+                  Ext.Msg.alert('Falhou', 'Servidor informou:' +
+                  a.response.status+' '+a.response.statusText);
+                }
+                if (a.failureType === Ext.form.Action.SERVER_INVALID){
+                  Ext.Msg.alert('Atenção', a.result.errormsg);
+                }
+                else
+                {
+                  Ext.Msg.alert('Falhou', 'Erro Desconhecido');
+                }
+              }
+            });
+          }
+        },
+        {
+          text: 'Limpar',
+          handler: function(){
+          duplicatas_form.getForm().reset();
+        }
+      }]
+    });
+</script>
+<div id='form-duplicatas'></div>
+

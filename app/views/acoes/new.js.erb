@@ -1,13 +1,3 @@
-Rwt::DbEditWindow.new(
-  :model=> Acao,
-  :title=>'Nova Ação',
-  :height=>200,
-  :width=>500,
-  :fields=>['controller_name','action_name'],
-  :controller=> RwtContactsController,
-  :authenticity_token=> form_authenticity_token,
-  :data => @acao
-)
 
 <script type="text/javascript">
 
@@ -17,13 +7,13 @@ var dbcontroler_name = new Ext.data.Store({
         root: 'conttoller_name'
     }),
     proxy: new Ext.data.HttpProxy({
-        url: 'controller_name/new.json'
+        url: 'controller_name/index.json'
     })
 });
 
 var combo_controller_name = new Ext.form.ComboBox({
     fieldLabel: 'Acao',
-    store: dbcliente,
+    store: dbcontroller_name,
     displayField:'Nome do Controle',
     typeAhead: true,
     mode: 'local',
@@ -33,7 +23,7 @@ var combo_controller_name = new Ext.form.ComboBox({
     autoCreate: true,
     autoShow: true
     name: 'acao[controller_name]',
-    id: 'acao_controller_name_id',
+    id: 'acao_controller_name',
 });
 
 var dbaction_cliente = new Ext.data.Store({
@@ -48,7 +38,7 @@ var dbaction_cliente = new Ext.data.Store({
 
 var combo_action_name = new Ext.form.ComboBox({
     fieldLabel: 'Açao',
-    store: dbdevedor,
+    store: dbaction_cliente,
     displayField:'Acao',
     typeAhead: true,
     mode: 'local',
@@ -58,11 +48,11 @@ var combo_action_name = new Ext.form.ComboBox({
     autoCreate: true,
     autoShow: true
     name: 'acao[action_name]',
-    id: 'acao_action_name_id',
+    id: 'acao_action_name',
 });
 
   var acoes_form = new Ext.FormPanel({
-      id: 'Acoes_new',
+      id: 'acoes_new',
       url: '/acoes',
       renderTo: 'form-acoes',
       width: 465,
