@@ -1,94 +1,123 @@
 class ClientesController < ApplicationController
   # GET /clientes
   # GET /clientes.xml
+   before_filter :load_page, :only => :index
+  before_filter :load_cliente, :only => [ :edit, :new, :create, :update, :destroy ]
+
   def index
-    @clientes = Cliente.find(:all)
+    @clientes = Cliente.paginate( :page => @page,
+                              :per_page => @per_page)
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @clientes }
+      format.html #index.html.erb
+      format.js   #index.js.erb
+      format.json { render :json => {
+                             :metaData => {
+                               :totalProperty => 'total',
+                               :root => 'results',
+                               :id => 'id',
+                               :fields => [
+                                 { :name => 'id', :mapping => 'id' },
+                                 { :name => 'tipo_cliente', :mapping => 'tipo_cliente' }      
+                                 { :name => 'cpf', :mapping => 'cpf' }      
+                                 { :name => 'cnpj', :mapping => 'cnpj' }      
+                                 { :name => 'razao_social', :mapping => 'razao_social' }      
+                                 { :name => 'nome_fantasia', :mapping => 'nome_fantasia' }                                    
+                                 { :name => 'documento', :mapping => 'documento' }  
+                                 { :name => 'endereco', :mapping => 'endereco' } 
+                                 { :name => 'bairro', :mapping => 'bairro' }   
+                                 { :name => 'complemento', :mapping => 'complemento' }  
+#                                 { :name => 'uf', :mapping => 'uf' }  
+                                 { :name => 'cep', :mapping => 'cep' }  
+                                 { :name => 'referencia', :mapping => 'referencia' }  
+                                 { :name => 'fone_pessoal', :mapping => 'fone_pessoal' }  
+                                 { :name => 'fone_comercial', :mapping => 'fone_comercial' }  
+                                 { :name => 'fone_celular', :mapping => 'fone_celular' }  
+                                 { :name => 'email', :mapping => 'email' }  
+                                 { :name => 'endereco_entrega', :mapping => 'endereco_entrega' }  
+                                 { :name => 'regiao_entrega_id', :mapping => 'regiao_entrega_id' }  
+                                 { :name => 'cidade_entrega_id', :mapping => 'cidade_entrega_id' }  
+                                 { :name => 'area_id', :mapping => 'area_id' }  
+                                 { :name => 'referencias_bancaria', :mapping => 'referencias_bancaria' }  
+                                 { :name => 'referencias_comerciais', :mapping => 'refrencias_comerciais' }  
+                                 { :name => 'observacao', :mapping => 'observacao' }  
+                                 { :name => 'info_serasa', :mapping => 'info_serasa' }  
+                                 { :name => 'data_nascimento', :mapping => 'data_nascimento' }
+                                 { :name => 'nome_comprador', :mapping => 'nome_comprador' }  
+                                 { :name => 'vendas_suspensas', :mapping => 'vendas_suspensas' }  
+                                 { :name => 'observacao_suspensao_venda', :mapping => 'observacao_suspensao_venda' }    
+                                 { :name => ':limite_credito', :mapping => ':limite_credito' }  
+                                 { :name => 'status', :mapping => 'status' }  
+                                 { :name => 'prazo_medio_maximo', :mapping => 'prazo_medio_maximo' }  
+                                 { :name => 'data_inclusao_prazo_medio', :mapping => 'data_inclusao_prazo_medio' }  
+                                 
+                               ]
+                             },
+                             :results => @cliente,
+                             :total => @clientes.total_entries
+                           }.to_json(:include => [ ])
+                  }
+    end
+  end
+def new
+    respond_to do |format|
+      format.html #index.html.erb
+      format.js   #index.js.erb
     end
   end
 
-  def method_name
-
-  end
-
-  # GET /clientes/1
-  # GET /clientes/1.xml
-  def show
-    @cliente = Cliente.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @cliente }
-    end
-  end
-
-  # GET /clientes/new
-  # GET /clientes/new.xml
-  def new
-    @cliente = Cliente.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @cliente }
-    end
-  end
-
-  # GET /clientes/1/edit
+ 
   def edit
     @cliente = Cliente.find(params[:id])
+    respond_to do |format|
+      format.js {rwt_render}
+    end
   end
 
-  # POST /clientes
-  # POST /clientes.xml
-  def create
-    @cliente = Cliente.new(params[:cliente])
 
+   def create
+    create_or_update
+  end
+
+  def new
     respond_to do |format|
-      if @cliente.save
-        flash[:notice] = 'Cliente Gravado com Sucesso.'
-        format.html { redirect_to(@cliente) }
-        format.xml  { render :xml => @cliente, :status => :created, :location => @cliente }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @cliente.errors, :status => :unprocessable_entity }
+      format.html #index.html.erb
+      format.js   #index.js.erb
+    end
+  end
+
+  def edit;end
+  protected
+
+  def load_cliente
+    @cliente = params[:id].blank? ? Cliente.new : Cliente.find(params[:id])
+  end
+
+  def create_or_update
+    if @cliente.update_attributes(params[:cliente])
+      respond_to do |format|
+        format.json { render :json => { :success => 'true',
+                                        :results => @cliente
+                                      },
+                             :status => :created,
+                             :location => @cliente
+                    }
+      end
+    else
+      respond_to do |format|
+        @errors = Hash.new
+        @cliente.errors.each do |attr, msg|
+          @errors[attr] = msg
+        end
+
+        format.json { render :json => { :success => 'false',
+                                        :errors => @errors
+                                      },
+                             :location => @cliente,
+                             :status => :unprocessable_entity
+
+                    }
       end
     end
   end
-
-  # PUT /clientes/1
-  # PUT /clientes/1.xml
-  def update
-    @cliente = Cliente.find(params[:id])
-
-    respond_to do |format|
-      if @cliente.update_attributes(params[:cliente])
-        flash[:notice] = 'Atualização Gravada com Sucesso'
-        format.html { redirect_to(@cliente) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @cliente.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /clientes/1
-  # DELETE /clientes/1.xml
-  def destroy
-    @cliente = Cliente.find(params[:id])
-    @cliente.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(clientes_url) }
-      format.xml  { head :ok }
-    end
-  end
-  def cidade
-	render :layout => false
-  end
-
 end
-

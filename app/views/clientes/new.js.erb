@@ -1,8 +1,368 @@
-<% form_for(@cliente) do |f| %>
-  <%= f.error_messages %>
 
-<%= render :partial => "form", :locals => { :f => f} %>
-    <%= f.submit "Salvar" %>
-<% end %>
 
-<%= link_to 'Voltar', clientes_path %>
+Rwt::DbEditWindow.new(
+  :model=> Classe,
+  :title=>'Novo Cliente',
+  :height=>200,
+  :width=>500,
+  :fields=>['descricao'],
+  :controller=> RwtClassesController,
+  :authenticity_token=> form_authenticity_token,
+  :data => @classe
+)
+
+<script type="text/javascript">
+
+
+var dbcliente_tipo_cliente = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'tipo_cliente'],
+        root: 'clientes'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'clientes/index.json'
+    })
+});
+
+var combo_tipo_cliente = new Ext.form.ComboBox({
+    fieldLabel: 'Tipo_Cliente',
+    store: dbcliente_tipo_cliente,
+    displayField:'Tipo de Cliente',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Tipo de Cliente',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+    name: 'cliente[tipo_cliente]',
+    id: 'cliente_tipo_cliente',
+});
+
+var dbcliente_regiao_entrega = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'regiao_entrega_id'],
+        root: 'clientes'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'clientes/index.json'
+    })
+});
+
+var combo_regiao_entrega = new Ext.form.ComboBox({
+    fieldLabel: 'Região de Entrega',
+    store: dbcliente_regiao_entrega,
+    displayField:'Região de Entrega',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Região de entrega',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+    name: 'cliente[regiao_entrega_id]',
+    id: 'cliente_regiao_entrega_id',
+});
+
+var dbcliente_cidade_entrega = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'cidade_entrega_id'],
+        root: 'clientes'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'clientes/index.json'
+    })
+});
+
+var combo_cidade_entrega = new Ext.form.ComboBox({
+    fieldLabel: 'Cidade de Entrega',
+    store: dbcliente_cidade_entrega,
+    displayField:'Cidade de Entrega',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Cidade de entrega',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+    name: 'cliente[cidade_entrega_id]',
+    id: 'cliente_cidade_entrega_id',
+});
+
+var dbcliente_area = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'area_id'],
+        root: 'clientes'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'clientes/index.json'
+    })
+});
+
+var combo_cidade_cliente = new Ext.form.ComboBox({
+    fieldLabel: 'Área',
+    store: dbcliente_area,
+    displayField:'Área',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Área',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+    name: 'cliente[area_id]',
+    id: 'cliente_area_id',
+});
+
+#var dbcliente_estado_cidade = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'tipo_cliente'],
+        root: 'clientes'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'clientes/index.json'
+    })
+});
+
+#var combo_estado_cidade = new Ext.form.ComboBox({
+    fieldLabel: 'Estado',
+    store: dbcliente,
+    displayField:'Tipo de Cliente',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Tipo de Cliente',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+    name: 'cliente[tipo_cliente]',
+    id: 'cliente_tipo_cliente',
+});
+
+
+var dbcliente = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'tipo_cliente'],
+        root: 'clientes'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'clientes/index.json'
+    })
+});
+
+  var cliente_form = new Ext.FormPanel({
+      id: 'clientes_new',
+      url: '/clientes',
+      renderTo: 'form-clientes',
+      width: 465,
+      frame: true,
+      items: [,
+        {
+          xtype: 'textfield',
+          fieldLabel: 'CPF',
+          name: 'cliente[cpf]',
+          id: 'cliente_cpf',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'CNPJ',
+          name: 'cliente[cnpj]',
+          id: 'cliente_cnpj',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Razão Social',
+          name: 'cliente[razao_social]',
+          id: 'cliente_razao_social',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Nome do Cliente / Nome Fantasia',
+          name: 'cliente[nome_fantasia]',
+          id: 'cliente_nome_fantasia',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'RG / Inscrição Estadual',
+          name: 'cliente[documento]',
+          id: 'cliente_documento',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Endereço',
+          name: 'cliente[endereco]',
+          id: 'cliente_enederco',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Bairro',
+          name: 'cliente[bairro]',
+          id: 'cliente_bairro',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Complemento',
+          name: 'cliente[complemento]',
+          id: 'cliente_complemento',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'CEP',
+          name: 'cliente[cep]',
+          id: 'cliente_cep',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Referencia',
+          name: 'cliente[referencia]',
+          id: 'cliente_referencia',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Telefone Pessoal',
+          name: 'cliente[fone_pessoal]',
+          id: 'cliente_fone_pessoal',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Telefone Comercial',
+          name: 'cliente[fone_comercial]',
+          id: 'cliente_fone_comercial',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Telefone Celular',
+          name: 'cliente[fone_celular]',
+          id: 'cliente_fone_celular',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'E-mail',
+          name: 'cliente[email]',
+          id: 'cliente_email',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Endereço de Entrega',
+          name: 'cliente[endereco_entrega]',
+          id: 'cliente_endereco_entrega',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Referencias Bancárias',
+          name: 'cliente[referencias_bancaria]',
+          id: 'cliente_referencias_bancaria',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Referencias Comerciais',
+          name: 'cliente[referencias_comerciais]',
+          id: 'cliente_referencias_comerciais',
+          allowBlank: false
+        },{
+          xtype: 'textarea',
+          fieldLabel: 'Observação',
+          name: 'cliente[observacao]',
+          id: 'cliente_observacao',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Informação Serasa',
+          name: 'cliente[info_serasa]',
+          id: 'cliente_info_serasa',
+          allowBlank: false
+        },{
+          xtype: 'datefield',
+          fieldLabel: 'Data de Nascimento',
+          name: 'cliente[data_nascimento]',
+          id: 'cliente_data_nascimento',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Nome do Comprador',
+          name: 'cliente[nome_comprador]',
+          id: 'cliente_nome_comprador',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Vendas Suspensas',
+          name: 'cliente[vendas_suspensas]',
+          id: 'cliente_vendas_suspensas',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Observação de Suspensão de Vendas',
+          name: 'cliente[observacao_suspensao_venda]',
+          id: 'cliente_observacao_suspensao_venda',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Limite de Crédito',
+          name: 'cliente[limite_credito]',
+          id: 'cliente_limite_credito',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Status',
+          name: 'cliente[status]',
+          id: 'cliente_status',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Prazo Médio e Máximo',
+          name: 'cliente[prazo_medio_maximo]',
+          id: 'cliente_prazo_medio_maximo',
+          allowBlank: false
+        },{
+          xtype: 'datefield',
+          fieldLabel: 'Data de Inclusão de Prazo Médio',
+          name: 'cliente[data_inclusao_prazo_medio]',
+          id: 'cliente_data_inclusao_prazo_medio',
+          allowBlank: false
+        },
+          combo_tipo_cliente,
+          combo_regiao_entrega,
+          combo_cidade_entrega,
+          combo_area,
+ 
+             new Ext.form.DateField({
+             fieldLabel: 'Time',
+             name: 'time'}),
+           
+          ]
+      ],
+      buttons: [
+        {
+          text: 'Salvar',
+          handler: function(){
+            duplicatas_form.getForm().submit({
+              success: function(f,a){
+                grid.store.reload();
+                janela.close();
+              },
+              failure: function(f,a){
+                if (a.failureType === Ext.form.Action.CONNECT_FAILURE){
+                  Ext.Msg.alert('Falhou', 'Servidor informou:' +
+                  a.response.status+' '+a.response.statusText);
+                }
+                if (a.failureType === Ext.form.Action.SERVER_INVALID){
+                  Ext.Msg.alert('Atenção', a.result.errormsg);
+                }
+                else
+                {
+                  Ext.Msg.alert('Falhou', 'Erro Desconhecido');
+                }
+              }
+            });
+          }
+        },
+        {
+          text: 'Limpar',
+          handler: function(){
+          duplicatas_form.getForm().reset();
+        }
+      }]
+    });
+</script>
+<div id='form-duplicatas'></div>
+

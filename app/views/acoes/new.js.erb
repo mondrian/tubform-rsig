@@ -33,7 +33,7 @@ var combo_controller_name = new Ext.form.ComboBox({
     autoCreate: true,
     autoShow: true
     name: 'acao[controller_name]',
-    id: 'acao_cntroller_name_id',
+    id: 'acao_controller_name_id',
 });
 
 var dbaction_cliente = new Ext.data.Store({
@@ -42,7 +42,7 @@ var dbaction_cliente = new Ext.data.Store({
         root: 'acoes'
     }),
     proxy: new Ext.data.HttpProxy({
-        url: 'acoes/edit.json'
+        url: 'acoes/index.json'
     })
 });
 

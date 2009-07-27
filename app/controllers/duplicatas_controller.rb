@@ -70,7 +70,7 @@ class DuplicatasController < ApplicationController
   def edit;end
   protected
 
-  def load_grupo
+  def load_duplicata
     @duplicata = params[:id].blank? ? Duplicata.new : Duplicata.find(params[:id])
   end
 

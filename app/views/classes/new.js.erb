@@ -1,6 +1,6 @@
 Rwt::DbEditWindow.new(
   :model=> Classe,
-  :title=>'New Classe',
+  :title=>'Nova Classe',
   :height=>200,
   :width=>500,
   :fields=>['descricao'],
@@ -17,7 +17,7 @@ var dbclasse = new Ext.data.Store({
         root: 'classes'
     }),
     proxy: new Ext.data.HttpProxy({
-        url: 'classes/edit.json'
+        url: 'classes/index.json'
     })
 });
 
