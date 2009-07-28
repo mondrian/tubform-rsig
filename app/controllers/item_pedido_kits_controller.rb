@@ -1,84 +1,77 @@
 class ItemPedidoKitsController < ApplicationController
-  # GET /item_pedido_kits
-  # GET /item_pedido_kits.xml
+  before_filter :load_page, :only => :index
+  before_filter :load_item_pedido_kit, :only => [ :edit, :new, :create, :update, :detroy ]
+
+
+  # Inicío da Index
   def index
+    @item_pedido_kits = ItemPedidoKit.paginate( :page => @page, :per_page => @per_page)
+
     respond_to do |format|
-      format.js {rwt_render}
-      format.json { render :json => find_item_pedido_kits(params[:filter]).to_ext_json(:class=>:item_pedido_kit, :count => count(params[:fields])) }
+      format.html #index.html.erb
+      format.js   #index.js.erb
+      format.json { render :json => { :metaData => { :totalProperty => 'total', :root => 'results', :id => 'id',
+            :fields =>
+              [ { :name => 'id', :mapping => 'id' },
+              { :name => 'pedido_id', :mapping => 'pedido_id' },
+              { :name => 'quantidade', :mapping => 'quantidade' },
+              { :name => 'valor_tabela', :mapping => 'valor_tabela' },
+              { :name => 'valor_venda', :mapping => 'valor_venda' },
+              { :name => 'desconto', :mapping => 'desconto' },
+              { :name => 'produto_id', :mapping => 'produto_id' },
+              { :name => 'produto_kit', :mapping => 'produto_kit' }
+             ]
+          }, :results => @item_pedido_kits, :total => @item_pedido_kits.total_entries }.to_json(:include => [ ])
+      }
     end
   end
 
-  # GET /item_pedido_kits/new
-  # GET /item_pedido_kits/new.xml
-  def new
-    @item_pedido_kit = ItemPedidoKit.new
-    respond_to do |format|
-      format.js {rwt_render}
-    end
-  end
-
-  # GET /item_pedido_kits/1/edit
-  def edit
-    @item_pedido_kit = ItemPedidoKit.find(params[:id])
-    respond_to do |format|
-      format.js {rwt_render}
-    end
-  end
-
-  # POST /item_pedido_kits
-  # POST /item_pedido_kits.xml
   def create
-    @item_pedido_kit = ItemPedidoKit.new(params[:item_pedido_kit])
-    respond_to do |format|
-      format.js do
-        if @item_pedido_kit.save
-          rwt_ok
-        else
-          rwt_err_messages(@item_pedido_kit)
-        end
-      end
-    end
+    create_or_update
   end
 
-  # PUT /item_pedido_kits/1
-  # PUT /item_pedido_kits/1.xml
-  def update
-    @item_pedido_kit = ItemPedidoKit.find(params[:id])
+  def new
     respond_to do |format|
-      format.js do
-        if @item_pedido_kit.update_attributes(params[:item_pedido_kit])
-          rwt_ok
-        else
-          rwt_err_messages(@item_pedido_kit)
-        end
-      end
+      format.html #index.html.erb
+      format.js   #index.js.erb
     end
+
   end
 
-  # DELETE /item_pedido_kits/1
-  # DELETE /item_pedido_kits/1.xml
-  def destroy
-    @item_pedido_kit = ItemPedidoKit.find(params[:id])
-    if @item_pedido_kit.destroy
-      rwt_ok
-    else
-      rwt_err_messages(@item_pedido_kit)
-    end
-  end
+  def edit;end
 
 
   protected
 
-  def find_item_pedido_kits(filter)
-  	pagination_state = update_pagination_state_with_params!(:item_pedido_kit)
-  	ItemPedidoKit.find(:all, options_from_pagination_state(pagination_state).merge(:conditions=>["first like ?","%#{filter}%"]))
+  def load_item_pedido_kit
+    @item_pedido_kit = params[:id].blank? ? ItemPedidoKit.new : ItemPedidoKit.find(params[:id])
   end
 
-  def count(filter)
-	  if filter == nil or filter.empty? then
-  		ItemPedidoKit.count
-  	else
-  		ItemPedidoKit.count(:conditions=>"first like '%#{filter}%'")
-  	end
+  def create_or_update
+    if @item_pedido_kit.update_attributes(params[:item_pedido_kit])
+      respond_to do |format|
+        format.json { render :json => { :success => 'true',
+            :results => @item_pedido_kit
+          },
+          :status => :created,
+          :location => @item_pedido_kit
+        }
+      end
+    else
+      respond_to do |format|
+        @errors = Hash.new
+        @item_pedido_kit.errors.each do |attr, msg|
+          @errors[attr] = msg
+        end
+
+        format.json { render :json => { :success => 'false',
+            :errors => @errors
+          },
+          :location => @item_pedido_kit,
+          :status => :unprocessable_entity
+
+        }
+      end
+    end
   end
 end

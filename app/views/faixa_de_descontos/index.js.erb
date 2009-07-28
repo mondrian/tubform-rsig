@@ -1,0 +1,15 @@
+<script type="text/javascript">
+  var grid = new JJWorks.Grid({
+    title: 'Listagem de Faixa de Desconto',
+    renderTo: 'grid-faixa_de_desconto',
+    columns: [
+      {id: 'id', header: 'Código', width:35, sortable:true, dataIndex:'id'},
+      {id: 'de', header: 'De', width:50, sortable:true, dataIndex:'de'},
+      {id: 'ate', header: 'Ate', width:50, sortable:true, dataIndex:'ate'},
+      {id: 'desconto_permitido', header: 'Desconto Permitido', width:50, sortable:true, dataIndex:'desconto_permitido'}
+    ],
+    entitySingular: 'faixa_de_desconto',
+    entityPlural: 'faixa_de_desconto'
+  });
+</script>
+<div id='grid-faixa_de_desconto'></div>

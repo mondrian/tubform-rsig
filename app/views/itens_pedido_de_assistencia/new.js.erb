@@ -1,0 +1,119 @@
+<script type="text/javascript">
+var dbproduto = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'descricao'],
+        root: 'produtos'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'produtos/edit.json'
+    })
+});
+
+var combo_produto = new Ext.form.ComboBox({
+    fieldLabel: 'Pedido De Assistencia',
+    store: dbcliente,
+    displayField:'Produto',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Selecione um Produto',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+    name: 'item_pedido_de_assistencia[produto]',
+    id: 'item_pedido_de_assistencia_produto_id',
+});
+
+  var item_pedido_de_assistencias_form = new Ext.FormPanel({
+      id: 'item_pedido_de_assistencias_new',
+      url: '/item_pedido_de_assistencias',
+      renderTo: 'form-item_pedido_de_assistencias',
+      height: 500,
+      width: 800,
+      frame: true,
+      items: [
+        combo_produto,
+				{
+          xtype: 'textfield',
+          fieldLabel: 'Quantidade',
+          name: 'item_pedido_de_assistencia[quantidade]',
+          id: 'item_pedido_de_assistencia_quantidade',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Valor',
+          name: 'item_pedido_de_assistencia[valor]',
+          id: 'item_pedido_de_assistencia_valor',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Sequencia Monvimento',
+          name: 'item_pedido_de_assistencia[sequencia_monvimento]',
+          id: 'item_pedido_de_assistencia_sequencia_monvimento',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Emite Relatorio',
+          name: 'item_pedido_de_assistencia[emite_relatorio]',
+          id: 'item_pedido_de_assistencia_emite_relatorio',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Codigo Produto Kit',
+          name: 'item_pedido_de_assistencia[codigo_produto_kit]',
+          id: 'item_pedido_de_assistencia_codigo_produto_kit',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Justificativa',
+          name: 'item_pedido_de_assistencia[justificativa]',
+          id: 'item_pedido_de_assistencia_justificativa',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Usa Componente',
+          name: 'item_pedido_de_assistencia[usa_componente]',
+          id: 'item_pedido_de_assistencia_usa_componente',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Motivo ID',
+          name: 'item_pedido_de_assistencia[motivo_id]',
+          id: 'item_pedido_de_assistencia_motivo_id',
+          allowBlank: false
+        }
+      ],
+      buttons: [
+        {
+          text: 'Salvar',
+          handler: function(){
+            item_pedido_de_assistencias_form.getForm().submit({
+              success: function(f,a){
+                grid.store.reload();
+                janela.close();
+              },
+              failure: function(f,a){
+                if (a.failureType === Ext.form.Action.CONNECT_FAILURE){
+                  Ext.Msg.alert('Falhou', 'Servidor informou:' +
+                  a.response.status+' '+a.response.statusText);
+                }
+                if (a.failureType === Ext.form.Action.SERVER_INVALID){
+                  Ext.Msg.alert('Atenção', a.result.errormsg);
+                }
+                else
+                {
+                  Ext.Msg.alert('Falhou', 'Erro Desconhecido');
+                }
+              }
+            });
+          }
+        },
+        {
+          text: 'Limpar',
+          handler: function(){
+          item_pedido_de_assistencias_form.getForm().reset();
+        }
+      }]
+    });
+</script>
+<div id='form-item_pedido_de_assistencias'></div>

@@ -1,0 +1,137 @@
+<script type="text/javascript">
+
+var dbproduto = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'descricao'],
+        root: 'produtos'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'produtos/edit.json'
+    })
+});
+
+var combo_produto = new Ext.form.ComboBox({
+    fieldLabel: 'Item Pedido Kit',
+    store: dbcliente,
+    displayField:'Produto',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Selecione um Produto',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+    name: 'item_pedido_kit[produto]',
+    id: 'item_pedido_kit_produto_id',
+});
+
+var dbprodutokit = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'descricao'],
+        root: 'produto_kits'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'produto_kits/edit.json'
+    })
+});
+
+var combo_produto_kit = new Ext.form.ComboBox({
+    fieldLabel: 'Item Pedido Kit',
+    store: dbcliente,
+    displayField:'Produto Kit',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Selecione um Produto Kit',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+    name: 'item_pedido_kit[produto_kit]',
+    id: 'item_pedido_kit_produto_kit',
+});
+
+
+  var item_pedido_kits_form = new Ext.FormPanel({
+      id: 'item_pedido_kits_edit',
+      url: '/item_pedido_kits',
+      renderTo: 'form-item_pedido_kits',
+      width: 465,
+      defaultType: 'textfield',
+      frame: true,
+      items: [
+        {
+          xtype: 'hidden',
+          name: 'item_pedido_kit[id]',
+          id: 'item_pedido_kit_id',
+          value: '<%= item_pedido_kit.id %>'
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Pedido ID',
+          name: 'item_pedido_kit[pedido_id]',
+          id: 'item_pedido_kit_pedido_id',
+          value: '<%= @item_pedido_kit.pedido_id %>',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Quantidade',
+          name: 'item_pedido_kit[quantidade]',
+          id: 'item_pedido_kit_quantidade',
+          value: '<%= @item_pedido_kit.quantidade %>',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Valor Tabela',
+          name: 'item_pedido_kit[valor_tabela]',
+          id: 'item_pedido_kit_valor_tabela',
+          value: '<%= @item_pedido_kit.valor_tabela %>',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Valor Venda',
+          name: 'item_pedido_kit[valor_venda]',
+          id: 'item_pedido_kit_valor_venda',
+          value: '<%= @item_pedido_kit.valor_venda %>',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Desconto',
+          name: 'item_pedido_kit[desconto]',
+          id: 'item_pedido_kit_desconto',
+          value: '<%= @item_pedido_kit.desconto %>',
+          allowBlank: false
+        },combo_produto,combo_produto_kit
+      ],
+      buttons: [
+        {
+          text: 'Salvar',
+          handler: function(){
+            grupos_form.getForm().submit({
+              success: function(f,a){
+                grid.store.reload();
+                janela.close();
+              },
+              failure: function(f,a){
+                if (a.failureType === Ext.form.Action.CONNECT_FAILURE){
+                  Ext.Msg.alert('Falhou', 'Servidor informou:' +
+                  a.response.status+' '+a.response.statusText);
+                }
+                if (a.failureType === Ext.form.Action.SERVER_INVALID){
+                  Ext.Msg.alert('Atenção', a.result.errormsg);
+                }
+                else
+                {
+                  Ext.Msg.alert('Falhou', 'Erro Desconhecido');
+                }
+              }
+            });
+          }
+        },
+        {
+          text: 'Limpar',
+          handler: function(){
+          item_pedido_de_assistencias_form.getForm().reset();
+        }
+      }]
+    });
+</script>
+<div id='form-item_pedido_de_assistencias'></div>

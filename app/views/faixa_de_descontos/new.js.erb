@@ -1,0 +1,63 @@
+<script type="text/javascript">
+  var pedidos_form = new Ext.FormPanel({
+      id: 'faixa_de_descontos_new',
+      url: '/faixa_de_descontos',
+      renderTo: 'form-faixa_de_descontos',
+      height: 500,
+      width: 800,
+      frame: true,
+      items: [
+        {
+          xtype: 'textfield',
+          fieldLabel: 'De',
+          name: 'faixa_de_desconto[de]',
+          id: 'faixa_de_desconto_de',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Ate',
+          name: 'faixa_de_desconto[ate]',
+          id: 'faixa_de_desconto_ate',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Desconto Permitido',
+          name: 'faixa_de_desconto[desconto_permitido]',
+          id: 'faixa_de_desconto_desconto_permitido',
+          allowBlank: false
+        }
+      ],
+      buttons: [
+        {
+          text: 'Salvar',
+          handler: function(){
+            faixa_de_descontos_form.getForm().submit({
+              success: function(f,a){
+                grid.store.reload();
+                janela.close();
+              },
+              failure: function(f,a){
+                if (a.failureType === Ext.form.Action.CONNECT_FAILURE){
+                  Ext.Msg.alert('Falhou', 'Servidor informou:' +
+                  a.response.status+' '+a.response.statusText);
+                }
+                if (a.failureType === Ext.form.Action.SERVER_INVALID){
+                  Ext.Msg.alert('Atenção', a.result.errormsg);
+                }
+                else
+                {
+                  Ext.Msg.alert('Falhou', 'Erro Desconhecido');
+                }
+              }
+            });
+          }
+        },
+        {
+          text: 'Limpar',
+          handler: function(){
+          faixa_de_descontos_form.getForm().reset();
+        }
+      }]
+    });
+</script>
+<div id='form-faixa_de_descontos'></div>

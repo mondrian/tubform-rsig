@@ -1,0 +1,22 @@
+<script type="text/javascript">
+  var grid = new JJWorks.Grid({
+    title: 'Listagem de Pedido de Assistencia',
+    renderTo: 'grid-pedido_de_assistencia',
+    columns: [
+      {id: 'id', header: 'Código', width:35, sortable:true, dataIndex:'id'},
+      {id: 'produto', header: 'Produto', width:50, sortable:true, dataIndex:'produto'},
+      {id: 'quantidade', header: 'Quantidade', width:50, sortable:true, dataIndex:'quantidade'},
+      {id: 'valor', header: 'Valor', width:50, sortable:true, dataIndex:'valor'},
+      {id: 'sequencia_monvimento', header: 'Sequencia Monvimento', width:50, sortable:true, dataIndex:'sequencia_monvimento'},
+      {id: 'emite_relatorio', header: 'Emite Relatorio', width:50, sortable:true, dataIndex:'emite_relatorio'},
+      {id: 'codigo_produto_kit', header: 'Codigo Produto Kit', width:50, sortable:true, dataIndex:'codigo_produto_kit'},
+      {id: 'justificativa', header: 'justificativa', width:50, sortable:true, dataIndex:'justificativa'},
+      {id: 'usa_componente', header: 'Usa Componente', width:50, sortable:true, dataIndex:'usa_componente'},
+      {id: 'motivo_id', header: 'Motivo ID', width:50, sortable:true, dataIndex:'motivo_id'}
+    ],
+    entitySingular: 'pedido_de_assistencia',
+    entityPlural: 'pedido_de_assistencias'
+  });
+</script>
+<div id='grid-pedido_de_assistencias'></div>
+

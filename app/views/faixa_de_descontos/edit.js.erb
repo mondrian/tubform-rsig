@@ -1,0 +1,71 @@
+<script type="text/javascript">
+  var faixa_de_descontos_form = new Ext.FormPanel({
+      id: 'faixa_de_descontos_edit',
+      url: '/faixa_de_descontos',
+      renderTo: 'form-faixa_de_descontos',
+      width: 465,
+      defaultType: 'textfield',
+      frame: true,
+      items: [
+        {
+          xtype: 'hidden',
+          name: 'faixa_de_desconto[id]',
+          id: 'faixa_de_desconto_id',
+          value: '<%= faixa_de_desconto.id %>'
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'De',
+          name: 'faixa_de_desconto[de]',
+          id: 'faixa_de_desconto_de',
+          value: '<%= @faixa_de_desconto.de %>',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Ate',
+          name: 'faixa_de_desconto[ate]',
+          id: 'faixa_de_desconto_ate',
+          value: '<%= @faixa_de_desconto.ate %>',
+          allowBlank: false
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Desconto Permitido',
+          name: 'faixa_de_desconto[desconto_permitido]',
+          id: 'faixa_de_desconto_desconto_permitido',
+          value: '<%= @faixa_de_desconto.desconto_permitido %>',
+          allowBlank: false
+        }
+      ],
+      buttons: [
+        {
+          text: 'Salvar',
+          handler: function(){
+            grupos_form.getForm().submit({
+              success: function(f,a){
+                grid.store.reload();
+                janela.close();
+              },
+              failure: function(f,a){
+                if (a.failureType === Ext.form.Action.CONNECT_FAILURE){
+                  Ext.Msg.alert('Falhou', 'Servidor informou:' +
+                  a.response.status+' '+a.response.statusText);
+                }
+                if (a.failureType === Ext.form.Action.SERVER_INVALID){
+                  Ext.Msg.alert('Atenção', a.result.errormsg);
+                }
+                else
+                {
+                  Ext.Msg.alert('Falhou', 'Erro Desconhecido');
+                }
+              }
+            });
+          }
+        },
+        {
+          text: 'Limpar',
+          handler: function(){
+          faixa_de_descontos_form.getForm().reset();
+        }
+      }]
+    });
+</script>
+<div id='form-faixa_de_descontos'></div>

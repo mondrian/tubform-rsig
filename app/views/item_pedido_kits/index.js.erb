@@ -1,0 +1,19 @@
+<script type="text/javascript">
+  var grid = new JJWorks.Grid({
+    title: 'Listagem de Item Pedido Kit',
+    renderTo: 'grid-item_pedido_kit',
+    columns: [
+      {id: 'id', header: 'Código', width:35, sortable:true, dataIndex:'id'},
+      {id: 'pedido_id', header: 'Pedido ID', width:50, sortable:true, dataIndex:'pedido_id'},
+      {id: 'quantidade', header: 'Quantidade', width:50, sortable:true, dataIndex:'quantidade'},
+      {id: 'valor_tabela', header: 'Valor Tabela', width:50, sortable:true, dataIndex:'valor_tabela'},
+      {id: 'valor_venda', header: 'Valor Venda', width:50, sortable:true, dataIndex:'valor_venda'},
+      {id: 'desconto', header: 'Desconto', width:50, sortable:true, dataIndex:'desconto'},
+      {id: 'produto_id', header: 'Produto ID', width:50, sortable:true, dataIndex:'produto_id'},
+      {id: 'produto_kit', header: 'Produto Kit', width:50, sortable:true, dataIndex:'produto_kit'}
+    ],
+    entitySingular: 'item_pedido_kit',
+    entityPlural: 'item_pedido_kit'
+  });
+</script>
+<div id='grid-item_pedido_kit'></div>
