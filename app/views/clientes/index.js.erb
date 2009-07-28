@@ -1,0 +1,21 @@
+
+
+<script type="text/javascript">
+  var grid = new JJWorks.Grid({
+    title: 'Listagem de Clientes',
+    renderTo: 'grid-cientes',
+    columns: [
+      {id: 'id', header: 'Cód.', width:10, sortable:true, dataIndex:'id'},
+      {id: 'tipo_cliente', header: 'Tipo de Cliente', width:10, sortable:true, dataIndex:'tipo_cliente'},
+      {id: 'cpf', header: 'CPF', width:10, sortable:true, dataIndex:'cpf'},
+      {id: 'cnpj', header: 'CNPJ', width:10, sortable:true, dataIndex:'cnpj'},
+      {id: 'razao_social', header: 'Razão Socia', width:10, sortable:true, dataIndex:'razao_social'},
+      {id: 'cidade', header: 'Cidade', width:10, sortable:true, dataIndex:'cidade'},
+      {id: 'limite_credito', header: 'Limite de Crédito', width:10, sortable:true, dataIndex:'limite_credito'},
+      {id: 'status', header: 'Status', width:10, sortable:true, dataIndex:'status'},
+    ],
+    entitySingular: 'cliente',
+    entityPlural: 'clientes'
+  });
+</script>
+

@@ -13,7 +13,7 @@ var dbcontroler_name = new Ext.data.Store({
 
 var combo_controller_name = new Ext.form.ComboBox({
     fieldLabel: 'Acao',
-    store: dbcontroller_name,
+    store: dbcliente,
     displayField:'Nome do Controle',
     typeAhead: true,
     mode: 'local',
@@ -26,7 +26,7 @@ var combo_controller_name = new Ext.form.ComboBox({
     id: 'acao_controller_name',
 });
 
-var dbaction_cliente = new Ext.data.Store({
+var dbaction_name = new Ext.data.Store({
     reader: new Ext.data.JsonReader({
         fields: ['id', 'nome'],
         root: 'acoes'
@@ -49,20 +49,30 @@ var combo_action_name = new Ext.form.ComboBox({
     autoShow: true
     name: 'acao[action_name]',
     id: 'acao_action_name',
+    value: '<%= @action.action_name %>'
 });
 
   var acoes_form = new Ext.FormPanel({
-      id: 'acoes_new',
+      id: 'acoes_edit',
       url: '/acoes',
       renderTo: 'form-acoes',
       width: 465,
       frame: true,
-      items: [combo_action_name, combo_controller_name],
+      items: [
+        combo_action_name, combo_controller_name, 
+        {
+          xtype: 'reader',
+          fieldLabel: 'ID',
+          name: 'classe[id]',
+          id: 'classe_id',
+          allowBlank: false
+        }
+         ],
       buttons: [
         {
           text: 'Salvar',
           handler: function(){
-            duplicatas_form.getForm().submit({
+            acoes_form.getForm().submit({
               success: function(f,a){
                 grid.store.reload();
                 janela.close();
@@ -86,7 +96,7 @@ var combo_action_name = new Ext.form.ComboBox({
         {
           text: 'Limpar',
           handler: function(){
-          duplicatas_form.getForm().reset();
+          acoes_form.getForm().reset();
         }
       }]
     });

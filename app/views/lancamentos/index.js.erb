@@ -1,0 +1,28 @@
+<script type="text/javascript">
+  var grid = new JJWorks.Grid({
+    title: 'Listagem de Pedidos',
+    renderTo: 'grid-lancamentos',
+    columns: [
+      {id: 'tipo_operacao', header: 'Tipo Operação', width:35, sortable:true, dataIndex:'tipo_operacao'},
+      {id: 'plano_de_conta_id', header: 'Conta', width:50, sortable:true, dataIndex:'plano_de_conta_id'},
+      {id: 'historico', header: 'Histórico', width:50, sortable:true, dataIndex:'historico'},
+      {id: 'data_movimento', header: 'Data Movimento', width:50, sortable:true, dataIndex:'data_movimento'},
+      {id: 'data_lancamento', header: 'Data Lancamento', width:50, sortable:true, dataIndex:'data_lancamento'}, 
+      {id: 'doc_origem', header: 'Doc. Origem', width:50, sortable:true, dataIndex:'doc_origem'},
+      {id: 'valor', header: 'Valor', width:50, sortable:true, dataIndex:'valor'},
+      {id: 'nome_cheque', header: 'Nome Cheque', width:50, sortable:true, dataIndex:'nome_cheque'},
+      {id: 'operador_id', header: 'Operador', width:50, sortable:true, dataIndex:'operador_id'},
+      {id: 'serie_doc_origem', header: 'Serie Doc. Origem', width:50, sortable:true, dataIndex:'serie_doc_origem'},
+      {id: 'banco_id', header: 'Banco', width:50, sortable:true, dataIndex:'banco_id'},
+      {id: 'cliente_id', header: 'Cliente', width:50, sortable:true, dataIndex:'cliente_id'},
+      {id: 'imprimiu_op', header: 'Imprimiu', width:50, sortable:true, dataIndex:'imprimiu_op'},
+      {id: 'vendedor_id', header: 'Conta', width:50, sortable:true, dataIndex:'vendedor_id'},
+      {id: 'sequencia_movimento', header: 'Conta', width:50, sortable:true, dataIndex:'sequencia_movimento'}
+    ],
+    entitySingular: 'lancamento',
+    entityPlural: 'lancamentos'
+  });
+</script>
+<div id='grid-lancamentos'></div>
+
+

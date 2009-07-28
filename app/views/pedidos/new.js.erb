@@ -1,25 +1,192 @@
+# definicoes das stores
+var str_tipos = new Ext.data.SimpleStore({
+    fields: ['id', 'descricao'],
+    data : [['I','INTERNO'],['E','EXTERNO']]
+});
+
+var str_clientes = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'razao_social'],
+        root: 'results'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'clientes/index.json'
+    })
+});
+
+var str_funcionarios = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'nome'],
+        root: 'results'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'funcionarios/index.json'
+    })
+});
+
+var str_transportadoras = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'razao_social'],
+        root: 'results'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'transportadoras/index.json'
+    })
+});
+
+#definicoes das combobox
+var cmb_tipo = new Ext.form.ComboBox({
+    fieldLabel: 'Tipo',
+    store: str_tipos,
+    name: 'pedido_de_assistencia[tipo]',
+    id: 'pedido_de_assistencia_tipo',
+    displayField:'descricao',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Selecione um Tipo',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+});
+
+var cmb_cliente = new Ext.form.ComboBox({
+    fieldLabel: 'Cliente',
+    store: str_cliente,
+    name: 'pedido_de_assistencia[cliente_id]',
+    id: 'pedido_de_assistencia_cliente_id',
+    displayField:'razao_social',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Selecione um Cliente',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+});
+
+var cmb_vendedor = new Ext.form.ComboBox({
+    fieldLabel: 'Vendedor',
+    store: str_funcionarios,
+    name: 'pedido_de_assistencia[vendedor_id]',
+    id: 'pedido_de_assistencia_vendedor_id',
+    displayField:'nome',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Selecione um Vendedor',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+});
+
+var cmb_telemarketing = new Ext.form.ComboBox({
+    fieldLabel: 'Telemarketing',
+    store: str_funcionarios,
+    name: 'pedido_de_assistencia[telemarketing_id]',
+    id: 'pedido_de_assistencia_telemarketing_id',
+    displayField:'nome',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Selecione um Opr. Telemarketing',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+});
+
+
+var cmb_transportadora = new Ext.form.ComboBox({
+    fieldLabel: 'Transportadora',
+    store: str_funcionarios,
+    name: 'pedido_de_assistencia[transportadora_id]',
+    id: 'pedido_de_assistencia_transportadora_id',
+    displayField:'razao_social',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Selecione uma Transportadora',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+});
+
+#corpo do form 
 <script type="text/javascript">
-  var pedidos_form = new Ext.FormPanel({
+  var pedidos_de_assistencia_form = new Ext.FormPanel({
       id: 'pedidos_new',
       url: '/pedidos',
       renderTo: 'form-pedidos',
-      height: 500,
-      width: 800,
+      width: 465,
+      defaultType: 'textfield',
       frame: true,
       items: [
+           cmb_tipo,
+           cmb_cliente,
         {
           xtype: 'textfield',
-          fieldLabel: 'Tipo',
-          name: 'pedido[tipo]',
-          id: 'pedido_tipo',
+          fieldLabel: 'Nosso Número',
+          name: 'pedido[nosso_numero]',
+          id: 'pedido_nosso_numero',
+          maxLength: 7,
           allowBlank: false
-        }
+        },{
+          xtype: 'datefield',
+          fieldLabel: 'Data',
+          name: 'pedido[data]',
+          id: 'pedido_data',
+          allowBlank: false
+        },{
+          xtype: 'datefield',
+          fieldLabel: 'Previsão de Entrega',
+          name: 'pedido[previsao_entrega]',
+          id: 'pedido_previsao_entrega'
+        },{
+          xtype: 'datefield',
+          fieldLabel: 'Data de Entrega',
+          name: 'pedido[entrega]',
+          id: 'pedido_entrega'
+        },{
+          xtype: 'datefield',
+          fieldLabel: 'Programação',
+          name: 'pedido[programacao]',
+          id: 'pedido_programacao'
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Plano de Pagamento',
+          name: 'pedido[plano_de_pagamento]',
+          id: 'pedido_plano_de_pagamento',
+          allowBlank: false
+        }, cmb_vendedor,{
+           xtype: 'numberfield',
+           fieldLabel: 'Valor',
+           name: 'pedido[valor]',
+           id: 'pedido_valor',
+           disabled: true
+        }, cmb_transportadora,{
+          xtype: 'textfield',
+          fieldLabel: 'Nome do Comprador',
+          name: 'pedido[nome_comprador]',
+          id: 'pedido_nome_comprador',
+          allowBlank: false
+        },{
+          xtype: 'textarea',
+          fieldLabel: 'Observação',
+          name: 'pedido[observacao]',
+          id: 'pedido_observacao'
+        },{
+          xtype: 'textfield',
+          fieldLabel: 'Endereço de Entrega',
+          name: 'pedido[endereco_entrega]',
+          id: 'pedido_endereco_entrega',
+          allowBlank: false
+        },cmb_telemarketing 
       ],
       buttons: [
         {
           text: 'Salvar',
           handler: function(){
-            pedidos_form.getForm().submit({
+            pedidos_de_assistencia_form.getForm().submit({
               success: function(f,a){
                 grid.store.reload();
                 janela.close();
@@ -43,7 +210,7 @@
         {
           text: 'Limpar',
           handler: function(){
-          pedidos_form.getForm().reset();
+          pedidos_de_assistencia_form.getForm().reset();
         }
       }]
     });

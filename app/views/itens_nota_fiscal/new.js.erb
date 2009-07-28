@@ -1,0 +1,102 @@
+<script type="text/javascript">
+
+var dbproduto_produto_id = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'descricao'],
+        root: 'produtos'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'produtos/edit.json'
+    })
+});
+
+var combo_produto = new Ext.form.ComboBox({
+    fieldLabel: 'Produto',
+    store: dbduplicatas,
+    displayField:'Produto',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Selecione um Produto',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+    name: 'item_nota_fiscal[produto_id]',
+    id: 'produto_id',
+});
+
+
+  var itens_nota_fiscal_form = new Ext.FormPanel({
+      items: [
+        combo_produto, 
+        {
+          xtype: 'textfield',
+          fieldLabel: 'Unidade',
+          name: 'item_nota_fiscal[unidade]',
+          id: 'item_nota_fiscal_unidade',
+          allowBlank: false
+        },
+        {
+          xtype: 'textfield',
+          fieldLabel: 'Quantidade',
+          name: 'item_nota_fiscal[quantidade]',
+          id: 'item_nota_fiscal_quantidade',
+          allowBlank: false
+        },
+        {
+          xtype: 'textfield',
+          fieldLabel: 'Valor Item',
+          name: 'item_nota_fiscal[valor_item]',
+          id: 'item_nota_fiscal_valor_item',
+          allowBlank: false
+        },
+        {
+          xtype: 'textfield',
+          fieldLabel: '% ICMS',
+          name: 'item_nota_fiscal[perc_icms]',
+          id: 'item_nota_fiscal_perc_icms',
+          allowBlank: false
+        },
+        {
+          xtype: 'textfield',
+          fieldLabel: '% IPI',
+          name: 'item_nota_fiscal[perc_ipi]',
+          id: 'item_nota_fiscal_perc_ipi',
+          allowBlank: false
+        }
+],
+      buttons: [
+        {
+          text: 'Salvar',
+          handler: function(){
+            itens_nota_fiscal_form.getForm().submit({
+              success: function(f,a){
+                grid.store.reload();
+                janela.close();
+              },
+              failure: function(f,a){
+                if (a.failureType === Ext.form.Action.CONNECT_FAILURE){
+                  Ext.Msg.alert('Falhou', 'Servidor informou:' +
+                  a.response.status+' '+a.response.statusText);
+                }
+                if (a.failureType === Ext.form.Action.SERVER_INVALID){
+                  Ext.Msg.alert('Atenção', a.result.errormsg);
+                }
+                else
+                {
+                  Ext.Msg.alert('Falhou', 'Erro Desconhecido');
+                }
+              }
+            });
+          }
+        },
+        {
+          text: 'Limpar',
+          handler: function(){
+          itens_nota_fiscal_form.getForm().reset();
+        }
+      }]
+    });
+</script>
+<div id='form-duplicatas'></div>
+

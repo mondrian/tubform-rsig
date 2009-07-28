@@ -1,0 +1,102 @@
+<script type="text/javascript">
+
+var dbproduto_produto_id = new Ext.data.Store({
+    reader: new Ext.data.JsonReader({
+        fields: ['id', 'descricao'],
+        root: 'produtos'
+    }),
+    proxy: new Ext.data.HttpProxy({
+        url: 'produtos/edit.json'
+    })
+});
+
+var combo_produto = new Ext.form.ComboBox({
+    fieldLabel: 'Produto',
+    store: dbduplicatas,
+    displayField:'Produto',
+    typeAhead: true,
+    mode: 'local',
+    triggerAction: 'all',
+    emptyText:'Selecione um Produto',
+    selectOnFocus:true,
+    autoCreate: true,
+    autoShow: true
+    name: 'item_pedido[produto_id]',
+    id: 'produto_id',
+});
+
+
+  var itens_nota_fiscal_form = new Ext.FormPanel({
+      items: [
+        combo_produto, 
+        {
+          xtype: 'textfield',
+          fieldLabel: 'Valor Tabela',
+          name: 'item_pedido[valor_tabela]',
+          id: 'item_pedido_valor_tabela',
+          allowBlank: false
+        },
+        {
+          xtype: 'textfield',
+          fieldLabel: 'Desconto',
+          name: 'item_pedido[desconto]',
+          id: 'itemitem_pedido_desconto',
+          allowBlank: false
+        },
+        {
+          xtype: 'textfield',
+          fieldLabel: 'Valor Venda',
+          name: 'item_pedido[valor_venda]',
+          id: 'item_pedido_valor_venda',
+          allowBlank: false
+        },
+        {
+          xtype: 'textfield',
+          fieldLabel: 'Quantidade',
+          name: 'item_pedido[quantidade]',
+          id: 'item_pedido_quantidade',
+          allowBlank: false
+        },
+        {
+          xtype: 'textfield',
+          fieldLabel: '% IPI',
+          name: 'item_nota_fiscal[perc_ipi]',
+          id: 'item_nota_fiscal_perc_ipi',
+          allowBlank: false
+        }
+],
+      buttons: [
+        {
+          text: 'Salvar',
+          handler: function(){
+            item_pedido_form.getForm().submit({
+              success: function(f,a){
+                grid.store.reload();
+                janela.close();
+              },
+              failure: function(f,a){
+                if (a.failureType === Ext.form.Action.CONNECT_FAILURE){
+                  Ext.Msg.alert('Falhou', 'Servidor informou:' +
+                  a.response.status+' '+a.response.statusText);
+                }
+                if (a.failureType === Ext.form.Action.SERVER_INVALID){
+                  Ext.Msg.alert('Atenção', a.result.errormsg);
+                }
+                else
+                {
+                  Ext.Msg.alert('Falhou', 'Erro Desconhecido');
+                }
+              }
+            });
+          }
+        },
+        {
+          text: 'Limpar',
+          handler: function(){
+          item_pedido_form.getForm().reset();
+        }
+      }]
+    });
+</script>
+<div id='form-duplicatas'></div>
+
